@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Alert } from "reactstrap";
 
-import infoIcon from "../../assets/notificationsIcons/infoIcon.svg";
-import warningIcon from "../../assets/notificationsIcons/warningIcon.svg";
-import successIcon from "../../assets/notificationsIcons/successIcon.svg";
-import dangerIcon from "../../assets/notificationsIcons/dangerIcon.svg";
-
+import infoIcon from '../../assets/notificationsIcons/infoIcon.svg';
+import warningIcon from '../../assets/notificationsIcons/warningIcon.svg';
+import successIcon from '../../assets/notificationsIcons/successIcon.svg';
+import dangerIcon from '../../assets/notificationsIcons/successIcon.svg';
 import s from "./Notification.module.scss";
 
 const typesIcons = {
