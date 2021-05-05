@@ -4,6 +4,7 @@ import {
   Col,
   Row,
   Table,
+  Button,
   Label,
   Badge,
 } from "reactstrap";
@@ -82,10 +83,18 @@ export default function Colors() {
             <Col xs={12} lg={6}>
               <Widget>
                 <div className={s.tableTitle}>
-                  <div className="headline-2">Typography Colors</div>
+                  <div className="headline-2">Buttons Example</div>
                 </div>
-                <div className={s.widgetContentBlock}>
-                  Content Block
+                <div className={s.buttonsBlock}>
+                  <Button className="btn-rounded-f mr-3 mb-4" color="default">Default</Button>
+                  <Button className="btn-rounded-f mr-3 mb-4" color="primary">Primary</Button>
+                  <Button className="btn-rounded-f mr-3 mb-4" color="secondary-red">Sec.Red</Button>
+                  <Button className="btn-rounded-f mr-3 mb-4" color="secondary-yellow">Sec.Yellow</Button>
+                  <Button className="btn-rounded-f mr-3 mb-4" color="secondary-cyan">Sec.Cyan</Button>
+                  <Button className="btn-rounded-f mr-3 mb-4" color="success">Success</Button>
+                  <Button className="btn-rounded-f mr-3 mb-4" color="info">Info</Button>
+                  <Button className="btn-rounded-f mr-3 mb-4" color="warning">Warning</Button>
+                  <Button className="btn-rounded-f mr-3 mb-4" color="danger">Danger</Button>
                 </div>
               </Widget>
             </Col>

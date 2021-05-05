@@ -78,6 +78,7 @@
   padding: $button-padding;
   font-size: $font-size-sm;
   font-weight: $font-weight-semi-bold;
+  color: $white;
 
   .btn-success,
   .btn-info,
@@ -85,6 +86,23 @@
   .btn-danger {
     color: $white;
   }
+  &:hover {
+    color: $white;
+  }
+}
+
+.btn-default {
+  border-color: $gray-400;
+  background-color: $white;
+  color: $default;
+}
+
+.btn-rounded {
+  @include border-radius(6px);
+}
+
+.btn-rounded-f {
+  @include border-radius(50px);
 }
 
 ///////// Progress Bar //////////
