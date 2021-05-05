@@ -30,7 +30,6 @@ class Sidebar extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.doLogout = this.doLogout.bind(this);
   }
 
@@ -85,6 +84,26 @@ class Sidebar extends React.Component {
           <LinksGroup
             onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
             activeItem={this.props.activeItem}
+            header="Core"
+            isHeader
+            iconName={<TablesIcon/>}
+            link="/template/core"
+            index="core"
+            childrenLinks={[
+              {
+                header: 'Typography', link: '/template/core/typography',
+              },
+              {
+                header: 'Colors', link: '/template/core/colors',
+              },
+              {
+                header: 'Grid', link: '/template/core/grid',
+              },
+            ]}
+          />
+          <LinksGroup
+            onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+            activeItem={this.props.activeItem}
             header="Typography"
             isHeader
             iconName={<TypographyIcon />}
@@ -115,8 +134,8 @@ class Sidebar extends React.Component {
             header="UI Elements"
             isHeader
             iconName={<UIElementsIcon className={s.menuIcon}/>}
-            link="/template/uielements"
-            index="uielements"
+            link="/template/ui-elements"
+            index="ui-elements"
             childrenLinks={[
               {
                 header: 'Charts', link: '/template/ui-elements/charts',

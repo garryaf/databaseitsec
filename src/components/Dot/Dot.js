@@ -6,7 +6,8 @@ export default function Dot({ size = "medium", color = "#4D53E0", style }) {
   return (
     <div
       className={cx(s.dotBase, {
-        [s.dotBase]: size === "medium",
+        [s.dotSmall]: size === "small",
+        [s.dotMedium]: size === "medium",
         [s.dotLarge]: size === "large"
       })}
       style={{
