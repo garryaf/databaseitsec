@@ -610,8 +610,6 @@ input[type='checkbox'] .styled:checked + label::after {
   width: 460px;
 }
 
-///////// React-Bootstrap-Table //////////
-
 ///////// Other //////////
 
 .nav {
@@ -633,4 +631,12 @@ font-weight: 600;
 @media (max-width: breakpoint-max(xs)) {
   display: none;
   }
+}
+
+///////// Code //////////
+
+code {
+  font-size: 90%;
+  background-color: #fff2ef;
+  padding: 0;
 }

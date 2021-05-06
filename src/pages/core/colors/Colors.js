@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from "uuid";
 import {
   Col,
@@ -15,6 +15,9 @@ import mock from './mock.js';
 import s from './Colors.module.scss';
 
 export default function Colors() {
+
+  const [tableData] = useState(mock.tableData);
+
   return (
     <div>
       <Row>
@@ -28,15 +31,22 @@ export default function Colors() {
                 <div className="widget-table-overflow">
                   <Table className={`table-striped table-borderless ${s.colorsTable}`} responsive>
                     <thead>
-                    <tr>
-                      <th>STATE</th>
-                      <th>PREVIEW</th>
-                      <th>USAGE EXAMPLE</th>
-                      <th>HEX Value</th>
-                    </tr>
+                      <tr>
+                        <th>STATE</th>
+                        <th>PREVIEW</th>
+                        <th>USAGE EXAMPLE</th>
+                        <th>HEX Value</th>
+                      </tr>
                     </thead>
                     <tbody>
-
+                    {tableData.map(item => (
+                      <tr key={item.id}>
+                        <td>{item.label}</td>
+                        <td><Dot size="large" color={item.hexValue} style={{marginLeft: "24px"}}/></td>
+                        <td><code>{item.classExample}</code></td>
+                        <td className={item.classExample}>{item.hexValue}</td>
+                      </tr>
+                    ))}
                     </tbody>
                   </Table>
                 </div>
@@ -85,17 +95,22 @@ export default function Colors() {
                 <div className={s.tableTitle}>
                   <div className="headline-2">Buttons Example</div>
                 </div>
-                <div className={s.buttonsBlock}>
-                  <Button className="btn-rounded-f mr-3 mb-4" color="default">Default</Button>
-                  <Button className="btn-rounded-f mr-3 mb-4" color="primary">Primary</Button>
-                  <Button className="btn-rounded-f mr-3 mb-4" color="secondary-red">Sec.Red</Button>
-                  <Button className="btn-rounded-f mr-3 mb-4" color="secondary-yellow">Sec.Yellow</Button>
-                  <Button className="btn-rounded-f mr-3 mb-4" color="secondary-cyan">Sec.Cyan</Button>
-                  <Button className="btn-rounded-f mr-3 mb-4" color="success">Success</Button>
-                  <Button className="btn-rounded-f mr-3 mb-4" color="info">Info</Button>
-                  <Button className="btn-rounded-f mr-3 mb-4" color="warning">Warning</Button>
-                  <Button className="btn-rounded-f mr-3 mb-4" color="danger">Danger</Button>
-                </div>
+                <Row className="widget-p-md pt-2">
+                  <p className="px-3 mb-4">Use any of the available button classes to quickly create a styled button. Semantically distinguishable beauty.</p>
+                  <Col>
+                    <div>
+                      <Button className="btn-rounded-f mr-3 mb-4" color="default">Default</Button>
+                      <Button className="btn-rounded-f mr-3 mb-4" color="primary">Primary</Button>
+                      <Button className="btn-rounded-f mr-3 mb-4" color="secondary-red">Sec.Red</Button>
+                      <Button className="btn-rounded-f mr-3 mb-4" color="secondary-yellow">Sec.Yellow</Button>
+                      <Button className="btn-rounded-f mr-3 mb-4" color="secondary-cyan">Sec.Cyan</Button>
+                      <Button className="btn-rounded-f mr-3 mb-4" color="success">Success</Button>
+                      <Button className="btn-rounded-f mr-3 mb-4" color="info">Info</Button>
+                      <Button className="btn-rounded-f mr-3 mb-4" color="warning">Warning</Button>
+                      <Button className="btn-rounded-f mr-3 mb-4" color="danger">Danger</Button>
+                    </div>
+                  </Col>
+                </Row>
               </Widget>
             </Col>
           </Row>
