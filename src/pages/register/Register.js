@@ -62,7 +62,7 @@ class Register extends React.Component {
   }
 
   render() {
-    const { from } = this.props.location.state || { from: { pathname: '/app' } };
+    const { from } = this.props.location.state || { from: { pathname: '/template' } };
 
     if (Login.isAuthenticated(JSON.parse(localStorage.getItem('authenticated')))) {
       return (

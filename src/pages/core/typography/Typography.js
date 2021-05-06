@@ -3,7 +3,7 @@ import {
   Col,
   Row,
 } from "reactstrap";
-import Widget from "../../components/Widget/Widget.js";
+import Widget from "../../../components/Widget/Widget.js";
 
 class Typography extends React.Component {
   render() {
