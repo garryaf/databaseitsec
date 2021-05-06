@@ -11,6 +11,7 @@ import Breadcrumbs from "../Breadbrumbs/Breadcrumbs.js";
 import Dashboard from "../../pages/dashboard/Dashboard.js";
 import Typography from "../../pages/core/typography/Typography.js";
 import Colors from "../../pages/core/colors/Colors.js";
+import Grid from "../../pages/core/grid/Grid.js";
 import Notifications from "../../pages/notifications/Notifications.js";
 import Tables from "../../pages/tables/Tables.js";
 import Charts from "../../pages/uielements/charts/Charts.js";
@@ -42,7 +43,7 @@ class Layout extends React.Component {
               <Route path="/template/dashboard" exact component={Dashboard}/>
               <Route path="/template/core/typography" exact component={Typography} />
               <Route path="/template/core/colors" exact component={Colors} />
-              <Route path="/template/core/grid" exact component={Typography} />
+              <Route path="/template/core/grid" exact component={Grid} />
               <Route path="/template/typography" exact component={Typography} />
               <Route path="/template/tables" exact component={Tables} />
               <Route path="/template/notifications" exact component={Notifications} />

@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import { v4 as uuidv4 } from "uuid";
 import {
   Col,
   Row,
   Table,
   Button,
-  Label,
-  Badge,
 } from "reactstrap";
 import Dot from '../../../components/Dot/Dot.js';
 import Widget from '../../../components/Widget/Widget.js';
@@ -53,7 +50,7 @@ export default function Colors() {
               </Widget>
             </Col>
           </Row>
-          <Row>
+          <Row className="gutter">
             <Col xs={12} lg={6} className="mb-4 mb-lg-0">
               <Widget>
                 <div className={s.tableTitle}>
@@ -118,5 +115,4 @@ export default function Colors() {
       </Row>
     </div>
   )
-
 }
