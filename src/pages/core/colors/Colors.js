@@ -26,7 +26,7 @@ export default function Colors() {
                   <div className="headline-2">States Colors</div>
                 </div>
                 <div className="widget-table-overflow">
-                  <Table className={`table-striped table-borderless ${s.colorsTable}`} responsive>
+                  <Table className="table-striped table-borderless" responsive>
                     <thead>
                       <tr>
                         <th>STATE</th>

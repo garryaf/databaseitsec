@@ -146,6 +146,73 @@ export default function Grid() {
                   pixels and does not change with the font size. See how aspects of the Bootstrap grid
                   system work across multiple devices with a handy table.
                 </p>
+                <div className="widget-table-overflow">
+                  <Table className="table-striped table-borderless" responsive>
+                    <thead>
+                      <tr>
+                        <th/>
+                        <th className="text-center headline-3">
+                          Extra small<br />
+                          <small>&lt; 576px</small>
+                        </th>
+                        <th className="text-center headline-3">
+                          Small<br />
+                          <small>≥ 576px</small>
+                        </th>
+                        <th className="text-center headline-3">
+                          Medium<br />
+                          <small>≥ 768px</small>
+                        </th>
+                        <th className="text-center headline-3">
+                          Large<br />
+                          <small>≥ 992px</small>
+                        </th>
+                        <th className="text-center headline-3">
+                          Extra large<br />
+                          <small>≥ 1200px</small>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th className="text-nowrap" scope="row">Max container width</th>
+                        <td className="text-center">None (auto)</td>
+                        <td className="text-center">540px</td>
+                        <td className="text-center">720px</td>
+                        <td className="text-center">960px</td>
+                        <td className="text-center">1140px</td>
+                      </tr>
+                      <tr>
+                        <th className="text-nowrap" scope="row">Component property</th>
+                        <td className="text-center"><code>{'<Col xs={}>'}</code></td>
+                        <td className="text-center"><code>{'<Col sm={}>'}</code></td>
+                        <td className="text-center"><code>{'<Col md={}>'}</code></td>
+                        <td className="text-center"><code>{'<Col lg={}>'}</code></td>
+                        <td className="text-center"><code>{'<Col xl={}>'}</code></td>
+                      </tr>
+                      <tr>
+                        <th className="text-nowrap" scope="row"># of columns</th>
+                        <td className="text-center">12</td>
+                        <td colSpan={4}></td>
+                      </tr>
+                      <tr>
+                        <th className="text-nowrap" scope="row">Gutter width</th>
+                        <td colSpan={2}>30px (15px on each side of a column)</td>
+                        <td colSpan={3}></td>
+                      </tr>
+                      <tr>
+                        <th className="text-nowrap" scope="row">Nestable</th>
+                        <td className="text-center">Yes</td>
+                        <td colSpan={4}></td>
+                      </tr>
+                      <tr>
+                        <th className="text-nowrap" scope="row">Column ordering</th>
+                        <td className="text-center">Yes</td>
+                        <td colSpan={4}></td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                </div>
               </Widget>
             </Col>
           </Row>

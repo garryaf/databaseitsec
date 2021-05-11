@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Alert } from "reactstrap";
+import React, { useState } from 'react';
+import { Alert } from 'reactstrap';
 
 import infoIcon from '../../assets/notificationsIcons/infoIcon.svg';
 import warningIcon from '../../assets/notificationsIcons/warningIcon.svg';
 import successIcon from '../../assets/notificationsIcons/successIcon.svg';
 import dangerIcon from '../../assets/notificationsIcons/successIcon.svg';
-import s from "./Notification.module.scss";
+import s from './Notification.module.scss';
 
 const typesIcons = {
   info: infoIcon,
@@ -28,6 +28,13 @@ const colors = {
   error: "#FF4B23",
 }
 
+const transparentColors = {
+  info: "#00A5FF50",
+  warning: "#FFA10050",
+  success: "#43BC1350",
+  error: "#FF4B2350",
+}
+
 export default function Notification({ ...props }) {
 
   const [notificationOpen, setNotificationClose] = useState(true)
@@ -38,13 +45,17 @@ export default function Notification({ ...props }) {
     setNotificationClose(!notificationOpen)
   }
 
+  const notificationStyle = () => {
+    return props.transparent
+      ? {backgroundColor: transparentColors[props.type], color: colors[props.type]}
+      : {backgroundColor: colors[props.type]}
+  }
+
   return (
     <>
       <Alert
         className={s.notificationContainer}
-        style={{
-          backgroundColor: colors[props.type]
-        }}
+        style={notificationStyle()}
         isOpen={notificationOpen}
         toggle={() => closeNotification()}
       >

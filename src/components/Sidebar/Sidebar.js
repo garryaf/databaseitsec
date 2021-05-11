@@ -138,6 +138,9 @@ class Sidebar extends React.Component {
             index="ui-elements"
             childrenLinks={[
               {
+                header: 'Alerts', link: '/template/ui-elements/alerts',
+              },
+              {
                 header: 'Charts', link: '/template/ui-elements/charts',
               },
               {

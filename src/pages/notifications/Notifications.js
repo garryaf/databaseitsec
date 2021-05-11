@@ -144,39 +144,23 @@ const Notifications = function () {
         <Col xs={12} lg={6}>
           <Widget className="widget-p-md">
             <div className="headline-2 mb-4">Notification Types Examples</div>
-            <Notification
-              type="info"
-              withIcon
-            />
-            <Notification
-              type="error"
-              withIcon
-            />
-            <Notification
-              type="success"
-              withIcon
-            />
-            <Notification
-              type="warning"
-              withIcon
-            />
+            {notificationTypes.map((notification, index) => (
+              <Notification
+                key={index}
+                type={notification}
+                withIcon
+              />
+            ))}
           </Widget>
         </Col>
         <Col xs={12} lg={6} className="mt-4 mt-lg-0">
           <Widget className="widget-p-md">
             <div className="headline-2 mb-4">Notifications Types Examples, without icons</div>
-            <Notification
-              type="info"
-            />
-            <Notification
-              type="error"
-            />
-            <Notification
-              type="success"
-            />
-            <Notification
-              type="warning"
-            />
+            {notificationTypes.map((notification, index) => (
+              <Notification
+                key={index}
+                type={notification}/>
+            ))}
           </Widget>
         </Col>
       </Row>

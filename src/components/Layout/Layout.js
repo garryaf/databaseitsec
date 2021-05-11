@@ -14,6 +14,7 @@ import Colors from "../../pages/core/colors/Colors.js";
 import Grid from "../../pages/core/grid/Grid.js";
 import Notifications from "../../pages/notifications/Notifications.js";
 import Tables from "../../pages/tables/Tables.js";
+import Alerts from "../../pages/uielements/alerts/Alerts.js";
 import Charts from "../../pages/uielements/charts/Charts.js";
 import Icons from "../../pages/uielements/icons/IconsPage.js";
 import Maps from "../../pages/uielements/maps/google/GoogleMapPage";
@@ -41,6 +42,7 @@ class Layout extends React.Component {
             <Switch>
               <Route path="/template" exact render={() => <Redirect to="template/dashboard"/>} />
               <Route path="/template/dashboard" exact component={Dashboard}/>
+              <Route path="/template/core" exact render={() => <Redirect to={"/template/core/typography"} />} />
               <Route path="/template/core/typography" exact component={Typography} />
               <Route path="/template/core/colors" exact component={Colors} />
               <Route path="/template/core/grid" exact component={Grid} />
@@ -48,6 +50,7 @@ class Layout extends React.Component {
               <Route path="/template/tables" exact component={Tables} />
               <Route path="/template/notifications" exact component={Notifications} />
               <Route path="/template/ui-elements" exact render={() => <Redirect to={"/template/ui-elements/charts"} />} />
+              <Route path="/template/ui-elements/alerts" exact component={Alerts} />
               <Route path="/template/ui-elements/charts" exact component={Charts} />
               <Route path="/template/ui-elements/icons" exact component={Icons} />
               <Route path="/template/ui-elements/maps" exact component={Maps} />
