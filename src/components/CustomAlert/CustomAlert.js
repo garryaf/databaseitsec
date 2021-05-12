@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
+import classnames from "classnames";
 import { Alert } from 'reactstrap';
 
 import infoIcon from '../../assets/notificationsIcons/infoIcon.svg';
 import warningIcon from '../../assets/notificationsIcons/warningIcon.svg';
 import successIcon from '../../assets/notificationsIcons/successIcon.svg';
 import dangerIcon from '../../assets/notificationsIcons/successIcon.svg';
-import s from './Notification.module.scss';
+import s from './CustomAlert.module.scss';
 
-const notifications = {
+const alerts = {
   info: {
     icon: infoIcon,
     message: "<span class='body-2'>Info:</span> This alert needs your attention, but it's not important.",
     color: "#00A5FF",
     transparentColor: "#00A5FF50",
-  },
+},
   warning: {
     icon: warningIcon,
     message: "<span class='body-2'>Warning:</span> Best check yourself, you're not looking too good.",
@@ -34,33 +35,33 @@ const notifications = {
   },
 }
 
-export default function Notification({ ...props }) {
+export default function CustomAlert({ ...props }) {
 
-  const [notificationOpen, setNotificationClose] = useState(true)
+  const [alertOpen, setAlertClose] = useState(true)
 
-  const closeNotification = () => {
-    setNotificationClose(!notificationOpen)
+  const closeAlert = () => {
+    setAlertClose(!alertOpen)
   }
 
-  const notificationStyle = () => {
+  const alertStyle = () => {
     return props.transparent
-      ? {backgroundColor: notifications[props.type].transparentColor, color: notifications[props.type].color}
-      : {backgroundColor: notifications[props.type].color}
+      ? {backgroundColor: alerts[props.type].transparentColor, color: alerts[props.type].color}
+      : {backgroundColor: alerts[props.type].color}
   }
 
   return (
     <>
       <Alert
-        className={s.notificationContainer}
-        style={notificationStyle()}
-        isOpen={notificationOpen}
-        toggle={() => closeNotification()}
-      >
-        <div className={s.notificationIconContainer}>
-          {props.withIcon && <img src={notifications[props.type].icon} alt="..."/>}
+        className={classnames(s.alertContainer, {'alert-rounded': props.rounded})}
+        style={alertStyle()}
+        isOpen={alertOpen}
+        toggle={() => closeAlert()}
+      ><div className={s.alertIconContainer}>
+          {props.withIcon && <img src={alerts[props.type].icon} alt="..."/>}
         </div>
         <div className={s.messageContainer}>
-          <span dangerouslySetInnerHTML={{__html: notifications[props.type].message}}></span>
+          {props.withMessage && <span dangerouslySetInnerHTML={{__html: alerts[props.type].message}}></span>}
+          {props.children}
         </div>
       </Alert>
     </>
