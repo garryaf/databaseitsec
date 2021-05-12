@@ -141,6 +141,9 @@ class Sidebar extends React.Component {
                 header: 'Alerts', link: '/template/ui-elements/alerts',
               },
               {
+                header: 'Badges', link: '/template/ui-elements/badges',
+              },
+              {
                 header: 'Charts', link: '/template/ui-elements/charts',
               },
               {
