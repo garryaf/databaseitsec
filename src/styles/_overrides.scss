@@ -438,6 +438,16 @@ table > thead > tr > th {
   font-weight: $font-weight-semi-bold;
   color: $white;
   border-radius: 4px;
+
+  img {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+  }
+}
+
+.badge-pill {
+  border-radius: $badge-pill-border-radius;
 }
 
 ///////// Checkboxes //////////

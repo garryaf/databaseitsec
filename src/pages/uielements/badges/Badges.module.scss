@@ -1,2 +1,9 @@
 @import "../../../styles/helpers";
 
+.badgesBlock {
+  //margin-top: 24px;
+  span {
+    margin-right: 16px;
+    margin-bottom: 16px;
+  }
+}
