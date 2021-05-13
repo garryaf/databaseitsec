@@ -431,6 +431,13 @@ table > thead > tr > th {
   }
 }
 
+///////// Links //////////
+a.badge {
+  &:hover {
+    color: $white;
+  }
+}
+
 ///////// Badges //////////
 .badge {
   padding: 4px 8px;
@@ -445,6 +452,18 @@ table > thead > tr > th {
     margin-right: 4px;
   }
 }
+
+@each $color, $value in $theme-colors {
+  .badge-inverse-#{$color} {
+    @include badge-inverse($value);
+  }
+}
+
+//@each $color, $value in $theme-colors {
+//  .badge-#{$color} {
+//    @include badge-variant($value);
+//  }
+//}
 
 .badge-pill {
   border-radius: $badge-pill-border-radius;
