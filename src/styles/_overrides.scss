@@ -78,7 +78,6 @@
   padding: $button-padding;
   font-size: $font-size-sm;
   font-weight: $font-weight-semi-bold;
-  color: $white;
 
   .btn-success,
   .btn-info,
@@ -91,10 +90,17 @@
   }
 }
 
+.btn-secondary-yellow,
+.btn-secondary-cyan,
+.btn-warning,
+.btn-default {
+  color: $white;
+}
+
 .btn-default {
   border-color: $gray-400;
   background-color: $white;
-  color: $default;
+  //color: $default;
 }
 
 .btn-rounded {

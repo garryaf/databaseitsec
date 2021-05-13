@@ -16,6 +16,7 @@ import Notifications from "../../pages/notifications/Notifications.js";
 import Tables from "../../pages/tables/Tables.js";
 import Alerts from "../../pages/uielements/alerts/Alerts.js";
 import Badges from "../../pages/uielements/badges/Badges.js";
+import Buttons from "../../pages/uielements/buttons/Buttons.js";
 import Charts from "../../pages/uielements/charts/Charts.js";
 import Icons from "../../pages/uielements/icons/IconsPage.js";
 import Maps from "../../pages/uielements/maps/google/GoogleMapPage";
@@ -53,6 +54,7 @@ class Layout extends React.Component {
               <Route path="/template/ui-elements" exact render={() => <Redirect to={"/template/ui-elements/charts"} />} />
               <Route path="/template/ui-elements/alerts" exact component={Alerts} />
               <Route path="/template/ui-elements/badges" exact component={Badges} />
+              <Route path="/template/ui-elements/buttons" exact component={Buttons} />
               <Route path="/template/ui-elements/charts" exact component={Charts} />
               <Route path="/template/ui-elements/icons" exact component={Icons} />
               <Route path="/template/ui-elements/maps" exact component={Maps} />
