@@ -451,6 +451,12 @@ a.badge {
     height: 14px;
     margin-right: 4px;
   }
+  svg {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    vertical-align: bottom;
+  }
 }
 
 @each $color, $value in $theme-colors {
@@ -458,12 +464,6 @@ a.badge {
     @include badge-inverse($value);
   }
 }
-
-//@each $color, $value in $theme-colors {
-//  .badge-#{$color} {
-//    @include badge-variant($value);
-//  }
-//}
 
 .badge-pill {
   border-radius: $badge-pill-border-radius;

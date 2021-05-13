@@ -1,4 +1,10 @@
 @mixin badge-inverse($bg) {
   color: $bg;
   background-color: $base-light-gray;
+
+  svg {
+    path {
+      fill: $bg;
+    }
+  }
 }
