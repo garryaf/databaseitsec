@@ -34,3 +34,17 @@
     }
   }
 }
+
+@mixin button-variant($color) {
+
+  &:focus,
+  &.focus {
+    color: $white;
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    color: $white;
+  }
+}

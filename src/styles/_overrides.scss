@@ -119,6 +119,12 @@
   }
 }
 
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @include button-variant($value);
+  }
+}
+
 ///////// Progress Bar //////////
 .progress-xs {
   height: 6px;

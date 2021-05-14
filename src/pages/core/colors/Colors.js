@@ -96,15 +96,15 @@ export default function Colors() {
                   <p className="px-3 mb-4">Use any of the available button classes to quickly create a styled button. Semantically distinguishable beauty.</p>
                   <Col>
                     <div>
-                      <Button className="btn-rounded-f mr-3 mb-4" color="default">Default</Button>
-                      <Button className="btn-rounded-f mr-3 mb-4" color="primary">Primary</Button>
-                      <Button className="btn-rounded-f mr-3 mb-4" color="secondary-red">Sec.Red</Button>
-                      <Button className="btn-rounded-f mr-3 mb-4" color="secondary-yellow">Sec.Yellow</Button>
-                      <Button className="btn-rounded-f mr-3 mb-4" color="secondary-cyan">Sec.Cyan</Button>
-                      <Button className="btn-rounded-f mr-3 mb-4" color="success">Success</Button>
-                      <Button className="btn-rounded-f mr-3 mb-4" color="info">Info</Button>
-                      <Button className="btn-rounded-f mr-3 mb-4" color="warning">Warning</Button>
-                      <Button className="btn-rounded-f mr-3 mb-4" color="danger">Danger</Button>
+                      <Button className="mr-3 mb-4" color="secondary">Default</Button>
+                      <Button className="mr-3 mb-4" color="primary">Primary</Button>
+                      <Button className="mr-3 mb-4" color="secondary-red">Sec.Red</Button>
+                      <Button className="mr-3 mb-4" color="secondary-yellow">Sec.Yellow</Button>
+                      <Button className="mr-3 mb-4" color="secondary-cyan">Sec.Cyan</Button>
+                      <Button className="mr-3 mb-4" color="success">Success</Button>
+                      <Button className="mr-3 mb-4" color="info">Info</Button>
+                      <Button className="mr-3 mb-4" color="warning">Warning</Button>
+                      <Button className="mr-3 mb-4" color="danger">Danger</Button>
                     </div>
                   </Col>
                 </Row>
