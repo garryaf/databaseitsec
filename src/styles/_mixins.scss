@@ -8,3 +8,29 @@
     }
   }
 }
+
+@mixin button-outline-variant($color) {
+  color: $color;
+  border-color: $color;
+
+  svg {
+    path {
+      stroke: $color;
+    }
+  }
+
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
+    color: $white;
+  }
+
+  @include hover() {
+    color: $white;
+    svg {
+      path {
+        stroke: $white;
+      }
+    }
+  }
+}

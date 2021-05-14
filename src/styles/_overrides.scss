@@ -90,32 +90,39 @@
   }
 }
 
+.btn.with-icon {
+  svg {
+    margin-right: 6px;
+  }
+}
+
 .btn-secondary-yellow,
 .btn-secondary-cyan,
 .btn-warning,
-.btn-default {
+.btn-default,
+.btn-secondary {
   color: $white;
 }
 
 .btn-default {
   border-color: $gray-400;
   background-color: $white;
-  //color: $default;
 }
 
 .btn-rounded {
-  @include border-radius(6px);
+  @include border-radius(50px);
 }
 
-.btn-rounded-f {
-  @include border-radius(50px);
+@each $color, $value in $theme-colors {
+  .btn-outline-#{$color} {
+    @include button-outline-variant($value);
+  }
 }
 
 ///////// Progress Bar //////////
 .progress-xs {
   height: 6px;
 }
-
 
 ///////// Dropdowns //////////
 .dropdown-toggle {
