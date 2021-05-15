@@ -147,6 +147,12 @@ class Sidebar extends React.Component {
                 header: 'Buttons', link: '/template/ui-elements/buttons',
               },
               {
+                header: 'Cards', link: '/template/ui-elements/cards',
+              },
+              {
+                header: 'Carousel', link: '/template/ui-elements/carousel',
+              },
+              {
                 header: 'Charts', link: '/template/ui-elements/charts',
               },
               {

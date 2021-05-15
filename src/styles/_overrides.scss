@@ -125,6 +125,11 @@
   }
 }
 
+///////// Card //////////
+.card {
+  height: 100%;
+}
+
 ///////// Progress Bar //////////
 .progress-xs {
   height: 6px;
@@ -217,12 +222,6 @@
     left: -160px;
   }
 }
-
-//.notifications-dropdown {
-//  p span {
-//    color: red;
-//  }
-//}
 
 ///////// Headings //////////
 h1,

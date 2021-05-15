@@ -44,7 +44,7 @@ class IconsPage extends React.Component {
               className={classnames({ active: this.state.activeTab === "1"})}
               onClick={() => {this.toggle("1"); }}
             >
-              <p className="headline-3">Eva Icons</p>
+              <div className="headline-3">Eva Icons</div>
             </NavLink>
           </NavItem>
           <NavItem>
@@ -52,7 +52,7 @@ class IconsPage extends React.Component {
               className={classnames({ active: this.state.activeTab === "2"})}
               onClick={() => {this.toggle("2"); }}
             >
-              <p className="headline-3">Material Icons</p>
+              <div className="headline-3">Material Icons</div>
             </NavLink>
           </NavItem>
           <NavItem>
@@ -60,7 +60,7 @@ class IconsPage extends React.Component {
               className={classnames({ active: this.state.activeTab === "3"})}
               onClick={() => {this.toggle("3"); }}
             >
-              <p className="headline-3">Font Awesome</p>
+              <div className="headline-3">Font Awesome</div>
             </NavLink>
           </NavItem>
         </Nav>
