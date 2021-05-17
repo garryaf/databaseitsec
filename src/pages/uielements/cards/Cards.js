@@ -75,7 +75,7 @@ export default function Cards() {
                 </CardBody>
               </Card>
             </Col>
-            <Col xs={12} md={6} xl={4} className="mt-4 mt-md-0">
+            <Col xs={12} md={6} xl={4} className="mt-4 mt-xl-0">
               <Card className="border-0">
                 <CardImg top width="100%" src={orangeEyesImg} alt="Orange eyes girl" />
                 <CardBody>
@@ -140,7 +140,7 @@ export default function Cards() {
               </Card>
             </Col>
 
-            <Col xs={12} md={6} xl={4} className="mt-4 mt-md-0">
+            <Col xs={12} md={6} xl={4} className="mt-4 mt-xl-0">
               <Card className="border-0">
                 <CardImg top width="100%" src={girlImg} alt="Girl with apple" />
                 <CardBody>
