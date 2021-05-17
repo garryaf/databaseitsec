@@ -78,6 +78,9 @@ export default function Carousel() {
 
   const { images1, images2, images3 } = mock;
   const [activeStep, setActiveStep] = useState(0);
+  // const [activeStep, setActiveStep] = useState(0);
+  // const [activeStep, setActiveStep] = useState(0);
+
   const maxSteps = images1.length - 1;
 
   const handleNext = () => {
@@ -108,11 +111,6 @@ export default function Carousel() {
                     {images1[activeStep].label}
                   </div>
                 </div>
-                {/*{images1.map((image, index) => (*/}
-                {/*  <div key={index}>*/}
-                {/*    {<img className="" src={image.image} alt={image.label} />}*/}
-                {/*  </div>*/}
-                {/*))}*/}
                 <img
                   className={s.img}
                   src={images1[activeStep].image}
@@ -124,12 +122,18 @@ export default function Carousel() {
                   variant="progress"
                   activeStep={activeStep}
                   nextButton={
-                    <Button className="btn-stepper">
+                    <Button
+                      className="btn-stepper"
+                      onClick={handleNext}
+                    >
                       Next{<KeyboardArrowRight/>}
                     </Button>
                   }
                   backButton={
-                    <Button className="btn-stepper">
+                    <Button
+                      className="btn-stepper"
+                      onClick={handleBack}
+                    >
                       {<KeyboardArrowLeft/>}Back
                     </Button>
                   }
@@ -141,17 +145,73 @@ export default function Carousel() {
             <Col xs={12} md={6} className="mb-4 mb-md-0">
               <Widget>
                 <div className={s.carouselTitle}>
-                  <div className="headline-2">Hello 2</div>
+                  <div className="headline-2">
+                    {images2[activeStep].label}
+                  </div>
                 </div>
-
+                <img
+                  className={s.img}
+                  src={images2[activeStep].image}
+                  alt={images2[activeStep].label}
+                />
+                <MobileStepper
+                  steps={images2.length}
+                  position="static"
+                  variant="text"
+                  activeStep={activeStep}
+                  nextButton={
+                    <Button
+                      className="btn-stepper"
+                      onClick={handleNext}
+                    >
+                      Next{<KeyboardArrowRight/>}
+                    </Button>
+                  }
+                  backButton={
+                    <Button
+                      className="btn-stepper"
+                      onClick={handleBack}
+                    >
+                      {<KeyboardArrowLeft/>}Back
+                    </Button>
+                  }
+                />
               </Widget>
             </Col>
             <Col xs={12} md={6}>
               <Widget>
                 <div className={s.carouselTitle}>
-                  <div className="headline-2">Hello 3</div>
+                  <div className="headline-2">
+                    {images3[activeStep].label}
+                  </div>
                 </div>
-
+                <img
+                  className={s.img}
+                  src={images3[activeStep].image}
+                  alt={images3[activeStep].label}
+                />
+                <MobileStepper
+                  steps={images3.length}
+                  position="static"
+                  variant="dots"
+                  activeStep={activeStep}
+                  nextButton={
+                    <Button
+                      className="btn-stepper"
+                      onClick={handleNext}
+                    >
+                      Next{<KeyboardArrowRight/>}
+                    </Button>
+                  }
+                  backButton={
+                    <Button
+                      className="btn-stepper"
+                      onClick={handleBack}
+                    >
+                      {<KeyboardArrowLeft/>}Back
+                    </Button>
+                  }
+                />
               </Widget>
             </Col>
           </Row>

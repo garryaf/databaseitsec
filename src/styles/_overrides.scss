@@ -133,20 +133,26 @@
     background-color: transparent;
     color: $violet;
   }
-  &:not(:disabled):not(.disabled):active,
-  &:not(:disabled):not(.disabled).active,
+
   &:not(:disabled):not(.disabled):active:focus {
-    background-color: transparent;
+    background-color: $base-light-gray;
     color: $violet;
     border: none;
     box-shadow: none;
   }
 
+  &:not(:disabled):not(.disabled):active:hover {
+    color: $violet;
+  }
+
   &:focus {
     background-color: transparent;
-    color: $violet;
+    color: $default;
     border: none;
     box-shadow: none;
+    &:hover {
+      color: $violet;
+    }
   }
 }
 
