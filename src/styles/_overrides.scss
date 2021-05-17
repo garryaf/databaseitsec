@@ -125,6 +125,31 @@
   }
 }
 
+.btn-stepper {
+  border: none;
+  background-color: transparent;
+  color: $default;
+  &:hover {
+    background-color: transparent;
+    color: $violet;
+  }
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  &:not(:disabled):not(.disabled):active:focus {
+    background-color: transparent;
+    color: $violet;
+    border: none;
+    box-shadow: none;
+  }
+
+  &:focus {
+    background-color: transparent;
+    color: $violet;
+    border: none;
+    box-shadow: none;
+  }
+}
+
 ///////// Card //////////
 .card {
   height: 100%;
