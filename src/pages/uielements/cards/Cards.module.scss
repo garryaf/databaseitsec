@@ -12,6 +12,12 @@
   margin-top: 16px;
 }
 
+.ratingBlock {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px auto;
+}
+
 .cardProfileInfo {
   display: flex;
   flex-direction: row;

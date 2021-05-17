@@ -1,13 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import classnames from "classnames";
 import {
   Row,
   Col,
   Button,
-  ButtonGroup,
-  Badge,
   Card,
   CardBody,
-  CardTitle,
   CardText,
   CardImg,
   Nav,
@@ -26,6 +24,15 @@ import mariaImage from "../../../assets/navbarMenus/mariaImage.jpg";
 
 
 export default function Cards() {
+
+  const [activeTab, setActiveTab] = useState(1);
+
+  function toggleTab(tabId) {
+    setActiveTab(tabId);
+  }
+
+
+
   return (
     <div>
       <Row>
@@ -94,24 +101,28 @@ export default function Cards() {
                 </CardBody>
               </Card>
             </Col>
-
             <Col xs={12} md={6} xl={4} className="mt-4 mt-md-0">
-              <Card>
+              <Card className="border-0">
                 <CardBody>
-                  <Nav>
+                  <Nav tabs>
                     <NavItem>
-                      <NavLink >
+                      <NavLink
+                        className={classnames({active: activeTab === 1})}
+                        onClick={() => {toggleTab(1)}}
+                      >
                         <div className="headline-3">Average Rating</div>
                       </NavLink>
                     </NavItem>
                     <NavItem>
-                      <NavLink >
+                      <NavLink
+                        className={classnames({active: activeTab === 2})}
+                        onClick={() => {toggleTab(2)}}
+                      >
                         <div className="headline-3">All Time</div>
                       </NavLink>
                     </NavItem>
                   </Nav>
-                <hr/>
-                <div className="d-flex justify-content-between mb-lg">
+                <div className={s.ratingBlock}>
                   <div className="text-warning">
                     <i className="fa fa-star mr-1" />
                     <i className="fa fa-star mr-1" />
