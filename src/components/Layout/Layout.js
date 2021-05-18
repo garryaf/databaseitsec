@@ -21,6 +21,7 @@ import Cards from "../../pages/uielements/cards/Cards.js";
 import Carousel from "../../pages/uielements/carousel/Carousel.js";
 import Charts from "../../pages/uielements/charts/Charts.js";
 import Icons from "../../pages/uielements/icons/IconsPage.js";
+import Lists from "../../pages/uielements/lists/Lists.js";
 import Maps from "../../pages/uielements/maps/google/GoogleMapPage";
 
 import s from "./Layout.module.scss";
@@ -61,6 +62,7 @@ class Layout extends React.Component {
               <Route path="/template/ui-elements/carousel" exact component={Carousel} />
               <Route path="/template/ui-elements/charts" exact component={Charts} />
               <Route path="/template/ui-elements/icons" exact component={Icons} />
+              <Route path="/template/ui-elements/lists" exact component={Lists} />
               <Route path="/template/ui-elements/maps" exact component={Maps} />
               <Route path='*' exact render={() => <Redirect to="/error" />} />
             </Switch>

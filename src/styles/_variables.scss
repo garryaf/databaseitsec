@@ -73,7 +73,6 @@ $theme-colors: (
   dark-gray:        $base-dark-gray,
   middle-gray:      $base-middle-gray,
   light-gray:       $base-light-gray,
-        // experimental added white color to theme-colors
   white:            $white,
 );
 
@@ -124,4 +123,7 @@ $input-focus-box-shadow: none;
 //== Alerts
 $alert-transparent: 0.25;
 
+//== Lists
+$list-group-disabled-bg: $base-light-gray;
+$list-group-disabled-color: $base-middle-gray;
 
