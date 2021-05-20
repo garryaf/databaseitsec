@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Badge,
   Col,
   Row
 } from "reactstrap";
@@ -30,7 +31,10 @@ export default function Lists() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Disabled List Items</div>
-                <div className="mt-2 mb-3">Add <code>.disabled</code> to a <code>.list-group-item</code> to make it appear disabled.</div>
+                <div className="mt-2 mb-3">
+                  Add <code>.disabled</code> to a <code>.list-group-item</code> to make it appear disabled.
+                  With <code>&lt;button&gt;</code>, you can also make use of the disabled attribute instead of the <code>.disabled</code> class.
+                </div>
                 <ul className="list-group">
                   <li className="list-group-item disabled" aria-disabled="true">A disabled item</li>
                   <li className="list-group-item">A second item</li>
@@ -42,17 +46,57 @@ export default function Lists() {
           <Row className="gutter mb-4">
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
-                <div className="headline-2">Inverted Badges</div>
-                <div className="mt-2 mb-3">Add <code>badge-inverse-"*"</code> class to change the style of a badge. If no color is specified <code>default</code> will be used.</div>
-
+                <div className="headline-2">List Items With Icons</div>
+                <div className="mt-2 mb-3">You can place Font Awesome icons just about anywhere with the <code>&lt;a&gt;</code> tag!
+                  Or you can use any icon you want. Just add it as a component or as an element to list item.
+                </div>
+                <ul className="list-group">
+                  <li className="list-group-item disabled">
+                    <div className="d-flex align-content-center">
+                      <i className="fa fa-star mr-2" />A disabled item
+                    </div>
+                  </li>
+                  <li className="list-group-item">
+                    <div className="d-flex align-content-center">
+                      <i className="fa fa-star mr-2 text-secondary-red" />A second item
+                    </div>
+                  </li>
+                  <li className="list-group-item">
+                    <div className="d-flex align-content-center">
+                      <i className="fa fa-star mr-2 text-primary" />A third item
+                    </div>
+                  </li>
+                </ul>
               </Widget>
             </Col>
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
-                <div className="headline-2">Inverted Badges with icons</div>
-                <div className="mt-2 mb-3">Add <code>badge-inverse-"*"</code> class to change the style of a badge. Add <code>pill</code> property to make badges rounded. Add icon to make it more informative and enjoyable.</div>
-
-              </Widget>            </Col>
+                <div className="headline-2">List Items With Badges</div>
+                <div className="mt-2 mb-3">
+                  Add badges to any list group item to show unread counts, activity, and more with the help of some utilities.
+                </div>
+                <ul className="list-group">
+                  <li className="list-group-item">
+                    <div className={s.listBadge}>
+                      A first item
+                      <Badge color="secondary-red">3 new notifications!</Badge>
+                    </div>
+                  </li>
+                  <li className="list-group-item">
+                    <div className={s.listBadge}>
+                      A second item
+                      <Badge pill color="success">2</Badge>
+                    </div>
+                  </li>
+                  <li className="list-group-item">
+                    <div className={s.listBadge}>
+                      A third item
+                      <Badge color="primary">14</Badge>
+                    </div>
+                  </li>
+                </ul>
+              </Widget>
+            </Col>
           </Row>
           <Row className="gutter">
             <Col xs={12} md={6}>
@@ -62,7 +106,7 @@ export default function Lists() {
                 <div className="list-group">
                   <a href="#" className="list-group-item list-group-item-action active" aria-current="true">The current link item</a>
                   <a href="#" className="list-group-item list-group-item-action">A second link item</a>
-                  <a href="#" className="list-group-item list-group-item-action disabled" tabIndex="-1" aria-disabled="true">A disabled link item</a>
+                  <a href="#" className="list-group-item list-group-item-action disabled" tabIndex="-1">A disabled link item</a>
                 </div>
               </Widget>
             </Col>
