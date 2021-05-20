@@ -48,7 +48,6 @@ export default function Lists() {
               <Widget className="widget-p-md">
                 <div className="headline-2">List Items With Icons</div>
                 <div className="mt-2 mb-3">You can place Font Awesome icons just about anywhere with the <code>&lt;a&gt;</code> tag!
-                  Or you can use any icon you want. Just add it as a component or as an element to list item.
                 </div>
                 <ul className="list-group">
                   <li className="list-group-item disabled">
@@ -73,7 +72,7 @@ export default function Lists() {
               <Widget className="widget-p-md">
                 <div className="headline-2">List Items With Badges</div>
                 <div className="mt-2 mb-3">
-                  Add badges to any list group item to show unread counts, activity, and more with the help of some utilities.
+                  Add badges to any list group item to show unread counts, activity, and more.
                 </div>
                 <ul className="list-group">
                   <li className="list-group-item">
