@@ -22,7 +22,8 @@ import Carousel from "../../pages/uielements/carousel/Carousel.js";
 import Charts from "../../pages/uielements/charts/Charts.js";
 import Icons from "../../pages/uielements/icons/IconsPage.js";
 import Lists from "../../pages/uielements/lists/Lists.js";
-import Maps from "../../pages/uielements/maps/google/GoogleMapPage";
+import Maps from "../../pages/uielements/maps/google/GoogleMapPage.js";
+import Modal from "../../pages/uielements/modal/Modal.js";
 
 import s from "./Layout.module.scss";
 
@@ -64,6 +65,7 @@ class Layout extends React.Component {
               <Route path="/template/ui-elements/icons" exact component={Icons} />
               <Route path="/template/ui-elements/lists" exact component={Lists} />
               <Route path="/template/ui-elements/maps" exact component={Maps} />
+              <Route path="/template/ui-elements/modal" exact component={Modal} />
               <Route path='*' exact render={() => <Redirect to="/error" />} />
             </Switch>
           </main>
