@@ -9,8 +9,8 @@ import { changeActiveSidebarItem } from "../../actions/navigation.js";
 import { logoutUser } from "../../actions/auth.js";
 import HomeIcon from "../Icons/SidebarIcons/HomeIcon.js";
 import NotificationsIcon from "../Icons/SidebarIcons/NotificationsIcon.js";
-import TablesIcon from "../Icons/SidebarIcons/TablesIcon.js";
 import TypographyIcon from "../Icons/SidebarIcons/TypographyIcon.js";
+import TablesIcon from "../Icons/SidebarIcons/TablesIcon.js";
 import UIElementsIcon from "../Icons/SidebarIcons/UIElementsIcon.js";
 import SofiaLogo from "../Icons/SidebarIcons/SofiaLogo.js";
 
@@ -86,7 +86,7 @@ class Sidebar extends React.Component {
             activeItem={this.props.activeItem}
             header="Core"
             isHeader
-            iconName={<TablesIcon/>}
+            iconName={<TypographyIcon/>}
             link="/template/core"
             index="core"
             childrenLinks={[
@@ -100,33 +100,6 @@ class Sidebar extends React.Component {
                 header: 'Grid', link: '/template/core/grid',
               },
             ]}
-          />
-          <LinksGroup
-            onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
-            activeItem={this.props.activeItem}
-            header="Typography"
-            isHeader
-            iconName={<TypographyIcon />}
-            link="/template/typography"
-            index="typography"
-          />
-          <LinksGroup
-            onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
-            activeItem={this.props.activeItem}
-            header="Tables"
-            isHeader
-            iconName={<TablesIcon className={s.menuIcon} />}
-            link="/template/tables"
-            index="tables"
-          />
-          <LinksGroup
-            onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
-            activeItem={this.props.activeItem}
-            header="Notifications"
-            isHeader
-            iconName={<NotificationsIcon className={s.menuIcon}/>}
-            link="/template/notifications"
-            index="notifications"
           />
           <LinksGroup
             onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
@@ -165,6 +138,33 @@ class Sidebar extends React.Component {
                 header: 'Lists', link: '/template/ui-elements/lists',
               },
             ]}
+          />
+          <LinksGroup
+            onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+            activeItem={this.props.activeItem}
+            header="Typography"
+            isHeader
+            iconName={<TablesIcon />}
+            link="/template/typography"
+            index="typography"
+          />
+          <LinksGroup
+            onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+            activeItem={this.props.activeItem}
+            header="Tables"
+            isHeader
+            iconName={<TypographyIcon className={s.menuIcon} />}
+            link="/template/tables"
+            index="tables"
+          />
+          <LinksGroup
+            onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+            activeItem={this.props.activeItem}
+            header="Notifications"
+            isHeader
+            iconName={<NotificationsIcon className={s.menuIcon}/>}
+            link="/template/notifications"
+            index="notifications"
           />
         </ul>
         <div className="bg-widget d-flex mt-auto ml-1">
