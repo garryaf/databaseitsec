@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Container,
   Row,
   Col,
   Form,
@@ -7,10 +8,14 @@ import {
   Input,
   FormGroup,
   Button,
-  FormText
+  FormText,
+  ModalHeader,
+  ModalBody,
+  ModalFooter
 } from 'reactstrap';
 import CustomModal from "../../../components/CustomModal/CustomModal";
 import Widget from "../../../components/Widget/Widget";
+import s from "./Modal.module.scss";
 
 export default function Modal() {
 
@@ -21,7 +26,7 @@ export default function Modal() {
           <Row className="gutter mb-4">
             <Col className="grid-col-padding">
               <Widget className="widget-p-md">
-                <div className="headline-2">Live Demo</div>
+                <div className="headline-2">Simple Modals</div>
                 <div className="mt-2 mb-3">
                   <p>
                     Toggle a working modal demo by clicking the button below.
@@ -39,7 +44,7 @@ export default function Modal() {
                 </CustomModal>
                 <CustomModal
                   buttonLabel="Scrollable Modal"
-                  buttonColor="warning"
+                  buttonColor="success"
                   scrollable
                 />
               </Widget>
@@ -48,13 +53,14 @@ export default function Modal() {
           <Row className="gutter mb-4">
             <Col className="grid-col-padding">
               <Widget className="widget-p-md">
-                <div className="headline-2">Simple List Group</div>
+                <div className="headline-2">Live Demo Modals</div>
                 <div className="mt-2 mb-3">
-                  The most basic
+                  Below is a live demo followed by example HTML and JavaScript.
+                  For example, a modal with form elements and a modal with a  Bootstrap's grid inside.
                 </div>
                 <CustomModal
                   buttonLabel="Open Form Dialog"
-                  buttonColor="danger"
+                  buttonColor="warning"
                 >
                   <Form className="p-4">
                     <FormGroup>
@@ -71,6 +77,35 @@ export default function Modal() {
                     </FormGroup>
                   </Form>
                 </CustomModal>
+                <CustomModal
+                  buttonLabel="Grid Container Inside"
+                  buttonColor="danger"
+                  size="lg"
+                >
+                  <Container>
+                    <Row>
+                      <Col className={s.column}>
+                        <div className="headline-1">Column</div>
+                      </Col>
+                      <Col className={s.column}>
+                        <div className="headline-1">Column</div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col className={s.column}>
+                        <div className="headline-1">Column</div>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col className={s.column}>
+                        <div className="headline-1">Column</div>
+                      </Col>
+                      <Col className={s.column}>
+                        <div className="headline-1">Column</div>
+                      </Col>
+                    </Row>
+                  </Container>
+                </CustomModal>
               </Widget>
             </Col>
           </Row>
@@ -79,7 +114,9 @@ export default function Modal() {
               <Widget className="widget-p-md">
                 <div className="headline-2">Simple List Group</div>
                 <div className="mt-2 mb-3">
-                  The most basic
+                  Modals have three optional sizes, available via modifier classes to be placed on a <code>.modal-dialog</code>.
+                  These sizes kick in at certain breakpoints to avoid horizontal scrollbars on narrower viewports.
+                  Our default modal without modifier class constitutes the “medium” size modal.
                 </div>
                 <CustomModal
                   buttonLabel="Extra Large Modal"
@@ -104,18 +141,18 @@ export default function Modal() {
                 </CustomModal>
               </Widget>
             </Col>
-        </Row>
+          </Row>
         </Col>
         <Col xs={12} md={6}>
           <Row className="gutter" style={{ height: "100%"}}>
             <Col className="grid-col-padding">
               <Widget className="widget-p-md">
-              <div className="headline-2">Simple List Group</div>
-              <div className="mt-2 mb-3">
-                The most basic
-              </div>
-              <div>adsfa</div>
-            </Widget></Col>
+                <div className="headline-2">Simple List Group</div>
+                <div className="mt-2 mb-3">
+                  The most basic
+                </div>
+              </Widget>
+            </Col>
           </Row>
         </Col>
       </Row>

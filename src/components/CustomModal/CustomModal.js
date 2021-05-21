@@ -10,7 +10,7 @@ import Widget from "../Widget/Widget";
 
 export default function CustomModal(props) {
 
-  const { className, buttonColor, buttonLabel, scrollable, size, children } = props;
+  const { className, buttonColor, buttonLabel, scrollable, size, children, backdrop, opened } = props;
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal)
@@ -18,7 +18,7 @@ export default function CustomModal(props) {
   return (
     <>
       <Button className="mr-4" color={buttonColor} onClick={toggle}>{buttonLabel}</Button>
-      <Modal isOpen={modal} toggle={toggle} size={size} className={className} scrollable={scrollable}>
+      <Modal isOpen={modal || opened} backdrop={backdrop} toggle={toggle} size={size} className={className} scrollable={scrollable}>
         <ModalHeader toggle={toggle}>Modal title</ModalHeader>
         {scrollable
           ? <ModalBody>

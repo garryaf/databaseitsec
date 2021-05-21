@@ -1,0 +1,11 @@
+@import "../../../styles/helpers";
+
+.column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px;
+  background-color: $base-middle-gray;
+  border-radius: .25rem;
+}
+
