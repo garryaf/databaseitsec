@@ -147,10 +147,30 @@ export default function Modal() {
           <Row className="gutter" style={{ height: "100%"}}>
             <Col className="grid-col-padding">
               <Widget className="widget-p-md">
-                <div className="headline-2">Simple List Group</div>
-                <div className="mt-2 mb-3">
-                  The most basic
+                <div className="headline-2">Modal Components</div>
+                <div className="mt-2 mb-4">
+                  Below is a static modal example. Included are the modal header, modal body (required for padding), and modal footer (optional).
                 </div>
+                <Widget className="widget-p-md">
+                  <div className={s.staticModal}>
+                    <div className="d-flex justify-content-between pt-3 px-3">
+                      <div className="headline-2">Modal Title</div>
+                      <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <hr/>
+                    <div className="px-3">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <hr/>
+                    <div className={s.buttonsBlock}>
+                      <Button color="secondary">Close</Button>
+                      <Button color="primary" className="ml-2">Save Changes</Button>
+                    </div>
+                  </div>
+                </Widget>
               </Widget>
             </Col>
           </Row>
