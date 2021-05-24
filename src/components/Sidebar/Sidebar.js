@@ -129,6 +129,9 @@ class Sidebar extends React.Component {
                 header: 'Charts', link: '/template/ui-elements/charts',
               },
               {
+                header: 'Jumbotron', link: '/template/ui-elements/jumbotron',
+              },
+              {
                 header: 'Icons', link: '/template/ui-elements/icons',
               },
               {
