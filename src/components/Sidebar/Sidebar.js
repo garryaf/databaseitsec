@@ -138,6 +138,9 @@ class Sidebar extends React.Component {
                 header: 'Google Maps', link: '/template/ui-elements/maps',
               },
               {
+                header: 'Vector Map', link: '/template/ui-elements/vector',
+              },
+              {
                 header: 'Modal', link: '/template/ui-elements/modal',
               },
               {
