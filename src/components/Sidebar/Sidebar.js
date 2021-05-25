@@ -146,6 +146,9 @@ class Sidebar extends React.Component {
               {
                 header: 'Lists', link: '/template/ui-elements/lists',
               },
+              {
+                header: 'Progress', link: '/template/ui-elements/progress',
+              },
             ]}
           />
           <LinksGroup

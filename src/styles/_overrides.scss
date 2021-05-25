@@ -162,7 +162,19 @@ grid-col-padding {
 
 ///////// Progress Bar //////////
 .progress-xs {
-  height: 6px;
+  height: 8px;
+}
+
+.progress-md {
+  height: 16px;
+}
+
+.progress-lg {
+  height: 24px;
+}
+
+.progress-xl {
+  height: 32px;
 }
 
 ///////// Dropdowns //////////
