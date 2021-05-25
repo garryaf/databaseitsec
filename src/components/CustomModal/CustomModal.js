@@ -17,7 +17,7 @@ export default function CustomModal(props) {
 
   return (
     <>
-      <Button className="mr-4" color={buttonColor} onClick={toggle}>{buttonLabel}</Button>
+      <Button className="mr-4 mb-3" color={buttonColor} onClick={toggle}>{buttonLabel}</Button>
       <Modal isOpen={modal || opened} backdrop={backdrop} toggle={toggle} size={size} className={className} scrollable={scrollable}>
         <ModalHeader toggle={toggle}>Modal title</ModalHeader>
         {scrollable
