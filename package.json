@@ -4,6 +4,8 @@
   "homepage": "./",
   "private": true,
   "dependencies": {
+    "@amcharts/amcharts4": "^4.10.18",
+    "@amcharts/amcharts4-geodata": "^4.1.20",
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@react-google-maps/api": "^2.1.1",
@@ -30,7 +32,6 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "react-simple-maps": "^2.3.0",
     "react-swipeable": "^6.1.2",
     "react-syntax-highlighter": "^15.4.3",
     "react-toastify": "^7.0.3",
