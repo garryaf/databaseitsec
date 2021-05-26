@@ -1,17 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Row,
   Col,
-  Button,
-  Popover,
-  PopoverHeader,
-  PopoverBody,
-  Tooltip,
-  Progress,
 } from 'reactstrap';
 import Widget from "../../../components/Widget/Widget";
-import PopoverItem from "../../../components/PopoverItem/PopoverItem";
-
+import CustomPopover from "../../../components/CustomPopover/CustomPopover";
+import CustomTooltip from "../../../components/CustomTooltip/CustomTooltip";
 
 export default function Popovers() {
 
@@ -51,16 +45,16 @@ export default function Popovers() {
                   Popovers are opt-in for performance reasons, so you must initialize them yourself.
                 </div>
                 <div className="d-flex flex-wrap">
-                  <PopoverItem
+                  <CustomPopover
                     className="mr-3 mb-3"
-                    id={'Popover1'}
+                    id={'Popover'}
                     color="primary"
                     placement="top"
                     btnLabel="Launch Popover"
                   />
-                  <PopoverItem
+                  <CustomPopover
                     disabled
-                    id={'Popover2'}
+                    id={'Popover'}
                     color="primary"
                     btnLabel="Disabled Popover"
                   />
@@ -73,6 +67,24 @@ export default function Popovers() {
                 <div className="mt-2 mb-3">
                   Tooltips rely on the 3rd party library <a color="primary" href="https://popper.js.org/">Popper.js</a> for positioning.
                   Tooltips are opt-in for performance reasons, so you must initialize them yourself.
+                </div>
+                <div className="d-flex flex-wrap">
+                  <CustomTooltip
+                    className="mr-3 mb-3"
+                    id={"Tooltip"}
+                    target={"Tooltip"}
+                    color="primary"
+                    placement="top"
+                    text="Top"
+                  />
+                  <CustomTooltip
+                    disabled
+                    id={"Tooltip"}
+                    target={"Tooltip"}
+                    color="primary"
+                    placement="top"
+                    text="Top"
+                  />
                 </div>
               </Widget>
             </Col>
@@ -87,7 +99,7 @@ export default function Popovers() {
                 </div>
                 <div className="d-flex flex-wrap">
                   {mock.map((item, id) =>
-                    <PopoverItem
+                    <CustomPopover
                       key={id}
                       className="mr-3 mb-3"
                       id={`Popover-${id}`}
@@ -106,7 +118,19 @@ export default function Popovers() {
                   Four options are available: top, right, bottom, and left aligned.
                   Trigger each popover to see where it positioning
                 </div>
-
+                <div className="d-flex flex-wrap">
+                  {mock.map((item, id) =>
+                    <CustomTooltip
+                      key={id}
+                      className="mr-3 mb-3"
+                      target={`Tooltip-${id}`}
+                      id={`Tooltip-${id}`}
+                      color={item.color}
+                      placement={item.placement}
+                      text={item.text}
+                    />
+                  )}
+                </div>
               </Widget>
             </Col>
           </Row>

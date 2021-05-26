@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 import {
-  Row,
-  Col,
   Button,
   Popover,
   PopoverHeader,
   PopoverBody,
-  Progress,
 } from 'reactstrap';
 
-export default function PopoverItem(props) {
+export default function CustomPopover(props) {
 
   const [popoverOpen, setPopoverOpen] = useState(false);
-
   const toggle = () => setPopoverOpen(!popoverOpen);
 
   return (
