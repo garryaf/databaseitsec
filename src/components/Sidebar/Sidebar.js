@@ -149,6 +149,9 @@ class Sidebar extends React.Component {
               {
                 header: 'Progress', link: '/template/ui-elements/progress',
               },
+              {
+                header: 'Popovers', link: '/template/ui-elements/popovers',
+              },
             ]}
           />
           <LinksGroup

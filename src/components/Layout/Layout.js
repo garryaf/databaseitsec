@@ -27,6 +27,7 @@ import Maps from "../../pages/uielements/maps/google/GoogleMapPage.js";
 import VectorMap from "../../pages/uielements/maps/vector/Vector.js";
 import Modal from "../../pages/uielements/modal/Modal.js";
 import Progress from "../../pages/uielements/progress/Progress";
+import Popover from "../../pages/uielements/popovers/Popovers";
 
 import s from "./Layout.module.scss";
 
@@ -71,7 +72,8 @@ class Layout extends React.Component {
               <Route path="/template/ui-elements/maps" exact component={Maps} />
               <Route path="/template/ui-elements/vector" exact component={VectorMap} />
               <Route path="/template/ui-elements/modal" exact component={Modal} />
-              <Route path="/template/ui-elements/progress" exact component={Progress}/>
+              <Route path="/template/ui-elements/progress" exact component={Progress} />
+              <Route path="/template/ui-elements/popovers" exact component={Popover} />
               <Route path='*' exact render={() => <Redirect to="/error" />} />
             </Switch>
           </main>
