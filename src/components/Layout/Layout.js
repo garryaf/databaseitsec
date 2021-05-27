@@ -24,6 +24,7 @@ import Jumbotron from "../../pages/uielements/jumbotron/Jumbotron.js";
 import Icons from "../../pages/uielements/icons/IconsPage.js";
 import Lists from "../../pages/uielements/lists/Lists.js";
 import Maps from "../../pages/uielements/maps/google/GoogleMapPage.js";
+import Navs from "../../pages/uielements/navs/Navs.js";
 import VectorMap from "../../pages/uielements/maps/vector/Vector.js";
 import Modal from "../../pages/uielements/modal/Modal.js";
 import Progress from "../../pages/uielements/progress/Progress";
@@ -72,6 +73,7 @@ class Layout extends React.Component {
               <Route path="/template/ui-elements/maps" exact component={Maps} />
               <Route path="/template/ui-elements/vector" exact component={VectorMap} />
               <Route path="/template/ui-elements/modal" exact component={Modal} />
+              <Route path="/template/ui-elements/navs" exact component={Navs} />
               <Route path="/template/ui-elements/progress" exact component={Progress} />
               <Route path="/template/ui-elements/popovers" exact component={Popover} />
               <Route path='*' exact render={() => <Redirect to="/error" />} />

@@ -144,6 +144,9 @@ class Sidebar extends React.Component {
                 header: 'Modal', link: '/template/ui-elements/modal',
               },
               {
+                header: 'Navs', link: '/template/ui-elements/navs',
+              },
+              {
                 header: 'Lists', link: '/template/ui-elements/lists',
               },
               {
