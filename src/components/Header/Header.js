@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import {withRouter} from "react-router";
 import {connect} from "react-redux";
-
 import {
   Navbar,
   Nav,
@@ -18,7 +17,6 @@ import {
   Form,
   FormGroup,
 } from "reactstrap";
-
 import { logoutUser } from "../../actions/auth.js";
 import { closeSidebar, openSidebar } from "../../actions/navigation.js";
 import MenuIcon from "../Icons/HeaderIcons/MenuIcon.js";
@@ -90,7 +88,7 @@ class Header extends React.Component {
   render() {
 
     return (
-      <Navbar className={`${s.root} d-print-none`}>
+      <Navbar className={`${s.root} header-navbar d-print-none`}>
         <div>
           <NavLink
             onClick={this.toggleSidebar}

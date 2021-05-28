@@ -147,6 +147,9 @@ class Sidebar extends React.Component {
                 header: 'Navs', link: '/template/ui-elements/navs',
               },
               {
+                header: 'Navbars', link: '/template/ui-elements/navbars',
+              },
+              {
                 header: 'Lists', link: '/template/ui-elements/lists',
               },
               {

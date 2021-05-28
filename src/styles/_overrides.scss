@@ -1,5 +1,5 @@
 ///////// Navbar //////////
-.navbar {
+.header-navbar {
   padding: $navbar-padding;
   border: none;
   background: $body-bg;
@@ -19,6 +19,13 @@
         color: $base-middle-gray;
       }
     }
+  }
+}
+
+.navbar {
+  border-radius: 4px;
+  .navbar-toggler {
+    border: none;
   }
 }
 
