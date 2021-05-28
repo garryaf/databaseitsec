@@ -29,6 +29,43 @@
   }
 }
 
+///////// Input Group //////////
+.input-group {
+  overflow: hidden;
+}
+
+.input-group-prepend {
+  background-color: $white;
+  transition: background-color ease-in-out 0.15s;
+  padding-right: 1rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-control {
+  background-color: $white;
+  height: 45px;
+  border: none;
+  border-radius: .5rem;
+  padding-left: 1rem;
+  font-size: $font-size-base;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 ///////// Widget //////////
 .widget-p-none {
   padding: 0;
