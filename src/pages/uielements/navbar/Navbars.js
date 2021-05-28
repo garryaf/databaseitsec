@@ -9,11 +9,12 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText, Form, FormGroup, InputGroup, Input, InputGroupAddon
+  Button,
+  Form,
+  FormGroup,
+  InputGroup,
+  Input,
+  InputGroupAddon
 } from "reactstrap";
 import Widget from "../../../components/Widget/Widget";
 import SofiaLogo from "../../../components/Icons/SidebarIcons/SofiaLogo";
@@ -192,13 +193,50 @@ export default function Navbars() {
             </Col>
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
-                <div className="headline-2">Navbar With Toggler</div>
+                <div className="headline-2">Navbar With Different Components</div>
                 <div className="mt-2 mb-3">
                   Place the <code>&#60;NavbarToggler&#62;</code> after <code>&#60;NavbarBrand&#62;</code> to have it appear on the right (typical setup).
                   Reverse the order to have it appear on the left.
                 </div>
+                <div className="mb-3">Place various form controls and components within a navbar.</div>
                 <div className="mb-3">
-                  <Navbar color="light" light>
+                  <Navbar className="p-3 overflow-auto" color="light" light>
+                    <NavbarBrand className="d-flex align-items-center" href="/">
+                      <SofiaLogo/>
+                      <span className="headline-2 ml-2 font-weight-bold">SOFIA</span>
+                    </NavbarBrand>
+                    <Form className="d-none d-sm-block" inline>
+                      <FormGroup>
+                        <InputGroup className='input-group-no-border'>
+                          <Input id="search-input" placeholder="Search Dashboard" className='focus'/>
+                          <Button color="primary" className="ml-3" outline>Search</Button>
+                        </InputGroup>
+                      </FormGroup>
+                    </Form>
+                  </Navbar>
+                </div>
+                <div className="mb-3">
+                  <Navbar className="p-3 overflow-auto" color="light" light>
+                    <NavbarBrand className="d-flex align-items-center" href="/">
+                      <SofiaLogo/>
+                      <span className="headline-2 ml-2 font-weight-bold">SOFIA</span>
+                    </NavbarBrand>
+                    <Form className="d-none d-sm-block" inline>
+                      <FormGroup>
+                        <InputGroup className='input-group-no-border'>
+                          <Input id="search-input" placeholder="Search Dashboard" className='focus'/>
+                          <InputGroupAddon addonType="prepend">
+                            <span>
+                              <SearchBarIcon/>
+                            </span>
+                          </InputGroupAddon>
+                        </InputGroup>
+                      </FormGroup>
+                    </Form>
+                  </Navbar>
+                </div>
+                <div>
+                  <Navbar className="p-3 overflow-auto" color="light" light>
                     <NavbarBrand className="d-flex align-items-center" href="/">
                       <SofiaLogo/>
                       <span className="headline-2 ml-2 font-weight-bold">SOFIA</span>
@@ -217,26 +255,6 @@ export default function Navbars() {
                         </NavItem>
                       </Nav>
                     </Collapse>
-                  </Navbar>
-                </div>
-                <div>
-                  <Navbar color="light" light>
-                    <NavbarBrand className="d-flex align-items-center" href="/">
-                      <SofiaLogo/>
-                      <span className="headline-2 ml-2 font-weight-bold">SOFIA</span>
-                    </NavbarBrand>
-                    <Form className="d-none d-sm-block" inline>
-                      <FormGroup>
-                        <InputGroup className='input-group-no-border'>
-                          <Input id="search-input" placeholder="Search Dashboard" className='focus'/>
-                          <InputGroupAddon addonType="prepend">
-                            <span>
-                              <SearchBarIcon/>
-                            </span>
-                          </InputGroupAddon>
-                        </InputGroup>
-                      </FormGroup>
-                    </Form>
                   </Navbar>
                 </div>
               </Widget>

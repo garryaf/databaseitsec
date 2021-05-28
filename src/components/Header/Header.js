@@ -122,8 +122,8 @@ class Header extends React.Component {
           <Dropdown nav isOpen={this.state.menuOpen} toggle={this.toggleMenu} className="tutorial-dropdown mr-2 mr-sm-3">
             <DropdownToggle nav>
               <div className={s.navbarBlock}>
-                  <BellIcon maskId={114}></BellIcon>
-                  <div className={s.count}></div>
+                <BellIcon maskId={114}></BellIcon>
+                <div className={s.count}></div>
               </div>
             </DropdownToggle>
             <DropdownMenu right className="navbar-dropdown notifications-dropdown" style={{ width: "340px" }}>
