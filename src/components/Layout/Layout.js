@@ -12,7 +12,7 @@ import Dashboard from "../../pages/dashboard/Dashboard.js";
 import Typography from "../../pages/core/typography/Typography.js";
 import Colors from "../../pages/core/colors/Colors.js";
 import Grid from "../../pages/core/grid/Grid.js";
-import Notifications from "../../pages/notifications/Notifications.js";
+import Notifications from "../../pages/uielements/notifications/Notifications.js";
 import Tables from "../../pages/tables/Tables.js";
 import Alerts from "../../pages/uielements/alerts/Alerts.js";
 import Badges from "../../pages/uielements/badges/Badges.js";
@@ -23,13 +23,14 @@ import Charts from "../../pages/uielements/charts/Charts.js";
 import Jumbotron from "../../pages/uielements/jumbotron/Jumbotron.js";
 import Icons from "../../pages/uielements/icons/IconsPage.js";
 import Lists from "../../pages/uielements/lists/Lists.js";
-import Maps from "../../pages/uielements/maps/google/GoogleMapPage.js";
 import Navbars from "../../pages/uielements/navbar/Navbars.js";
 import Navs from "../../pages/uielements/navs/Navs.js";
-import VectorMap from "../../pages/uielements/maps/vector/Vector.js";
 import Modal from "../../pages/uielements/modal/Modal.js";
 import Progress from "../../pages/uielements/progress/Progress";
 import Popover from "../../pages/uielements/popovers/Popovers";
+import Elements from "../../pages/forms/elements/Elements";
+import Maps from "../../pages/maps/google/GoogleMapPage.js";
+import VectorMap from "../../pages/maps/vector/Vector.js";
 
 import s from "./Layout.module.scss";
 
@@ -60,7 +61,6 @@ class Layout extends React.Component {
               <Route path="/template/core/grid" exact component={Grid} />
               <Route path="/template/typography" exact component={Typography} />
               <Route path="/template/tables" exact component={Tables} />
-              <Route path="/template/notifications" exact component={Notifications} />
               <Route path="/template/ui-elements" exact render={() => <Redirect to={"/template/ui-elements/charts"} />} />
               <Route path="/template/ui-elements/alerts" exact component={Alerts} />
               <Route path="/template/ui-elements/badges" exact component={Badges} />
@@ -71,13 +71,15 @@ class Layout extends React.Component {
               <Route path="/template/ui-elements/jumbotron" exact component={Jumbotron} />
               <Route path="/template/ui-elements/icons" exact component={Icons} />
               <Route path="/template/ui-elements/lists" exact component={Lists} />
-              <Route path="/template/ui-elements/maps" exact component={Maps} />
-              <Route path="/template/ui-elements/vector" exact component={VectorMap} />
               <Route path="/template/ui-elements/modal" exact component={Modal} />
               <Route path="/template/ui-elements/navbars" exact component={Navbars} />
               <Route path="/template/ui-elements/navs" exact component={Navs} />
+              <Route path="/template/ui-elements/notifications" exact component={Notifications} />
               <Route path="/template/ui-elements/progress" exact component={Progress} />
               <Route path="/template/ui-elements/popovers" exact component={Popover} />
+              <Route path="/template/forms/elements" exact component={Elements}/>
+              <Route path="/template/maps/google" exact component={Maps} />
+              <Route path="/template/maps/vector" exact component={VectorMap} />
               <Route path='*' exact render={() => <Redirect to="/error" />} />
             </Switch>
           </main>

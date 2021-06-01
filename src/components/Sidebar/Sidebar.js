@@ -135,12 +135,6 @@ class Sidebar extends React.Component {
                 header: 'Icons', link: '/template/ui-elements/icons',
               },
               {
-                header: 'Google Maps', link: '/template/ui-elements/maps',
-              },
-              {
-                header: 'Vector Map', link: '/template/ui-elements/vector',
-              },
-              {
                 header: 'Modal', link: '/template/ui-elements/modal',
               },
               {
@@ -150,6 +144,9 @@ class Sidebar extends React.Component {
                 header: 'Navbars', link: '/template/ui-elements/navbars',
               },
               {
+                header: 'Notifications', link: '/template/ui-elements/notifications',
+              },
+              {
                 header: 'Lists', link: '/template/ui-elements/lists',
               },
               {
@@ -157,6 +154,26 @@ class Sidebar extends React.Component {
               },
               {
                 header: 'Popovers', link: '/template/ui-elements/popovers',
+              },
+            ]}
+          />
+          <LinksGroup
+            onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+            activeItem={this.props.activeItem}
+            header="Forms"
+            isHeader
+            iconName={<UIElementsIcon/>}
+            link="/template/forms"
+            index="forms"
+            childrenLinks={[
+              {
+                header: 'Elements', link: '/template/forms/elements',
+              },
+              {
+                header: 'Validation', link: '/template/forms/validation',
+              },
+              {
+                header: 'Wizard', link: '/template/forms/wizard',
               },
             ]}
           />
@@ -181,11 +198,19 @@ class Sidebar extends React.Component {
           <LinksGroup
             onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
             activeItem={this.props.activeItem}
-            header="Notifications"
+            header="Maps"
             isHeader
             iconName={<NotificationsIcon className={s.menuIcon}/>}
-            link="/template/notifications"
-            index="notifications"
+            link="/template/maps"
+            index="maps"
+            childrenLinks={[
+              {
+                header: 'Google Maps', link: '/template/maps/google',
+              },
+              {
+                header: 'Vector Map', link: '/template/maps/vector',
+              },
+            ]}
           />
         </ul>
         <div className="bg-widget d-flex mt-auto ml-1">
