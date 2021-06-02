@@ -100,10 +100,10 @@ class Header extends React.Component {
         </div>
         <Form className="d-none d-sm-block" inline>
           <FormGroup>
-            <InputGroup className='input-group-no-border'>
-              <Input id="search-input" placeholder="Search Dashboard" className='focus'/>
+            <InputGroup>
+              <Input id="search-input" placeholder="Search Dashboard" className='focus no-border'/>
               <InputGroupAddon addonType="prepend">
-                <span>
+                <span className="d-flex align-self-center pr-3">
                   <SearchBarIcon/>
                 </span>
               </InputGroupAddon>

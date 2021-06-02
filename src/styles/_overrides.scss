@@ -32,23 +32,25 @@
 ///////// Input Group //////////
 .input-group {
   overflow: hidden;
+
+  &.btn:focus {
+    box-shadow: none;
+  }
 }
 
 .input-group-prepend {
-  background-color: $white;
-  transition: background-color ease-in-out 0.15s;
-  padding-right: 1rem;
-  border-top-right-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  height: 45px;
+  background-color: $white;
+  transition: background-color ease-in-out 0.15s;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
 
 .form-control {
   background-color: $white;
   height: 45px;
-  border: none;
   border-radius: .5rem;
   padding-left: 1rem;
   font-size: $font-size-base;
@@ -154,9 +156,10 @@ grid-col-padding {
   color: $white;
 }
 
-.btn-default {
-  border-color: $gray-400;
-  background-color: $white;
+.btn, {
+  &:not(.active) {
+    box-shadow: none !important;
+  }
 }
 
 .btn-rounded {
@@ -222,6 +225,13 @@ grid-col-padding {
 }
 
 ///////// Dropdowns //////////
+//.dropdown {
+//  &.show {
+//    .dropdown-menu {
+//      display: block;
+//    }
+//  }
+//}
 //.dropdown-toggle {
 //  padding: 6px 12px 6px 6px;
 //  border: 1px solid $base-middle-gray;
@@ -803,7 +813,9 @@ input[type='checkbox'] .styled:checked + label::after {
 }
 
 ///////// Other //////////
-
+.no-border {
+  border: none;
+}
 .nav {
   .dropdown-toggle {
     background-color: transparent;
@@ -811,6 +823,7 @@ input[type='checkbox'] .styled:checked + label::after {
 }
 
 .dropdown-toggle::after {
+margin-left: 0.255em;
 font-family: Line Awesome Free, sans-serif;
 content: "\F107";
 border: none;
@@ -825,6 +838,29 @@ font-weight: 600;
   }
 }
 
+///////// Forms /////////
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: $spacer;
+  line-height: inherit;
+  color: $base-dark-gray;
+  border: 0;
+  border-bottom: 1px solid $base-middle-gray;
+  font-size: 16px;
+  font-weight: $font-weight-normal;
+}
+
+form-group {
+  display: flex;
+  align-items: center;
+}
+
+.col-form-label {
+  align-self: center;
+}
+
 ///////// Code //////////
 
 code {
@@ -837,4 +873,19 @@ pre {
   code {
     background-color: transparent;
   }
+}
+
+///////// Class helpers /////////
+.border-radius-0 {
+  border-radius: 0;
+}
+
+.border-radius-left-0 {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.border-radius-right-0 {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
 }

@@ -29,6 +29,7 @@ import Modal from "../../pages/uielements/modal/Modal.js";
 import Progress from "../../pages/uielements/progress/Progress";
 import Popover from "../../pages/uielements/popovers/Popovers";
 import Elements from "../../pages/forms/elements/Elements";
+import Validation from "../../pages/forms/validation/Validation";
 import Maps from "../../pages/maps/google/GoogleMapPage.js";
 import VectorMap from "../../pages/maps/vector/Vector.js";
 
@@ -77,7 +78,10 @@ class Layout extends React.Component {
               <Route path="/template/ui-elements/notifications" exact component={Notifications} />
               <Route path="/template/ui-elements/progress" exact component={Progress} />
               <Route path="/template/ui-elements/popovers" exact component={Popover} />
+              <Route path="/template/forms" exact render={() => <Redirect to={"/template/forms/elements"}/>} />
               <Route path="/template/forms/elements" exact component={Elements}/>
+              <Route path="/template/forms/validation" exact component={Validation}/>
+              <Route path="/template/maps" exact render={() => <Redirect to={"/template/maps/google"}/>} />
               <Route path="/template/maps/google" exact component={Maps} />
               <Route path="/template/maps/vector" exact component={VectorMap} />
               <Route path='*' exact render={() => <Redirect to="/error" />} />
