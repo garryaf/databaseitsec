@@ -56,6 +56,16 @@
   font-size: $font-size-base;
 }
 
+.form-control-sm {
+  height: $input-height-sm;
+  @include font-size($input-font-size-sm);
+}
+
+.form-control-lg {
+  height: $input-height-lg;
+  @include font-size($input-font-size-lg);
+}
+
 .nav-item {
   display: flex;
   align-items: center;
@@ -130,6 +140,7 @@ grid-col-padding {
   padding: $button-padding;
   font-size: $font-size-sm;
   font-weight: $font-weight-semi-bold;
+  border-radius: .5rem;
 
   .btn-success,
   .btn-info,
@@ -154,6 +165,17 @@ grid-col-padding {
 .btn-default,
 .btn-secondary {
   color: $white;
+}
+
+.btn-lg {
+  padding: .5rem 1rem;
+  font-size: 1.25rem;
+  border-radius: 8px;
+}
+
+.btn-sm {
+  padding: .25rem .5rem;
+  font-size: .875rem;
 }
 
 .btn, {

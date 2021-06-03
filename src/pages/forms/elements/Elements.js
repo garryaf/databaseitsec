@@ -18,16 +18,78 @@ import {
   DropdownMenu,
   DropdownToggle
 } from "reactstrap";
+import TextareaAutosize from "react-textarea-autosize";
+import ReactMde from "react-mde";
+import * as Showdown from "showdown";
+import Select from "react-select";
+
+import "react-mde/lib/styles/css/react-mde-all.css";
+
 import Widget from "../../../components/Widget/Widget";
 import s from "./Elements.module.scss"
 
 export default function Elements() {
 
+  const converter = new Showdown.Converter({
+    tables: true,
+    simplifiedAutoLink: true,
+    strikethrough: true,
+    tasklists: true
+  });
+
+  const state = {
+    selectDefaultData: [
+      { value: 'Drama', label: 'Better Call Saul', rating: '18' },
+      { value: 'Space Western', label: 'The Mandalorian', rating: '14' },
+      { value: 'Comedy', label: 'Parks and Recreation', rating: '16' },
+    ],
+    selectGroupData: [
+      {
+        label: 'NFC NORTH',
+        options: [
+          { value: 'Chicago-Bears', label: 'Chicago Bears', rating: 'safe' },
+          { value: 'Detroit-Lions', label: 'Detroit Lions', rating: 'good' },
+          { value: 'Green-Bay-Packers', label: 'Green Bay Packers', rating: 'wild' },
+        ],
+      },
+      {
+        label: 'NFC SOUTH',
+        options: [
+          { value: 'Atlanta-Falcons', label: 'Atlanta Falcons', rating: 'safe' },
+          { value: 'Carolina-Panthers', label: 'Carolina Panthers', rating: 'good' },
+          { value: 'New-Orleans-Saints', label: 'New Orleans Saints', rating: 'wild' },
+        ],
+      },
+    ],
+  }
+
+  const [markdownValue, setMarkdownValue] = React.useState("**Hello world!!!**");
+  const [selectedMarkdownTab, setSelectedMarkdownTab] = React.useState("write");
+  // refactor it
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const toggle = () => setDropdownOpen(!dropdownOpen)
   const [dropdownValue, setDropdownValue] = useState('Another Value')
   const changeValueDropdown = (e) => {
     setDropdownValue(e.currentTarget.textContent)
+  }
+
+  const [simpleDropdownValue, setSimpleDropdownValue] = useState('Option One')
+  const changeSelectDropdownSimple = (e) => {
+    setSimpleDropdownValue(e.currentTarget.textContent)
+  }
+
+  const [blueDropdownValue, setBlueDropdownValue] = useState('Ichi')
+  const [violetDropdownValue, setVioletDropdownValue] = useState('Hichi')
+  const [darkDropdownValue, setDarkDropdownValue] = useState('Achi')
+
+  const changeBlueDropdown = (e) => {
+    setBlueDropdownValue(e.currentTarget.textContent)
+  }
+  const changeVioletDropdown = (e) => {
+    setVioletDropdownValue(e.currentTarget.textContent)
+  }
+  const changeDarkDropdown = (e) => {
+    setDarkDropdownValue(e.currentTarget.textContent)
   }
 
   return (
@@ -40,7 +102,7 @@ export default function Elements() {
                 <div className="headline-2">Inputs</div>
                 <FormGroup>
                   <Form>
-                    <legend className="mt-2"><strong>Horizontal</strong> form</legend>
+                    <legend className="mt-2">Horizontal form</legend>
                     <FormGroup row>
                       <Label md={3} for="normal-field" className="text-md-right">Normal field</Label>
                       <Col md={9}>
@@ -126,7 +188,7 @@ export default function Elements() {
                         </InputGroup>
                       </Col>
                     </FormGroup>
-                    <FormGroup row>
+                    <FormGroup row className="mb-0">
                       <Label md={3} className="text-md-right" for="transparent-input">
                         Append Transparent
                       </Label>
@@ -140,8 +202,8 @@ export default function Elements() {
                     <FormGroup row>
                       <Label md={3} />
                       <Col md={9}>
-                        <Button color="primary" type="submit" className="mr-3">Save Changes</Button>
-                        <Button color="default">Cancel</Button>
+                        <Button color="primary" type="submit" className="mr-3 mt-3">Save Changes</Button>
+                        <Button color="default" className="mt-3">Cancel</Button>
                       </Col>
                     </FormGroup>
                   </Form>
@@ -153,8 +215,8 @@ export default function Elements() {
                 <div className="headline-2">Prepended And Appended Inputs</div>
                 <FormGroup>
                   <Form>
-                    <legend className="mt-2"><strong>Default</strong> form</legend>
-                    <Row>
+                    <legend className="mt-2">Default form</legend>
+                    <Row className="pl-0 pl-md-4">
                       <Col md={10}>
                         <FormGroup>
                           <Label for="search-input1">
@@ -278,7 +340,7 @@ export default function Elements() {
 
 
                         </FormGroup>
-                        <FormGroup className="mb-4">
+                        <FormGroup className="mb-1">
                           <Label for="no-borders-input">
                             Transparent input
                           </Label>
@@ -292,8 +354,8 @@ export default function Elements() {
                         </FormGroup>
                         <FormGroup row>
                           <Col>
-                            <Button color="primary" type="submit" className="mr-3">Save Changes</Button>
-                            <Button color="default">Cancel</Button>
+                            <Button color="primary" type="submit" className="mr-3 mt-3">Save Changes</Button>
+                            <Button color="default" className="mt-3">Cancel</Button>
                           </Col>
                         </FormGroup>
                       </Col>
@@ -306,51 +368,251 @@ export default function Elements() {
           <Row className="gutter mb-4">
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
-                <div className="headline-2">Default Buttons</div>
-                <div className="mt-2 mb-3">
-                  Use any of the available button classes to quickly create a styled button. Semantically distinguishable beauty.
-                </div>
-                <div>
-
-                </div>
+                <div className="headline-2">Form Options</div>
+                <Form>
+                  <legend className="mt-2">Control sizing</legend>
+                  <div className="mb-3">
+                    Set input heights using parameters like <code>size=&apos;lg&apos;</code> and
+                    <code>size=&apos;sm&apos;</code>.
+                    Also works with <code>type=&apos;search&apos;</code> inputs, input groups and
+                    selects.
+                  </div>
+                  <FormGroup>
+                    <Input type="text" placeholder='bsSize="lg"' bsSize="lg" />
+                  </FormGroup>
+                  <FormGroup>
+                    <Input type="text" placeholder="default input" />
+                  </FormGroup>
+                  <FormGroup>
+                    <Input type="text" placeholder='bsSize="sm"' bsSize="sm" />
+                  </FormGroup>
+                </Form>
               </Widget>
             </Col>
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
-                <div className="headline-2">Outlined Default Buttons</div>
-                <div className="mt-2 mb-3">
-                  This is the default button style, but you can make them more rounded.
-                  Use whichever button shape you like best.
-                </div>
-                <div>
-
-                </div>
+                <div className="headline-2">Form Options</div>
+                <Form>
+                  <legend className="mt-2">Input Groups</legend>
+                  <div className="mb-3">
+                    Different colors & sizes for any elements including input groups. Elements may be
+                    easily styled with classes like <code>.bg-middle-gray</code> or
+                    <code>.bg-transparent</code>
+                  </div>
+                  <FormGroup>
+                    <InputGroup>
+                      <InputGroupAddon addonType="prepend">
+                        <span className="input-group-text"><i className="fa fa-github"></i></span>
+                      </InputGroupAddon>
+                      <Input type="text" placeholder="Login" />
+                    </InputGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <InputGroup>
+                      <InputGroupAddon addonType="prepend">
+                        <span className="input-group-text"><i className="fa fa-eye-slash"></i></span>
+                      </InputGroupAddon>
+                      <Input className="bg-middle-gray" type="password" placeholder="Password" />
+                    </InputGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <InputGroup>
+                      <Input type="text" placeholder="Phone" />
+                      <InputGroupAddon addonType="prepend">
+                        <span className="bg-primary text-white input-group-text"><i className="fa fa-phone" /></span>
+                      </InputGroupAddon>
+                    </InputGroup>
+                  </FormGroup>
+                </Form>
               </Widget>
             </Col>
           </Row>
           <Row className="gutter">
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
-                <div className="headline-2">Buttons With Icons</div>
-                <div className="mt-2 mb-3">
-                  Do more with icons! Icons or Icon components may be used in buttons.
-                  Let your buttons be more informative and enjoyable!
-                </div>
-                <div>
-
-                </div>
+                <div className="headline-2">Textareas</div>
+                <Form>
+                  <legend className="mt-2">Kinds of textareas</legend>
+                  <FormGroup row>
+                    <Label md={3} className="text-md-right" for="default-textarea">Default textarea</Label>
+                    <Col md={9}>
+                      <Input rows="4" type="textarea" name="text" id="default-textarea" />
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Label md={3} className="text-md-right" for="elastic-textarea">Auto-growing textarea</Label>
+                    <Col md={9}>
+                      <TextareaAutosize
+                        minRows={3}
+                        rows={4}
+                        defaultValue="Just a single line..."
+                        className={`form-control ${s.elasticTextarea} transition-height`}
+                      />
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Label md={3} className="text-md-right" for="markdown-editor">Markdown Editor</Label>
+                    <Col md={9}>
+                      <ReactMde
+                        value={markdownValue}
+                        onChange={setMarkdownValue}
+                        selectedTab={selectedMarkdownTab}
+                        onTabChange={setSelectedMarkdownTab}
+                        generateMarkdownPreview={(markdown) =>
+                          Promise.resolve(converter.makeHtml(markdown))
+                        }
+                        childProps={{
+                          writeButton: {
+                            tabIndex: -1
+                          }
+                        }}
+                      />
+                    </Col>
+                  </FormGroup>
+                </Form>
               </Widget>
             </Col>
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
-                <div className="headline-2">Outlined Buttons With Icons</div>
-                <div className="mt-2 mb-3">
-                  In need of a button, but not the hefty background colors they bring?
-                  Use <code>outline</code> property, add icon. Style the buttons however you like!
-                </div>
-                <div>
-
-                </div>
+                <div className="headline-2">Selects</div>
+                <Form>
+                  <legend className="mt-2">Default form with labels on left</legend>
+                  <FormGroup row>
+                    <Label md="4" for="default-select">Default Select</Label>
+                    <Col md="8" className={s.select}>
+                      <Select
+                        options={state.selectDefaultData}
+                        defaultValue={state.selectDefaultData[0]}
+                      />
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Label md="4" for="grouped-select">Select with search & groups</Label>
+                    <Col md="8" className={s.select}>
+                      <Select
+                        options={state.selectGroupData}
+                      />
+                    </Col>
+                  </FormGroup>
+                </Form>
+                <Form className="mt-4">
+                  <legend className="mt-2">Dropdown based colored selects</legend>
+                  <FormGroup row>
+                    <Label className="align-self-baseline" md="4" for="simple-select">Simple select</Label>
+                    <Col md="8">
+                      <UncontrolledButtonDropdown>
+                        <DropdownToggle
+                          caret color="primary"
+                        >
+                          {simpleDropdownValue}
+                        </DropdownToggle>
+                        <DropdownMenu>
+                          <DropdownItem onClick={changeSelectDropdownSimple}>
+                            Option One
+                          </DropdownItem>
+                          <DropdownItem onClick={changeSelectDropdownSimple}>
+                            Option Two
+                          </DropdownItem>
+                          <DropdownItem onClick={changeSelectDropdownSimple}>
+                            Option Three
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledButtonDropdown>
+                      <span className={`label muted ${s.helpBlock}`}>Auto resizing buttons</span>
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Label md="4" for="simple-group-select">
+                      Colored ones
+                      <span className={`label muted ${s.helpBlock}`}>A bit of Japanese style</span>
+                    </Label>
+                    <Col md="8">
+                      <UncontrolledButtonDropdown>
+                        <DropdownToggle
+                          caret color="info"
+                          className="mr-3"
+                        >
+                          {blueDropdownValue}
+                        </DropdownToggle>
+                        <DropdownMenu>
+                          <DropdownItem onClick={changeBlueDropdown}>
+                            Ichi
+                          </DropdownItem>
+                          <DropdownItem onClick={changeBlueDropdown}>
+                            Ni
+                          </DropdownItem>
+                          <DropdownItem onClick={changeBlueDropdown}>
+                            San
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledButtonDropdown>
+                      <UncontrolledButtonDropdown>
+                        <DropdownToggle
+                          caret color="primary"
+                          className="mr-3"
+                        >
+                          {violetDropdownValue}
+                        </DropdownToggle>
+                        <DropdownMenu>
+                          <DropdownItem onClick={changeVioletDropdown}>
+                            Ichi
+                          </DropdownItem>
+                          <DropdownItem onClick={changeVioletDropdown}>
+                            Ni
+                          </DropdownItem>
+                          <DropdownItem onClick={changeVioletDropdown}>
+                            San
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledButtonDropdown>
+                      <UncontrolledButtonDropdown>
+                        <DropdownToggle
+                          caret color="default"
+                          className="mr-3"
+                        >
+                          {darkDropdownValue}
+                        </DropdownToggle>
+                        <DropdownMenu>
+                          <DropdownItem onClick={changeDarkDropdown}>
+                            Ichi
+                          </DropdownItem>
+                          <DropdownItem onClick={changeDarkDropdown}>
+                            Ni
+                          </DropdownItem>
+                          <DropdownItem onClick={changeDarkDropdown}>
+                            San
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledButtonDropdown>
+                    </Col>
+                  </FormGroup>
+                  <FormGroup row>
+                    <Label md="4" for="big-select">
+                      Big Select
+                      <span className={`label muted ${s.helpBlock}`}>
+                        Size can be controlled with <code>size=&apos;lg&apos;</code> & <code>size=&apos;sm&apos;</code>
+                      </span>
+                    </Label>
+                    <Col md="8">
+                      <UncontrolledButtonDropdown id="big-select">
+                        <DropdownToggle caret outline color="secondary" size="lg">
+                          <span className="mr-5">Big Item</span>
+                        </DropdownToggle>
+                        <DropdownMenu>
+                          <DropdownItem>
+                            Big Item
+                          </DropdownItem>
+                          <DropdownItem>
+                            Big Item
+                          </DropdownItem>
+                          <DropdownItem>
+                            Big Item
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledButtonDropdown>
+                    </Col>
+                  </FormGroup>
+                </Form>
               </Widget>
             </Col>
           </Row>
