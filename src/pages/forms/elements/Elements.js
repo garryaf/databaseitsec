@@ -65,6 +65,7 @@ export default function Elements() {
 
   const [markdownValue, setMarkdownValue] = React.useState("**Hello world!!!**");
   const [selectedMarkdownTab, setSelectedMarkdownTab] = React.useState("write");
+
   // refactor it
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const toggle = () => setDropdownOpen(!dropdownOpen)
@@ -73,14 +74,15 @@ export default function Elements() {
     setDropdownValue(e.currentTarget.textContent)
   }
 
+  const [checkboxes, setCheckboxes] = useState([true, true, true, true, true, true, true, true])
   const [simpleDropdownValue, setSimpleDropdownValue] = useState('Option One')
-  const changeSelectDropdownSimple = (e) => {
-    setSimpleDropdownValue(e.currentTarget.textContent)
-  }
-
   const [blueDropdownValue, setBlueDropdownValue] = useState('Ichi')
   const [violetDropdownValue, setVioletDropdownValue] = useState('Hichi')
   const [darkDropdownValue, setDarkDropdownValue] = useState('Achi')
+
+  const changeSelectDropdownSimple = (e) => {
+    setSimpleDropdownValue(e.currentTarget.textContent)
+  }
 
   const changeBlueDropdown = (e) => {
     setBlueDropdownValue(e.currentTarget.textContent)
@@ -90,6 +92,17 @@ export default function Elements() {
   }
   const changeDarkDropdown = (e) => {
     setDarkDropdownValue(e.currentTarget.textContent)
+  }
+
+  const changeCheck = (e, checkbox, id) => {
+    checkboxes[id] = e.target.checked;
+
+    if (!e.target.checked) {
+      checkboxes[id] = false;
+    }
+    setCheckboxes({
+      checkboxes
+    });
   }
 
   return (
@@ -621,14 +634,100 @@ export default function Elements() {
               <Widget className="widget-p-md">
                 <div className="headline-2">Checkbox Controls</div>
                 <Form>
-                  <legend className="mt-2">Control sizing</legend>
+                  <legend className="mt-2">Basic</legend>
                   <div className="mb-3">
-                    Set
+                    We customized checkboxes with our theme colors. Let your checkboxes shine!
                   </div>
-                  <FormGroup check>
-                    <Label check>
-                      <Input type="checkbox" /> Check me out
-                    </Label>
+                  <FormGroup className="pl-0" check>
+                    <div className="form-check checkbox checkbox-default">
+                      <input
+                        id="checkbox1"
+                        type="checkbox"
+                        className="styled"
+                        checked={checkboxes[0]}
+                        onChange={(e) => changeCheck(e, "checkboxes", 0)}
+                      />
+                      <label htmlFor="checkbox1">Default Checkbox</label>
+                    </div>
+                    <div className="form-check checkbox checkbox-primary">
+                      <input
+                        id="checkbox2"
+                        type="checkbox"
+                        className="styled"
+                        checked={checkboxes[1]}
+                        onChange={(e) => changeCheck(e, "checkboxes", 1)}
+                      />
+                      <label htmlFor="checkbox2">Primary Checkbox</label>
+                    </div>
+                    <div className="form-check checkbox checkbox-info">
+                      <input
+                        id="checkbox3"
+                        type="checkbox"
+                        className="styled"
+                        checked={checkboxes[2]}
+                        onChange={(e) => changeCheck(e, "checkboxes", 2)}
+                      />
+                      <label htmlFor="checkbox3">Secondary Yellow Checkbox</label>
+                    </div>
+                    <div className="form-check checkbox checkbox-success">
+                      <input
+                        id="checkbox4"
+                        type="checkbox"
+                        className="styled"
+                        checked={checkboxes[3]}
+                        onChange={(e) => changeCheck(e, "checkboxes", 3)}
+                      />
+                      <label htmlFor="checkbox4">Success Checkbox</label>
+                    </div>
+                    <div className="form-check checkbox checkbox-warning">
+                      <input
+                        id="checkbox5"
+                        type="checkbox"
+                        className="styled"
+                        checked={checkboxes[4]}
+                        onChange={(e) => changeCheck(e, "checkboxes", 4)}
+                      />
+                      <label htmlFor="checkbox5">Warning Checkbox</label>
+                    </div>
+                    <div className="form-check checkbox checkbox-danger">
+                      <input
+                        id="checkbox6"
+                        type="checkbox"
+                        className="styled"
+                        checked={checkboxes[5]}
+                        onChange={(e) => changeCheck(e, "checkboxes", 5)}
+                      />
+                      <label htmlFor="checkbox6">Danger Checkbox</label>
+                    </div>
+                    <div className="form-check checkbox checkbox-secondary-red">
+                      <input
+                        id="checkbox7"
+                        type="checkbox"
+                        className="styled"
+                        checked={checkboxes[6]}
+                        onChange={(e) => changeCheck(e, "checkboxes", 6)}
+                      />
+                      <label htmlFor="checkbox7">Secondary Red Checkbox</label>
+                    </div>
+                    <div className="form-check checkbox checkbox-secondary-yellow">
+                      <input
+                        id="checkbox8"
+                        type="checkbox"
+                        className="styled"
+                        checked={checkboxes[7]}
+                        onChange={(e) => changeCheck(e, "checkboxes", 7)}
+                      />
+                      <label htmlFor="checkbox8">Secondary Yellow Checkbox</label>
+                    </div>
+                    <div className="form-check checkbox checkbox-info">
+                      <input
+                        id="checkbox9"
+                        type="checkbox"
+                        className="styled"
+                        disabled
+                      />
+                      <label htmlFor="checkbox9">Disabled Checkbox</label>
+                    </div>
                   </FormGroup>
                 </Form>
               </Widget>
