@@ -22,8 +22,10 @@ import TextareaAutosize from "react-textarea-autosize";
 import ReactMde from "react-mde";
 import * as Showdown from "showdown";
 import Select from "react-select";
+import DatePicker from "react-datepicker";
 
 import "react-mde/lib/styles/css/react-mde-all.css";
+import "react-datepicker/dist/react-datepicker.css";
 
 import Widget from "../../../components/Widget/Widget";
 import s from "./Elements.module.scss"
@@ -79,6 +81,7 @@ export default function Elements() {
   const [blueDropdownValue, setBlueDropdownValue] = useState('Ichi')
   const [violetDropdownValue, setVioletDropdownValue] = useState('Hichi')
   const [darkDropdownValue, setDarkDropdownValue] = useState('Achi')
+  const [startDate, setStartDate] = useState(new Date());
 
   const changeSelectDropdownSimple = (e) => {
     setSimpleDropdownValue(e.currentTarget.textContent)
@@ -632,120 +635,195 @@ export default function Elements() {
           <Row className="gutter mb-4">
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
-                <div className="headline-2">Checkbox Controls</div>
-                <Form>
-                  <legend className="mt-2">Basic</legend>
-                  <div className="mb-3">
-                    We customized checkboxes with our theme colors. Let your checkboxes shine!
+                <div className="headline-2 mb-3">Checkbox Controls</div>
+                <div className="mb-3">
+                  We customized checkboxes with our theme colors. Let your checkboxes shine!
+                </div>
+                <FormGroup className="pl-0" check>
+                  <div className="form-check checkbox checkbox-default">
+                    <input
+                      id="checkbox1"
+                      type="checkbox"
+                      className="styled"
+                      checked={checkboxes[0]}
+                      onChange={(e) => changeCheck(e, "checkboxes", 0)}
+                    />
+                    <label htmlFor="checkbox1">Default Checkbox</label>
                   </div>
-                  <FormGroup className="pl-0" check>
-                    <div className="form-check checkbox checkbox-default">
-                      <input
-                        id="checkbox1"
-                        type="checkbox"
-                        className="styled"
-                        checked={checkboxes[0]}
-                        onChange={(e) => changeCheck(e, "checkboxes", 0)}
-                      />
-                      <label htmlFor="checkbox1">Default Checkbox</label>
-                    </div>
-                    <div className="form-check checkbox checkbox-primary">
-                      <input
-                        id="checkbox2"
-                        type="checkbox"
-                        className="styled"
-                        checked={checkboxes[1]}
-                        onChange={(e) => changeCheck(e, "checkboxes", 1)}
-                      />
-                      <label htmlFor="checkbox2">Primary Checkbox</label>
-                    </div>
-                    <div className="form-check checkbox checkbox-info">
-                      <input
-                        id="checkbox3"
-                        type="checkbox"
-                        className="styled"
-                        checked={checkboxes[2]}
-                        onChange={(e) => changeCheck(e, "checkboxes", 2)}
-                      />
-                      <label htmlFor="checkbox3">Secondary Yellow Checkbox</label>
-                    </div>
-                    <div className="form-check checkbox checkbox-success">
-                      <input
-                        id="checkbox4"
-                        type="checkbox"
-                        className="styled"
-                        checked={checkboxes[3]}
-                        onChange={(e) => changeCheck(e, "checkboxes", 3)}
-                      />
-                      <label htmlFor="checkbox4">Success Checkbox</label>
-                    </div>
-                    <div className="form-check checkbox checkbox-warning">
-                      <input
-                        id="checkbox5"
-                        type="checkbox"
-                        className="styled"
-                        checked={checkboxes[4]}
-                        onChange={(e) => changeCheck(e, "checkboxes", 4)}
-                      />
-                      <label htmlFor="checkbox5">Warning Checkbox</label>
-                    </div>
-                    <div className="form-check checkbox checkbox-danger">
-                      <input
-                        id="checkbox6"
-                        type="checkbox"
-                        className="styled"
-                        checked={checkboxes[5]}
-                        onChange={(e) => changeCheck(e, "checkboxes", 5)}
-                      />
-                      <label htmlFor="checkbox6">Danger Checkbox</label>
-                    </div>
-                    <div className="form-check checkbox checkbox-secondary-red">
-                      <input
-                        id="checkbox7"
-                        type="checkbox"
-                        className="styled"
-                        checked={checkboxes[6]}
-                        onChange={(e) => changeCheck(e, "checkboxes", 6)}
-                      />
-                      <label htmlFor="checkbox7">Secondary Red Checkbox</label>
-                    </div>
-                    <div className="form-check checkbox checkbox-secondary-yellow">
-                      <input
-                        id="checkbox8"
-                        type="checkbox"
-                        className="styled"
-                        checked={checkboxes[7]}
-                        onChange={(e) => changeCheck(e, "checkboxes", 7)}
-                      />
-                      <label htmlFor="checkbox8">Secondary Yellow Checkbox</label>
-                    </div>
-                    <div className="form-check checkbox checkbox-info">
-                      <input
-                        id="checkbox9"
-                        type="checkbox"
-                        className="styled"
-                        disabled
-                      />
-                      <label htmlFor="checkbox9">Disabled Checkbox</label>
-                    </div>
-                  </FormGroup>
+                  <div className="form-check checkbox checkbox-primary">
+                    <input
+                      id="checkbox2"
+                      type="checkbox"
+                      className="styled"
+                      checked={checkboxes[1]}
+                      onChange={(e) => changeCheck(e, "checkboxes", 1)}
+                    />
+                    <label htmlFor="checkbox2">Primary Checkbox</label>
+                  </div>
+                  <div className="form-check checkbox checkbox-info">
+                    <input
+                      id="checkbox3"
+                      type="checkbox"
+                      className="styled"
+                      checked={checkboxes[2]}
+                      onChange={(e) => changeCheck(e, "checkboxes", 2)}
+                    />
+                    <label htmlFor="checkbox3">Secondary Yellow Checkbox</label>
+                  </div>
+                  <div className="form-check checkbox checkbox-success">
+                    <input
+                      id="checkbox4"
+                      type="checkbox"
+                      className="styled"
+                      checked={checkboxes[3]}
+                      onChange={(e) => changeCheck(e, "checkboxes", 3)}
+                    />
+                    <label htmlFor="checkbox4">Success Checkbox</label>
+                  </div>
+                  <div className="form-check checkbox checkbox-warning">
+                    <input
+                      id="checkbox5"
+                      type="checkbox"
+                      className="styled"
+                      checked={checkboxes[4]}
+                      onChange={(e) => changeCheck(e, "checkboxes", 4)}
+                    />
+                    <label htmlFor="checkbox5">Warning Checkbox</label>
+                  </div>
+                  <div className="form-check checkbox checkbox-danger">
+                    <input
+                      id="checkbox6"
+                      type="checkbox"
+                      className="styled"
+                      checked={checkboxes[5]}
+                      onChange={(e) => changeCheck(e, "checkboxes", 5)}
+                    />
+                    <label htmlFor="checkbox6">Danger Checkbox</label>
+                  </div>
+                  <div className="form-check checkbox checkbox-secondary-red">
+                    <input
+                      id="checkbox7"
+                      type="checkbox"
+                      className="styled"
+                      checked={checkboxes[6]}
+                      onChange={(e) => changeCheck(e, "checkboxes", 6)}
+                    />
+                    <label htmlFor="checkbox7">Secondary Red Checkbox</label>
+                  </div>
+                  <div className="form-check checkbox checkbox-secondary-yellow">
+                    <input
+                      id="checkbox8"
+                      type="checkbox"
+                      className="styled"
+                      checked={checkboxes[7]}
+                      onChange={(e) => changeCheck(e, "checkboxes", 7)}
+                    />
+                    <label htmlFor="checkbox8">Secondary Yellow Checkbox</label>
+                  </div>
+                  <div className="form-check checkbox checkbox-info">
+                    <input
+                      id="checkbox9"
+                      type="checkbox"
+                      className="styled"
+                      disabled
+                    />
+                    <label htmlFor="checkbox9">Disabled Checkbox</label>
+                  </div>
+                </FormGroup>
+              </Widget>
+            </Col>
+            <Col xs={12} md={6} className="mt-4 mt-md-0">
+              <Widget className="widget-p-md">
+                <div className="headline-2 mb-3">Radio Controls</div>
+                <div className="mb-3">
+                  Supports bootstrap brand colors: <code>.abc-radio-primary</code>, <code>.abc-radio-danger</code>
+                  etc.
+                  Pure css solution with no javascript. Let your radios shine! Disabled state also supported.
+                  Full stack radios functionality.
+                </div>
+                <Form>
+                  <Row>
+                    <Col lg="12">
+                      <Row>
+                        <Col md="4">
+                          <FormGroup className="radio abc-radio">
+                            <Input
+                              type="radio" name="radio1" id="radio1" value="option1"
+                              defaultChecked
+                            />
+                            <Label for="radio1">Small</Label>
+                          </FormGroup>
+                          <FormGroup className="radio abc-radio">
+                            <Input type="radio" id="radio2" name="radio1" value="option2" />
+                            <Label for="radio2">Big</Label>
+                          </FormGroup>
+                        </Col>
+                        <Col md="4">
+                          <FormGroup className="radio abc-radio abc-radio-danger">
+                            <Input type="radio" id="radio3" value="option1" name="radio2" />
+                            <Label for="radio3">Next</Label>
+                          </FormGroup>
+                          <FormGroup className="radio abc-radio abc-radio-danger">
+                            <Input
+                              type="radio" id="radio4" value="option2" name="radio2"
+                              defaultChecked
+                            />
+                            <Label for="radio4">One</Label>
+                          </FormGroup>
+                        </Col>
+                        <Col md="4">
+                          <FormGroup className="radio abc-radio">
+                            <Input type="radio" name="radio3" id="radio5" value="option1" disabled />
+                            <Label for="radio5">Next</Label>
+                          </FormGroup>
+                          <FormGroup className="radio abc-radio abc-radio-warning">
+                            <Input
+                              type="radio" name="radio3" id="radio6" value="option2" disabled
+                              defaultChecked
+                            />
+                            <Label for="radio6">One</Label>
+                          </FormGroup>
+                        </Col>
+                      </Row>
+                    </Col>
+                  </Row>
                 </Form>
               </Widget>
             </Col>
+          </Row>
+          <Row className="gutter mb-4">
+            <Col xs={12} md={6}>
+              <Widget className="widget-p-md">
+                <div className="headline-2 mb-3">Pickers</div>
+                <legend className="mt-2">Date & Time</legend>
 
+                {/*<FormGroup>*/}
+                  <div className="mb-2">Date Picker</div>
+                  <Row>
+                    <Col xs="6">
+                      <DatePicker
+                        dateFormat="dd/MM/yyyy"
+                        selected={startDate}
+                        onChange={(date) => setStartDate(date)}
+                        isClearable
+                        placeholderText="I have been cleared!"
+                      />
+                    </Col>
+                  </Row>
+                {/*</FormGroup>*/}
 
-
-
+              </Widget>
+            </Col>
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
-                <div className="headline-2">Radio Controls</div>
-                <Form>
-                  <legend className="mt-2">Input Groups</legend>
-                  <div className="mb-3">
-                    Different colors
-                  </div>
+                <div className="headline-2 mb-3">Input masks</div>
+                <div className="mb-3">
+                  Supports bootstrap brand colors: <code>.abc-radio-primary</code>, <code>.abc-radio-danger</code>
+                  etc.
+                  Pure css solution with no javascript. Let your radios shine!
+                </div>
 
-                </Form>
+
               </Widget>
             </Col>
           </Row>

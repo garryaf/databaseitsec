@@ -677,6 +677,11 @@ input[type='checkbox'] .styled:checked + label::after {
   color: #fff;
 }
 
+///////// Radio //////////
+.radio {
+  padding-left: 8px;
+}
+
 ///////// Tabs //////////
 
 .nav-tabs {
@@ -897,6 +902,23 @@ pre {
   code {
     background-color: transparent;
   }
+}
+
+///////// React Datepicker /////////
+.react-datepicker__input-container {
+  input {
+    padding: 4px 8px;
+    border: 1px solid $base-dark-gray;
+    border-radius: 8px;
+    color: $base-dark-gray;
+  }
+  button::after {
+    background-color: $violet;
+  }
+}
+
+.react-datepicker__day--selected {
+  background-color: $violet;
 }
 
 ///////// Class helpers /////////
