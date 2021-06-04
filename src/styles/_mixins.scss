@@ -48,3 +48,8 @@
     color: $white;
   }
 }
+
+@mixin checkbox($color) {
+  background-color: $color;
+  border-color: $color;
+}

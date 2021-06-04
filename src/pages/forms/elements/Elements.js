@@ -412,7 +412,7 @@ export default function Elements() {
                       <InputGroupAddon addonType="prepend">
                         <span className="input-group-text"><i className="fa fa-eye-slash"></i></span>
                       </InputGroupAddon>
-                      <Input className="bg-middle-gray" type="password" placeholder="Password" />
+                      <Input className="bg-light-gray" type="password" placeholder="Password" />
                     </InputGroup>
                   </FormGroup>
                   <FormGroup>
@@ -427,7 +427,7 @@ export default function Elements() {
               </Widget>
             </Col>
           </Row>
-          <Row className="gutter">
+          <Row className="gutter mb-4">
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Textareas</div>
@@ -530,7 +530,7 @@ export default function Elements() {
                       <UncontrolledButtonDropdown>
                         <DropdownToggle
                           caret color="info"
-                          className="mr-3"
+                          className="mr-3 mb-3"
                         >
                           {blueDropdownValue}
                         </DropdownToggle>
@@ -549,7 +549,7 @@ export default function Elements() {
                       <UncontrolledButtonDropdown>
                         <DropdownToggle
                           caret color="primary"
-                          className="mr-3"
+                          className="mr-3 mb-3"
                         >
                           {violetDropdownValue}
                         </DropdownToggle>
@@ -568,7 +568,7 @@ export default function Elements() {
                       <UncontrolledButtonDropdown>
                         <DropdownToggle
                           caret color="default"
-                          className="mr-3"
+                          className="mr-3 mb-3"
                         >
                           {darkDropdownValue}
                         </DropdownToggle>
@@ -612,6 +612,40 @@ export default function Elements() {
                       </UncontrolledButtonDropdown>
                     </Col>
                   </FormGroup>
+                </Form>
+              </Widget>
+            </Col>
+          </Row>
+          <Row className="gutter mb-4">
+            <Col xs={12} md={6}>
+              <Widget className="widget-p-md">
+                <div className="headline-2">Checkbox Controls</div>
+                <Form>
+                  <legend className="mt-2">Control sizing</legend>
+                  <div className="mb-3">
+                    Set
+                  </div>
+                  <FormGroup check>
+                    <Label check>
+                      <Input type="checkbox" /> Check me out
+                    </Label>
+                  </FormGroup>
+                </Form>
+              </Widget>
+            </Col>
+
+
+
+
+            <Col xs={12} md={6} className="mt-4 mt-md-0">
+              <Widget className="widget-p-md">
+                <div className="headline-2">Radio Controls</div>
+                <Form>
+                  <legend className="mt-2">Input Groups</legend>
+                  <div className="mb-3">
+                    Different colors
+                  </div>
+
                 </Form>
               </Widget>
             </Col>

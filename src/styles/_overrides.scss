@@ -656,13 +656,15 @@ a.badge {
   cursor: not-allowed;
 }
 
-.checkbox-primary input[type='checkbox']:checked + label::before {
-  background-color: $violet;
-  border-color: $violet;
+@each $color, $value in $theme-colors {
+  .checkbox-#{$color} input[type='checkbox']:checked + label::before {
+    @include checkbox($value);
+  }
 }
-.checkbox-primary input[type='checkbox']:checked + label::after {
-  color: #fff;
-}
+
+//.checkbox-* input[type='checkbox']:checked + label::after {
+//  color: #fff;
+//}
 
 input[type='checkbox'].styled:checked + label:after {
   top: 2px;
