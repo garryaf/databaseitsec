@@ -88,7 +88,8 @@ export default function Elements() {
   const [darkDropdownValue, setDarkDropdownValue] = useState('Achi')
   const [startDate, setStartDate] = useState(new Date());
   const [color, setColor] = useState("#b32aa9");
-  const [inputColor, setInputColor] = useState("#b32aa9")
+  const [inputColor, setInputColor] = useState("#b32aa9");
+  const {acceptedFiles, getRootProps, getInputProps, isDragActive} = useDropzone();
 
   const changeSelectDropdownSimple = (e) => {
     setSimpleDropdownValue(e.currentTarget.textContent)
@@ -941,8 +942,13 @@ export default function Elements() {
                     File input
                   </Label>
                   <Col lg="9">
-                    <div className="input-group mb-3 px-2 py-2 rounded-pill bg-light-gray shadow-sm">
-                      <input id="upload" type="file" onChange="readURL(this);" className={`form-control border-0 ${s.upload}`}/>
+                    <div className="input-group mb-4 px-2 py-2 rounded-pill bg-light-gray">
+                      <input
+                        id="upload"
+                        type="file"
+                        // onChange="readURL(this);"
+                        className={`form-control border-0 ${s.upload}`}
+                      />
                       <label id="upload-label" htmlFor="upload" className={`font-weight-light text-muted ${s.uploadLabel}`}>Choose
                         file</label>
                       <div className="input-group-append">
@@ -951,7 +957,7 @@ export default function Elements() {
                         </label>
                       </div>
                     </div>
-                    <div className="body-3 text-center">
+                    <div className="label muted text-center mb-2">
                       The image uploaded will be rendered inside the box
                       below.
                     </div>
@@ -964,22 +970,18 @@ export default function Elements() {
             </Col>
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
-                <div className="headline-2 mb-3">Input masks</div>
-                <legend className="mt-2">Masked Inputs</legend>
-                <FormGroup row>
-                  <Label md="4" xs="12" className="d-flex flex-column" for="mask-phone">
-                    Phone
-                    <span className="label muted">(123) 456-7890</span>
-                  </Label>
-                  <Col md="8" xs="12">
-                    <MaskedInput
-                      className="form-control"
-                      id="mask-phone"
-                      mask="(111) 111-1111"
-                      size="10"
-                    />
-                  </Col>
-                </FormGroup>
+                <div className="headline-2 mb-3">Drop Zone</div>
+                <div className="mb-3">
+                  <code>react-dropzone</code> is a simple React hook to create a HTML5-compliant drag'n'drop zone for files.
+                </div>
+                <div {...getRootProps()} className={s.dropzone}>
+                  <input {...getInputProps()} />
+                  {
+                    isDragActive ?
+                      <p className="muted">Drop the files here ...</p> :
+                      <p className="muted">Drag 'n' drop some files here, or click to select files</p>
+                  }
+                </div>
 
               </Widget>
             </Col>

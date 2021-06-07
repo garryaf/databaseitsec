@@ -49,6 +49,7 @@
 }
 
 .imageArea {
+  height: 100px;
   border: 2px dashed $base-middle-gray;
   border-radius: 8px;
   padding: 1.25rem;
@@ -58,8 +59,6 @@
 .imageArea::before {
   content: 'Uploaded image result';
   color: $base-dark-gray;
-  font-weight: bold;
-  text-transform: uppercase;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -70,5 +69,16 @@
 
 .imageArea img {
   z-index: 2;
+  position: relative;
+}
+
+.dropzone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem;
+  height: 150px;
+  border: 2px dashed $base-middle-gray;
+  border-radius: 8px;
   position: relative;
 }
