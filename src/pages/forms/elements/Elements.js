@@ -10,9 +10,7 @@ import {
   InputGroupAddon,
   Form,
   FormGroup,
-  CustomInput,
   UncontrolledTooltip,
-  UncontrolledDropdown,
   UncontrolledButtonDropdown,
   DropdownItem,
   DropdownMenu,
@@ -87,8 +85,8 @@ export default function Elements() {
   const [violetDropdownValue, setVioletDropdownValue] = useState('Hichi')
   const [darkDropdownValue, setDarkDropdownValue] = useState('Achi')
   const [startDate, setStartDate] = useState(new Date());
-  const [color, setColor] = useState("#b32aa9");
-  const [inputColor, setInputColor] = useState("#b32aa9");
+  const [color, setColor] = useState("#FF5668");
+  const [inputColor, setInputColor] = useState("#FF5668");
   const {acceptedFiles, getRootProps, getInputProps, isDragActive} = useDropzone();
 
   const changeSelectDropdownSimple = (e) => {
