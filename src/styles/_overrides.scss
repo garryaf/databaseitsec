@@ -886,10 +886,6 @@ form-group {
   align-items: center;
 }
 
-.col-form-label {
-  align-self: center;
-}
-
 ///////// Code //////////
 
 code {
@@ -919,6 +915,23 @@ pre {
 
 .react-datepicker__day--selected {
   background-color: $violet;
+}
+
+.react-datepicker__time-container
+.react-datepicker__time
+.react-datepicker__time-box
+ul.react-datepicker__time-list
+li.react-datepicker__time-list-item--selected {
+  background-color: $violet;
+}
+
+///////// Colorpicker /////////
+.rc-color-picker-wrap {
+  display: flex;
+  span {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 ///////// Class helpers /////////

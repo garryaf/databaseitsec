@@ -23,12 +23,17 @@ import ReactMde from "react-mde";
 import * as Showdown from "showdown";
 import Select from "react-select";
 import DatePicker from "react-datepicker";
+import ColorPicker from 'rc-color-picker';
+import MaskedInput from "react-maskedinput";
+import { useDropzone } from 'react-dropzone';
 
+
+import 'rc-color-picker/assets/index.css';
 import "react-mde/lib/styles/css/react-mde-all.css";
 import "react-datepicker/dist/react-datepicker.css";
 
 import Widget from "../../../components/Widget/Widget";
-import s from "./Elements.module.scss"
+import s from "./Elements.module.scss";
 
 export default function Elements() {
 
@@ -70,7 +75,7 @@ export default function Elements() {
 
   // refactor it
   const [dropdownOpen, setDropdownOpen] = useState(false)
-  const toggle = () => setDropdownOpen(!dropdownOpen)
+  // const toggle = () => setDropdownOpen(!dropdownOpen)
   const [dropdownValue, setDropdownValue] = useState('Another Value')
   const changeValueDropdown = (e) => {
     setDropdownValue(e.currentTarget.textContent)
@@ -82,6 +87,8 @@ export default function Elements() {
   const [violetDropdownValue, setVioletDropdownValue] = useState('Hichi')
   const [darkDropdownValue, setDarkDropdownValue] = useState('Achi')
   const [startDate, setStartDate] = useState(new Date());
+  const [color, setColor] = useState("#b32aa9");
+  const [inputColor, setInputColor] = useState("#b32aa9")
 
   const changeSelectDropdownSimple = (e) => {
     setSimpleDropdownValue(e.currentTarget.textContent)
@@ -90,9 +97,11 @@ export default function Elements() {
   const changeBlueDropdown = (e) => {
     setBlueDropdownValue(e.currentTarget.textContent)
   }
+
   const changeVioletDropdown = (e) => {
     setVioletDropdownValue(e.currentTarget.textContent)
   }
+
   const changeDarkDropdown = (e) => {
     setDarkDropdownValue(e.currentTarget.textContent)
   }
@@ -106,6 +115,17 @@ export default function Elements() {
     setCheckboxes({
       checkboxes
     });
+  }
+
+  const changeColorValue = (colors) => {
+    setColor(colors.color)
+  }
+
+  const changeColorInput = (e) => {
+    if (e.target.value.length > 0 && e.target.value.length < 8) {
+      setInputColor(e.target.value)
+      setColor(e.target.value)
+    }
   }
 
   return (
@@ -384,62 +404,121 @@ export default function Elements() {
           <Row className="gutter mb-4">
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
-                <div className="headline-2">Form Options</div>
-                <Form>
-                  <legend className="mt-2">Control sizing</legend>
-                  <div className="mb-3">
-                    Set input heights using parameters like <code>size=&apos;lg&apos;</code> and
-                    <code>size=&apos;sm&apos;</code>.
-                    Also works with <code>type=&apos;search&apos;</code> inputs, input groups and
-                    selects.
-                  </div>
-                  <FormGroup>
-                    <Input type="text" placeholder='bsSize="lg"' bsSize="lg" />
-                  </FormGroup>
-                  <FormGroup>
-                    <Input type="text" placeholder="default input" />
-                  </FormGroup>
-                  <FormGroup>
-                    <Input type="text" placeholder='bsSize="sm"' bsSize="sm" />
-                  </FormGroup>
-                </Form>
+                <div className="headline-2 mb-3">Pickers</div>
+                <legend className="mt-2">Date & Time</legend>
+                <Row>
+                  <Col md="6">
+                    <div className="mb-2">Date Picker</div>
+                    <DatePicker
+                      dateFormat="dd/MM/yyyy"
+                      selected={startDate}
+                      onChange={(date) => setStartDate(date)}
+                      isClearable
+                      placeholderText="I have been cleared!"
+                    />
+                  </Col>
+                  <Col md="6">
+                    <div className="mb-2">Time Picker</div>
+                    <DatePicker
+                      selected={startDate}
+                      onChange={(date) => setStartDate(date)}
+                      showTimeSelect
+                      showTimeSelectOnly
+                      timeIntervals={15}
+                      timeCaption="Time"
+                      dateFormat="hh:mm"
+                      isClearable
+                      placeholderText="I have been cleared!"
+                    />
+                  </Col>
+                </Row>
+                <legend className="mt-5">Colors</legend>
+                <Row>
+                  <Col>
+                    <Form>
+                      <FormGroup>
+                        <Label for="colorpicker">
+                          Simple select
+                          <InputGroup id="colorpicker">
+                            <Input
+                              type="text" onChange={(e) => changeColorInput(e)} id="colorpicker"
+                              value={inputColor}
+                            />
+                            <InputGroupAddon addonType="append">
+                              <span className="input-group-text">
+                                <ColorPicker
+                                  animation="slide-up"
+                                  color={color}
+                                  onChange={changeColorValue}
+                                />
+                              </span>
+                            </InputGroupAddon>
+                          </InputGroup>
+                        </Label>
+                      </FormGroup>
+
+                    </Form>
+                  </Col>
+                </Row>
               </Widget>
             </Col>
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
-                <div className="headline-2">Form Options</div>
-                <Form>
-                  <legend className="mt-2">Input Groups</legend>
-                  <div className="mb-3">
-                    Different colors & sizes for any elements including input groups. Elements may be
-                    easily styled with classes like <code>.bg-middle-gray</code> or
-                    <code>.bg-transparent</code>
-                  </div>
-                  <FormGroup>
-                    <InputGroup>
-                      <InputGroupAddon addonType="prepend">
-                        <span className="input-group-text"><i className="fa fa-github"></i></span>
-                      </InputGroupAddon>
-                      <Input type="text" placeholder="Login" />
-                    </InputGroup>
-                  </FormGroup>
-                  <FormGroup>
-                    <InputGroup>
-                      <InputGroupAddon addonType="prepend">
-                        <span className="input-group-text"><i className="fa fa-eye-slash"></i></span>
-                      </InputGroupAddon>
-                      <Input className="bg-light-gray" type="password" placeholder="Password" />
-                    </InputGroup>
-                  </FormGroup>
-                  <FormGroup>
-                    <InputGroup>
-                      <Input type="text" placeholder="Phone" />
-                      <InputGroupAddon addonType="prepend">
-                        <span className="bg-primary text-white input-group-text"><i className="fa fa-phone" /></span>
-                      </InputGroupAddon>
-                    </InputGroup>
-                  </FormGroup>
-                </Form>
+                <div className="headline-2 mb-3">Input masks</div>
+                <legend className="mt-2">Masked Inputs</legend>
+                <FormGroup row>
+                  <Label md="4" xs="12" className="d-flex flex-column" for="mask-phone">
+                    Phone
+                    <span className="label muted">(123) 456-7890</span>
+                  </Label>
+                  <Col md="8" xs="12">
+                    <MaskedInput
+                      className="form-control"
+                      id="mask-phone"
+                      mask="(111) 111-1111"
+                      size="10"
+                    />
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Label md="4" xs="12" className="d-flex flex-column" for="mask-int-phone">
+                    International Phone
+                    <span className="label muted">+972 123 456 789</span>
+                  </Label>
+                  <Col md="8" xs="12">
+                    <MaskedInput
+                      className="form-control"
+                      id="mask-int-phone"
+                      mask="+111 111 111 111"
+                    />
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Label md="4" xs="12" className="d-flex flex-column" for="mask-date">
+                    Date Format
+                    <span className="label muted">07-06-2021</span>
+                  </Label>
+                  <Col md="8" xs="12">
+                    <MaskedInput
+                      className="form-control"
+                      id="mask-date"
+                      mask="11-11-1111"
+                    />
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <Label md="4" xs="12" className="d-flex flex-column" for="mask-time">
+                    Time
+                    <span className="label muted">19:45</span>
+                  </Label>
+                  <Col md="8" xs="12">
+                    <MaskedInput
+                      className="form-control"
+                      id="mask-time"
+                      mask="11:11"
+                    />
+                  </Col>
+                </FormGroup>
               </Widget>
             </Col>
           </Row>
@@ -635,6 +714,68 @@ export default function Elements() {
           <Row className="gutter mb-4">
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
+                <div className="headline-2">Form Options</div>
+                <Form>
+                  <legend className="mt-2">Control sizing</legend>
+                  <div className="mb-3">
+                    Set input heights using parameters like <code>size=&apos;lg&apos;</code> and
+                    <code>size=&apos;sm&apos;</code>.
+                    Also works with <code>type=&apos;search&apos;</code> inputs, input groups and
+                    selects.
+                  </div>
+                  <FormGroup>
+                    <Input type="text" placeholder='bsSize="lg"' bsSize="lg" />
+                  </FormGroup>
+                  <FormGroup>
+                    <Input type="text" placeholder="default input" />
+                  </FormGroup>
+                  <FormGroup>
+                    <Input type="text" placeholder='bsSize="sm"' bsSize="sm" />
+                  </FormGroup>
+                </Form>
+              </Widget>
+            </Col>
+            <Col xs={12} md={6} className="mt-4 mt-md-0">
+              <Widget className="widget-p-md">
+                <div className="headline-2">Form Options</div>
+                <Form>
+                  <legend className="mt-2">Input Groups</legend>
+                  <div className="mb-3">
+                    Different colors & sizes for any elements including input groups. Elements may be
+                    easily styled with classes like <code>.bg-middle-gray</code> or
+                    <code>.bg-transparent</code>
+                  </div>
+                  <FormGroup>
+                    <InputGroup>
+                      <InputGroupAddon addonType="prepend">
+                        <span className="input-group-text"><i className="fa fa-github"></i></span>
+                      </InputGroupAddon>
+                      <Input type="text" placeholder="Login" />
+                    </InputGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <InputGroup>
+                      <InputGroupAddon addonType="prepend">
+                        <span className="input-group-text"><i className="fa fa-eye-slash"></i></span>
+                      </InputGroupAddon>
+                      <Input className="bg-light-gray" type="password" placeholder="Password" />
+                    </InputGroup>
+                  </FormGroup>
+                  <FormGroup>
+                    <InputGroup>
+                      <Input type="text" placeholder="Phone" />
+                      <InputGroupAddon addonType="prepend">
+                        <span className="bg-primary text-white input-group-text"><i className="fa fa-phone" /></span>
+                      </InputGroupAddon>
+                    </InputGroup>
+                  </FormGroup>
+                </Form>
+              </Widget>
+            </Col>
+          </Row>
+          <Row className="gutter mb-4">
+            <Col xs={12} md={6}>
+              <Widget className="widget-p-md">
                 <div className="headline-2 mb-3">Checkbox Controls</div>
                 <div className="mb-3">
                   We customized checkboxes with our theme colors. Let your checkboxes shine!
@@ -794,35 +935,51 @@ export default function Elements() {
           <Row className="gutter mb-4">
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
-                <div className="headline-2 mb-3">Pickers</div>
-                <legend className="mt-2">Date & Time</legend>
-
-                {/*<FormGroup>*/}
-                  <div className="mb-2">Date Picker</div>
-                  <Row>
-                    <Col xs="6">
-                      <DatePicker
-                        dateFormat="dd/MM/yyyy"
-                        selected={startDate}
-                        onChange={(date) => setStartDate(date)}
-                        isClearable
-                        placeholderText="I have been cleared!"
-                      />
-                    </Col>
-                  </Row>
-                {/*</FormGroup>*/}
-
+                <div className="headline-2 mb-3">Simple File Uploads</div>
+                <FormGroup row>
+                  <Label lg="3" className="text-md-right mt-3">
+                    File input
+                  </Label>
+                  <Col lg="9">
+                    <div className="input-group mb-3 px-2 py-2 rounded-pill bg-light-gray shadow-sm">
+                      <input id="upload" type="file" onChange="readURL(this);" className={`form-control border-0 ${s.upload}`}/>
+                      <label id="upload-label" htmlFor="upload" className={`font-weight-light text-muted ${s.uploadLabel}`}>Choose
+                        file</label>
+                      <div className="input-group-append">
+                        <label htmlFor="upload" className="btn btn-light m-0 rounded-pill px-4">
+                          <i className="fa fa-cloud-upload mr-2 text-muted"></i>
+                        </label>
+                      </div>
+                    </div>
+                    <div className="body-3 text-center">
+                      The image uploaded will be rendered inside the box
+                      below.
+                    </div>
+                    <div className={`mt-2 ${s.imageArea}`}>
+                      <img id="imageResult" src="#" alt="" className="img-fluid rounded shadow-sm mx-auto d-block"/>
+                    </div>
+                  </Col>
+                </FormGroup>
               </Widget>
             </Col>
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2 mb-3">Input masks</div>
-                <div className="mb-3">
-                  Supports bootstrap brand colors: <code>.abc-radio-primary</code>, <code>.abc-radio-danger</code>
-                  etc.
-                  Pure css solution with no javascript. Let your radios shine!
-                </div>
-
+                <legend className="mt-2">Masked Inputs</legend>
+                <FormGroup row>
+                  <Label md="4" xs="12" className="d-flex flex-column" for="mask-phone">
+                    Phone
+                    <span className="label muted">(123) 456-7890</span>
+                  </Label>
+                  <Col md="8" xs="12">
+                    <MaskedInput
+                      className="form-control"
+                      id="mask-phone"
+                      mask="(111) 111-1111"
+                      size="10"
+                    />
+                  </Col>
+                </FormGroup>
 
               </Widget>
             </Col>
