@@ -158,8 +158,13 @@ export default function Validation() {
             </Col>
             <Col xs={12} lg={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
-                <div className="headline-2">Formik Validation</div>
-                <FormikForm/>
+                <div className="headline-2 mb-2">Formik Validation</div>
+                <legend>
+                  Example of form using Formik validation. Just try it to see how it works!
+                </legend>
+                <div className="px-0 px-md-3">
+                  <FormikForm/>
+                </div>
               </Widget>
             </Col>
           </Row>

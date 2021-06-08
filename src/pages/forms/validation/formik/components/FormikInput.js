@@ -1,17 +1,24 @@
 import React from "react";
 import { useField } from "formik";
+import {
+  FormGroup,
+  Label,
+  Col,
+  Input,
+} from "reactstrap";
 
 export default function FormikInput({ label, ...props}) {
   const [field, meta] = useField(props);
   return (
-    <>
-      <label thmlFor={props.id || props.name}>{label}</label>
-      <input style={{ width: '400px'}} {...field} {...props} />
+    <FormGroup>
+      <label xs={12} htmlFor={props.id || props.name} className="headline-3">{label}</label>
+      <Input xs={12} {...field} {...props} />
       {meta.touched && meta.error
         ? (<div className="">{meta.error}</div>)
         : null
       }
-    </>
+
+    </FormGroup>
   )
 }
 

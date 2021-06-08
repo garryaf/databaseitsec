@@ -5,12 +5,16 @@ import FormikInput from "./components/FormikInput";
 import FormikCheckbox from "./components/FormikCheckbox";
 import FormikSelect from "./components/FormikSelect";
 import s from "./FormikForm.module.scss";
+import {
+  FormGroup,
+  Col,
+} from "reactstrap";
 
 export default function FormikForm() {
 
   return (
     <>
-      <h2>Subscribe</h2>
+      <h2 className="mt-4">Subscribe!</h2>
       <Formik
         initialValues={{
           firstName: "",

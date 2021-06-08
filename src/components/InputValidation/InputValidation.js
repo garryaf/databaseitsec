@@ -4,19 +4,6 @@ import { withFormsy } from 'formsy-react';
 
 class InputValidation extends React.Component {
 
-  static propTypes = {
-    trigger: PropTypes.string,
-    type: PropTypes.string,
-    className: PropTypes.string,
-    name: PropTypes.string,
-    id: PropTypes.string,
-    placeholder: PropTypes.string,
-    setValue: PropTypes.func,
-    isFormSubmitted: PropTypes.func,
-    getErrorMessage: PropTypes.func,
-    showRequired: PropTypes.func,
-  };
-
   static defaultProps = {
     trigger: null,
     type: 'text',
