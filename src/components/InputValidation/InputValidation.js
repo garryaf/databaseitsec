@@ -1,7 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withFormsy } from 'formsy-react';
 
 class InputValidation extends React.Component {
+
+  static propTypes = {
+    trigger: PropTypes.string,
+    type: PropTypes.string,
+    className: PropTypes.string,
+    name: PropTypes.string,
+    id: PropTypes.string,
+    placeholder: PropTypes.string,
+    setValue: PropTypes.func,
+    isFormSubmitted: PropTypes.func,
+    getErrorMessage: PropTypes.func,
+    showRequired: PropTypes.func,
+  };
 
   static defaultProps = {
     trigger: null,
@@ -23,11 +37,10 @@ class InputValidation extends React.Component {
 
   render() {
     const errorMessageObject = (this.props.isFormSubmitted || this.props.trigger)
-      ? this.props.errorMessage
+      ? this.props.getErrorMessage
       : null;
-    const required = (this.props.isFormSubmitted && this.props.showRequired())
-      // ? <span className={'help-block text-danger'}>This value is required.</span>
-      ? 'This value is required'
+    const required = (this.props.isFormSubmitted && this.props.showRequired)
+      ? <span className={'help-block text-danger'}>This value is required.</span>
       : null;
     const errorMessage = [];
     if (errorMessageObject) {
@@ -38,7 +51,7 @@ class InputValidation extends React.Component {
     const errorList = errorMessage.map((msg, index) =>
       <span key={`msg-err-${index.toString()}`} className={'help-block text-danger'}>{msg}</span>,
     );
-
+    console.log(errorList)
     return (
       <div className={this.props.className}>
         <input
@@ -49,10 +62,9 @@ class InputValidation extends React.Component {
           onChange={this.changeValue}
           value={this.props.value || ''}
           placeholder={this.props.placeholder}
-        >
-          {required}
-          {/*{errorList}*/}
-        </input>
+        />
+        {required}
+        {errorList}
       </div>
     )
   }
