@@ -76,7 +76,7 @@ export default function Validation() {
                           name="email"
                           trigger="change"
                           required
-                          validations={{ isEmail: true }}
+                          validations="isEmail"
                           validationError={{ isEmail: 'This value should be a valid email.'}}
                         />
                         <span className="help-block body-3 muted">

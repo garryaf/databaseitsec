@@ -36,11 +36,12 @@ class InputValidation extends React.Component {
   }
 
   render() {
-    const errorMessageObject = (this.props.isFormSubmitted || this.props.trigger)
-      ? this.props.getErrorMessage
+    const errorMessageObject = (this.props.isFormSubmitted)
+      ? this.props.errorMessage
       : null;
+    console.log(errorMessageObject)
     const required = (this.props.isFormSubmitted && this.props.showRequired)
-      ? <span className={'help-block text-danger'}>This value is required.</span>
+      ? <div className={'help-block text-danger label'}>This value is required. </div>
       : null;
     const errorMessage = [];
     if (errorMessageObject) {
@@ -49,9 +50,8 @@ class InputValidation extends React.Component {
       });
     }
     const errorList = errorMessage.map((msg, index) =>
-      <span key={`msg-err-${index.toString()}`} className={'help-block text-danger'}>{msg}</span>,
+      <div key={`msg-err-${index.toString()}`} className={'help-block text-danger label'}>{msg}</div>,
     );
-    console.log(errorList)
     return (
       <div className={this.props.className}>
         <input
@@ -63,8 +63,7 @@ class InputValidation extends React.Component {
           value={this.props.value || ''}
           placeholder={this.props.placeholder}
         />
-        {required}
-        {errorList}
+        {required ? required : errorList}
       </div>
     )
   }
