@@ -39,7 +39,6 @@ class InputValidation extends React.Component {
     const errorMessageObject = (this.props.isFormSubmitted)
       ? this.props.errorMessage
       : null;
-    console.log(errorMessageObject)
     const required = (this.props.isFormSubmitted && this.props.showRequired)
       ? <div className={'help-block text-danger label'}>This value is required. </div>
       : null;

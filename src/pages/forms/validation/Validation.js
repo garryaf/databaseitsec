@@ -19,6 +19,7 @@ import {
 import Widget from "../../../components/Widget/Widget";
 import Formsy from "formsy-react";
 import InputValidation from "../../../components/InputValidation/InputValidation";
+import FormikForm from "./formik/FormikForm";
 
 export default function Validation() {
 
@@ -149,7 +150,7 @@ export default function Validation() {
                     </FormGroup>
                   </fieldset>
                   <div className="d-flex justify-content-between">
-                    <Button type="button" color="secondary" className="">Cancel</Button>
+                    <Button type="reset" color="secondary" className="">Cancel</Button>
                     <Button type="submit" color="primary" className="float-right">Validate & Submit</Button>
                   </div>
                 </Formsy>
@@ -158,9 +159,7 @@ export default function Validation() {
             <Col xs={12} lg={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Formik Validation</div>
-                <FormGroup>
-
-                </FormGroup>
+                <FormikForm/>
               </Widget>
             </Col>
           </Row>
