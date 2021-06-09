@@ -3,6 +3,7 @@ import {
   Row,
   Col,
   Button,
+  Badge,
   FormGroup,
   Label,
   Nav,
@@ -17,6 +18,7 @@ import MaskedInput from "react-maskedinput";
 import { selectCountriesData, selectShipmentData, cardTypesData } from "./data";
 import InputValidation from "../../../components/InputValidation/InputValidation";
 import Widget from "../../../components/Widget/Widget";
+import s from "./Wizard.module.scss";
 
 const theme = (theme) => ({
   ...theme,
@@ -43,11 +45,11 @@ const StepsComponents = {
             id="username"
             name="username"
             trigger="change"
-            required
             validations={{ isAlphanumeric: true }}
             validationError={{ isAlphanumeric: 'Username must contain symbols without spaces'}}
+            required
           />
-          <p className="help-block body-3 muted">Username can contain any letters or numbers, without spaces</p>
+          {/*<p className="help-block body-3 muted">Username can contain any letters or numbers, without spaces</p>*/}
         </FormGroup>
         <FormGroup>
           <Label for="email">Email</Label>
@@ -55,23 +57,24 @@ const StepsComponents = {
             type="text"
             id="email"
             name="email"
+            trigger="change"
             validations={{ isEmail: true }}
-            required
             validationError={{ isEmail: 'Please provide your E-mail' }}
+            required
           />
-          <p className="help-block body-3 muted">Please provide your E-mail</p>
+          {/*<p className="help-block body-3 muted">Please provide your E-mail</p>*/}
         </FormGroup>
         <FormGroup>
-          <Label for="address">Address</Label>
+          <Label for="password">Password</Label>
           <InputValidation
-            type="text"
-            id="address"
-            name="address"
+            type="password"
+            id="password"
+            name="password"
             validations={{ isAlpha: true }}
             required
             validationError={{ isAlpha: 'Please provide your address' }}
           />
-          <p className="help-block body-3 muted">Please provide your address</p>
+          {/*<p className="help-block body-3 muted">Please provide your address</p>*/}
         </FormGroup>
       </fieldset>
     );
@@ -148,6 +151,23 @@ const StepsComponents = {
         </FormGroup>
       </fieldset>
     )
+  },
+  Step4: function Step4() {
+    return (
+      <Jumbotron>
+        <div className="d-flex flex-column justify-content-center align-items-center">
+          {/*<i className="fa fa-handshake-o" aria-hidden="true"></i>*/}
+          <h1 className="display-flex align-items-center mt-2">
+            Thank you!
+          </h1>
+          <div className="body-1">
+            Dear customer,
+            thank you for your purchase with Flatlogic!
+            In your mailbox you will find the invoice for your purchase.
+          </div>
+        </div>
+      </Jumbotron>
+    )
   }
 }
 
@@ -155,6 +175,10 @@ export default function Wizard() {
 
   const [currentStep, setCurrentStep] = useState(1);
   const [progress, setProgress] = useState(25)
+
+  const isActive = (step) => {
+    return step <= currentStep;
+  }
 
   const nextStep = () => {
     let newStep = currentStep;
@@ -183,46 +207,22 @@ export default function Wizard() {
       <Row>
         <Col>
           <Row className="gutter mb-4">
-            <Col xs={9}>
+            <Col lg={8}>
               <Widget className="widget-p-md">
                 <div className="headline-1">Form Wizard</div>
                 <p className="mb-4">An example of complete wizard form in widget.</p>
-                <Nav pills justified className="">
-                  <NavItem>
-                    <NavLink active={currentStep === 1}>
-                      <small>1.</small>
-                      &nbsp;
-                      Your Details
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink active={currentStep === 2}>
-                      <small>2.</small>
-                      &nbsp;
-                      Shipping Details
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink active={currentStep === 3}>
-                      <small>2.</small>
-                      &nbsp;
-                      Payment Details
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink active={currentStep === 4}>
-                      <small>2.</small>
-                      &nbsp;
-                      Complete
-                    </NavLink>
-                  </NavItem>
-                </Nav>
-                <Progress value={progress} color="primary" className="progress-xs my-3"  />
-                <div className="bg-light-gray p-3">
+                <ul className={s.progressbar}>
+                  <li className={`${s.account} ${isActive(1) && s.active}`}><strong>Account</strong></li>
+                  <li className={`${s.personal} ${isActive(2) && s.active}`}><strong>Shipping</strong></li>
+                  <li className={`${s.payment} ${isActive(3) && s.active}`}><strong>Payment</strong></li>
+                  <li className={`${s.confirm} ${isActive(4) && s.active}`}><strong>Finish</strong></li>
+                </ul>
+                <div className={`bg-light-gray p-3 ${s.formBlock}`}>
                   <Formsy>
                     {currentStep === 1 && <StepsComponents.Step1 />}
                     {currentStep === 2 && <StepsComponents.Step2 />}
                     {currentStep === 3 && <StepsComponents.Step3 />}
+                    {currentStep === 4 && <StepsComponents.Step4 />}
                   </Formsy>
                 </div>
                 <div className="mt-3 d-flex justify-content-between">
@@ -238,6 +238,7 @@ export default function Wizard() {
                   <div>
                     {currentStep < steps &&
                     <Button
+                      type="submit"
                       className="d-flex align-items-center"
                       color="primary"
                       onClick={nextStep}
@@ -253,7 +254,6 @@ export default function Wizard() {
                       onClick={nextStep}
                     >
                       Finish
-                      <i className="fa fa-check-circle ml-1"/>
                     </Button>
                     }
                   </div>

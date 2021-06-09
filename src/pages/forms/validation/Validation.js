@@ -6,15 +6,6 @@ import {
   Form,
   FormGroup,
   Label,
-  Input,
-  UncontrolledTooltip,
-  UncontrolledButtonDropdown,
-  InputGroup,
-  InputGroupAddon,
-  ButtonGroup,
-  DropdownMenu,
-  DropdownItem,
-  DropdownToggle,
 } from 'reactstrap';
 import Widget from "../../../components/Widget/Widget";
 import Formsy from "formsy-react";
