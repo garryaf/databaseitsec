@@ -7,7 +7,7 @@ export default function FormikCheckbox({ children, ...props}) {
 
   return (
     <>
-      <div className="form-check checkbox checkbox-primary mt-3">
+      <div className="form-check checkbox checkbox-primary mt-4 mb-0">
         <input
           className="styled"
           type="checkbox"
@@ -16,10 +16,10 @@ export default function FormikCheckbox({ children, ...props}) {
           onChange={() => setChecked(!checked)}
           {...field} {...props}
         />
-        <label htmlFor="checkbox0">{children}</label>
+        <label className="mb-0" htmlFor="checkbox0">{children}</label>
       </div>
       {meta.touched && meta.error
-        ? (<div className="">{meta.error}</div>)
+        ? (<div className="help-block text-danger label">{meta.error}</div>)
         : null
       }
     </>

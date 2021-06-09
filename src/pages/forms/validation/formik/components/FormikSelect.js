@@ -11,7 +11,7 @@ export default function FormikSelect({ label, ...props}) {
       <label className="headline-3" htmlFor={props.id || props.name}>{label}</label>
       <Input type="select" {...field} {...props} />
       {meta.touched && meta.error
-        ? <div>{meta.error}</div>
+        ? <div className="help-block text-danger label">{meta.error}</div>
         : null
       }
     </>

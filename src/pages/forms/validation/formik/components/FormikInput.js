@@ -14,7 +14,7 @@ export default function FormikInput({ label, ...props}) {
       <label xs={12} htmlFor={props.id || props.name} className="headline-3">{label}</label>
       <Input xs={12} {...field} {...props} />
       {meta.touched && meta.error
-        ? (<div className="">{meta.error}</div>)
+        ? (<div className="help-block text-danger label">{meta.error}</div>)
         : null
       }
 

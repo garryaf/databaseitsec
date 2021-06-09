@@ -149,7 +149,7 @@ export default function Validation() {
                       </Col>
                     </FormGroup>
                   </fieldset>
-                  <div className="d-flex justify-content-between">
+                  <div className="d-flex justify-content-between mt-4">
                     <Button type="reset" color="secondary" className="">Cancel</Button>
                     <Button type="submit" color="primary" className="float-right">Validate & Submit</Button>
                   </div>

@@ -8,6 +8,7 @@ import s from "./FormikForm.module.scss";
 import {
   FormGroup,
   Col,
+  Button,
 } from "reactstrap";
 
 export default function FormikForm() {
@@ -20,6 +21,8 @@ export default function FormikForm() {
           firstName: "",
           lastName: "",
           email: "",
+          password: "",
+          passwordConfirmation: "",
           acceptedTerms: false,
           jobType: "",
         }}
@@ -33,6 +36,11 @@ export default function FormikForm() {
           email: Yup.string()
             .email("Invalid email addresss`")
             .required("Required"),
+          password: Yup.string()
+            .min(8, 'Password is too short - should be 8 chars minimum.')
+            .required("Required"),
+          passwordConfirmation: Yup.string()
+            .oneOf([Yup.ref('password'), null], 'Passwords must match'),
           acceptedTerms: Yup.boolean()
             .required("Required")
             .oneOf([true], "You must accept the terms and conditions."),
@@ -67,6 +75,18 @@ export default function FormikForm() {
             type="email"
             placeholder="jane@formik.com"
           />
+          <FormikInput
+            label="Password"
+            name="password"
+            type="password"
+            placeholder=""
+          />
+          <FormikInput
+            label="Confirm password"
+            name="passwordConfirmation"
+            type="password"
+            placeholder=""
+          />
           <FormikSelect label="Job Type" name="jobType">
             <option value="">Select a job type</option>
             <option value="designer">Designer</option>
@@ -77,7 +97,10 @@ export default function FormikForm() {
           <FormikCheckbox name="acceptedTerms">
             I accept the terms and conditions
           </FormikCheckbox>
-          <button type="submit">Submit</button>
+          <div className="d-flex justify-content-between mt-4">
+            <Button color="primary" type="submit">Submit</Button>
+            <Button color="secondary" type="reset">Cancel</Button>
+          </div>
         </Form>
       </Formik>
     </>
