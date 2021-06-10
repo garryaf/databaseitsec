@@ -180,6 +180,29 @@ class Sidebar extends React.Component {
           <LinksGroup
             onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
             activeItem={this.props.activeItem}
+            header="Charts"
+            isHeader
+            iconName={<UIElementsIcon/>}
+            link="/template/charts"
+            index="charts"
+            childrenLinks={[
+              {
+                header: 'Line charts', link: '/template/charts/line',
+              },
+              {
+                header: 'Bar charts', link: '/template/charts/bar',
+              },
+              {
+                header: 'Pie charts', link: '/template/charts/pie',
+              },
+              {
+                header: 'More charts', link: '/template/charts/examples',
+              },
+            ]}
+          />
+          <LinksGroup
+            onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+            activeItem={this.props.activeItem}
             header="Typography"
             isHeader
             iconName={<TablesIcon />}

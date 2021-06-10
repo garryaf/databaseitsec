@@ -28,7 +28,7 @@ export default function Validation() {
                       By default validation is started only after at least 3 characters have been input.
                     </legend>
                     <FormGroup row>
-                      <Label md={3} xs={12} for="basic">Simple required</Label>
+                      <Label md={3} xs={12} for="basic" className="headline-3">Simple required</Label>
                       <Col md={9} xs={12}>
                         <InputValidation
                           type="text"
@@ -39,7 +39,7 @@ export default function Validation() {
                       </Col>
                     </FormGroup>
                     <FormGroup row>
-                      <Label md={3} xs={12} for="basic-change">Min-length at least 10 symbols</Label>
+                      <Label md={3} xs={12} for="basic-change" className="headline-3">Min-length field</Label>
                       <Col md={9} xs={12}>
                         <InputValidation
                           type="text" id="basic-change"
@@ -60,7 +60,7 @@ export default function Validation() {
                       input types supported
                     </legend>
                     <FormGroup row>
-                      <Label md={3} xs={12} for="email">E-mail</Label>
+                      <Label md={3} xs={12} for="email" className="headline-3">E-mail</Label>
                       <Col md={9} xs={12}>
                         <InputValidation
                           type="text"
@@ -71,13 +71,10 @@ export default function Validation() {
                           validations="isEmail"
                           validationError={{ isEmail: 'This value should be a valid email.'}}
                         />
-                        <span className="help-block body-3 muted">
-                          This one is triggered even when 1 character has been input
-                        </span>
                       </Col>
                     </FormGroup>
                     <FormGroup row>
-                      <Label md={3} xs={12} for="number">Number</Label>
+                      <Label md={3} xs={12} for="number" className="headline-3">Number</Label>
                       <Col md={9} xs={12}>
                         <InputValidation
                           type="text"
@@ -95,7 +92,7 @@ export default function Validation() {
                       More validation
                     </legend>
                     <FormGroup row>
-                      <Label md={3} xs={12} for="password"> Password helpers</Label>
+                      <Label md={3} xs={12} for="password" className="headline-3">Password</Label>
                       <Col md={9} xs={12}>
                         <InputValidation
                           type="password"
@@ -109,6 +106,9 @@ export default function Validation() {
                           }}
                           required
                         />
+                      </Col>
+                      <Label md={3} xs={12} for="password" className="headline-3">Confirm password</Label>
+                      <Col>
                         <InputValidation
                           type="password"
                           id="password-r"
@@ -124,7 +124,7 @@ export default function Validation() {
                       </Col>
                     </FormGroup>
                     <FormGroup row>
-                      <Label md={3} xs={12} for="website">Website</Label>
+                      <Label md={3} xs={12} for="website" className="headline-3">Website</Label>
                       <Col md={9} xs={12}>
                         <InputValidation
                           type="text"

@@ -31,6 +31,10 @@ import Popover from "../../pages/uielements/popovers/Popovers";
 import Elements from "../../pages/forms/elements/Elements";
 import Validation from "../../pages/forms/validation/Validation";
 import Wizard from "../../pages/forms/wizard/Wizard";
+import BarCharts from "../../pages/charts/bar/BarCharts";
+import LineCharts from "../../pages/charts/line/LineCharts";
+import PieCharts from "../../pages/charts/pie/PieCharts";
+import MoreCharts from "../../pages/charts/more/MoreCharts";
 import Maps from "../../pages/maps/google/GoogleMapPage.js";
 import VectorMap from "../../pages/maps/vector/Vector.js";
 
@@ -83,6 +87,11 @@ class Layout extends React.Component {
               <Route path="/template/forms/elements" exact component={Elements} />
               <Route path="/template/forms/validation" exact component={Validation} />
               <Route path="/template/forms/wizard" exact component={Wizard} />
+              <Route path="/template/charts" exact render={() => <Redirect to={"/template/charts/examples"}/>} />
+              <Route path="/template/charts/line" exact component={LineCharts} />
+              <Route path="/template/charts/pie" exact component={PieCharts} />
+              <Route path="/template/charts/bar" exact component={BarCharts} />
+              <Route path="/template/charts/examples" exact component={MoreCharts} />
               <Route path="/template/maps" exact render={() => <Redirect to={"/template/maps/google"}/>} />
               <Route path="/template/maps/google" exact component={Maps} />
               <Route path="/template/maps/vector" exact component={VectorMap} />
