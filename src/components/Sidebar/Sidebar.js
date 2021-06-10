@@ -235,6 +235,23 @@ class Sidebar extends React.Component {
               },
             ]}
           />
+          <LinksGroup
+            onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+            activeItem={this.props.activeItem}
+            header="Extra"
+            isHeader
+            iconName={<NotificationsIcon className={s.menuIcon}/>}
+            link="/template/extra"
+            index="extra"
+            childrenLinks={[
+              {
+                header: 'Calendar', link: '/template/extra/calendar',
+              },
+              {
+                header: 'Charts', link: '/template/ui-elements/charts',
+              },
+            ]}
+          />
         </ul>
         <div className="bg-widget d-flex mt-auto ml-1">
           <Button className="rounded-pill my-3 body-2 d-none d-md-block" type="submit" color="secondary-red">Unlock Full Version</Button>

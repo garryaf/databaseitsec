@@ -36,6 +36,7 @@ import LineCharts from "../../pages/charts/line/LineCharts";
 import PieCharts from "../../pages/charts/pie/PieCharts";
 import MoreCharts from "../../pages/charts/more/MoreCharts";
 import Maps from "../../pages/maps/google/GoogleMapPage.js";
+import Calendar from "../../pages/extra/calendar/Calendar";
 import VectorMap from "../../pages/maps/vector/Vector.js";
 
 import s from "./Layout.module.scss";
@@ -95,6 +96,9 @@ class Layout extends React.Component {
               <Route path="/template/maps" exact render={() => <Redirect to={"/template/maps/google"}/>} />
               <Route path="/template/maps/google" exact component={Maps} />
               <Route path="/template/maps/vector" exact component={VectorMap} />
+              <Route path="/template/extra" exact render={() => <Redirect to={"/template/extra/calendar"}/>} />
+              <Route path="/template/extra/calendar" exact component={Calendar} />
+              <Route path="/template/extra/charts" exact component={Charts} />
               <Route path='*' exact render={() => <Redirect to="/error" />} />
             </Switch>
           </main>
