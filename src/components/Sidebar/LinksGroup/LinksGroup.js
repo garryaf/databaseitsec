@@ -74,6 +74,7 @@ class LinksGroup extends React.Component {
             >
               <span className={s.icon}>
                 {this.props.iconName}
+                {/*<i className="fa fa-pie-chart"></i>*/}
               </span>
               {this.props.header}
               {this.props.label && <sup className={`${s.headerLabel} text-${this.props.labelColor || 'warning'}`}>{this.props.label}</sup> }

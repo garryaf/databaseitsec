@@ -77,7 +77,17 @@ export default {
         },
         yaxis: {
           title: {
-            text: 'Temperature'
+            text: 'Temperature',
+            style: {
+              fontSize: '12px',
+              fontWeight: 400,
+              color: "#6B859E",
+            },
+          },
+          labels: {
+            style: {
+              colors: ["#6B859E"],
+            },
           },
           min: 5,
           max: 40
