@@ -184,13 +184,13 @@ class Sidebar extends React.Component {
             index="charts"
             childrenLinks={[
               {
-                header: 'Line charts', link: '/template/charts/line',
-              },
-              {
                 header: 'Bar charts', link: '/template/charts/bar',
               },
               {
                 header: 'Pie charts', link: '/template/charts/pie',
+              },
+              {
+                header: 'Line charts', link: '/template/charts/line',
               },
               {
                 header: 'Other charts', link: '/template/charts/examples',

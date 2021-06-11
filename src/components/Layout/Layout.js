@@ -34,7 +34,7 @@ import Wizard from "../../pages/forms/wizard/Wizard";
 import BarCharts from "../../pages/charts/bar/BarCharts";
 import LineCharts from "../../pages/charts/line/LineCharts";
 import PieCharts from "../../pages/charts/pie/PieCharts";
-import MoreCharts from "../../pages/charts/more/MoreCharts";
+import OtherCharts from "../../pages/charts/other/OtherCharts";
 import Maps from "../../pages/maps/google/GoogleMapPage.js";
 import VectorMap from "../../pages/maps/vector/Vector.js";
 import Calendar from "../../pages/extra/calendar/Calendar";
@@ -92,7 +92,7 @@ class Layout extends React.Component {
               <Route path="/template/charts/line" exact component={LineCharts} />
               <Route path="/template/charts/pie" exact component={PieCharts} />
               <Route path="/template/charts/bar" exact component={BarCharts} />
-              <Route path="/template/charts/examples" exact component={MoreCharts} />
+              <Route path="/template/charts/examples" exact component={OtherCharts} />
               <Route path="/template/maps" exact render={() => <Redirect to={"/template/maps/google"}/>} />
               <Route path="/template/maps/google" exact component={Maps} />
               <Route path="/template/maps/vector" exact component={VectorMap} />
