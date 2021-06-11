@@ -36,8 +36,9 @@ import LineCharts from "../../pages/charts/line/LineCharts";
 import PieCharts from "../../pages/charts/pie/PieCharts";
 import MoreCharts from "../../pages/charts/more/MoreCharts";
 import Maps from "../../pages/maps/google/GoogleMapPage.js";
-import Calendar from "../../pages/extra/calendar/Calendar";
 import VectorMap from "../../pages/maps/vector/Vector.js";
+import Calendar from "../../pages/extra/calendar/Calendar";
+import Login from "../../pages/login/Login";
 
 import s from "./Layout.module.scss";
 
@@ -74,7 +75,6 @@ class Layout extends React.Component {
               <Route path="/template/ui-elements/buttons" exact component={Buttons} />
               <Route path="/template/ui-elements/cards" exact component={Cards} />
               <Route path="/template/ui-elements/carousel" exact component={Carousel} />
-              <Route path="/template/ui-elements/charts" exact component={Charts} />
               <Route path="/template/ui-elements/jumbotron" exact component={Jumbotron} />
               <Route path="/template/ui-elements/icons" exact component={Icons} />
               <Route path="/template/ui-elements/lists" exact component={Lists} />
@@ -98,6 +98,7 @@ class Layout extends React.Component {
               <Route path="/template/maps/vector" exact component={VectorMap} />
               <Route path="/template/extra" exact render={() => <Redirect to={"/template/extra/calendar"}/>} />
               <Route path="/template/extra/calendar" exact component={Calendar} />
+              <Route path="/template/extra/login" exact component={Login} />
               <Route path="/template/extra/charts" exact component={Charts} />
               <Route path='*' exact render={() => <Redirect to="/error" />} />
             </Switch>

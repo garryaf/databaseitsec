@@ -154,13 +154,12 @@ const StepsComponents = {
   },
   Step4: function Step4() {
     return (
-      <Jumbotron>
+      <Jumbotron className="bg-transparent">
         <div className="d-flex flex-column justify-content-center align-items-center">
-          {/*<i className="fa fa-handshake-o" aria-hidden="true"></i>*/}
-          <h1 className="display-flex align-items-center mt-2">
+          <h1 className="display-flex align-items-center mt-2 text-white">
             Thank you!
           </h1>
-          <div className="body-1">
+          <div className="body-1 text-white">
             Dear customer,
             thank you for your purchase with Flatlogic!
             In your mailbox you will find the invoice for your purchase.
@@ -217,7 +216,7 @@ export default function Wizard() {
                   <li className={`${s.payment} ${isActive(3) && s.active}`}><strong>Payment</strong></li>
                   <li className={`${s.confirm} ${isActive(4) && s.active}`}><strong>Finish</strong></li>
                 </ul>
-                <div className={`bg-light-gray p-3 ${s.formBlock}`}>
+                <div className={`bg-light-gray p-3 ${s.formBlock} ${currentStep === 4 && s.jumbotronBg}`}>
                   <Formsy>
                     {currentStep === 1 && <StepsComponents.Step1 />}
                     {currentStep === 2 && <StepsComponents.Step2 />}

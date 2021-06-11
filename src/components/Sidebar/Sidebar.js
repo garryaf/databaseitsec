@@ -126,9 +126,6 @@ class Sidebar extends React.Component {
                 header: 'Carousel', link: '/template/ui-elements/carousel',
               },
               {
-                header: 'Charts', link: '/template/ui-elements/charts',
-              },
-              {
                 header: 'Jumbotron', link: '/template/ui-elements/jumbotron',
               },
               {
@@ -248,7 +245,13 @@ class Sidebar extends React.Component {
                 header: 'Calendar', link: '/template/extra/calendar',
               },
               {
-                header: 'Charts', link: '/template/ui-elements/charts',
+                header: 'Charts', link: '/template/extra/charts',
+              },
+              {
+                header: 'Login', link: '/template/extra/login',
+              },
+              {
+                header: 'Error', link: '/error',
               },
             ]}
           />

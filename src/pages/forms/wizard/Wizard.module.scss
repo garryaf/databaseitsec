@@ -4,6 +4,11 @@
   border-radius: 8px;
 }
 
+.jumbotronBg {
+  background-size: cover;
+  background: linear-gradient(135deg, rgba(47, 51, 167, 50) 0%, rgba(77, 83, 224, 25) 25%, rgba(0, 165, 255, 50) 100%);
+}
+
 .progressbar {
   margin-bottom: 30px;
   overflow: hidden;
