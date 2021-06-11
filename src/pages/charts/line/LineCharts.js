@@ -25,7 +25,7 @@ export default function LineCharts() {
   }
 
   return (
-    <Widget className="widget-p-md">
+    <Widget className="charts-tabs-widget">
       <Nav tabs className="mb-5">
         <NavItem>
           <NavLink

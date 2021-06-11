@@ -193,7 +193,7 @@ class Sidebar extends React.Component {
                 header: 'Pie charts', link: '/template/charts/pie',
               },
               {
-                header: 'More charts', link: '/template/charts/examples',
+                header: 'Other charts', link: '/template/charts/examples',
               },
             ]}
           />

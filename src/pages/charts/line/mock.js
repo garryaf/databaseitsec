@@ -30,6 +30,18 @@ export default {
         },
         xaxis: {
           categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+          labels: {
+            style: {
+              colors: "#6B859E",
+            },
+          },
+        },
+        yaxis: {
+          labels: {
+            style: {
+              colors: "#6B859E",
+            },
+          },
         },
         colors: ['#4d53e0']
       }
@@ -37,11 +49,11 @@ export default {
     basicWithLabels: {
       series: [
         {
-          name: "High - 2013",
+          name: "High - 2020",
           data: [28, 29, 33, 36, 32, 32, 33]
         },
         {
-          name: "Low - 2013",
+          name: "Low - 2020",
           data: [12, 11, 14, 18, 17, 13, 13]
         }
       ],
@@ -74,6 +86,11 @@ export default {
         },
         xaxis: {
           categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+          labels: {
+            style: {
+              colors: "#6B859E",
+            },
+          },
         },
         yaxis: {
           title: {
@@ -112,7 +129,7 @@ export default {
         data: [23, 42, 35, 27, 39, 22, 17, 31, 26]
       }],
       options: {
-        colors: ["#F7F8FB", "#FF5668"],
+        colors: ["#C7D0D9", "#FF5668"],
         chart: {
           height: 350,
           type: 'line',

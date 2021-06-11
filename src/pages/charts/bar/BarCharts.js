@@ -12,7 +12,6 @@ import {
 import ApexCharts from "react-apexcharts";
 import Widget from "../../../components/Widget/Widget";
 import chartsData from "./mock";
-import {A} from "react-select/dist/index-4bd03571.esm";
 
 export default function BarCharts() {
 
@@ -26,7 +25,7 @@ export default function BarCharts() {
   }
 
   return (
-    <Widget className="widget-p-md">
+    <Widget className="charts-tabs-widget">
       <Nav tabs className="mb-5">
         <NavItem>
           <NavLink

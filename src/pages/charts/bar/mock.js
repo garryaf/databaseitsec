@@ -30,6 +30,18 @@ export default {
           categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
             'United States', 'China', 'Germany'
           ],
+          labels: {
+            style: {
+              colors: "#6B859E",
+            },
+          },
+        },
+        yaxis: {
+          labels: {
+            style: {
+              colors: "#6B859E",
+            },
+          },
         }
       },
     },
@@ -78,13 +90,21 @@ export default {
           labels: {
             formatter: function (val) {
               return val + "K"
-            }
+            },
+            style: {
+              colors: "#6B859E",
+            },
           }
         },
         yaxis: {
           title: {
             text: undefined,
             align: 'center',
+          },
+          labels: {
+            style: {
+              colors: "#6B859E",
+            },
           },
         },
         tooltip: {
@@ -156,6 +176,11 @@ export default {
           title: {
             // text: 'Age',
           },
+          labels: {
+            style: {
+              colors: "#6B859E",
+            },
+          },
         },
         tooltip: {
           shared: false,
@@ -179,13 +204,13 @@ export default {
             '45-49', '40-44', '35-39', '30-34', '25-29', '20-24', '15-19', '10-14', '5-9',
             '0-4'
           ],
-          title: {
-            text: 'Percent'
-          },
           labels: {
             formatter: function (val) {
               return Math.abs(Math.round(val)) + "%"
-            }
+            },
+            style: {
+              colors: "#6B859E",
+            },
           }
         },
       },
@@ -239,7 +264,19 @@ export default {
         },
         xaxis: {
           categories: [2014, 2015, 2016, 2017, 2018, 2019, 2020],
+          labels: {
+            style: {
+              colors: "#6B859E",
+            },
+          },
         },
+        yaxis: {
+          labels: {
+            style: {
+              colors: "#6B859E",
+            },
+          },
+        }
       },
     },
   },
