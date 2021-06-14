@@ -9,9 +9,23 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
+import {
+  AreaChart,
+  Area,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer
+} from 'recharts';
+
 import ApexCharts from "react-apexcharts";
 import Widget from "../../../components/Widget/Widget";
 import chartsData from "./mock";
+import s from "./LineCharts.module.scss";
 
 export default function LineCharts() {
 
@@ -25,7 +39,7 @@ export default function LineCharts() {
   }
 
   return (
-    <Widget className="charts-tabs-widget">
+    <Widget className="charts-tabs-widget" style={{overflow: "auto"}}>
       <Nav tabs className="mb-5">
         <NavItem>
           <NavLink
@@ -100,14 +114,126 @@ export default function LineCharts() {
           </Col>
         </TabPane>
         <TabPane tabId={2}>
-          <Row>
-            <Col xs={12} lg={6}>
-              <Widget><div>Hi</div></Widget>
-            </Col>
-            <Col xs={12} lg={6}>
-              <Widget><div>Hi</div></Widget>
-            </Col>
-          </Row>
+          <Col>
+            <Row className="mb-4">
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-4">Simple Line Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <ResponsiveContainer width="100%" height="100%">
+                      <LineChart
+                        width={500}
+                        height={300}
+                        data={recharts.simpleLineChart.data}
+                        margin={{
+                          top: 5,
+                          right: 30,
+                          left: 20,
+                          bottom: 5,
+                        }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Line type="monotone" dataKey="pv" stroke="#2F33A7" activeDot={{ r: 10 }} />
+                        <Line type="monotone" dataKey="uv" stroke="#FF4B23" />
+                      </LineChart>
+                    </ResponsiveContainer>
+                  </div>
+                </Widget>
+              </Col>
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-4">Stacked Area Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <ResponsiveContainer width="100%" height="100%">
+                      <AreaChart
+                        width={500}
+                        height={400}
+                        data={recharts.stackedAreaChart.data}
+                        margin={{
+                          top: 10,
+                          right: 30,
+                          left: 0,
+                          bottom: 0,
+                        }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                        <Area type="monotone" dataKey="uv" stackId="1" stroke="#8884d8" fill="#FFC405" />
+                        <Area type="monotone" dataKey="pv" stackId="1" stroke="#82ca9d" fill="#43BC13" />
+                        <Area type="monotone" dataKey="amt" stackId="1" stroke="#ffc658" fill="#4d53e0" />
+                      </AreaChart>
+                    </ResponsiveContainer>
+                  </div>
+                </Widget>
+              </Col>
+            </Row>
+            <Row className="mb-4">
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-4">Dashed Line Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <ResponsiveContainer width="100%" height="100%">
+                      <LineChart
+                        width={500}
+                        height={300}
+                        data={recharts.dashedLineChart.data}
+                        margin={{
+                          top: 5,
+                          right: 30,
+                          left: 20,
+                          bottom: 5,
+                        }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Line dataKey="pv" stroke="#FF5668" strokeDasharray="4 4" />
+                        <Line dataKey="uv" stroke="#00A5FF" strokeDasharray="3 3" />
+                      </LineChart>
+                    </ResponsiveContainer>
+                  </div>
+                </Widget>
+              </Col>
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-4">Vertical Line Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <ResponsiveContainer width="100%" height="100%">
+                      <LineChart
+                        layout="vertical"
+                        width={500}
+                        height={300}
+                        data={recharts.verticalLineChart.data}
+                        margin={{
+                          top: 20,
+                          right: 30,
+                          left: 20,
+                          bottom: 5,
+                        }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis type="number" />
+                        <YAxis dataKey="name" type="category" />
+                        <Tooltip />
+                        <Legend />
+                        <Line dataKey="uv" stroke="#2F33A7" />
+                        <Line dataKey="pv" stroke="#43BC13" />
+                      </LineChart>
+                    </ResponsiveContainer>
+                  </div>
+                </Widget>
+              </Col>
+            </Row>
+          </Col>
+
         </TabPane>
         <TabPane tabId={3}>
           <Row>
