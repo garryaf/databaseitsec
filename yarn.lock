@@ -11294,7 +11294,7 @@ recharts-scale@^0.4.4:
 
 recharts@^2.0.9:
   version "2.0.9"
-  resolved "https://registry.npmjs.org/recharts/-/recharts-2.0.9.tgz"
+  resolved "https://registry.yarnpkg.com/recharts/-/recharts-2.0.9.tgz#048068eb01383291104548388712026948275f70"
   integrity sha512-JNsXE80PuF3hugUCE7JqDOMSvu5xQLxtjOaqFKKZI2pCJ1PVJzhwDv4TWk0nO4AvADbeWzYEHbg8C5Hcrh42UA==
   dependencies:
     "@types/d3-scale" "^3.0.0"

@@ -1,0 +1,12 @@
+@import "../../../styles/helpers";
+
+.rechartsBlock {
+  height: 400px;
+}
+
+.radialChartLegend {
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+  line-height: 24px;
+}

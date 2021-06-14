@@ -116,12 +116,7 @@ export default {
             shade: 'light',
             type: "vertical",
             shadeIntensity: 0.35,
-            // gradientToColors: undefined,
             inverseColors: false,
-            // opacityFrom: 1,
-            // opacityTo: 1,
-            // stops: [0, 50, 100],
-            // colorStops: []
           },
         },
         labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
@@ -146,7 +141,93 @@ export default {
     }
   },
   recharts: {
-
+    simplePie: {
+      data1: [
+        { name: 'Group A', value: 400 },
+        { name: 'Group B', value: 300 },
+        { name: 'Group C', value: 300 },
+        { name: 'Group D', value: 200 },
+        { name: 'Group E', value: 278 },
+        { name: 'Group F', value: 189 },
+      ],
+    },
+    twoLevelPie: {
+      data1: [
+        { name: 'Group A', value: 400 },
+        { name: 'Group B', value: 300 },
+        { name: 'Group C', value: 300 },
+        { name: 'Group D', value: 200 },
+      ],
+      data2: [
+        { name: 'A1', value: 100 },
+        { name: 'A2', value: 300 },
+        { name: 'B1', value: 100 },
+        { name: 'B2', value: 80 },
+        { name: 'B3', value: 40 },
+        { name: 'B4', value: 30 },
+        { name: 'B5', value: 50 },
+        { name: 'C1', value: 100 },
+        { name: 'C2', value: 200 },
+        { name: 'D1', value: 150 },
+        { name: 'D2', value: 50 },
+      ],
+    },
+    halfCircle: {
+      data: [
+        { name: 'Group A', value: 400 },
+        { name: 'Group B', value: 300 },
+        { name: 'Group C', value: 300 },
+        { name: 'Group D', value: 200 },
+        { name: 'Group E', value: 278 },
+        { name: 'Group F', value: 189 },
+      ],
+    },
+    radialBar: {
+      data: [
+        {
+          name: '18-24',
+          uv: 31.47,
+          pv: 2400,
+          fill: '#2F33A7',
+        },
+        {
+          name: '25-29',
+          uv: 18.69,
+          pv: 4567,
+          fill: '#4d53e0',
+        },
+        {
+          name: '30-34',
+          uv: 20.69,
+          pv: 1398,
+          fill: '#00A5FF',
+        },
+        {
+          name: '35-39',
+          uv: 22.22,
+          pv: 9800,
+          fill: '#43BC13',
+        },
+        {
+          name: '40-49',
+          uv: 24.63,
+          pv: 3908,
+          fill: '#FF5668',
+        },
+        {
+          name: '50+',
+          uv: 26.63,
+          pv: 4800,
+          fill: '#FFA100',
+        },
+        {
+          name: 'unknown',
+          uv: 28.67,
+          pv: 4800,
+          fill: '#FFC405',
+        },
+      ],
+    }
   },
   echarts: {
 

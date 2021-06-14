@@ -281,7 +281,190 @@ export default {
     },
   },
   recharts: {
-
+    simpleBar: {
+      data: [
+        {
+          name: 'Page A',
+          uv: 40,
+          pv: 24,
+          amt: 24,
+        },
+        {
+          name: 'Page B',
+          uv: 30,
+          pv: 13,
+          amt: 22,
+        },
+        {
+          name: 'Page C',
+          uv: 20,
+          pv: 98,
+          amt: 22,
+        },
+        {
+          name: 'Page D',
+          uv: 27,
+          pv: 39,
+          amt: 20,
+        },
+        {
+          name: 'Page E',
+          uv: 18,
+          pv: 48,
+          amt: 21,
+        },
+        {
+          name: 'Page F',
+          uv: 23,
+          pv: 38,
+          amt: 25,
+        },
+        {
+          name: 'Page G',
+          uv: 34,
+          pv: 43,
+          amt: 21,
+        },
+      ],
+    },
+    mixBarChart: {
+      data: [
+        {
+          name: 'Page A',
+          uv: 40,
+          pv: 24,
+          amt: 24,
+        },
+        {
+          name: 'Page B',
+          uv: 30,
+          pv: 13,
+          amt: 22,
+        },
+        {
+          name: 'Page C',
+          uv: 20,
+          pv: 98,
+          amt: 22,
+        },
+        {
+          name: 'Page D',
+          uv: 27,
+          pv: 39,
+          amt: 20,
+        },
+        {
+          name: 'Page E',
+          uv: 18,
+          pv: 48,
+          amt: 21,
+        },
+        {
+          name: 'Page F',
+          uv: 23,
+          pv: 38,
+          amt: 25,
+        },
+        {
+          name: 'Page G',
+          uv: 34,
+          pv: 43,
+          amt: 21,
+        },
+      ],
+    },
+    stackedChart: {
+      data: [
+        {
+          name: 'Page A',
+          uv: 40,
+          pv: 24,
+          amt: 24,
+        },
+        {
+          name: 'Page B',
+          uv: 30,
+          pv: 13,
+          amt: 22,
+        },
+        {
+          name: 'Page C',
+          uv: 20,
+          pv: 98,
+          amt: 22,
+        },
+        {
+          name: 'Page D',
+          uv: 27,
+          pv: 39,
+          amt: 20,
+        },
+        {
+          name: 'Page E',
+          uv: 18,
+          pv: 48,
+          amt: 21,
+        },
+        {
+          name: 'Page F',
+          uv: 23,
+          pv: 38,
+          amt: 25,
+        },
+        {
+          name: 'Page G',
+          uv: 34,
+          pv: 43,
+          amt: 21,
+        },
+      ],
+    },
+    positiveAndNegativeChart: {
+      data: [
+        {
+          name: 'Page A',
+          uv: 40,
+          pv: 24,
+          amt: 24,
+        },
+        {
+          name: 'Page B',
+          uv: -30,
+          pv: 13,
+          amt: 22,
+        },
+        {
+          name: 'Page C',
+          uv: -20,
+          pv: -98,
+          amt: 22,
+        },
+        {
+          name: 'Page D',
+          uv: 27,
+          pv: 39,
+          amt: 20,
+        },
+        {
+          name: 'Page E',
+          uv: -18,
+          pv: 48,
+          amt: 21,
+        },
+        {
+          name: 'Page F',
+          uv: 23,
+          pv: -38,
+          amt: 25,
+        },
+        {
+          name: 'Page G',
+          uv: 34,
+          pv: 43,
+          amt: 21,
+        },
+      ],
+    },
   },
   echarts: {
 

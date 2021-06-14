@@ -10,7 +10,20 @@ import {
   NavLink,
 } from "reactstrap";
 import ApexCharts from "react-apexcharts";
+import {
+  BarChart,
+  Bar,
+  Cell,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ReferenceLine,
+  ResponsiveContainer
+} from 'recharts';
 import Widget from "../../../components/Widget/Widget";
+import s from "./BarCharts.module.scss";
 import chartsData from "./mock";
 
 export default function BarCharts() {
@@ -25,7 +38,7 @@ export default function BarCharts() {
   }
 
   return (
-    <Widget className="charts-tabs-widget">
+    <Widget className="charts-tabs-widget" style={{overflow: "auto"}}>
       <Nav tabs className="mb-5">
         <NavItem>
           <NavLink
@@ -103,14 +116,126 @@ export default function BarCharts() {
           </Col>
         </TabPane>
         <TabPane tabId={2}>
-          <Row>
-            <Col xs={12} lg={6}>
-              <Widget><div>Hi</div></Widget>
-            </Col>
-            <Col xs={12} lg={6}>
-              <Widget><div>Hi</div></Widget>
-            </Col>
-          </Row>
+          <Col>
+            <Row className="mb-4">
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-2">Simple Bar Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart
+                        width={500}
+                        height={350}
+                        data={recharts.simpleBar.data}
+                        margin={{
+                          top: 5,
+                          right: 30,
+                          left: 20,
+                          bottom: 5
+                        }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Bar dataKey="pv" fill="#4d53e0" />
+                        <Bar dataKey="uv" fill="#6b859e" />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                </Widget>
+              </Col>
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-2">Mix Bar Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart
+                        width={500}
+                        height={350}
+                        data={recharts.mixBarChart.data}
+                        margin={{
+                          top: 20,
+                          right: 30,
+                          left: 20,
+                          bottom: 5,
+                        }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Bar dataKey="pv" stackId="a" fill="#2F33A7" />
+                        <Bar dataKey="amt" stackId="a" fill="#FFC405" />
+                        <Bar dataKey="uv" fill="#FF5668" />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                </Widget>
+              </Col>
+            </Row>
+            <Row className="mb-4">
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-2">Stacked Bar Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart
+                        width={500}
+                        height={350}
+                        data={recharts.stackedChart.data}
+                        margin={{
+                          top: 20,
+                          right: 30,
+                          left: 20,
+                          bottom: 5,
+                        }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Bar dataKey="pv" stackId="a" fill="#FF4B23" />
+                        <Bar dataKey="uv" stackId="a" fill="#C7D0D9" />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                </Widget>
+              </Col>
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-2">Positive and Negative Bar Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart
+                        width={500}
+                        height={350}
+                        data={recharts.positiveAndNegativeChart.data}
+                        margin={{
+                          top: 5,
+                          right: 30,
+                          left: 20,
+                          bottom: 5,
+                        }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <ReferenceLine y={0} stroke="#000" />
+                        <Bar dataKey="pv" fill="#FFA100" />
+                        <Bar dataKey="uv" fill="#4d53e0" />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                </Widget>
+              </Col>
+            </Row>
+          </Col>
         </TabPane>
         <TabPane tabId={3}>
           <Row>
