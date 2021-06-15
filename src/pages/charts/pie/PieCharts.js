@@ -21,14 +21,23 @@ import {
   ResponsiveContainer
 } from 'recharts';
 import ApexCharts from "react-apexcharts";
+import Highcharts from "highcharts";
+import HighchartsReact from "highcharts-react-official";
+import HighchartMore from "highcharts/highcharts-more";
+import VariablePie from "highcharts/modules/variable-pie";
+import HighchartSankey from "highcharts/modules/sankey";
+import HighchartsWheel from "highcharts/modules/dependency-wheel";
 import Widget from "../../../components/Widget/Widget";
 import chartsData from "./mock";
 import s from "./PieCharts.module.scss";
 
+HighchartMore(Highcharts);
+VariablePie(Highcharts);
+
 export default function BarCharts() {
 
   const [activeTab, setActiveTab] = useState(1);
-  const { apexCharts, recharts, echarts } = chartsData;
+  const { apexCharts, recharts, highcharts } = chartsData;
 
   const toggleTab = (tab) => {
     if (activeTab !== tab) {
@@ -67,7 +76,7 @@ export default function BarCharts() {
             className={classnames({active: activeTab === 3})}
             onClick={() => toggleTab(3)}
           >
-            <div className="headline-3">Apache ECharts</div>
+            <div className="headline-3">Highcharts</div>
           </NavLink>
         </NavItem>
       </Nav>
@@ -204,17 +213,58 @@ export default function BarCharts() {
               </Col>
             </Row>
           </Col>
-
         </TabPane>
         <TabPane tabId={3}>
-          <Row>
-            <Col xs={12} lg={6}>
-              <Widget><div>Hola</div></Widget>
-            </Col>
-            <Col xs={12} lg={6}>
-              <Widget><div>Hola</div></Widget>
-            </Col>
-          </Row>
+          <Col>
+            <Row className="mb-4">
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-2">Simple Pie Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <HighchartsReact
+                      highcharts={Highcharts}
+                      options={highcharts.simplePie}
+                    />
+                  </div>
+                </Widget>
+              </Col>
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-2">Pie Chart with Legend</div>
+                  <div className={s.rechartsBlock}>
+                    <HighchartsReact
+                      highcharts={Highcharts}
+                      options={highcharts.pieWithLegend}
+                    />
+                  </div>
+                </Widget>
+              </Col>
+            </Row>
+            <Row className="mb-4">
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-2">Monochrome Pie Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <HighchartsReact
+                      highcharts={Highcharts}
+                      options={highcharts.monochromePie}
+                    />
+                  </div>
+                </Widget>
+              </Col>
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-2">Half Circle Pie Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <HighchartsReact
+                      highcharts={Highcharts}
+                      options={highcharts.variableRadiusPie}
+                    />
+                  </div>
+                </Widget>
+              </Col>
+            </Row>
+          </Col>
         </TabPane>
       </TabContent>
     </Widget>

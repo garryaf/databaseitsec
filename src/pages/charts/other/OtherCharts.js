@@ -29,16 +29,32 @@ import {
   XAxis,
   YAxis
 } from "recharts";
-
+import Highcharts from "highcharts";
+import HighchartsReact from "highcharts-react-official";
+import highchartMore from "highcharts/highcharts-more";
+import treemap from "highcharts/modules/treemap";
+import heatmap from "highcharts/modules/heatmap";
+import dumbbell from "highcharts/modules/dumbbell";
+import sankey from "highcharts/modules/sankey";
+import exporting from "highcharts/modules/exporting";
+import eData from "highcharts/modules/export-data";
 import ApexCharts from "react-apexcharts";
 import Widget from "../../../components/Widget/Widget";
 import s from "./OtherCharts.module.scss";
 import chartsData from "./mock";
 
+dumbbell(Highcharts);
+highchartMore(Highcharts);
+sankey(Highcharts);
+exporting(Highcharts);
+eData(Highcharts);
+treemap(Highcharts);
+heatmap(Highcharts);
+
 export default function OtherCharts() {
 
   const [activeTab, setActiveTab] = useState(1);
-  const { apexCharts, recharts, echarts } = chartsData;
+  const { apexCharts, recharts, highcharts } = chartsData;
 
   const toggleTab = (tab) => {
     if (activeTab !== tab) {
@@ -70,7 +86,7 @@ export default function OtherCharts() {
             className={classnames({active: activeTab === 3})}
             onClick={() => toggleTab(3)}
           >
-            <div className="headline-3">Apache ECharts</div>
+            <div className="headline-3">Highcharts</div>
           </NavLink>
         </NavItem>
       </Nav>
@@ -223,14 +239,56 @@ export default function OtherCharts() {
           </Col>
         </TabPane>
         <TabPane tabId={3}>
-          <Row>
-            <Col xs={12} lg={6}>
-              <Widget><div>Hola</div></Widget>
-            </Col>
-            <Col xs={12} lg={6}>
-              <Widget><div>Hola</div></Widget>
-            </Col>
-          </Row>
+          <Col>
+            <Row className="mb-5">
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-4">Packed Bubble Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <HighchartsReact
+                      highcharts={Highcharts}
+                      options={highcharts.packedBubble}
+                    />
+                  </div>
+                </Widget>
+              </Col>
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-4">Dumbbell Series Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <HighchartsReact
+                      highcharts={Highcharts}
+                      options={highcharts.dumbbell}
+                    />
+                  </div>
+                </Widget>
+              </Col>
+            </Row>
+            <Row className="mb-4">
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-4">Sankey Diagram Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <HighchartsReact
+                      highcharts={Highcharts}
+                      options={highcharts.sankey}
+                    />
+                  </div>
+                </Widget>
+              </Col>
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-4">Treemap Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <HighchartsReact
+                      highcharts={Highcharts}
+                      options={highcharts.treemap}
+                    />
+                  </div>
+                </Widget>
+              </Col>
+            </Row>
+          </Col>
         </TabPane>
       </TabContent>
     </Widget>
