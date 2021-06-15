@@ -21,11 +21,9 @@ import {
   Treemap,
   Bar,
   Area,
-  AreaChart,
   CartesianGrid,
   Legend,
   Line,
-  LineChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -152,7 +150,6 @@ export default function OtherCharts() {
                         <Area type="monotone" dataKey="amt" fill="#C7D0D9" stroke="#6b859e" />
                         <Bar dataKey="pv" barSize={30} fill="#4d53e0" />
                         <Line type="monotone" dataKey="uv" stroke="#FFA100" />
-                        <Scatter dataKey="cnt" fill="#FF5668" />
                       </ComposedChart>
                     </ResponsiveContainer>
                   </div>
@@ -204,7 +201,7 @@ export default function OtherCharts() {
                           orientation="right"
                           stroke="#FFC405"
                         />
-                        <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                        <Tooltip cursor={{ strokeDasharray: '6 3' }} />
                         <Scatter yAxisId="left" name="A school" data={recharts.scatterChart.data1} fill="#4d53e0" />
                         <Scatter yAxisId="right" name="A school" data={recharts.scatterChart.data2} fill="#FFA100" />
                       </ScatterChart>

@@ -20,7 +20,9 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer
-} from 'recharts';
+} from "recharts";
+import Highcharts from "highcharts";
+import HighchartsReact from "highcharts-react-official";
 
 import ApexCharts from "react-apexcharts";
 import Widget from "../../../components/Widget/Widget";
@@ -30,7 +32,7 @@ import s from "./LineCharts.module.scss";
 export default function LineCharts() {
 
   const [activeTab, setActiveTab] = useState(1);
-  const {apexCharts, recharts, echarts} = chartsData;
+  const {apexCharts, recharts, highcharts} = chartsData;
 
   const toggleTab = (tab) => {
     if (activeTab !== tab) {
@@ -62,7 +64,7 @@ export default function LineCharts() {
             className={classnames({active: activeTab === 3})}
             onClick={() => toggleTab(3)}
           >
-            <div className="headline-3">Apache ECharts</div>
+            <div className="headline-3">Highcharts</div>
           </NavLink>
         </NavItem>
       </Nav>
@@ -233,17 +235,58 @@ export default function LineCharts() {
               </Col>
             </Row>
           </Col>
-
         </TabPane>
         <TabPane tabId={3}>
-          <Row>
-            <Col xs={12} lg={6}>
-              <Widget><div>Hola</div></Widget>
-            </Col>
-            <Col xs={12} lg={6}>
-              <Widget><div>Hola</div></Widget>
-            </Col>
-          </Row>
+          <Col>
+            <Row className="mb-4">
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-4">Basic Line Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <HighchartsReact
+                      highcharts={Highcharts}
+                      options={highcharts.basicLine}
+                    />
+                  </div>
+                </Widget>
+              </Col>
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-4">Time Series Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <HighchartsReact
+                      highcharts={Highcharts}
+                      options={highcharts.timeSeries}
+                    />
+                  </div>
+                </Widget>
+              </Col>
+            </Row>
+            <Row className="mb-4">
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-4">Irregular Intervals Line Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <HighchartsReact
+                      highcharts={Highcharts}
+                      options={highcharts.timeData}
+                    />
+                  </div>
+                </Widget>
+              </Col>
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-4">Data Labels Line Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <HighchartsReact
+                      highcharts={Highcharts}
+                      options={highcharts.dataLabels}
+                    />
+                  </div>
+                </Widget>
+              </Col>
+            </Row>
+          </Col>
         </TabPane>
       </TabContent>
     </Widget>
