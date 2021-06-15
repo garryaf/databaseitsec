@@ -1172,7 +1172,7 @@ export default {
     treemap: {
       colorAxis: {
         minColor: '#FFFFFF',
-        maxColor: Highcharts.getOptions().(colors[0])
+        maxColor: Highcharts.getOptions().colors[0]
       },
       series: [{
         type: 'treemap',
