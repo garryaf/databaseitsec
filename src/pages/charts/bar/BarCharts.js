@@ -22,14 +22,19 @@ import {
   ReferenceLine,
   ResponsiveContainer
 } from 'recharts';
+import Highcharts from "highcharts";
+import HighchartsReact from "highcharts-react-official";
+import HighchartMore from "highcharts/highcharts-more";
 import Widget from "../../../components/Widget/Widget";
 import s from "./BarCharts.module.scss";
 import chartsData from "./mock";
 
+HighchartMore(Highcharts);
+
 export default function BarCharts() {
 
   const [activeTab, setActiveTab] = useState(1);
-  const { apexCharts, recharts, echarts } = chartsData;
+  const { apexCharts, recharts, highcharts } = chartsData;
 
   const toggleTab = (tab) => {
     if (activeTab !== tab) {
@@ -61,7 +66,7 @@ export default function BarCharts() {
             className={classnames({active: activeTab === 3})}
             onClick={() => toggleTab(3)}
           >
-            <div className="headline-3">Apache ECharts</div>
+            <div className="headline-3">Highcharts</div>
           </NavLink>
         </NavItem>
       </Nav>
@@ -238,14 +243,56 @@ export default function BarCharts() {
           </Col>
         </TabPane>
         <TabPane tabId={3}>
-          <Row>
-            <Col xs={12} lg={6}>
-              <Widget><div>Hola</div></Widget>
-            </Col>
-            <Col xs={12} lg={6}>
-              <Widget><div>Hola</div></Widget>
-            </Col>
-          </Row>
+          <Col>
+            <Row className="mb-4">
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-2">Basic Bar Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <HighchartsReact
+                      highcharts={Highcharts}
+                      options={highcharts.basicBar}
+                    />
+                  </div>
+                </Widget>
+              </Col>
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-2">Basic Column Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <HighchartsReact
+                      highcharts={Highcharts}
+                      options={highcharts.basicColumn}
+                    />
+                  </div>
+                </Widget>
+              </Col>
+            </Row>
+            <Row className="mb-4">
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-2">Chart with Negative Stack</div>
+                  <div className={s.rechartsBlock}>
+                    <HighchartsReact
+                      highcharts={Highcharts}
+                      options={highcharts.negativeStack}
+                    />
+                  </div>
+                </Widget>
+              </Col>
+              <Col xs={12} lg={6}>
+                <Widget>
+                  <div className="headline-2 mb-2">Column Range Chart</div>
+                  <div className={s.rechartsBlock}>
+                    <HighchartsReact
+                      highcharts={Highcharts}
+                      options={highcharts.rangeChart}
+                    />
+                  </div>
+                </Widget>
+              </Col>
+            </Row>
+          </Col>
         </TabPane>
       </TabContent>
     </Widget>

@@ -252,7 +252,7 @@ export default function LineCharts() {
               </Col>
               <Col xs={12} lg={6}>
                 <Widget>
-                  <div className="headline-2 mb-4">Time Series Chart</div>
+                  <div className="headline-2 mb-4">Basic Column Chart</div>
                   <div className={s.rechartsBlock}>
                     <HighchartsReact
                       highcharts={Highcharts}
