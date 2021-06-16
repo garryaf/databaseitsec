@@ -39,6 +39,7 @@ import Maps from "../../pages/maps/google/GoogleMapPage.js";
 import VectorMap from "../../pages/maps/vector/Vector.js";
 import Calendar from "../../pages/extra/calendar/Calendar";
 import Login from "../../pages/login/Login";
+import Register from "../../pages/register/Register";
 
 import s from "./Layout.module.scss";
 
@@ -88,18 +89,20 @@ class Layout extends React.Component {
               <Route path="/template/forms/elements" exact component={Elements} />
               <Route path="/template/forms/validation" exact component={Validation} />
               <Route path="/template/forms/wizard" exact component={Wizard} />
-              <Route path="/template/charts" exact render={() => <Redirect to={"/template/charts/examples"}/>} />
+              <Route path="/template/charts" exact render={() => <Redirect to={"/template/charts/other"}/>} />
               <Route path="/template/charts/line" exact component={LineCharts} />
               <Route path="/template/charts/pie" exact component={PieCharts} />
               <Route path="/template/charts/bar" exact component={BarCharts} />
-              <Route path="/template/charts/examples" exact component={OtherCharts} />
+              <Route path="/template/charts/other" exact component={OtherCharts} />
               <Route path="/template/maps" exact render={() => <Redirect to={"/template/maps/google"}/>} />
               <Route path="/template/maps/google" exact component={Maps} />
               <Route path="/template/maps/vector" exact component={VectorMap} />
               <Route path="/template/extra" exact render={() => <Redirect to={"/template/extra/calendar"}/>} />
               <Route path="/template/extra/calendar" exact component={Calendar} />
-              <Route path="/template/extra/login" exact component={Login} />
               <Route path="/template/extra/charts" exact component={Charts} />
+              <Route path="/template/extra/login" exact component={Login} />
+              <Route path="/template/extra/register" exact component={Register} />
+              {/*<Route path="/register" exact component={Register} />*/}
               <Route path='*' exact render={() => <Redirect to="/error" />} />
             </Switch>
           </main>

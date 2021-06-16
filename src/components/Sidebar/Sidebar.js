@@ -193,7 +193,7 @@ class Sidebar extends React.Component {
                 header: 'Line charts', link: '/template/charts/line',
               },
               {
-                header: 'Other charts', link: '/template/charts/examples',
+                header: 'Other charts', link: '/template/charts/other',
               },
             ]}
           />
@@ -248,10 +248,13 @@ class Sidebar extends React.Component {
                 header: 'Charts', link: '/template/extra/charts',
               },
               {
-                header: 'Login', link: '/template/extra/login',
+                header: 'Login Page', link: '/template/extra/login',
               },
               {
-                header: 'Error', link: '/error',
+                header: 'Register Page', link: '/template/extra/register',
+              },
+              {
+                header: 'Error Page', link: '/template/extra/error',
               },
             ]}
           />
