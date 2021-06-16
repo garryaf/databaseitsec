@@ -253,41 +253,13 @@ grid-col-padding {
 }
 
 ///////// Dropdowns //////////
-//.dropdown {
-//  &.show {
-//    .dropdown-menu {
-//      display: block;
-//    }
-//  }
-//}
-//.dropdown-toggle {
-//  padding: 6px 12px 6px 6px;
-//  border: 1px solid $base-middle-gray;
-//  border-radius: 4px;
-//  font-size: $font-size-sm;
-//  font-weight: $font-weight-normal;
-//  color: $base-dark-gray;
-//  background-color: $white;
-//
-//  &:hover {
-//    background-color: $base-light-gray;
-//  }
-//  &:focus {
-//    background-color: $white;
-//  }
-//}
-//
-//.show > .btn-secondary.dropdown-toggle {
-//  color: $default;
-//  background-color: $base-light-gray;
-//
-//  &:focus {
-//    background-color: $base-light-gray;
-//  }
-//  &:active {
-//    background-color: $base-light-gray;
-//  }
-//}
+.dropdown-toggle.btn.btn-secondary {
+  background-color: white;
+  color: $base-dark-gray;
+  &:hover {
+    background-color: $base-light-gray;
+  }
+}
 
 
 .dropdown-menu {

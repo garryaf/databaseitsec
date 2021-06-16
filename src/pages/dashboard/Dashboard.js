@@ -87,6 +87,7 @@ class Dashboard extends React.Component {
                     <div className="headline-3 d-flex align-items-center">Your activity</div>
                     <ButtonDropdown
                       isOpen={this.state.dropdownOpenOne} toggle={this.toggleOne}
+                      outline
                       className=""
                     >
                       <DropdownToggle caret>
