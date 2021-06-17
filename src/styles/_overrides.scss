@@ -926,6 +926,7 @@ li.react-datepicker__time-list-item--selected {
   .app-content-overlay {
 
   }
+
 }
 
 ///////// react-big-calendar styles /////////
@@ -933,12 +934,22 @@ li.react-datepicker__time-list-item--selected {
   min-height: calc(100vh - 18rem);
 
   // Header / Toolbar
-
   .calendar-header {
     .calendar-navigation {
       .btn-icon {
         padding: 0.3rem;
       }
+    }
+  }
+
+  // Toolbar Arrow Icons styling
+  .calendar-arrow-icon {
+    color: $base-dark-gray;
+    :hover {
+      color: $default;
+    }
+    i {
+      font-size: 1.5rem;
     }
   }
 
@@ -1030,3 +1041,5 @@ li.react-datepicker__time-list-item--selected {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
+
+
