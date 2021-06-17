@@ -31,21 +31,52 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import Widget from "../../../components/Widget/Widget";
 import s from "./Calendar.module.scss";
 
+const DragAndDropCalendar = withDragAndDrop(Calendar);
+const localizer = momentLocalizer(moment);
+const eventColors = {
+  business: "bg-success",
+  flatlogic: "bg-warning",
+  personal: "bg-danger",
+  holiday: "bg-primary"
+}
+
+
 class CalendarApp extends React.Component {
 
   static getDerivedStateFromProps() {
     return {}
   }
 
+  constructor(props) {
+    super();
+    this.state = {
+      events: [],
+      views: {
+        month: true,
+        week: true,
+        day: true
+      },
+      eventInfo: null
+    }
+  }
+
   render() {
+    const { events, views, sidebar } = this.state;
+
     return (
       <div>
         <Row className="gutter mb-4">
           <Col xs={12} lg={9}>
-            <Widget className="widget-p-none">
-
-
-
+            <Widget className="widget-p-md">
+              <DragAndDropCalendar
+                localizer={localizer}
+                events={events}
+                startAccessor="start"
+                endAccessor="end"
+                resourceAccessor="url"
+                views={views}
+                popup={true}
+              />
             </Widget>
           </Col>
           <Col xs={12} lg={3} className="d-none d-lg-block">
@@ -112,7 +143,21 @@ class CalendarApp extends React.Component {
   }
 }
 
-export default CalendarApp;
+const mapStateToProps = state => {
+  return {
+    app: state.calendar
+  }
+}
+
+export default connect(mapStateToProps, {
+  fetchEvents,
+  handleSidebar,
+  addEvent,
+  handleSelectedEvent,
+  updateEvent,
+  updateDrag,
+  updateResize
+})(CalendarApp)
 
 
 

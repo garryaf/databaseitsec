@@ -917,6 +917,105 @@ li.react-datepicker__time-list-item--selected {
   font-size: 45px;
 }
 
+///////// Calendar /////////
+.app-calendar {
+  z-index: 1;
+  .add-event-sidebar {
+
+  }
+  .app-content-overlay {
+
+  }
+}
+
+///////// react-big-calendar styles /////////
+.rbc-calendar {
+  min-height: calc(100vh - 18rem);
+
+  // Header / Toolbar
+
+  .calendar-header {
+    .calendar-navigation {
+      .btn-icon {
+        padding: 0.3rem;
+      }
+    }
+  }
+
+  // Month View Styling
+  .rbc-month-view {
+    // Disabled or past month dates
+    .rbc-off-range-bg {
+      background: hsla(0, 0%, 94.5%, 0.4);
+    }
+
+    .rbc-month-row + :last-child {
+      border-bottom: 1px solid #DDD;
+    }
+
+    // day column height
+    .rbc-month-row {
+      max-height: 118px;
+
+      .rbc-day-bg {
+        cursor: pointer;
+      }
+
+      .rbc-row-content {
+        .rbc-row {
+          // day alignment
+          .rbc-date-cell {
+            text-align: left;
+            padding: 0.8rem;
+            min-width: auto;
+            &.rbc-now {
+              &.rbc-current {
+                a {
+                  background-color: rgba($primary, 1);
+                  border-radius: 50%;
+                  padding: 0.4rem;
+                  color: $white;
+                  text-align: center;
+                  font-weight: 600;
+                  max-width: 32px;
+                }
+              }
+            }
+          }
+          .rbc-event {
+            padding: 0 1rem;
+            border-radius: 1rem;
+            z-index: 2;
+            &:focus {
+              outline: 0;
+            }
+          }
+        }
+        .rbc-addons-dnd-row-body {
+          .rbc-row {
+            .rbc-row-segment {
+              .rbc-event {
+                .rbc-event-content {
+                  padding-left: 0.8rem;
+                }
+              }
+            }
+          }
+        }
+      }
+      .rbc-row-bg {
+        .rbc-day-bg {
+          &.rbc-today {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
 ///////// Class helpers /////////
 .border-radius-0 {
   border-radius: 0;
