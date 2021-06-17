@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import ReduxThunk from "redux-thunk";
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
@@ -10,7 +10,10 @@ import reducers from './reducers';
 
 const store = createStore(
   reducers,
-  applyMiddleware(ReduxThunk)
+  compose(
+    applyMiddleware(ReduxThunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  )
 );
 
 ReactDOM.render(
