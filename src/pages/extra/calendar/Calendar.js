@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
+import moment from "moment";
 import {
   Col,
   Row,
@@ -12,6 +16,18 @@ import {
   FormGroup,
   ListGroupItem,
 } from "reactstrap";
+import {
+  fetchEvents,
+  handleSidebar,
+  addEvent,
+  handleSelectedEvent,
+  updateEvent,
+  updateDrag,
+  updateResize
+} from "../../../actions/calendar";
+import "react-big-calendar/lib/addons/dragAndDrop/styles.scss";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+
 import Widget from "../../../components/Widget/Widget";
 import s from "./Calendar.module.scss";
 
