@@ -921,10 +921,47 @@ li.react-datepicker__time-list-item--selected {
 .app-calendar {
   z-index: 1;
   .add-event-sidebar {
-
+    min-height: calc(100% - 15.5rem);
+    height: 100%;
+    width: 400px;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    background: $white;
+    overflow: hidden;
+    transform: translateX(113%);
+    transition: all 0.25s ease-in-out;
+    &.show {
+      transform: translateX(0);
+    }
+    .header {
+      background-color: $body-bg;
+      padding: 1rem;
+    }
+    .add-event-body {
+      padding: 1rem;
+    }
   }
   .app-content-overlay {
-
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    display: block;
+    z-index: 5;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    &.show {
+      visibility: visible;
+      transition: all 0.3s ease;
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 0.25rem;
+    }
   }
 
 }
@@ -952,7 +989,17 @@ li.react-datepicker__time-list-item--selected {
       font-size: 1.5rem;
     }
   }
-
+  .rbc-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    span {
+      font-size: 1rem;
+      font-weight: $font-weight-semi-bold;
+      color: $base-dark-gray;
+    }
+  }
   // Month View Styling
   .rbc-month-view {
     // Disabled or past month dates
@@ -982,7 +1029,7 @@ li.react-datepicker__time-list-item--selected {
             &.rbc-now {
               &.rbc-current {
                 a {
-                  background-color: rgba($primary, 1);
+                  background-color: rgba($violet, 1);
                   border-radius: 50%;
                   padding: 0.4rem;
                   color: $white;

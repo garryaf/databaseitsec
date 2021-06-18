@@ -48,6 +48,19 @@ const eventColors = {
 
 const Toolbar = (props) => {
 
+  // const [dropdownLabel, setDropdownLabel] = useState('Infinity')
+  //
+  // const monthChanger = (e) => {
+  //   // (() => {props.onView("month")})();
+  //   props.onView("month");
+  //   changeDropdown(e);
+  // }
+  //
+  // const changeDropdown = (e) => {
+  //   setDropdownLabel(e.currentTarget.textContent)
+  // }
+
+
   return (
     <div className="d-flex justify-content-between align-items-center mb-4">
       <div className="d-flex flex-row align-items-center">
@@ -71,89 +84,77 @@ const Toolbar = (props) => {
       </div>
       <div className="d-flex flex-row">
         <div>
-          {/*<ButtonGroup>*/}
-          {/*  <button*/}
-          {/*    className={`btn ${*/}
-          {/*      props.view === "month"*/}
-          {/*        ? "btn-primary"*/}
-          {/*        : "btn-outline-primary"*/}
-          {/*    }`}*/}
-          {/*    onClick={() => {*/}
-          {/*      props.onView("month")*/}
-          {/*    }}*/}
-          {/*  >*/}
-          {/*    Month*/}
-          {/*  </button>*/}
-          {/*  <button*/}
-          {/*    className={`btn ${*/}
-          {/*      props.view === "week"*/}
-          {/*        ? "btn-primary"*/}
-          {/*        : "btn-outline-primary"*/}
-          {/*    }`}*/}
-          {/*    onClick={() => {*/}
-          {/*      props.onView("week")*/}
-          {/*    }}*/}
-          {/*  >*/}
-          {/*    Week*/}
-          {/*  </button>*/}
-          {/*  <button*/}
-          {/*    className={`btn ${*/}
-          {/*      props.view === "day"*/}
-          {/*        ? "btn-primary"*/}
-          {/*        : "btn-outline-primary"*/}
-          {/*    }`}*/}
-          {/*    onClick={() => {*/}
-          {/*      props.onView("day")*/}
-          {/*    }}*/}
-          {/*  >*/}
-          {/*    Day*/}
-          {/*  </button>*/}
-          {/*</ButtonGroup>*/}
+          <ButtonGroup>
+            <button
+              className={`btn ${
+                props.view === "month"
+                  ? "btn-primary"
+                  : "btn-outline-primary"
+              }`}
+              onClick={() => {
+                props.onView("month")
+              }}
+            >
+              Month
+            </button>
+            <button
+              className={`btn ${
+                props.view === "week"
+                  ? "btn-primary"
+                  : "btn-outline-primary"
+              }`}
+              onClick={() => {
+                props.onView("week")
+              }}
+            >
+              Week
+            </button>
+            <button
+              className={`btn ${
+                props.view === "day"
+                  ? "btn-primary"
+                  : "btn-outline-primary"
+              }`}
+              onClick={() => {
+                props.onView("day")
+              }}
+            >
+              Day
+            </button>
+          </ButtonGroup>
 
-          <ButtonDropdown
-            isOpen={true}
-            className=""
-          >
-            <DropdownToggle caret>
-              &nbsp; Month &nbsp;
-            </DropdownToggle>
-            <DropdownMenu>
-              <DropdownItem
-                // className={`btn ${
-                //   props.view === "month"
-                //     ? "btn-primary"
-                //     : "btn-outline-primary"
-                // }`}
-                onClick={() => {
-                  props.onView("month")
-                }}
-              >Month</DropdownItem>
-              <DropdownItem
-                // className={`btn ${
-                //   props.view === "week"
-                //     ? "btn-primary"
-                //     : "btn-outline-primary"
-                // }`}
-                onClick={() => {
-                  props.onView("week")
-                }}
-              >Week</DropdownItem>
-              <DropdownItem
-                // className={`btn ${
-                //   props.view === "day"
-                //     ? "btn-primary"
-                //     : "btn-outline-primary"
-                // }`}
-                onClick={() => {
-                  props.onView("day")
-                }}
-              >Day</DropdownItem>
-            </DropdownMenu>
-          </ButtonDropdown>
+          {/*<ButtonDropdown*/}
+          {/*  isOpen={true}*/}
+          {/*  className=""*/}
+          {/*>*/}
+          {/*  <DropdownToggle caret>*/}
+          {/*    &nbsp; {dropdownLabel} &nbsp;*/}
+          {/*  </DropdownToggle>*/}
+          {/*  <DropdownMenu>*/}
+          {/*    <DropdownItem*/}
+          {/*      onClick={monthChanger}*/}
+          {/*      // onClick={*/}
+          {/*      //   () => {props.onView("month")*/}
+          {/*      // }}*/}
+          {/*    >Month</DropdownItem>*/}
+          {/*    <DropdownItem*/}
+          {/*      // onClick={() => {*/}
+          {/*      //   props.onView("week")*/}
+          {/*      // }}*/}
+          {/*      onClick={monthChanger}*/}
+          {/*    >Week</DropdownItem>*/}
+          {/*    <DropdownItem*/}
+          {/*      // onClick={() => {*/}
+          {/*      //   props.onView("day")*/}
+          {/*      // }}*/}
+          {/*      onClick={monthChanger}*/}
+          {/*    >Day</DropdownItem>*/}
+          {/*  </DropdownMenu>*/}
+          {/*</ButtonDropdown>*/}
 
         </div>
         <AddEventButton
-          className="d-lg-none"
+          className="d-lg-none ml-3"
         />
       </div>
     </div>
@@ -179,6 +180,15 @@ class CalendarApp extends React.Component {
     }
   }
 
+  handleSelectEvent = event => {
+    let filteredState = this.state.events.filter(i => i.id === event.id)
+    this.props.handleSidebar(true)
+    this.props.handleSelectedEvent(filteredState[0])
+    this.setState({
+      eventInfo: filteredState[0]
+    })
+  }
+
   render() {
     const { events, views, sidebar } = this.state;
 
@@ -197,6 +207,19 @@ class CalendarApp extends React.Component {
                 views={views}
                 popup={true}
                 selectable={true}
+                onSelectEvent={event => {
+                  this.handleSelectEvent(event)
+                }}
+                onSelectSlot={({ start, end }) => {
+                  this.props.handleSidebar(true)
+                  this.props.handleSelectedEvent({
+                    title: "",
+                    label: null,
+                    start: new Date(start),
+                    end: new Date(end),
+                    url: "",
+                  })
+                }}
               />
             </Widget>
           </Col>
