@@ -1,50 +1,80 @@
 import axios from "axios";
 
-export const fetchEvents = () => {
-  return async dispatch => {
-    await axios
-      // fic route
-      .get("/api/apps/calendar/events")
-      .then(response => {
-        dispatch({ type: "FETCH_EVENTS", events: response.data })
+// ** Fetch Events
+export const fetchEvents = calendars => {
+  return dispatch => {
+    axios.get('/apps/calendar/events', { calendars }).then(response => {
+      dispatch({
+        type: 'FETCH_EVENTS',
+        events: response.data
       })
-      .catch(err => console.log(err))
+    })
   }
-};
+}
 
-export const handleSidebar = (bool) => {
-  return dispatch => {
-    dispatch({ type: "HANDLE_SIDEBAR", status: bool })
-  }
-};
-
+// ** Add Events
 export const addEvent = event => {
-  return dispatch => {
-    dispatch({ type: "ADD_EVENT", event })
+  return (dispatch, getState) => {
+    axios.post('/apps/calendar/add-event', { event}).then(() => {
+      dispatch({
+        type: 'ADD_EVENT'
+      })
+      dispatch(fetchEvents(getState().calendar.selectedCalendars))
+    })
   }
-};
+}
 
+// ** Update Event
 export const updateEvent = event => {
   return dispatch => {
-    dispatch({ type: "UPDATE_EVENT", event })
+    axios.post('/apps/calendar/update-event', { event }).then(() => {
+      dispatch({
+        type: 'UPDATE_EVENT'
+      })
+    })
   }
-};
+}
 
-export const updateDrag = event => {
-  return dispatch => {
-    dispatch({ type: "UPDATE_DRAG", event })
+// ** Filter Events
+export const updateFilter = filter => {
+  return (dispatch, getState) => {
+    dispatch({
+      type: 'UPDATE_FILTERS',
+      filter
+    })
+    dispatch(fetchEvents(getState().calendar.selectedCalendars))
   }
-};
+}
 
-export const updateResize = event => {
-  return dispatch => {
-    dispatch({ type: "EVENT_RESIZE", event })
+// ** Add/Remove All Filters
+export const updateAllFilters = value => {
+  return (dispatch, getState) => {
+    dispatch({
+      type: 'UPDATE_ALL_FILTERS',
+      value
+    })
+    dispatch(fetchEvents(getState()).calendar.selectedCalendars)
   }
-};
+}
 
-export const handleSelectedEvent = event => {
+// ** Remove Event
+export const removeEvent = id => {
   return dispatch => {
-    dispatch({ type: "HANDLE_SELECTED_EVENT", event })
+    axios.delete('/apps/calendar/remove-event', { id }).then(() =>{
+      dispatch({
+        type: 'REMOVE_EVENT'
+      })
+    })
   }
-};
+}
+
+// ** Select Event (get event data on click)
+export const selectEvent = event => {
+  return dispatch => {
+    dispatch({
+      type: 'SELECT_EVENT',
+      event
+    })
+  }
+}
 

@@ -1,49 +1,47 @@
+// ** Initial State
 const initialState = {
   events: [],
-  sidebar: false,
-  selectedEvent: null,
+  selectedEvent: {},
+  selectedCalendars: ['Personal', 'Business', 'Family', 'Holiday', 'ETC'],
 }
 
-const calendarReducer = ( state = initialState, action) => {
+const calendar = (state = initialState, action) => {
   switch (action.type) {
-    case "FETCH_EVENTS":
+    case 'FETCH_EVENTS':
       return { ...state, events: action.events }
-    case "ADD_EVENT":
-      state.events.push(action.event)
+    case 'ADD_EVENT':
       return { ...state }
-    case "UPDATE_EVENT":
-      let updatedEvents = state.events.map(event => {
-        if (event.id === action.event.id) {
-          return action.event
-        }
-        return event;
-      })
-      return { ...state, events: updatedEvents }
-    case "UPDATE_DRAG":
-      let eventToDrag = action.event,
-        extractedEvent = state.events.map(event => {
-          if (event.id === eventToDrag.id) {
-            return eventToDrag;
-          }
-          return event
-        })
-      return { ...state, events: extractedEvent }
-    case "EVENT_RESIZE":
-      let eventToResize = action.event,
-        resizeEvent = state.events.map(event => {
-          if (event.id === eventToResize.id) {
-            return eventToResize;
-          }
-          return event;
-        })
-      return { ...state, events: resizeEvent }
-    case "HANDLE_SIDEBAR":
-      return { ...state, sidebar: action.status }
-    case "HANDLE_SELECTED_EVENT":
+    case 'REMOVE_EVENT':
+      return { ...state }
+    case 'UPDATE_EVENT':
+      return { ...state }
+    case 'UPDATE_FILTERS':
+      // ** Updates Filters based on action filter
+    const filterIndex = state.selectedCalendars.findIndex(i => i === action.filter)
+      if (state.selectedCalendars.includes(action.filter)) {
+        state.selectedCalendars.splice(filterIndex, 1)
+      } else {
+        state.selectedCalendars.push(action.filter)
+      }
+      if (state.selectedCalendars.length === 0) {
+        state.events.length = 0
+      }
+      return { ...state }
+    case 'UPDATE_ALL_FILTERS':
+    // ** Updates All Filters based on action value
+      const value = action.value
+      let selected = []
+      if (value === true) {
+        selected = ['Personal', 'Business', 'Family', 'Holiday', 'ETC']
+      } else {
+        selected = []
+      }
+      return { ...state, selectedCalendars: selected }
+    case 'SELECT_EVENT':
       return { ...state, selectedEvent: action.event }
     default:
-      return state;
+      return state
   }
 }
 
-export default calendarReducer;
+export default calendar;

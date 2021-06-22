@@ -8,6 +8,9 @@ import * as serviceWorker from './serviceWorker';
 import App from './components/App';
 import reducers from './reducers';
 
+// ** Fake Database
+import './@fake-db'
+
 const store = createStore(
   reducers,
   compose(
