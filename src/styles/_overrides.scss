@@ -841,7 +841,7 @@ font-size: 85%;
 font-weight: 600;
 
 @media (max-width: breakpoint-max(xs)) {
-  display: none;
+    display: none;
   }
 }
 
@@ -917,229 +917,75 @@ li.react-datepicker__time-list-item--selected {
   font-size: 45px;
 }
 
-///////// Calendar /////////
-.app-calendar {
-  z-index: 1;
-  .add-event-sidebar {
-    min-height: calc(100% - 15.5rem);
-    height: 100%;
-    width: 400px;
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 5;
-    background: $white;
-    overflow: hidden;
-    transform: translateX(113%);
-    transition: all 0.25s ease-in-out;
-    &.show {
-      transform: translateX(0);
-    }
-    .header {
-      background-color: $body-bg;
-      padding: 1rem;
-    }
-    .add-event-body {
-      padding: 1rem;
-    }
-  }
-  .app-content-overlay {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: absolute;
-    display: block;
-    z-index: 5;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.3s ease;
-    &.show {
-      visibility: visible;
-      transition: all 0.3s ease;
-      opacity: 1;
-      background-color: rgba(0, 0, 0, 0.2);
-      border-radius: 0.25rem;
-    }
-  }
-
-}
-
-///////// react-big-calendar styles /////////
-.rbc-calendar {
-  min-height: calc(100vh - 18rem);
-
-  // Header / Toolbar
-  .calendar-header {
-    .calendar-navigation {
-      .btn-icon {
-        padding: 0.3rem;
-      }
-    }
-  }
-
-  // Toolbar Arrow Icons styling
-  .calendar-arrow-icon {
-    color: $base-dark-gray;
-    :hover {
-      color: $default;
-    }
-    i {
-      font-size: 1.5rem;
-    }
-  }
-  .rbc-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 36px;
-    span {
-      font-size: 1rem;
-      font-weight: $font-weight-semi-bold;
-      color: $base-dark-gray;
-    }
-  }
-  // Month View Styling
-  .rbc-month-view {
-    // Disabled or past month dates
-    .rbc-off-range-bg {
-      background: hsla(0, 0%, 94.5%, 0.4);
-    }
-
-    .rbc-month-row + :last-child {
-      border-bottom: 1px solid #DDD;
-    }
-
-    // day column height
-    .rbc-month-row {
-      max-height: 118px;
-
-      .rbc-day-bg {
-        cursor: pointer;
-      }
-
-      .rbc-row-content {
-        .rbc-row {
-          // day alignment
-          .rbc-date-cell {
-            text-align: left;
-            padding: 0.8rem;
-            min-width: auto;
-            &.rbc-now {
-              &.rbc-current {
-                a {
-                  background-color: rgba($violet, 1);
-                  border-radius: 50%;
-                  padding: 0.4rem;
-                  color: $white;
-                  text-align: center;
-                  font-weight: 600;
-                  max-width: 32px;
-                }
-              }
-            }
-          }
-          .rbc-event {
-            padding: 0 1rem;
-            border-radius: 1rem;
-            z-index: 2;
-            &:focus {
-              outline: 0;
-            }
-          }
-        }
-        .rbc-addons-dnd-row-body {
-          .rbc-row {
-            .rbc-row-segment {
-              .rbc-event {
-                .rbc-event-content {
-                  padding-left: 0.8rem;
-                }
-              }
-            }
-          }
-        }
-      }
-      .rbc-row-bg {
-        .rbc-day-bg {
-          &.rbc-today {
-            background-color: transparent;
-          }
-        }
-      }
-    }
-  }
-}
 
 ///////// Flatpickr /////////
-.form-control.flatpickr-input{
-  background-color: $white;
-  & ~ input{
-    background-color: $white;
-  }
-}
-
-.flatpickr-calendar{
-  &.arrowTop{
-    &:before,
-    &:after{
-      border-bottom-color: $primary;
-    }
-  }
-  .flatpickr-months {
-    .flatpickr-prev-month,
-    .flatpickr-next-month,
-    .flatpickr-prev-month:hover svg,
-    .flatpickr-next-month:hover svg{
-      fill : $white;
-      color : $white;
-    }
-    .flatpickr-month{
-      background: $primary;
-      select:hover{
-        background: $white;
-      }
-    }
-    .numInputWrapper{
-      .numInput{
-        color: $white;
-      }
-    }
-  }
-  .flatpickr-weekdays{
-    width: calc(100% + 1px);
-  }
-  .flatpickr-weekdays,
-  .flatpickr-weekday{
-    background: $primary;
-    color : $white;
-  }
-  .flatpickr-days{
-    .dayContainer{
-      .flatpickr-day{
-        &.selected,
-        &.selected:hover{
-          background : $primary;
-          border-color : $primary;
-        }
-        &:hover,
-        &.inRange{
-          background : $gray-200;
-          border-color : $gray-200;
-        }
-
-        &.inRange{
-          box-shadow: -5px 0 0 $gray-200, 5px 0 0 $gray-200;
-        }
-
-        &.flatpickr-disabled{
-          color: $secondary;
-        }
-      }
-    }
-  }
-}
+//.form-control.flatpickr-input{
+//  background-color: $white;
+//  & ~ input{
+//    background-color: $white;
+//  }
+//}
+//
+//.flatpickr-calendar {
+//  &.arrowTop{
+//    &:before,
+//    &:after{
+//      border-bottom-color: $primary;
+//    }
+//  }
+//  .flatpickr-months {
+//    .flatpickr-prev-month,
+//    .flatpickr-next-month,
+//    .flatpickr-prev-month:hover svg,
+//    .flatpickr-next-month:hover svg{
+//      fill : $white;
+//      color : $white;
+//    }
+//    .flatpickr-month{
+//      background: $primary;
+//      select:hover{
+//        background: $white;
+//      }
+//    }
+//    .numInputWrapper{
+//      .numInput{
+//        color: $white;
+//      }
+//    }
+//  }
+//  .flatpickr-weekdays{
+//    width: calc(100% + 1px);
+//  }
+//  .flatpickr-weekdays,
+//  .flatpickr-weekday{
+//    background: $primary;
+//    color : $white;
+//  }
+//  .flatpickr-days{
+//    .dayContainer{
+//      .flatpickr-day{
+//        &.selected,
+//        &.selected:hover{
+//          background : $primary;
+//          border-color : $primary;
+//        }
+//        &:hover,
+//        &.inRange{
+//          background : $gray-200;
+//          border-color : $gray-200;
+//        }
+//
+//        &.inRange{
+//          box-shadow: -5px 0 0 $gray-200, 5px 0 0 $gray-200;
+//        }
+//
+//        &.flatpickr-disabled{
+//          color: $secondary;
+//        }
+//      }
+//    }
+//  }
+//}
 
 
 ///////// Class helpers /////////
@@ -1158,3 +1004,131 @@ li.react-datepicker__time-list-item--selected {
 }
 
 
+// Calendar
+.fc {
+  // Toolbar
+  .fc-toolbar {
+    flex-wrap: wrap;
+    flex-direction: row !important;
+    .fc-prev-button,
+    .fc-next-button {
+      display: inline-block;
+      background-color: transparent;
+      border-color: transparent;
+      .fc-icon {
+        color: $violet;
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: transparent !important;
+        border-color: transparent !important;
+        box-shadow: none !important;
+      }
+    }
+    .fc-prev-button {
+      padding-left: 0 !important;
+    }
+    .fc-toolbar-chunk:first-child {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .fc-button {
+      padding: 0.5rem;
+      &:active,
+      &:focus {
+        box-shadow: none;
+      }
+    }
+    .fc-button-group {
+      .fc-button {
+        text-transform: capitalize;
+        &:focus {
+          box-shadow: none;
+        }
+      }
+      .fc-button-primary {
+        &:not(.fc-prev-button):not(.fc-next-button) {
+          background-color: transparent;
+          border-color: $violet;
+          color: $violet;
+          &.fc-button-active,
+          &:hover {
+            background-color: rgba($color: $violet, $alpha: 0.1) !important;
+            border-color: $violet !important;
+            color: $violet;
+          }
+        }
+        &.fc-sidebarToggle-button {
+          border: 0;
+          i, svg {
+            height: 21px;
+            width: 21px;
+            font-size: 21px;
+          }
+        }
+      }
+      .fc-sidebarToggle-button {
+        padding-left: 0;
+        background-color: transparent !important;
+        color: $base-dark-gray !important;
+
+        &:not(.fc-prev-button):not(.fc-next-button):hover {
+          background-color: transparent !important;
+        }
+
+        & + div {
+          margin-left: 0;
+        }
+      }
+      .fc-dayGridMonth-button,
+      .fc-timeGridWeek-button,
+      .fc-timeGridDay-button {
+        padding: $fc-day-toggle-btn-padding;
+
+        &:last-child,
+        &:first-child {
+          border-radius: $border-radius;
+        }
+        &:first-child {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+        &:last-child {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+    }
+    //.fc-button-primary {
+    //  &:not(.fc-prev-button):not(.fc-next-button) {
+    //    background-color: transparent;
+    //    border-color: $violet;
+    //    color: $violet;
+    //    &.fc-button-active,
+    //    &:hover {
+    //      background-color: rgba($color: $violet, $alpha: 0.1) !important;
+    //      border-color: $violet !important;
+    //      color: $violet;
+    //    }
+    //  }
+    //}
+    & > * > :not(:first-child) {
+      margin-left: 0rem;
+    }
+    .fc-toolbar-title {
+      margin-left: 0.25rem;
+    }
+    .fc--button:empty,
+    .fc-toolbar-chunk:empty {
+      display: none;
+    }
+  }
+
+  // Calendar head & body common
+  tbody td,
+  thead th {
+
+  }
+}

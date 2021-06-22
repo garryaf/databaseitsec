@@ -26,22 +26,22 @@ const CalendarBody = props => {
   } = props
 
   // ** UseEffect checks for CalendarAPI Update
-  // useEffect(() => {
-  //   if (calendarApi === null) {
-  //     setCalendarApi(calendarRef.current.getApi())
-  //   }
-  // }, [calendarApi])
+  useEffect(() => {
+    if (calendarApi === null) {
+      setCalendarApi(calendarRef.current.getApi())
+    }
+  }, [calendarApi])
 
   // ** CalendarOptions(Props)
   const calendarOptions = {
     events: store.events.length
       ? store.events
       : [],
-    plugins: [interactinPlugin, dayGridPlugin, timeGridPlugin, listPlugin],
+    plugins: [interactinPlugin, dayGridPlugin, timeGridPlugin],
     initialValue: 'dayGridMonth',
     headerToolbar: {
       start: 'sidebarToggle, prev, next, title',
-      end: 'dayGridMonth, timeGridWeek, timeGridDay, listMonth'
+      end: 'dayGridMonth, timeGridWeek, timeGridDay'
     },
     // Determines whether the events on the calendar can be modified.
     // Docs: https://fullcalendar.io/docs/editable
@@ -64,6 +64,7 @@ const CalendarBody = props => {
         //   dispatch(selectEvent(clickedEvent))
         //   handleAddEventSidebar()
         // }
+    ref: calendarRef,
   }
 
   return (
