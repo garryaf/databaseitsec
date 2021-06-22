@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import AddEventButton from "./components/AddEventButton";
+import AddEventSidebar from "./components/AddEventSidebar";
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
 import moment from "moment";
 import {
@@ -287,6 +288,16 @@ class CalendarApp extends React.Component {
             </Widget>
           </Col>
         </Row>
+        <AddEventSidebar
+          sidebar={sidebar}
+          handleSidebar={this.props.handleSidebar}
+          addEvent={this.props.addEvent}
+          events={this.state.events}
+          eventInfo={this.state.eventInfo}
+          selectedEvent={this.props.handleSelectedEvent}
+          updateEvent={this.props.updateEvent}
+          resizable
+        />
       </div>
     )
   }
