@@ -1034,8 +1034,25 @@ li.react-datepicker__time-list-item--selected {
       align-items: center;
       flex-wrap: wrap;
     }
+    .fc-toolbar-chunk:last-child {
+      .fc-button-primary {
+        &:not(.fc-prev-button):not(.fc-next-button) {
+          background-color: transparent;
+          border-color: $violet;
+          color: $violet;
+
+          &.fc-button-active,
+          &:hover {
+            background-color: rgba($color: $violet, $alpha: 0.1) !important;
+            border-color: $violet !important;
+            color: $violet;
+          }
+        }
+      }
+    }
     .fc-button {
       padding: 0.5rem;
+      text-transform: capitalize;
       &:active,
       &:focus {
         box-shadow: none;
@@ -1043,7 +1060,6 @@ li.react-datepicker__time-list-item--selected {
     }
     .fc-button-group {
       .fc-button {
-        text-transform: capitalize;
         &:focus {
           box-shadow: none;
         }
@@ -1082,38 +1098,27 @@ li.react-datepicker__time-list-item--selected {
           margin-left: 0;
         }
       }
-      .fc-dayGridMonth-button,
-      .fc-timeGridWeek-button,
-      .fc-timeGridDay-button {
+      .fc-dayGridMonth-button {
         padding: $fc-day-toggle-btn-padding;
-
-        &:last-child,
-        &:first-child {
-          border-radius: $border-radius;
-        }
-        &:first-child {
-          border-top-right-radius: 0;
-          border-bottom-right-radius: 0;
-        }
-        &:last-child {
-          border-top-left-radius: 0;
-          border-bottom-left-radius: 0;
-        }
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      .fc-timeGridWeek-button {
+        padding: $fc-day-toggle-btn-padding;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
       }
     }
-    //.fc-button-primary {
-    //  &:not(.fc-prev-button):not(.fc-next-button) {
-    //    background-color: transparent;
-    //    border-color: $violet;
-    //    color: $violet;
-    //    &.fc-button-active,
-    //    &:hover {
-    //      background-color: rgba($color: $violet, $alpha: 0.1) !important;
-    //      border-color: $violet !important;
-    //      color: $violet;
-    //    }
-    //  }
-    //}
+    .fc-timeGridDay-button {
+      padding: $fc-day-toggle-btn-padding;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
     & > * > :not(:first-child) {
       margin-left: 0rem;
     }
@@ -1129,6 +1134,84 @@ li.react-datepicker__time-list-item--selected {
   // Calendar head & body common
   tbody td,
   thead th {
+    border-color: $base-middle-gray;
+    &.fc-col-header-cell {
+      border-right: 0;
+      border-left: 0;
+    }
+  }
+  .fc-view-harness {
+    min-height: $fc-calendar-height;
+  }
 
+  // Daygrid
+  .fc-scrollgrid-section-liquid > td {
+    border-borrom: 0;
+  }
+  .fc-daygrid-event-harness {
+    .fc-event {
+      font-size: $fc-event-font-size;
+      font-weight: $fc-event-font-weight;
+      padding: $fc-event-padding-y $fc-event-padding-x;
+    }
+    & + .fc-daygrid-event-harness {
+      margin-top: 0.3rem;
+    }
+  }
+  .fc-daygrid-bottom {
+    margin-top: 0.3rem;
+  }
+  .fc-daygrid-day {
+    padding: 5px;
+    .fc-daygrid-day-top {
+      flex-direction: row;
+    }
+  }
+  // All Views Event
+  .fc-daygrid-day-number,
+  .fc-timegrid-slot-label-cushion,
+  .fc-list-event-time {
+    color: $base-dark-gray;
+  }
+  .fc-day-today {
+    background: $base-light-gray !important;
+    background-color: $base-light-gray !important;
+  }
+
+  // Timegrid
+  .fc-timegrid {
+    .fc-scrollgrid-section {
+      .fc-col-header-cell,
+      .fc-timegrid-axis {
+        border-color: $base-middle-gray;
+        border-left: 0;
+        border-right: 0;
+      }
+    }
+    .fc-timegrid-axis {
+      &.fc-scrollgrid-shrink {
+        .fc-timegrid-axis-cushion {
+          text-transform: capitalize;
+          color: $base-dark-gray;
+        }
+      }
+    }
+    .fc-timegrid-slots {
+      .fc-timegrid-slot {
+        height: 3rem;
+        .fc-timegrid-slot-label-frame {
+          text-align: center;
+          .fc-timegrid-slot-label-cushion {
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+    .fc-timegrid-divider {
+      display: none;
+    }
   }
 }
+
+// App Calendar Specific Styles
+
