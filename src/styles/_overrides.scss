@@ -1214,4 +1214,16 @@ li.react-datepicker__time-list-item--selected {
 }
 
 // App Calendar Specific Styles
+.app-calendar {
+  position: relative;
+  border-radius: 8px;
+  .app-calendar-sidebar {
+    position: absolute;
+    right: calc(-#{$fc-sidebar-width} - 1.2rem);
+    width: $fc-sidebar-width;
+    height: 100%;
+    z-index: 5;
+    background-color: blue;
 
+  }
+}
