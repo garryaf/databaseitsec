@@ -24,7 +24,8 @@ const SidebarRight = props => {
     updateFilter,
     updateAllFilters,
     store,
-    dispatch
+    dispatch,
+    className
   } = props
 
   // ** Function to handle Add Event Click
@@ -74,7 +75,7 @@ const SidebarRight = props => {
           </div>
         </CardBody>
       </div>
-      <div className="mt-auto">
+      <div className="mt-auto mx-auto mb-4">
         <img className="img-fluid" src={sidebarIllustration} alt="illustration" />
       </div>
     </Fragment>

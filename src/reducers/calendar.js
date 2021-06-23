@@ -2,7 +2,7 @@
 const initialState = {
   events: [],
   selectedEvent: {},
-  selectedCalendars: ['Personal', 'Business', 'Family', 'Holiday', 'ETC'],
+  selectedCalendars: ['Personal', 'Business', 'Flatlogic', 'Holiday'],
 }
 
 const calendar = (state = initialState, action) => {

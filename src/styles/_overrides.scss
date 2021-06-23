@@ -1216,14 +1216,60 @@ li.react-datepicker__time-list-item--selected {
 // App Calendar Specific Styles
 .app-calendar {
   position: relative;
-  border-radius: 8px;
-  .app-calendar-sidebar {
-    position: absolute;
-    right: calc(-#{$fc-sidebar-width} - 1.2rem);
-    width: $fc-sidebar-width;
-    height: 100%;
-    z-index: 5;
-    background-color: blue;
 
+
+  .app-calendar-sidebar {
+
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    //flex: 0 0 $fc-sidebar-width;
+    //min-width: $fc-sidebar-width;
+    position: absolute;
+    left: calc(-#{$fc-sidebar-width} - 1.2rem);
+    width: $fc-sidebar-width;
+    height: auto;
+    z-index: 5;
+    background-color: lightblue;
+    border-right: 1px solid red;
+    flex-basis: $fc-sidebar-width;
+    transition: all 0.2s, background 0s, border 0s;
+    &.show {
+      left: 0;
+    }
+  }
+
+
+  @media (min-width: 992px) {
+    .app-calendar-sidebar {
+      position: static;
+      height: auto;
+      box-shadow: none !important;
+
+      .flatpickr-days {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.body-content-overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: block;
+  z-index: 4;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  &.show {
+    visibility: visible;
+    transition: all 0.3s ease;
+    opacity: 1;
+    background-color: rgba($black, 0.2);
+    border-radius: $border-radius/2;
   }
 }

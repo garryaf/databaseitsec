@@ -9,6 +9,8 @@ import { Row, Col } from 'reactstrap'
 import CalendarBody from "./components/CalendarBody"
 import SidebarRight from "./components/SidebarRight";
 
+
+import Widget from "../../../components/Widget/Widget";
 // ** Store & Actions
 import { useSelector, useDispatch } from "react-redux"
 import {
@@ -21,7 +23,7 @@ import {
   removeEvent
 } from "../../../actions/calendar";
 
-const calendarColor = {
+const calendarsColor = {
   Business: 'primary',
   Holiday: 'success',
   Personal: 'danger',
@@ -75,20 +77,9 @@ const Calendar = () => {
     <Fragment>
       <div className="app-calendar overflow-hidden">
         <Row noGutters>
-          <Col xs={12} lg={10} className="position-relative">
-            <CalendarBody
-              store={store}
-              dispatch={dispatch}
-              blankEvent={blankEvent}
-              calendarApi={calendarApi}
-              // selectEvent={selectEvent}
-              // updateEvent={updateEvent}
-              setCalendarApi={setCalendarApi}
-            />
-          </Col>
-          <Col lg={2}
-            id="app-calendar-sidebar"
-            className={classnames("col flex-grow-0 overflow-hidden d-flex flex-column", {
+          <Col
+            id='app-calendar-sidebar'
+            className={classnames('col app-calendar-sidebar flex-grow-0 overflow-hidden d-flex flex-column', {
               show: rightSidebarOpen
             })}
           >
@@ -101,9 +92,26 @@ const Calendar = () => {
               handleAddEventSidebar={handleAddEventSidebar}
             />
           </Col>
+          <Col className="position-relative">
+            <CalendarBody
+              store={store}
+              dispatch={dispatch}
+              blankEvent={blankEvent}
+              calendarApi={calendarApi}
+              // selectEvent={selectEvent}
+              // updateEvent={updateEvent}
+              setCalendarApi={setCalendarApi}
+            />
+          </Col>
+          <div
+            className={classnames("body-content-overlay", {
+              show: rightSidebarOpen === true
+            })}
+            onClick={() => toggleSidebar(false)}
+          />
         </Row>
+        {/*Add event sidebar component*/}
       </div>
-      {/*Add event sidebar component*/}
     </Fragment>
   )
 }

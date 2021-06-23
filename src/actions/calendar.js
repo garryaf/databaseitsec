@@ -53,7 +53,7 @@ export const updateAllFilters = value => {
       type: 'UPDATE_ALL_FILTERS',
       value
     })
-    dispatch(fetchEvents(getState()).calendar.selectedCalendars)
+    dispatch(fetchEvents(getState().calendar.selectedCalendars))
   }
 }
 

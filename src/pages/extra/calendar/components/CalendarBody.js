@@ -68,7 +68,7 @@ const CalendarBody = props => {
   }
 
   return (
-    <Card className="shadow-none border-0 mb-0 rounded-0">
+    <Card className="shadow-none border-0 mb-0">
       <CardBody className="pb-0">
         <FullCalendar {...calendarOptions} />{' '}
       </CardBody>
