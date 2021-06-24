@@ -28,6 +28,7 @@ const calendarsColor = {
   Holiday: 'success',
   Personal: 'danger',
   Flatlogic: 'warning',
+  ETC: 'info',
 }
 
 
@@ -77,6 +78,21 @@ const Calendar = () => {
     <Fragment>
       <div className="app-calendar overflow-hidden">
         <Row noGutters>
+
+          <Col className="position-relative mr-3">
+            <CalendarBody
+              store={store}
+              dispatch={dispatch}
+              blankEvent={blankEvent}
+              calendarApi={calendarApi}
+              setCalendarApi={setCalendarApi}
+              calendarsColor={calendarsColor}
+              toggleSidebar={toggleSidebar}
+              selectEvent={selectEvent}
+              updateEvent={updateEvent}
+              handleAddEventSidebar={handleAddEventSidebar}
+            />
+          </Col>
           <Col
             id='app-calendar-sidebar'
             className={classnames('col app-calendar-sidebar flex-grow-0 overflow-hidden d-flex flex-column', {
@@ -90,17 +106,6 @@ const Calendar = () => {
               updateAllFilters={updateAllFilters}
               toggleSidebar={toggleSidebar}
               handleAddEventSidebar={handleAddEventSidebar}
-            />
-          </Col>
-          <Col className="position-relative">
-            <CalendarBody
-              store={store}
-              dispatch={dispatch}
-              blankEvent={blankEvent}
-              calendarApi={calendarApi}
-              // selectEvent={selectEvent}
-              // updateEvent={updateEvent}
-              setCalendarApi={setCalendarApi}
             />
           </Col>
           <div

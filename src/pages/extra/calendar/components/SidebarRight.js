@@ -25,7 +25,6 @@ const SidebarRight = props => {
     updateAllFilters,
     store,
     dispatch,
-    className
   } = props
 
   // ** Function to handle Add Event Click

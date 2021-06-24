@@ -206,6 +206,12 @@ grid-col-padding {
   }
 }
 
+@each $color, $value in $theme-colors {
+  .bg-light-#{$color} {
+    @include bg-light($value);
+  }
+}
+
 .btn-stepper {
   border: none;
   background-color: transparent;
@@ -1220,19 +1226,16 @@ li.react-datepicker__time-list-item--selected {
 
   .app-calendar-sidebar {
 
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    border-radius: 8px;
     //flex: 0 0 $fc-sidebar-width;
     //min-width: $fc-sidebar-width;
     position: absolute;
-    left: calc(-#{$fc-sidebar-width} - 1.2rem);
+    //left: calc(-#{$fc-sidebar-width} - 1.2rem);
+    right: -$fc-sidebar-width;
     width: $fc-sidebar-width;
     height: auto;
     z-index: 5;
-    background-color: lightblue;
-    border-right: 1px solid red;
+    background-color: $white;
     flex-basis: $fc-sidebar-width;
     transition: all 0.2s, background 0s, border 0s;
     &.show {

@@ -9,7 +9,7 @@ import interactinPlugin from "@fullcalendar/interaction"
 
 // ** Third Party Components
 import { toast } from "react-toastify"
-import { Card, CardBody } from "reactstrap";
+import { Card, CardBody, Button } from "reactstrap";
 
 const CalendarBody = props => {
   // ** Refs
@@ -20,9 +20,12 @@ const CalendarBody = props => {
     dispatch,
     calendarApi,
     setCalendarApi,
+    calendarsColor,
+    toggleSidebar,
     blankEvent,
     selectEvent,
-    updateEvent
+    updateEvent,
+    handleAddEventSidebar
   } = props
 
   // ** UseEffect checks for CalendarAPI Update
@@ -40,8 +43,8 @@ const CalendarBody = props => {
     plugins: [interactinPlugin, dayGridPlugin, timeGridPlugin],
     initialValue: 'dayGridMonth',
     headerToolbar: {
-      start: 'sidebarToggle, prev, next, title',
-      end: 'dayGridMonth, timeGridWeek, timeGridDay'
+      start: ' prev, next, title',
+      end: 'sidebarToggle, dayGridMonth, timeGridWeek, timeGridDay'
     },
     // Determines whether the events on the calendar can be modified.
     // Docs: https://fullcalendar.io/docs/editable
@@ -60,10 +63,39 @@ const CalendarBody = props => {
     navLinks: true,
     // Triggered when the user clicks an event.
     // Docs: https://fullcalendar.io/docs/eventClick
-        // eventClick({ event: clickedEvent }) {
-        //   dispatch(selectEvent(clickedEvent))
-        //   handleAddEventSidebar()
-        // }
+
+    eventClassNames({ event: calendarEvent }) {
+      const colorName = calendarsColor[calendarEvent._def.extendedProps.calendar]
+      return [`bg-light-${colorName}`]
+    },
+
+    eventClick({ event: clickedEvent }) {
+      dispatch(selectEvent(clickedEvent))
+      handleAddEventSidebar()
+      // * Only grab required field otherwise it goes in infinity loop
+      // ! Always grab all fields rendered by form (even if it get `undefined`) otherwise due to Vue3/Composition API you might get: "object is not extensible"
+      // event.value = grabEventDataFromEventApi(clickedEvent)
+
+      // eslint-disable-next-line no-use-before-define
+      // isAddNewEventSidebarActive.value = true
+    },
+
+    dateClick(info) {
+      const ev = blankEvent
+      ev.start = info.date
+      ev.end = info.date
+      dispatch(selectEvent(ev))
+      handleAddEventSidebar()
+    },
+
+    eventDrop({event: droppedEvent}) {
+      dispatch(updateEvent(droppedEvent))
+    },
+
+    eventResize({event: resizedEvent}) {
+      dispatch(updateEvent(resizedEvent))
+    },
+
     ref: calendarRef,
   }
 
