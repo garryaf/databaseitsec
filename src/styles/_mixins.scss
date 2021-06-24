@@ -93,3 +93,7 @@
     }
   }
 }
+
+@mixin bullet($color) {
+  background-color: $color;
+}

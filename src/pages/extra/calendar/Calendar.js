@@ -8,6 +8,7 @@ import { Row, Col } from 'reactstrap'
 // ** Calendar App Component Imports
 import CalendarBody from "./components/CalendarBody"
 import SidebarRight from "./components/SidebarRight";
+import AddEventSidebar from "./components/AddEventSidebar";
 
 
 import Widget from "../../../components/Widget/Widget";
@@ -63,11 +64,11 @@ const Calendar = () => {
   }
 
   // ** RefetchEvents
-  // const refetchEvents = () => {
-  //   if (calendarApi !== null) {
-  //     calendarApi.refetchEvents()
-  //   }
-  // }
+  const refetchEvents = () => {
+    if (calendarApi !== null) {
+      calendarApi.refetchEvents()
+    }
+  }
 
   // ** Fetch Events On Mount
   useEffect(() => {
@@ -115,8 +116,11 @@ const Calendar = () => {
             onClick={() => toggleSidebar(false)}
           />
         </Row>
-        {/*Add event sidebar component*/}
       </div>
+      <AddEventSidebar
+        store={store}
+        open={true}
+      />
     </Fragment>
   )
 }
