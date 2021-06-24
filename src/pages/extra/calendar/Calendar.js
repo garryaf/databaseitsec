@@ -119,7 +119,10 @@ const Calendar = () => {
       </div>
       <AddEventSidebar
         store={store}
-        open={true}
+        dispatch={dispatch}
+        open={addSidebarOpen}
+        handleAddEventSidebar={handleAddEventSidebar}
+        selectEvent={selectEvent}
       />
     </Fragment>
   )

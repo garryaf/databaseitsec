@@ -1,5 +1,5 @@
 // ** React Imports
-import { Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
 
 // ** Third Party Components
 import classnames from "classnames";
@@ -18,6 +18,9 @@ import {
   Input,
   Form,
 } from "reactstrap";
+
+// ** Eva Icons
+import "eva-icons/style/eva-icons.css";
 
 // ** Profile Images
 import img1 from "../../../../assets/tables/ellieSmithImg.png"
@@ -88,13 +91,62 @@ const AddEventSidebar = props => {
     )
   }
 
+  // ** Utils
+  // ** Checks if an object is empty (returns boolean)
+  const isObjEmpty = obj => Object.keys(obj).length === 0
+
+  // ** Set Sidebar Fields
+  const handleSelectedEvent = () => {
+    if (!isObjEmpty(selectedEvent)) {
+      const calendar = selectedEvent.extendedProps.calendar
+
+      const resolveLabel = () => {
+        if (calendar.length) {
+          return { label: calendar, value: calendar, color: calendarsColor[calendar] }
+        } else {
+          return { label: 'Business', value: 'Business', color: 'primary' }
+        }
+      }
+      setTitle(selectedEvent.title || title)
+      setAllDay(selectedEvent.allDay || allDay)
+      setUrl(selectedEvent.url || url)
+      setLocation(selectedEvent.extendedProps.location || location)
+      setDesc(selectedEvent.extendedProps.description || desc)
+      setGuests(selectedEvent.extendedProps.guests || guests)
+      setStartPicker(new Date(selectedEvent.start))
+      setEndPicker(selectedEvent.allDay ? new Date(selectedEvent.start) : new Date(selectedEvent.end))
+      setValue([resolveLabel()])
+    }
+  }
+
+  // ** Reset Input Values On Close
+  const handleResetInputValues = () => {
+    dispatch(selectEvent({}))
+    setTitle('')
+    setAllDay(false)
+    setUrl('')
+    setLocation('')
+    setDesc('')
+    setGuests({})
+    setValue([{ value: 'Business', label: 'Business', color: 'primary' }])
+    setStartPicker(new Date())
+    setEndPicker(new Date())
+  }
+
+  const CloseBtn = <i className="eva eva-close cursor-pointer" onClick={handleAddEventSidebar}/>
+
 
   return (
     <Modal
       isOpen={open}
+      toggle={handleAddEventSidebar}
+      onOpened={handleSelectedEvent}
+      onClosed={handleResetInputValues}
+      className="sidebar-lg"
+      contentClassName="p-0"
       modalClassName="modal-slide-in event-sidebar"
     >
-      <ModalHeader>
+      <ModalHeader className="mb-1" toggle={handleAddEventSidebar} close={CloseBtn} tag="div">
         <h5 className="modal-title">
           Test Modal
         </h5>
