@@ -125,6 +125,9 @@ const Calendar = () => {
         addEvent={addEvent}
         removeEvent={removeEvent}
         refetchEvents={refetchEvents}
+        updateEvent={updateEvent}
+        calendarApi={calendarApi}
+        calendarsColor={calendarsColor}
       />
     </Fragment>
   )

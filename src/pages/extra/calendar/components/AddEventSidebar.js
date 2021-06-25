@@ -130,13 +130,14 @@ const AddEventSidebar = props => {
       const calendar = selectedEvent.extendedProps.calendar
       console.log(typeof calendar)
       const resolveLabel = () => {
-        if (calendar.length) {
-          console.log(calendar.length)
-          console.log(calendar)
-          return { value: calendar, label: calendar, color: calendarsColor[calendar] }
-        } else {
+        // if (calendar.length) {
+        //   console.log(calendar.length)
+        //   console.log(calendar)
+        //
+        //   return { value: calendar, label: calendar, color: calendarsColor[calendar] }
+        // } else {
           return { label: 'Business', value: 'Business', color: 'primary' }
-        }
+        // }
       }
       setTitle(selectedEvent.title || title)
       setAllDay(selectedEvent.allDay || allDay)
@@ -235,7 +236,7 @@ const AddEventSidebar = props => {
     } else {
       return (
         <Fragment>
-          <Button color="primary" onClick={handleUpdateEvent}>
+          <Button className="mr-3 rounded" color="primary" onClick={handleUpdateEvent}>
             Update
           </Button>
           <Button color="danger" onClick={handleDeleteEvent} outline>

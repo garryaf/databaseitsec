@@ -88,7 +88,7 @@ const CalendarBody = props => {
       handleAddEventSidebar()
     },
 
-    eventDrop({event: droppedEvent}) {
+    eventDrop({ event: droppedEvent }) {
       dispatch(updateEvent(droppedEvent))
     },
 
