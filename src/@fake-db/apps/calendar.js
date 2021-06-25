@@ -60,17 +60,6 @@ const data = {
     {
       id: 5,
       url: '',
-      title: 'Flat Cleaning',
-      start: new Date(date.getFullYear(), date.getMonth() + 1, -13),
-      end: new Date(date.getFullYear(), date.getMonth() + 1, -12),
-      allDay: true,
-      extendedProps: {
-        calendar: 'ETC'
-      }
-    },
-    {
-      id: 6,
-      url: '',
       title: 'Crossfit',
       start: new Date(date.getFullYear(), date.getMonth() + 1, -13),
       end: new Date(date.getFullYear(), date.getMonth() + 1, -12),
@@ -80,7 +69,7 @@ const data = {
       }
     },
     {
-      id: 7,
+      id: 6,
       url: '',
       title: 'Weekly Meeting',
       start: new Date(date.getFullYear(), date.getMonth() + 1, -13),
@@ -91,7 +80,7 @@ const data = {
       }
     },
     {
-      id: 8,
+      id: 7,
       url: '',
       title: 'Product Review',
       start: new Date(date.getFullYear(), date.getMonth() + 1, -13),
@@ -102,7 +91,7 @@ const data = {
       }
     },
     {
-      id: 9,
+      id: 8,
       url: '',
       title: 'Meeting With Alex',
       start: nextMonth,
@@ -113,7 +102,7 @@ const data = {
       }
     },
     {
-      id: 10,
+      id: 9,
       url: '',
       title: 'Monthly Checkup',
       start: prevMonth,

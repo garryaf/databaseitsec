@@ -26,10 +26,9 @@ import {
 
 const calendarsColor = {
   Business: 'primary',
-  Holiday: 'success',
   Personal: 'danger',
   Flatlogic: 'warning',
-  ETC: 'info',
+  Holiday: 'success',
 }
 
 

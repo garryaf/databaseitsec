@@ -927,10 +927,10 @@ pre {
   background-color: $violet;
 }
 
-.react-datepicker__time-container
-.react-datepicker__time
-.react-datepicker__time-box
-ul.react-datepicker__time-list
+.react-datepicker__time-container,
+.react-datepicker__time,
+.react-datepicker__time-box,
+ul.react-datepicker__time-list,
 li.react-datepicker__time-list-item--selected {
   background-color: $violet;
 }
@@ -1037,6 +1037,11 @@ li.react-datepicker__time-list-item--selected {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
 }
 
 
@@ -1255,7 +1260,6 @@ li.react-datepicker__time-list-item--selected {
 
 
   .app-calendar-sidebar {
-
     border-radius: 8px;
     //flex: 0 0 $fc-sidebar-width;
     //min-width: $fc-sidebar-width;
@@ -1270,6 +1274,48 @@ li.react-datepicker__time-list-item--selected {
     transition: all 0.2s, background 0s, border 0s;
     &.show {
       left: 0;
+    }
+  }
+
+  // right sidebar area styles
+  .event-sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    z-index: 15;
+    transform: translateX(120%);
+    transition: all 0.3s ease-in-out;
+
+    .card {
+      height: calc(100vh - 12.96rem);
+      height: calc(var(--vh, 1vh) * 100 - 12.96rem);
+      border-radius: 0 $border-radius-sm $border-radius-sm 0;
+
+      .close-bar {
+        cursor: pointer;
+      }
+
+      .todo-item-action {
+        width: 6rem;
+
+        .todo-item-info,
+        .todo-item-favorite,
+        .dropdown {
+          cursor: pointer;
+          line-height: 1.5;
+        }
+        .dropdown .dropdown-menu .dropdown-item {
+          padding: 0.14rem 1.428rem;
+        }
+        .dropdown-toggle::after {
+          display: none;
+        }
+      }
+    }
+
+    &.show {
+      transform: translateX(0);
     }
   }
 
@@ -1405,6 +1451,196 @@ li.react-datepicker__time-list-item--selected {
       margin-right: 0.2rem !important;
       margin-left: 0.2rem;
       margin-bottom: 3rem;
+    }
+  }
+}
+
+////// Flatpickr
+.flatpickr-calendar {
+  .flatpickr-day {
+    color: $body-color;
+    &.today {
+      border-color: $primary;
+      &:hover {
+        background: transparent;
+        color: $body-color;
+      }
+    }
+
+    &.selected,
+    &.selected:hover {
+      background: $primary;
+      color: $white;
+      border-color: $primary;
+    }
+
+    &.inRange,
+    &.inRange:hover {
+      background: lighten($color: $primary, $amount: 30%);
+      border-color: lighten($color: $primary, $amount: 30%);
+      box-shadow: -5px 0 0 lighten($color: $primary, $amount: 30%), 5px 0 0 lighten($color: $primary, $amount: 30%);
+    }
+    &.startRange,
+    &.endRange,
+    &.startRange:hover,
+    &.endRange:hover {
+      background: $primary;
+      color: $white;
+      border-color: $primary;
+    }
+
+    &.selected.startRange + .endRange:not(:nth-child(7n + 1)),
+    &.startRange.startRange + .endRange:not(:nth-child(7n + 1)),
+    &.endRange.startRange + .endRange:not(:nth-child(7n + 1)) {
+      box-shadow: -10px 0 0 $primary;
+    }
+
+    &.flatpickr-disabled,
+    &.prevMonthDay,
+    &.nextMonthDay {
+      color: $gray-300;
+    }
+
+    &:hover {
+      background: $base-middle-gray;
+    }
+  }
+  &:after,
+  &:before {
+    display: none;
+  }
+
+  .flatpickr-months {
+    .flatpickr-prev-month,
+    .flatpickr-next-month {
+      top: -5px;
+      &:hover i,
+      &:hover svg {
+        fill: $primary;
+      }
+    }
+  }
+  .flatpickr-current-month span.cur-month {
+    font-weight: 300;
+  }
+}
+
+// Time picker hover & focus bg color
+.flatpickr-time input:hover,
+.flatpickr-time .flatpickr-am-pm:hover,
+.flatpickr-time input:focus,
+.flatpickr-time .flatpickr-am-pm:focus {
+  background: $white;
+}
+
+//Dark layout
+.dark-layout {
+  .flatpickr-calendar {
+    background: $base-light-gray;
+    border-color: $base-light-gray;
+    box-shadow: none;
+    .flatpickr-months {
+      i,
+      svg {
+        fill: $base-middle-gray;
+      }
+    }
+    .flatpickr-month {
+      color: $base-middle-gray;
+    }
+    .flatpickr-weekwrapper .flatpickr-weeks {
+      box-shadow: 1px 0 0 $base-dark-gray;
+    }
+    .flatpickr-weekday {
+      color: $base-middle-gray;
+    }
+
+    .flatpickr-day {
+      &,
+      &.today:hover {
+        color: $base-middle-gray;
+      }
+      &.selected {
+        color: $white;
+      }
+
+      &.prevMonthDay,
+      &.nextMonthDay,
+      &.flatpickr-disabled {
+        color: $gray-700 !important;
+      }
+      &.inRange,
+      &.inRange:hover {
+        background: $default;
+        border-color: $default;
+        box-shadow: -5px 0 0 $default, 5px 0 0 $default;
+      }
+      &:hover:not(.selected):not(.today):not(.startRange):not(.endRange) {
+        color: $base-middle-gray;
+        border-color: $default;
+      }
+    }
+
+    .flatpickr-days .flatpickr-day {
+      &:hover:not(.selected):not(.today):not(.startRange):not(.endRange) {
+        background: $default;
+      }
+    }
+
+    .flatpickr-time {
+      border-color: $base-light-gray !important;
+
+      .numInput,
+      .flatpickr-am-pm {
+        color: $base-middle-gray;
+        &:hover {
+          background: $base-light-gray;
+        }
+      }
+
+      .arrowUp:after {
+        border-bottom-color: $base-middle-gray;
+      }
+      .arrowDown:after {
+        border-top-color: $base-middle-gray;
+      }
+    }
+  }
+  // Time picker hover & focus bg color
+  .flatpickr-time input:hover,
+  .flatpickr-time .flatpickr-am-pm:hover,
+  .flatpickr-time input:focus,
+  .flatpickr-time .flatpickr-am-pm:focus {
+    background: $base-light-gray;
+  }
+}
+
+// ? Added bg color for flatpickr input only as it has default readonly attribute
+.flatpickr-input[readonly],
+.flatpickr-input ~ .form-control[readonly],
+.flatpickr-human-friendly[readonly] {
+  background-color: inherit;
+  opacity: 1 !important;
+}
+
+.flatpickr-weekdays {
+  margin-top: 8px;
+}
+
+.flatpickr-current-month {
+  .flatpickr-monthDropdown-months {
+    -webkit-appearance: none;
+  }
+
+  .flatpickr-monthDropdown-months,
+  .numInputWrapper {
+    font-size: 1.1rem;
+    border-radius: 4px;
+    padding: 2px;
+    transition: all 0.15s ease-out;
+
+    span {
+      display: none;
     }
   }
 }

@@ -31,7 +31,6 @@ import img4 from "../../../../assets/tables/janeCooper.png"
 
 // ** Styles Imports
 // import '@styles/react/libs/react-select/_react-select.scss'
-// import '@styles/react/libs/flatpickr/flatpickr.scss'
 
 const AddEventSidebar = props => {
   // ** Props
@@ -68,9 +67,8 @@ const AddEventSidebar = props => {
   const options = [
     { value: 'Business', label: 'Business', color: 'primary' },
     { value: 'Personal', label: 'Personal', color: 'danger' },
-    { value: 'Family', label: 'Family', color: 'warning' },
+    { value: 'Flatlogic', label: 'Flatlogic', color: 'warning' },
     { value: 'Holiday', label: 'Holiday', color: 'success' },
-    { value: 'ETC', label: 'ETC', color: 'info' }
   ]
 
   const guestsOptions = [
@@ -84,8 +82,19 @@ const AddEventSidebar = props => {
   const OptionComponent = ({ data, ...props}) => {
     return (
       <components.Option {...props}>
-        <span className={`bullet bullet-${data.color} bullet-sm mr-50`}></span>
+        <div className={`bullet bullet-${data.color} bullet-sm mr-2`}></div>
         {data.label}
+      </components.Option>
+    )
+  }
+
+  const GuestsComponent = ({ data, ...props }) => {
+    return (
+      <components.Option {...props}>
+        <div className="d-flex flex-wrap align-items-center">
+          <img className="avatar mr-2" src={data.avatar} alt="user"/>
+          <div>{data.label}</div>
+        </div>
       </components.Option>
     )
   }
@@ -94,14 +103,37 @@ const AddEventSidebar = props => {
   // Checks if an object is empty (returns boolean)
   const isObjEmpty = obj => Object.keys(obj).length === 0
 
+  // ** Adds New Event
+  const handleAddEvent = () => {
+    const obj = {
+      title,
+      start: startPicker,
+      end: endPicker,
+      allDay,
+      display: 'block',
+      extendedProps: {
+        calendar: value[0].label,
+        url: url.length ? url : undefined,
+        guests: guests.length ? guests : undefined,
+        location: location.length ? location : undefined,
+        desc: desc.length ? desc : undefined
+      }
+    }
+    dispatch(addEvent(obj))
+    refetchEvents()
+    handleAddEventSidebar()
+  }
+
   // ** Set Sidebar Fields
   const handleSelectedEvent = () => {
     if (!isObjEmpty(selectedEvent)) {
       const calendar = selectedEvent.extendedProps.calendar
-
+      console.log(typeof calendar)
       const resolveLabel = () => {
         if (calendar.length) {
-          return { label: calendar, value: calendar, color: calendarsColor[calendar] }
+          console.log(calendar.length)
+          console.log(calendar)
+          return { value: calendar, label: calendar, color: calendarsColor[calendar] }
         } else {
           return { label: 'Business', value: 'Business', color: 'primary' }
         }
@@ -130,27 +162,6 @@ const AddEventSidebar = props => {
     setValue([{ value: 'Business', label: 'Business', color: 'primary' }])
     setStartPicker(new Date())
     setEndPicker(new Date())
-  }
-
-  // ** Adds New Event
-  const handleAddEvent = () => {
-    const obj = {
-      title,
-      start: startPicker,
-      end: endPicker,
-      allDay,
-      display: 'block',
-      extendedProps: {
-        calendar: value[0].label,
-        url: url.length ? url : undefined,
-        guests: guests.length ? guests : undefined,
-        location: location.length ? location : undefined,
-        desc: desc.length ? desc : undefined
-      }
-    }
-    dispatch(addEvent(obj))
-    refetchEvents()
-    handleAddEventSidebar()
   }
 
   // ** Update Event In Calendar
@@ -249,7 +260,7 @@ const AddEventSidebar = props => {
     >
       <ModalHeader className="mb-1" toggle={handleAddEventSidebar} close={CloseBtn} tag="div">
         <h5 className="modal-title">
-          {selectedEvent && selectEvent.title && selectEvent.title.length ? "Update" : "Add"} Event
+          {selectedEvent && selectedEvent.title && selectedEvent.title.length ? "Update" : "Add"} Event
         </h5>
       </ModalHeader>
       <ModalBody className="flex-grow-1 pb-sm-0 pb-3">
@@ -280,6 +291,110 @@ const AddEventSidebar = props => {
                 'is-invalid': errors.title
                 // add extended bootstrap class for show invalid field value
               })}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="label">Label</Label>
+            <Select
+              id="label"
+              value={value}
+              options={options}
+              className="react-select"
+              classNamePrefix="select"
+              isClearable={false}
+              onChange={data => setValue([data])}
+              components={{
+                Option: OptionComponent
+              }}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for='startDate'>Start Date</Label>
+            <Flatpickr
+              required
+              id='startDate'
+              name='startDate'
+              className='form-control'
+              onChange={date => setStartPicker(date[0])}
+              value={startPicker}
+              options={{
+                enableTime: allDay === false,
+                dateFormat: 'Y-m-d H:i'
+              }}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for='endDate'>End Date</Label>
+            <Flatpickr
+              required
+              id='endDate'
+              // tag={Flatpickr}
+              name='endDate'
+              className='form-control'
+              onChange={date => setEndPicker(date[0])}
+              value={endPicker}
+              options={{
+                enableTime: allDay === false,
+                dateFormat: 'Y-m-d H:i'
+              }}
+            />
+          </FormGroup>
+          <FormGroup>
+            <CustomInput
+              type='switch'
+              id='allDay'
+              name='customSwitch'
+              label='All Day'
+              checked={allDay}
+              onChange={e => setAllDay(e.target.checked)}
+              inline
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for='eventURL'>Event URL</Label>
+            <Input
+              type='url'
+              id='eventURL'
+              value={url}
+              onChange={e => setUrl(e.target.value)}
+              placeholder='https://www.flatlogic.com'
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for='guests'>Guests</Label>
+            <Select
+              isMulti
+              id='guests'
+              className='react-select'
+              classNamePrefix='select'
+              isClearable={false}
+              options={guestsOptions}
+              value={guests.length ? [...guests] : null}
+              onChange={data => setGuests([...data])}
+              components={{
+                Option: GuestsComponent
+              }}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="location">Location</Label>
+            <Input
+              id="location"
+              value={location}
+              onChange={e => setLocation(e.target.value)}
+              placeholder="Office"
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="description">Description</Label>
+            <Input
+              type="textarea"
+              name="text"
+              id="description"
+              rows="3"
+              value={desc}
+              onChange={e => setDesc(e.target.value)}
+              placeholder="Description"
             />
           </FormGroup>
           <FormGroup className="d-flex">
