@@ -38,7 +38,7 @@ const data = {
     {
       id: 3,
       url: '',
-      title: 'Family Trip',
+      title: 'Running Training',
       allDay: true,
       start: new Date(date.getFullYear(), date.getMonth() + 1, -9),
       end: new Date(date.getFullYear(), date.getMonth() + 1, -7),
@@ -49,7 +49,7 @@ const data = {
     {
       id: 4,
       url: '',
-      title: "Doctor's Appointment",
+      title: "Visa Application at UK Embassy",
       start: new Date(date.getFullYear(), date.getMonth() + 1, -11),
       end: new Date(date.getFullYear(), date.getMonth() + 1, -10),
       allDay: true,
@@ -60,7 +60,7 @@ const data = {
     {
       id: 5,
       url: '',
-      title: 'Dart Game?',
+      title: 'Flat Cleaning',
       start: new Date(date.getFullYear(), date.getMonth() + 1, -13),
       end: new Date(date.getFullYear(), date.getMonth() + 1, -12),
       allDay: true,
@@ -71,7 +71,7 @@ const data = {
     {
       id: 6,
       url: '',
-      title: 'Meditation',
+      title: 'Crossfit',
       start: new Date(date.getFullYear(), date.getMonth() + 1, -13),
       end: new Date(date.getFullYear(), date.getMonth() + 1, -12),
       allDay: true,
@@ -82,7 +82,7 @@ const data = {
     {
       id: 7,
       url: '',
-      title: 'Dinner',
+      title: 'Weekly Meeting',
       start: new Date(date.getFullYear(), date.getMonth() + 1, -13),
       end: new Date(date.getFullYear(), date.getMonth() + 1, -12),
       allDay: true,
@@ -104,7 +104,7 @@ const data = {
     {
       id: 9,
       url: '',
-      title: 'Monthly Meeting',
+      title: 'Meeting With Alex',
       start: nextMonth,
       end: nextMonth,
       allDay: true,

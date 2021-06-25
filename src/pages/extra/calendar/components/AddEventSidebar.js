@@ -29,7 +29,6 @@ import img3 from "../../../../assets/tables/rosaFloresImg.png"
 import img4 from "../../../../assets/tables/janeCooper.png"
 
 
-
 // ** Styles Imports
 // import '@styles/react/libs/react-select/_react-select.scss'
 // import '@styles/react/libs/flatpickr/flatpickr.scss'
@@ -92,7 +91,7 @@ const AddEventSidebar = props => {
   }
 
   // ** Utils
-  // ** Checks if an object is empty (returns boolean)
+  // Checks if an object is empty (returns boolean)
   const isObjEmpty = obj => Object.keys(obj).length === 0
 
   // ** Set Sidebar Fields
@@ -133,8 +132,110 @@ const AddEventSidebar = props => {
     setEndPicker(new Date())
   }
 
-  const CloseBtn = <i className="eva eva-close cursor-pointer" onClick={handleAddEventSidebar}/>
+  // ** Adds New Event
+  const handleAddEvent = () => {
+    const obj = {
+      title,
+      start: startPicker,
+      end: endPicker,
+      allDay,
+      display: 'block',
+      extendedProps: {
+        calendar: value[0].label,
+        url: url.length ? url : undefined,
+        guests: guests.length ? guests : undefined,
+        location: location.length ? location : undefined,
+        desc: desc.length ? desc : undefined
+      }
+    }
+    dispatch(addEvent(obj))
+    refetchEvents()
+    handleAddEventSidebar()
+  }
 
+  // ** Update Event In Calendar
+  const updateEventInCalendar = (updatedEventData, propsToUpdate, extendedPropsToUpdate) => {
+    const existingEvent = calendarApi.getEventById(updatedEventData.id)
+    // ** Set event properties except date related
+    // Docs: https://fullcalendar.io/docs/Event-setProp
+    for (let index = 0; index < propsToUpdate.length; index ++) {
+      const propName = propsToUpdate[index]
+      existingEvent.setProp(propName, updatedEventData[propName])
+    }
+    // ** Set date related props
+    // Docs: https://fullcalendar.io/docs/Event-setDates
+    existingEvent.setDates(updatedEventData.star, updatedEventData.end, { allDay: updatedEventData.allDay })
+
+    // ** Set event's extendedProps
+    // Docs: https://fullcalendar.io/docs/Event-setExtendedProp
+    for (let index = 0; index < extendedPropsToUpdate.length; index ++) {
+      const propName = extendedPropsToUpdate[index]
+      existingEvent.setExtendedProp(propName, updatedEventData.extendedProps[propName])
+    }
+  }
+
+  // ** Update Event In Store
+  const handleUpdateEvent = () => {
+    const eventToUpdate = {
+      id: selectedEvent.id,
+      title,
+      allDay,
+      start: startPicker,
+      end: endPicker,
+      url,
+      extendedProps: {
+        location,
+        description: desc,
+        guests,
+        calendar: value[0].label
+      }
+    }
+
+    const propsToUpdate = ['id', 'title', 'url']
+    const extendedPropsToUpdate = ['calendar', 'guests', 'location', 'description']
+
+    dispatch(updateEvent(eventToUpdate))
+    updateEventInCalendar(eventToUpdate, propsToUpdate, extendedPropsToUpdate)
+    handleAddEventSidebar()
+  }
+
+  // ** Remove Event In Calendar
+  const removeEventInCalendar = eventId => {
+    calendarApi.getEventById(eventId).remove()
+  }
+  const handleDeleteEvent = () => {
+    dispatch(removeEvent(selectedEvent.id))
+    removeEventInCalendar(selectedEvent.id)
+    handleAddEventSidebar()
+  }
+
+  const EventActions = () => {
+    if (isObjEmpty(selectedEvent) || (!isObjEmpty(selectedEvent) && !selectedEvent.title.length)) {
+      return (
+        <Fragment>
+          <Button className="mr-3 rounded" type="submit" color="primary" >
+            Add
+          </Button>
+          <Button color="secondary" type="reset" onClick={handleAddEventSidebar} outline>
+            Cancel
+          </Button>
+        </Fragment>
+      )
+    } else {
+      return (
+        <Fragment>
+          <Button color="primary" onClick={handleUpdateEvent}>
+            Update
+          </Button>
+          <Button color="danger" onClick={handleDeleteEvent} outline>
+            Delete
+          </Button>
+        </Fragment>
+      )
+    }
+  }
+
+  const CloseBtn = <i className="eva eva-close cursor-pointer" onClick={handleAddEventSidebar}/>
 
   return (
     <Modal
@@ -148,13 +249,43 @@ const AddEventSidebar = props => {
     >
       <ModalHeader className="mb-1" toggle={handleAddEventSidebar} close={CloseBtn} tag="div">
         <h5 className="modal-title">
-          Test Modal
+          {selectedEvent && selectEvent.title && selectEvent.title.length ? "Update" : "Add"} Event
         </h5>
       </ModalHeader>
-      <ModalBody className="">
-        <div>
-          This is modal body
-        </div>
+      <ModalBody className="flex-grow-1 pb-sm-0 pb-3">
+        <Form
+          onSubmit={handleSubmit(data => {
+            if (isObjEmpty(errors)) {
+              if (isObjEmpty(selectedEvent) || (!isObjEmpty(selectedEvent) && !selectedEvent.title.length)) {
+                handleAddEvent()
+              } else {
+                handleUpdateEvent()
+              }
+              handleAddEventSidebar()
+            }
+          })}
+        >
+          <FormGroup>
+            <Label for="title">
+              Title <span className="text-danger">*</span>
+            </Label>
+            <Input
+              id='title'
+              name='title'
+              placeholder='Title'
+              value={title}
+              onChange={e => setTitle(e.target.value)}
+              innerRef={register({ register: true, validate: value => value !== '' })}
+              className={classnames({
+                'is-invalid': errors.title
+                // add extended bootstrap class for show invalid field value
+              })}
+            />
+          </FormGroup>
+          <FormGroup className="d-flex">
+            <EventActions />
+          </FormGroup>
+        </Form>
       </ModalBody>
     </Modal>
   )

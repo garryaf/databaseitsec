@@ -123,6 +123,9 @@ const Calendar = () => {
         open={addSidebarOpen}
         handleAddEventSidebar={handleAddEventSidebar}
         selectEvent={selectEvent}
+        addEvent={addEvent}
+        removeEvent={removeEvent}
+        refetchEvents={refetchEvents}
       />
     </Fragment>
   )
