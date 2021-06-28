@@ -10,10 +10,10 @@ import sidebarIllustration from '../../../../assets/calendarImg.svg'
 
 // ** Filters Checkbox Array
 const filters = [
-  { label: 'Personal', color: 'danger', className: 'custom-control-danger mb-1' },
-  { label: 'Business', color: 'primary', className: 'custom-control-primary mb-1' },
-  { label: 'Flatlogic', color: 'warning', className: 'custom-control-warning mb-1' },
-  { label: 'Holiday', color: 'success', className: 'custom-control-success mb-1' },
+  { label: 'Personal', color: 'danger', className: 'styled mb-1' },
+  { label: 'Business', color: 'primary', className: 'styled mb-1' },
+  { label: 'Flatlogic', color: 'warning', className: 'styled mb-1' },
+  { label: 'Holiday', color: 'info', className: 'styled mb-1' },
 ]
 
 const SidebarRight = props => {
@@ -51,29 +51,33 @@ const SidebarRight = props => {
             />
             <label htmlFor="view-all">View All</label>
           </div>
-          {/*<CustomInput*/}
-          {/*  id="view-all"*/}
-          {/*  type="checkbox"*/}
-          {/*  label="View All"*/}
-          {/*  className="mb-1"*/}
-          {/*  checked={store.selectedCalendars.length === filters.length}*/}
-          {/*  onChange={e => dispatch(updateAllFilters(e.target.checked))}*/}
-          {/*/>*/}
           <div className="calendar-events-filter">
             {filters.length &&
             filters.map(filter => {
               return (
-                <CustomInput
-                  id={filter.label}
-                  type="checkbox"
-                  key={filter.label}
-                  label={filter.label}
-                  checked={store.selectedCalendars.includes(filter.label)}
-                  className={classnames({
-                    [filter.className]: filter.className
-                  })}
-                  onChange={e => dispatch(updateFilter(filter.label))}
-                />
+                // <CustomInput
+                //   id={filter.label}
+                //   type="checkbox"
+                //   key={filter.label}
+                //   label={filter.label}
+                //   checked={store.selectedCalendars.includes(filter.label)}
+                //   className={classnames({
+                //     [filter.className]: filter.className
+                //   })}
+                //   onChange={e => dispatch(updateFilter(filter.label))}
+                // />
+                <div className={`form-check checkbox checkbox-${filter.color}`}>
+                  <input
+                    id={filter.label}
+                    type="checkbox"
+                    key={filter.label}
+                    label={filter.label}
+                    checked={store.selectedCalendars.includes(filter.label)}
+                    className={filter.className}
+                    onChange={e => dispatch(updateFilter(filter.label))}
+                  />
+                  <label htmlFor={filter.label}>{filter.label}</label>
+                </div>
               )
             })
             }

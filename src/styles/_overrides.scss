@@ -652,10 +652,6 @@ a.badge {
   }
 }
 
-//.checkbox-* input[type='checkbox']:checked + label::after {
-//  color: #fff;
-//}
-
 input[type='checkbox'].styled:checked + label:after {
   top: 2px;
   content: url("../components/Icons/checkmark.svg");
