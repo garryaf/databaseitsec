@@ -68,7 +68,7 @@ class Layout extends React.Component {
               <Route path="/template/core/typography" exact component={Typography} />
               <Route path="/template/core/colors" exact component={Colors} />
               <Route path="/template/core/grid" exact component={Grid} />
-              <Route path="/template/typography" exact component={Typography} />
+              <Route path="/template/calendar" exact component={Calendar} />
               <Route path="/template/tables" exact component={Tables} />
               <Route path="/template/ui-elements" exact render={() => <Redirect to={"/template/ui-elements/charts"} />} />
               <Route path="/template/ui-elements/alerts" exact component={Alerts} />
@@ -98,7 +98,6 @@ class Layout extends React.Component {
               <Route path="/template/maps/google" exact component={Maps} />
               <Route path="/template/maps/vector" exact component={VectorMap} />
               <Route path="/template/extra" exact render={() => <Redirect to={"/template/extra/calendar"}/>} />
-              <Route path="/template/extra/calendar" exact component={Calendar} />
               <Route path="/template/extra/charts" exact component={Charts} />
               <Route path="/template/extra/login" exact component={Login} />
               <Route path="/template/extra/register" exact component={Register} />

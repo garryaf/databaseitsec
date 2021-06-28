@@ -13,6 +13,8 @@ import TypographyIcon from "../Icons/SidebarIcons/TypographyIcon.js";
 import TablesIcon from "../Icons/SidebarIcons/TablesIcon.js";
 import UIElementsIcon from "../Icons/SidebarIcons/UIElementsIcon.js";
 import SofiaLogo from "../Icons/SidebarIcons/SofiaLogo.js";
+import "eva-icons/style/eva-icons.css";
+import * as eva from 'eva-icons';
 
 class Sidebar extends React.Component {
   static propTypes = {
@@ -75,7 +77,7 @@ class Sidebar extends React.Component {
             activeItem={this.props.activeItem}
             header="Dashboard"
             isHeader
-            iconName={<HomeIcon className={s.sidebarIcon}/>}
+            iconName={<i className="eva eva-home-outline"/>}
             link="/template/dashboard"
             index="dashboard"
             badge="9"
@@ -86,7 +88,7 @@ class Sidebar extends React.Component {
             activeItem={this.props.activeItem}
             header="Core"
             isHeader
-            iconName={<TypographyIcon/>}
+            iconName={<i className="eva eva-cube-outline"/>}
             link="/template/core"
             index="core"
             childrenLinks={[
@@ -106,7 +108,7 @@ class Sidebar extends React.Component {
             activeItem={this.props.activeItem}
             header="UI Elements"
             isHeader
-            iconName={<UIElementsIcon className={s.menuIcon}/>}
+            iconName={<i className="eva eva-inbox-outline"/>}
             link="/template/ui-elements"
             index="ui-elements"
             childrenLinks={[
@@ -159,7 +161,7 @@ class Sidebar extends React.Component {
             activeItem={this.props.activeItem}
             header="Forms"
             isHeader
-            iconName={<UIElementsIcon/>}
+            iconName={<i className="eva eva-file-text-outline"/>}
             link="/template/forms"
             index="forms"
             childrenLinks={[
@@ -179,7 +181,7 @@ class Sidebar extends React.Component {
             activeItem={this.props.activeItem}
             header="Charts"
             isHeader
-            iconName={<UIElementsIcon/>}
+            iconName={<i className="eva eva-pie-chart-outline"/>}
             link="/template/charts"
             index="charts"
             childrenLinks={[
@@ -200,18 +202,18 @@ class Sidebar extends React.Component {
           <LinksGroup
             onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
             activeItem={this.props.activeItem}
-            header="Typography"
+            header="Calendar"
             isHeader
-            iconName={<TablesIcon />}
-            link="/template/typography"
-            index="typography"
+            iconName={<i className="eva eva-calendar-outline"/>}
+            link={"/template/calendar"}
+            index="calendar"
           />
           <LinksGroup
             onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
             activeItem={this.props.activeItem}
             header="Tables"
             isHeader
-            iconName={<TypographyIcon className={s.menuIcon} />}
+            iconName={<i className="eva eva-grid-outline"/>}
             link="/template/tables"
             index="tables"
           />
@@ -220,7 +222,7 @@ class Sidebar extends React.Component {
             activeItem={this.props.activeItem}
             header="Maps"
             isHeader
-            iconName={<NotificationsIcon className={s.menuIcon}/>}
+            iconName={<i className="eva eva-map-outline"/>}
             link="/template/maps"
             index="maps"
             childrenLinks={[
@@ -237,13 +239,10 @@ class Sidebar extends React.Component {
             activeItem={this.props.activeItem}
             header="Extra"
             isHeader
-            iconName={<NotificationsIcon className={s.menuIcon}/>}
+            iconName={<i className="eva eva-star-outline"/>}
             link="/template/extra"
             index="extra"
             childrenLinks={[
-              {
-                header: 'Calendar', link: '/template/extra/calendar',
-              },
               {
                 header: 'Charts', link: '/template/extra/charts',
               },
@@ -272,6 +271,6 @@ function mapStateToProps(store) {
     sidebarOpened: store.navigation.sidebarOpened,
     activeItem: store.navigation.activeItem,
   };
-}
+};
 
 export default withRouter(connect(mapStateToProps)(Sidebar));

@@ -1,5 +1,5 @@
 // ** React Imports
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 
 // ** Custom Components
 import classnames from 'classnames'
@@ -36,23 +36,29 @@ const SidebarRight = props => {
   return (
     <Fragment>
       <div className="sidebar-wrapper">
-        <CardBody className="card-body d-flex justify-content-center my-sm-0 mb-3">
-          <Button color="primary" block onClick={handleAddEventClick}>
-            <span className="align-middle">Add Event</span>
-          </Button>
-        </CardBody>
         <CardBody>
-          <h5 className="section-label mb-1">
-            <span className="align-middle">Filter</span>
-          </h5>
-          <CustomInput
-            id="view-all"
-            type="checkbox"
-            label="View All"
-            className="mb-1"
-            checked={store.selectedCalendars.length === filters.length}
-            onChange={e => dispatch(updateAllFilters(e.target.checked))}
-          />
+          <div className="headline-2 text-center my-2">
+            Calendars
+          </div>
+          <div className="form-check checkbox checkbox-success">
+            <input
+              id="view-all"
+              type="checkbox"
+              className="styled mb-1"
+              label="View All"
+              checked={store.selectedCalendars.length === filters.length}
+              onChange={e => dispatch(updateAllFilters(e.target.checked))}
+            />
+            <label htmlFor="view-all">View All</label>
+          </div>
+          {/*<CustomInput*/}
+          {/*  id="view-all"*/}
+          {/*  type="checkbox"*/}
+          {/*  label="View All"*/}
+          {/*  className="mb-1"*/}
+          {/*  checked={store.selectedCalendars.length === filters.length}*/}
+          {/*  onChange={e => dispatch(updateAllFilters(e.target.checked))}*/}
+          {/*/>*/}
           <div className="calendar-events-filter">
             {filters.length &&
             filters.map(filter => {
@@ -72,6 +78,11 @@ const SidebarRight = props => {
             })
             }
           </div>
+        </CardBody>
+        <CardBody className="card-body d-flex justify-content-center my-sm-0 mb-3">
+          <Button className="btn-rounded" color="secondary-red" onClick={handleAddEventClick}>
+            <span className="align-middle">Add Event</span>
+          </Button>
         </CardBody>
       </div>
       <div className="mt-auto mx-auto mb-4">

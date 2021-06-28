@@ -130,14 +130,11 @@ const AddEventSidebar = props => {
       const calendar = selectedEvent.extendedProps.calendar
       console.log(typeof calendar)
       const resolveLabel = () => {
-        // if (calendar.length) {
-        //   console.log(calendar.length)
-        //   console.log(calendar)
-        //
-        //   return { value: calendar, label: calendar, color: calendarsColor[calendar] }
-        // } else {
+        if (calendar.length) {
+          return { value: calendar, label: calendar, color: calendarsColor[calendar] }
+        } else {
           return { label: 'Business', value: 'Business', color: 'primary' }
-        // }
+        }
       }
       setTitle(selectedEvent.title || title)
       setAllDay(selectedEvent.allDay || allDay)
@@ -225,10 +222,10 @@ const AddEventSidebar = props => {
     if (isObjEmpty(selectedEvent) || (!isObjEmpty(selectedEvent) && !selectedEvent.title.length)) {
       return (
         <Fragment>
-          <Button className="mr-3 rounded" type="submit" color="primary" >
+          <Button className="mr-3 btn-rounded" type="submit" color="primary" >
             Add
           </Button>
-          <Button color="secondary" type="reset" onClick={handleAddEventSidebar} outline>
+          <Button className="btn-rounded" color="secondary" type="reset" onClick={handleAddEventSidebar} outline>
             Cancel
           </Button>
         </Fragment>
@@ -236,10 +233,10 @@ const AddEventSidebar = props => {
     } else {
       return (
         <Fragment>
-          <Button className="mr-3 rounded" color="primary" onClick={handleUpdateEvent}>
+          <Button className="mr-3 btn-rounded" color="primary" onClick={handleUpdateEvent}>
             Update
           </Button>
-          <Button color="danger" onClick={handleDeleteEvent} outline>
+          <Button className="btn-rounded" color="secondary" onClick={handleDeleteEvent} outline>
             Delete
           </Button>
         </Fragment>
