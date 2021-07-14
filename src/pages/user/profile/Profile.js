@@ -11,12 +11,16 @@ import {
   DropdownItem, Dropdown,
 } from "reactstrap";
 import Widget from "../../../components/Widget/Widget";
+import ApexCharts from "react-apexcharts";
 import s from "./Profile.module.scss";
 
 import moreIcon from "../../../assets/tables/moreIcon.svg";
 import profileImg from "../../../assets/profile/profile.png";
 import heartRed from "../../../assets/dashboard/heartRed.svg";
 import heartTeal from "../../../assets/dashboard/heartTeal.svg";
+
+import mock from "./mock";
+const { apexLineChart } = mock;
 
 export default function Profile() {
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
@@ -158,8 +162,12 @@ export default function Profile() {
           </Row>
           <Row className="gutter mb-4">
             <Col xs={12}>
-              <Widget>
-                Seventh Widget
+              <Widget className="widget-p-md">
+                <div className="headline-3">Earning</div>
+                <ApexCharts
+                  series={apexLineChart.series}
+                  options={apexLineChart.options}
+                />
               </Widget>
             </Col>
           </Row>
