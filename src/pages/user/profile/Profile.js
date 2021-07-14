@@ -15,6 +15,8 @@ import s from "./Profile.module.scss";
 
 import moreIcon from "../../../assets/tables/moreIcon.svg";
 import profileImg from "../../../assets/profile/profile.png";
+import heartRed from "../../../assets/dashboard/heartRed.svg";
+import heartTeal from "../../../assets/dashboard/heartTeal.svg";
 
 export default function Profile() {
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
@@ -22,6 +24,10 @@ export default function Profile() {
 
   const profileMenuOpen = () => {
     setProfileDropdownOpen(!profileDropdownOpen);
+  }
+
+  const wizardMenuOpen = () => {
+    setWizardDropdownOpen(!wizardDropdownOpen);
   }
 
   return(
@@ -77,30 +83,63 @@ export default function Profile() {
           </Row>
           <Row className="gutter">
             <Col xs={12} lg={8}>
-              <Widget>
-                Second Widget
+              <Widget className="widget-p-md">
+                <div className="d-flex justify-content-between mb-3">
+                  <div className="headline-3 d-flex align-items-center">Overview</div>
+                  <ButtonDropdown
+                    isOpen={wizardDropdownOpen}
+                    toggle={() => wizardMenuOpen()}
+                  >
+                    <DropdownToggle caret>
+                      &nbsp; Week 1 &nbsp;
+                    </DropdownToggle>
+                    <DropdownMenu>
+                      <DropdownItem>Week 2</DropdownItem>
+                      <DropdownItem>Week 3</DropdownItem>
+                      <DropdownItem>Week 4</DropdownItem>
+                    </DropdownMenu>
+                  </ButtonDropdown>
+                </div>
+                <div className="mt-2">
+                  Wizard
+                </div>
               </Widget>
             </Col>
+
+
+
 
             <Col className="mt-4 mt-lg-0" xs={12} lg={4}>
               <Row className="mb-4">
                 <Col xs={12}>
-                  <Widget>
-                    Third Widget
+                  <Widget className="widget-p-md">
+                    <div className="d-flex flex-column align-items-center">
+                      <img className="img-fluid mb-1" src={heartRed} alt="..." />
+                      <div className="my-2 headline-3">Paypal</div>
+                      <div className="body-2 muted">+$2000</div>
+                    </div>
                   </Widget>
                 </Col>
               </Row>
               <Row className="mb-4">
                 <Col xs={12}>
-                  <Widget>
-                    Fourth Widget
+                  <Widget className="widget-p-md">
+                    <div className="d-flex flex-column align-items-center">
+                      <img className="img-fluid mb-1" src={heartTeal} alt="..." />
+                      <div className="my-2 headline-3">Paypal</div>
+                      <div className="body-2 muted">+$2000</div>
+                    </div>
                   </Widget>
                 </Col>
               </Row>
               <Row className="">
                 <Col xs={12}>
-                  <Widget>
-                    Fifth Widget
+                  <Widget className="widget-p-sm">
+                    <div className="d-flex flex-column align-items-center">
+                      <div className="headline-1">+$467,80</div>
+                      <div className="body-4 muted">Your total earning</div>
+                      <Button color="primary" className="btn-rounded mt-3">Get Money</Button>
+                    </div>
                   </Widget>
                 </Col>
               </Row>
