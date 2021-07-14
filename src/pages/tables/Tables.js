@@ -192,15 +192,9 @@ const Tables = function () {
                       <img className="d-none d-sm-block" src={moreIcon} alt="More..."/>
                     </DropdownToggle>
                     <DropdownMenu >
-                      <DropdownItem>
-                        <div>Copy</div>
-                      </DropdownItem>
-                      <DropdownItem>
-                        <div>Edit</div>
-                      </DropdownItem>
-                      <DropdownItem>
-                        <div>Delete</div>
-                      </DropdownItem>
+                      <DropdownItem>Copy</DropdownItem>
+                      <DropdownItem>Edit</DropdownItem>
+                      <DropdownItem>Delete</DropdownItem>
                     </DropdownMenu>
                   </Dropdown>
                 </div>
