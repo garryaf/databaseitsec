@@ -9,6 +9,7 @@ import Footer from "../Footer/Footer.js";
 import Breadcrumbs from "../Breadbrumbs/Breadcrumbs.js";
 
 import Dashboard from "../../pages/dashboard/Dashboard.js";
+import Profile from "../../pages/user/profile/Profile";
 import Typography from "../../pages/core/typography/Typography.js";
 import Colors from "../../pages/core/colors/Colors.js";
 import Grid from "../../pages/core/grid/Grid.js";
@@ -64,6 +65,8 @@ class Layout extends React.Component {
             <Switch>
               <Route path="/template" exact render={() => <Redirect to="template/dashboard"/>} />
               <Route path="/template/dashboard" exact component={Dashboard}/>
+              <Route path="/template/user" exact render={() => <Redirect to={"/template/user/profile"} />}/>
+              <Route path="/template/user/profile" exact component={Profile} />
               <Route path="/template/core" exact render={() => <Redirect to={"/template/core/typography"} />} />
               <Route path="/template/core/typography" exact component={Typography} />
               <Route path="/template/core/colors" exact component={Colors} />

@@ -86,6 +86,20 @@ class Sidebar extends React.Component {
           <LinksGroup
             onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
             activeItem={this.props.activeItem}
+            header="User"
+            isHeader
+            iconName={<i className="eva eva-person-outline"/>}
+            link="/template/user"
+            index="user"
+            childrenLinks={[
+              {
+                header: 'My Profile', link: '/template/user/profile',
+              },
+            ]}
+          />
+          <LinksGroup
+            onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+            activeItem={this.props.activeItem}
             header="Core"
             isHeader
             iconName={<i className="eva eva-cube-outline"/>}

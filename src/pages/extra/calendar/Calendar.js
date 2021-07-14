@@ -10,8 +10,6 @@ import CalendarBody from "./components/CalendarBody"
 import SidebarRight from "./components/SidebarRight";
 import AddEventSidebar from "./components/AddEventSidebar";
 
-
-import Widget from "../../../components/Widget/Widget";
 // ** Store & Actions
 import { useSelector, useDispatch } from "react-redux"
 import {
