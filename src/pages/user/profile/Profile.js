@@ -11,6 +11,7 @@ import {
   DropdownItem, Dropdown,
 } from "reactstrap";
 import Widget from "../../../components/Widget/Widget";
+import AvatarGroup from "../../../components/AvatarGroup/AvatarGroup";
 import ApexCharts from "react-apexcharts";
 import s from "./Profile.module.scss";
 
@@ -20,7 +21,7 @@ import heartRed from "../../../assets/dashboard/heartRed.svg";
 import heartTeal from "../../../assets/dashboard/heartTeal.svg";
 
 import mock from "./mock";
-const { apexLineChart } = mock;
+const { avatarGroupData, apexLineChart } = mock;
 
 export default function Profile() {
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
@@ -173,8 +174,22 @@ export default function Profile() {
           </Row>
           <Row className="gutter">
             <Col xs={12}>
-              <Widget>
-                Eighth Widget
+              <Widget className="widget-p-md">
+                <div className="headline-2">My Friends</div>
+                <div className="d-flex justify-content-between">
+                  <div>
+                    <AvatarGroup
+                      data={avatarGroupData}
+                      size="lg"
+                      placement="top"
+                      className="pt-4"
+                    />
+                  </div>
+                  <div className="d-flex flex-column align-items-center">
+                    <p className="body-1 muted mb-3">283 Friends</p>
+                    <Button color="secondary" className="btn-rounded body-3" outline>+ Add new friend</Button>
+                  </div>
+                </div>
               </Widget>
             </Col>
           </Row>

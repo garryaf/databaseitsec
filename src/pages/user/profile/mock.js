@@ -1,4 +1,39 @@
 export default {
+
+  avatarGroupData: [
+    {
+      title: 'Alisha Swan',
+      img: require('../../../assets/profile/AlishaSwan.png').default,
+    },
+    {
+      title: 'James Wood',
+      img: require('../../../assets/profile/JamesWood.png').default,
+    },
+    {
+      title: 'Luis Suares',
+      img: require('../../../assets/profile/LuisSuares.png').default,
+    },
+    {
+      title: 'Samantha Bird',
+      img: require('../../../assets/profile/SamanthaBird.png').default,
+    },
+    {
+      title: 'Tara Smith',
+      img: require('../../../assets/profile/TaraSmith.png').default,
+    },
+    {
+      title: 'Brandy Martins',
+      img: require('../../../assets/profile/BrandyMartins.png').default,
+    },
+    {
+      title: 'Enzo Macaroni',
+      img: require('../../../assets/profile/EnzoMacaroni.png').default,
+    },
+    {
+      title: 'Jenny Lim',
+      img: require('../../../assets/profile/JennyLim.png').default,
+    },
+  ],
   apexLineChart: {
     series: [
       {

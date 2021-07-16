@@ -1640,3 +1640,52 @@ li.react-datepicker__time-list-item--selected {
     }
   }
 }
+
+////// Profile page components and elements
+.avatar {
+  white-space: nowrap;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 1rem;
+  text-align: center;
+  vertical-align: middle;
+
+  &.avatar-lg {
+    img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  &.avatar-sm {
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.avatar-group {
+  display: flex;
+  justify-content: flex-start;
+  .avatar {
+    transition: all 0.16s ease;
+    &:hover {
+      transition: all 0.25s ease;
+    }
+    &.zoom-in:hover {
+      transform: translateY(-4px) scale(1.07);
+    }
+  }
+  // Avatar Group Sizings
+  .avatar:not(:first-child) {
+    margin-left: -0.5rem;
+  }
+  .avatar-lg:not(:first-child) {
+    margin-left: .5rem;
+  }
+  .avatar-sm:not(:first-child) {
+    margin-left: .25rem;
+  }
+}
