@@ -53,6 +53,9 @@ export default {
           enabled: false
         }
       },
+      legend: {
+        show: false
+      },
       dataLabels: {
         enabled: false
       },

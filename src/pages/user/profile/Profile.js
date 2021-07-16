@@ -37,57 +37,65 @@ export default function Profile() {
 
   return(
     <div>
+      <Row className="mb-4">
+        <Col lg='6' sm='12' className="mb-4 mb-lg-0">
+          <Widget className={`widget-p-md ${s.profile}`}>
+            <div className="d-flex justify-content-end">
+              <Dropdown
+                nav
+                isOpen={profileDropdownOpen}
+                toggle={() => profileMenuOpen()}
+              >
+                <DropdownToggle nav className="p-0">
+                  <img src={moreIcon} alt="More..."/>
+                </DropdownToggle>
+                <DropdownMenu >
+                  <DropdownItem>Edit</DropdownItem>
+                  <DropdownItem>Delete</DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </div>
+            <div className={s.profileTitle}>
+              <img className="mx-0 mx-md-2" src={profileImg} alt="..."/>
+              <div className="d-flex flex-column mb-2 ml-3">
+                <p className="headline-1">Mary Sanders</p>
+                <p className="body-1 mt-1 mb-3">UI/UX Designer</p>
+                <hr />
+                <div className="d-flex flex-row justify-content-between">
+                  <a href="/"><i className="eva eva-facebook"/></a>
+                  <a href="/"><i className="eva eva-google"/></a>
+                  <a href="/"><i className="eva eva-github"/></a>
+                  <a href="/"><i className="eva eva-linkedin"/></a>
+                </div>
+              </div>
+            </div>
+            <div className="body-1 mb-4">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum has been the industry's typesetting industry.
+              Lorem Ipsum has been the industry's
+            </div>
+            <div className={s.badges}>
+              <Badge className="badge-inverse-primary">Figma</Badge>
+              <Badge className="badge-inverse-secondary-red">Marketing</Badge>
+              <Badge className="badge-inverse-secondary-yellow">Digital Marketing</Badge>
+              <Badge className="badge-inverse-secondary-cyan">Graphic Design</Badge>
+              <Badge className="badge-inverse-success">Social Media</Badge>
+            </div>
+          </Widget>
+        </Col>
+        <Col lg='6' sm='12'>
+          <Widget className="widget-p-md">
+            <div className="headline-3">Earning</div>
+            <dvi>
+              Lorem ipsum
+            </dvi>
+          </Widget>
+        </Col>
+      </Row>
       <Row>
-        <Col className="pr-grid-col" xs={12} lg={6}>
-          <Row className="gutter mb-4">
-            <Col xs={12}>
-              <Widget className={`widget-p-md ${s.profile}`}>
-                <div className="d-flex justify-content-end">
-                  <Dropdown
-                    nav
-                    isOpen={profileDropdownOpen}
-                    toggle={() => profileMenuOpen()}
-                  >
-                    <DropdownToggle nav className="p-0">
-                      <img src={moreIcon} alt="More..."/>
-                    </DropdownToggle>
-                    <DropdownMenu >
-                      <DropdownItem>Edit</DropdownItem>
-                      <DropdownItem>Delete</DropdownItem>
-                    </DropdownMenu>
-                  </Dropdown>
-                </div>
-                <div className={s.profileTitle}>
-                  <img className="mx-0 mx-md-2" src={profileImg} alt="..."/>
-                  <div className="d-flex flex-column mb-2 ml-3">
-                    <p className="headline-1">Mary Sanders</p>
-                    <p className="body-1 mt-1 mb-3">UI/UX Designer</p>
-                    <hr />
-                    <div className="d-flex flex-row justify-content-between">
-                      <a href="/"><i className="eva eva-facebook"/></a>
-                      <a href="/"><i className="eva eva-google"/></a>
-                      <a href="/"><i className="eva eva-github"/></a>
-                      <a href="/"><i className="eva eva-linkedin"/></a>
-                    </div>
-                  </div>
-                </div>
-                <div className="body-1 mb-4">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                  Lorem Ipsum has been the industry's typesetting industry.
-                  Lorem Ipsum has been the industry's
-                </div>
-                <div className={s.badges}>
-                  <Badge className="badge-inverse-primary">Figma</Badge>
-                  <Badge className="badge-inverse-secondary-red">Marketing</Badge>
-                  <Badge className="badge-inverse-secondary-yellow">Digital Marketing</Badge>
-                  <Badge className="badge-inverse-secondary-cyan">Graphic Design</Badge>
-                  <Badge className="badge-inverse-success">Social Media</Badge>
-                </div>
-              </Widget>
-            </Col>
-          </Row>
-          <Row className="gutter">
-            <Col xs={12} lg={8}>
+        <Col lg={6} sm={12}>
+          <Row>
+            <Col lg={8} sm={12} className="mb-4 mb-lg-0">
               <Widget className="widget-p-md">
                 <div className="d-flex justify-content-between mb-3">
                   <div className="headline-3 d-flex align-items-center">Overview</div>
@@ -110,13 +118,9 @@ export default function Profile() {
                 </div>
               </Widget>
             </Col>
-
-
-
-
-            <Col className="mt-4 mt-lg-0" xs={12} lg={4}>
-              <Row className="mb-4">
-                <Col xs={12}>
+            <Col lg={4} sm={12} className="mb-4 mb-lg-0">
+              <Row>
+                <Col sm={4} lg={12} className="mb-4 mb-sm-0 mb-lg-4">
                   <Widget className="widget-p-md">
                     <div className="d-flex flex-column align-items-center">
                       <img className="img-fluid mb-1" src={heartRed} alt="..." />
@@ -125,9 +129,7 @@ export default function Profile() {
                     </div>
                   </Widget>
                 </Col>
-              </Row>
-              <Row className="mb-4">
-                <Col xs={12}>
+                <Col sm={4} lg={12} className="mb-4 mb-sm-0 mb-lg-4">
                   <Widget className="widget-p-md">
                     <div className="d-flex flex-column align-items-center">
                       <img className="img-fluid mb-1" src={heartTeal} alt="..." />
@@ -136,9 +138,7 @@ export default function Profile() {
                     </div>
                   </Widget>
                 </Col>
-              </Row>
-              <Row className="">
-                <Col xs={12}>
+                <Col sm={4} lg={12}>
                   <Widget className="widget-p-sm">
                     <div className="d-flex flex-column align-items-center">
                       <div className="headline-1">+$467,80</div>
@@ -149,33 +149,26 @@ export default function Profile() {
                 </Col>
               </Row>
             </Col>
-
           </Row>
+
         </Col>
-
-        <Col className="mt-4 mt-lg-0 pl-grid-col" xs={12} lg={6}>
-          <Row className="gutter mb-4">
-            <Col xs={12}>
-              <Widget>
-                Sixth Widget
-              </Widget>
-            </Col>
-          </Row>
-          <Row className="gutter mb-4">
-            <Col xs={12}>
+        <Col lg={6} sm={12}>
+          <Row>
+            <Col xs={12} className="mb-4">
               <Widget className="widget-p-md">
                 <div className="headline-3">Earning</div>
-                <ApexCharts
-                  series={apexLineChart.series}
-                  options={apexLineChart.options}
-                />
+                <div className="text-center">
+                  <ApexCharts
+                    series={apexLineChart.series}
+                    options={apexLineChart.options}
+                  />
+                  <Button color="secondary-red" className="btn-rounded mt-3">View Analytics</Button>
+                </div>
               </Widget>
             </Col>
-          </Row>
-          <Row className="gutter">
             <Col xs={12}>
               <Widget className="widget-p-md">
-                <div className="headline-2">My Friends</div>
+                <p className="headline-2">My Friends</p>
                 <div className="d-flex justify-content-between">
                   <div>
                     <AvatarGroup

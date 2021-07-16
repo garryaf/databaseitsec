@@ -1652,16 +1652,16 @@ li.react-datepicker__time-list-item--selected {
   text-align: center;
   vertical-align: middle;
 
-  &.avatar-lg {
-    img {
-      width: 60px;
-      height: 60px;
-    }
-  }
   &.avatar-sm {
     img {
       width: 24px;
       height: 24px;
+    }
+  }
+  &.avatar-lg {
+    img {
+      width: 60px;
+      height: 60px;
     }
   }
 }
@@ -1682,10 +1682,10 @@ li.react-datepicker__time-list-item--selected {
   .avatar:not(:first-child) {
     margin-left: -0.5rem;
   }
-  .avatar-lg:not(:first-child) {
-    margin-left: .5rem;
-  }
   .avatar-sm:not(:first-child) {
     margin-left: .25rem;
+  }
+  .avatar-lg:not(:first-child) {
+    margin-left: .5rem;
   }
 }
