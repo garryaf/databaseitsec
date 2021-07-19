@@ -21,7 +21,9 @@ import heartRed from "../../../assets/dashboard/heartRed.svg";
 import heartTeal from "../../../assets/dashboard/heartTeal.svg";
 
 import mock from "./mock";
-const { avatarGroupData, apexLineChart } = mock;
+import classnames from "classnames";
+import Avatar from "../../../components/Avatar/Avatar";
+const { newsGroupData, avatarGroupData, apexLineChart } = mock;
 
 export default function Profile() {
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
@@ -83,15 +85,48 @@ export default function Profile() {
             </div>
           </Widget>
         </Col>
+
+
         <Col lg='6' sm='12'>
           <Widget className="widget-p-md">
-            <div className="headline-3">Earning</div>
-            <dvi>
-              Lorem ipsum
-            </dvi>
+            <div className="headline-3 mb-1">Earning</div>
+            <div className="mb-4">
+              <span className="fake-link">BBC News, </span>
+              <span className="fake-link">Euronews, </span>
+              <span className="fake-link">CNN, </span>
+              <span className="fake-link">GB News</span>
+            </div>
+            <div className={s.news}>
+              {newsGroupData.map((item, index) => (
+                <div key={index} className="d-flex flex-row mb-4">
+                  <Avatar
+                    className="zoom-in"
+                    imgClassName="avatar"
+                    size="md"
+                    id={index}
+                    img={item.img}
+                  />
+                  <div className="d-flex flex-column ml-4">
+                    <div className="d-flex flex-row">
+                      <p className="headline-3 mr-3">{item.title}</p>
+                      <p className="body-4 muted">{item.time}</p>
+                    </div>
+                    <div className="body-3">
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's typesetting industry. Lorem Ipsum has...
+                      <span className="fake-link"> view all</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </Widget>
         </Col>
       </Row>
+
+
+
+
+
       <Row>
         <Col lg={6} sm={12}>
           <Row>

@@ -1,4 +1,30 @@
 export default {
+  newsGroupData: [
+    {
+      title:"BBC News",
+      time:"15 min ago",
+      img: require('../../../assets/profile/news/bbcnewsLogo.svg').default,
+      text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys typesetting industry.',
+    },
+    {
+      title:"Euronews",
+      time:"1 h ago",
+      img: require('../../../assets/profile/news/cnnLogo.svg').default,
+      text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys typesetting industry.',
+    },
+    {
+      title:"CNN",
+      time:"3 h ago",
+      img: require('../../../assets/profile/news/euronewsLogo.svg').default,
+      text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys typesetting industry.',
+    },
+    {
+      title:"NBC",
+      time:"6 h ago",
+      img: require('../../../assets/profile/news/nbcLogo.svg').default,
+      text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys typesetting industry.',
+    },
+  ],
 
   avatarGroupData: [
     {
@@ -47,8 +73,8 @@ export default {
     ],
     options: {
       chart: {
+        height: 250,
         toolbar: false,
-        height: 350,
         zoom: {
           enabled: false
         }
@@ -77,7 +103,7 @@ export default {
         },
       },
       yaxis: {
-        tickAmount: 4,
+        tickAmount: 3,
         labels: {
           style: {
             colors: "#6B859E",

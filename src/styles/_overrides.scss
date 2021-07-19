@@ -1040,6 +1040,14 @@ li.react-datepicker__time-list-item--selected {
   height: 24px;
 }
 
+.fake-link {
+  color: $violet;
+  cursor: pointer;
+  &:hover {
+    color: $default;
+  }
+}
+
 
 // Calendar
 .fc {
@@ -1658,6 +1666,12 @@ li.react-datepicker__time-list-item--selected {
       height: 24px;
     }
   }
+  &.avatar-md {
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
   &.avatar-lg {
     img {
       width: 60px;
@@ -1684,6 +1698,9 @@ li.react-datepicker__time-list-item--selected {
   }
   .avatar-sm:not(:first-child) {
     margin-left: .25rem;
+  }
+  .avatar-md:not(:first-child) {
+    margin-left: .35rem;
   }
   .avatar-lg:not(:first-child) {
     margin-left: .5rem;
