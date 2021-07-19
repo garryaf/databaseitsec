@@ -51,4 +51,28 @@
   overflow-y: auto;
 }
 
+.chronoWidget {
+  height: auto;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: auto;
+  section {
+    margin: .5rem 0;
+  }
+}
+
+.widgetRow {
+  height: 100% !important;
+}
+
+.widgetOverflow {
+  section {
+    overflow: auto;
+    white-space: nowrap;
+  }
+  > .headline-1 {
+    color: red;
+  }
+}
+
 

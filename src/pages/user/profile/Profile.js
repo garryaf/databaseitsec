@@ -10,6 +10,7 @@ import {
   DropdownMenu,
   DropdownItem, Dropdown,
 } from "reactstrap";
+import { Chrono } from "react-chrono";
 import Widget from "../../../components/Widget/Widget";
 import AvatarGroup from "../../../components/AvatarGroup/AvatarGroup";
 import ApexCharts from "react-apexcharts";
@@ -23,7 +24,7 @@ import heartTeal from "../../../assets/dashboard/heartTeal.svg";
 import mock from "./mock";
 import classnames from "classnames";
 import Avatar from "../../../components/Avatar/Avatar";
-const { newsGroupData, avatarGroupData, apexLineChart } = mock;
+const { timelineWidget, newsGroupData, avatarGroupData, apexLineChart } = mock;
 
 export default function Profile() {
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
@@ -129,8 +130,8 @@ export default function Profile() {
 
       <Row>
         <Col lg={6} sm={12}>
-          <Row>
-            <Col lg={8} sm={12} className="mb-4 mb-lg-0">
+          <Row className={s.widgetRow}>
+            <Col lg={8} sm={12} className={`mb-4 mb-lg-0 ${s.widgetOverflow}`}>
               <Widget className="widget-p-md">
                 <div className="d-flex justify-content-between mb-3">
                   <div className="headline-3 d-flex align-items-center">Overview</div>
@@ -144,17 +145,30 @@ export default function Profile() {
                     <DropdownMenu>
                       <DropdownItem>Week 2</DropdownItem>
                       <DropdownItem>Week 3</DropdownItem>
-                      <DropdownItem>Week 4</DropdownItem>
                     </DropdownMenu>
                   </ButtonDropdown>
                 </div>
-                <div className="mt-2">
-                  Wizard
+                <div className={s.chronoWidget}>
+                  <Chrono
+                    items={timelineWidget.timelineSteps}
+                    mode="VERTICAL"
+                    hideControls
+                  >
+                  {timelineWidget.timelineData.map((item, index) => (
+                    <div key={index} className="d-flex flex-row align-self-baseline ml-3">
+                      <img src={item.img}/>
+                      <div className="d-flex flex-column ml-3">
+                        <p className="body-2">{item.title}</p>
+                        <p className="body-3 muted">{item.label}</p>
+                      </div>
+                    </div>
+                  ))}
+                </Chrono>
                 </div>
               </Widget>
             </Col>
             <Col lg={4} sm={12} className="mb-4 mb-lg-0">
-              <Row>
+              <Row className={s.widgetRow}>
                 <Col sm={4} lg={12} className="mb-4 mb-sm-0 mb-lg-4">
                   <Widget className="widget-p-md">
                     <div className="d-flex flex-column align-items-center">
@@ -173,7 +187,7 @@ export default function Profile() {
                     </div>
                   </Widget>
                 </Col>
-                <Col sm={4} lg={12}>
+                <Col sm={4} lg={12} className={s.widgetOverflow}>
                   <Widget className="widget-p-sm">
                     <div className="d-flex flex-column align-items-center">
                       <div className="headline-1">+$467,80</div>
@@ -188,7 +202,7 @@ export default function Profile() {
 
         </Col>
         <Col lg={6} sm={12}>
-          <Row>
+          <Row className={s.widgetRow}>
             <Col xs={12} className="mb-4">
               <Widget className="widget-p-md">
                 <div className="headline-3">Earning</div>
@@ -196,12 +210,13 @@ export default function Profile() {
                   <ApexCharts
                     series={apexLineChart.series}
                     options={apexLineChart.options}
+                    height={250}
                   />
                   <Button color="secondary-red" className="btn-rounded mt-3">View Analytics</Button>
                 </div>
               </Widget>
             </Col>
-            <Col xs={12}>
+            <Col xs={12} className={s.widgetOverflow}>
               <Widget className="widget-p-md">
                 <p className="headline-2">My Friends</p>
                 <div className="d-flex justify-content-between">

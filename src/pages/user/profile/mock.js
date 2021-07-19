@@ -1,4 +1,69 @@
 export default {
+  timelineWidget: {
+    timelineData: [
+      {
+        img: require('../../../assets/profile/timeline/lesson1.svg').default,
+        title: "Lesson 1",
+        label: "Self introduction"
+      },
+      {
+        img: require('../../../assets/profile/timeline/lesson2.svg').default,
+        title: "Lesson 2",
+        label: "Dialog at school"
+      },
+      {
+        img: require('../../../assets/profile/timeline/lesson3.svg').default,
+        title: "Lesson 3",
+        label: "Daily conversation"
+      },
+      {
+        img: require('../../../assets/profile/timeline/lesson4.svg').default,
+        title: "Lesson 4",
+        label: "Listening"
+      },
+      {
+        img: require('../../../assets/profile/timeline/lesson5.svg').default,
+        title: "Quiz",
+        label: "First week quiz"
+      },
+      {
+        img: require('../../../assets/profile/timeline/lesson6.svg').default,
+        title: "Assignment",
+        label: "First week assignment"
+      },
+    ],
+    timelineSteps: [
+      {
+        cardSubtitle: "",
+        cardDetailedText: "",
+      },
+      {
+        cardTitle: "",
+        cardSubtitle: "",
+        cardDetailedText: "",
+      },
+      {
+        cardTitle: "",
+        cardSubtitle: "",
+        cardDetailedText: "",
+      },
+      {
+        cardTitle: "",
+        cardSubtitle: "",
+        cardDetailedText: "",
+      },
+      {
+        cardTitle: "",
+        cardSubtitle: "",
+        cardDetailedText: "",
+      },
+      {
+        cardTitle: "",
+        cardSubtitle: "",
+        cardDetailedText: "",
+      },
+    ],
+  },
   newsGroupData: [
     {
       title:"BBC News",
@@ -73,7 +138,6 @@ export default {
     ],
     options: {
       chart: {
-        height: 250,
         toolbar: false,
         zoom: {
           enabled: false
