@@ -89,11 +89,21 @@ class Sidebar extends React.Component {
             header="User"
             isHeader
             iconName={<i className="eva eva-person-outline"/>}
-            link="/template/user"
-            index="user"
+            link="/admin"
+            index="admin"
+            exact={false}
             childrenLinks={[
               {
                 header: 'My Profile', link: '/template/user/profile',
+              },
+              {
+                header: 'User Management', link: '/admin/users',
+              },
+              {
+                header: 'Edit Profile', link: '/template/edit_profile',
+              },
+              {
+                header: 'Change Password', link: '/template/password'
               },
             ]}
           />

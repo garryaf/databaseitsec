@@ -11,19 +11,19 @@ import {
   DropdownItem, Dropdown,
 } from "reactstrap";
 import { Chrono } from "react-chrono";
-import Widget from "../../../components/Widget/Widget";
-import AvatarGroup from "../../../components/AvatarGroup/AvatarGroup";
+import Widget from "../../components/Widget/Widget";
+import AvatarGroup from "../../components/AvatarGroup/AvatarGroup";
 import ApexCharts from "react-apexcharts";
 import s from "./Profile.module.scss";
 
-import moreIcon from "../../../assets/tables/moreIcon.svg";
-import profileImg from "../../../assets/profile/profile.png";
-import heartRed from "../../../assets/dashboard/heartRed.svg";
-import heartTeal from "../../../assets/dashboard/heartTeal.svg";
+import moreIcon from "../../assets/tables/moreIcon.svg";
+import profileImg from "../../assets/profile/profile.png";
+import heartRed from "../../assets/dashboard/heartRed.svg";
+import heartTeal from "../../assets/dashboard/heartTeal.svg";
 
 import mock from "./mock";
 import classnames from "classnames";
-import Avatar from "../../../components/Avatar/Avatar";
+import Avatar from "../../components/Avatar/Avatar";
 const { timelineWidget, newsGroupData, avatarGroupData, apexLineChart } = mock;
 
 export default function Profile() {

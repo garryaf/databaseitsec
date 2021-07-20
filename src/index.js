@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { routerMiddleware } from "connected-react-router";
 import { createStore, applyMiddleware, compose } from "redux";
 import ReduxThunk from "redux-thunk";
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
+import axios from "axios";
 
 import App from './components/App';
 import reducers from './reducers';

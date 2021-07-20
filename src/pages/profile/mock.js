@@ -2,32 +2,32 @@ export default {
   timelineWidget: {
     timelineData: [
       {
-        img: require('../../../assets/profile/timeline/lesson1.svg').default,
+        img: require('../../assets/profile/timeline/lesson1.svg').default,
         title: "Lesson 1",
         label: "Self introduction"
       },
       {
-        img: require('../../../assets/profile/timeline/lesson2.svg').default,
+        img: require('../../assets/profile/timeline/lesson2.svg').default,
         title: "Lesson 2",
         label: "Dialog at school"
       },
       {
-        img: require('../../../assets/profile/timeline/lesson3.svg').default,
+        img: require('../../assets/profile/timeline/lesson3.svg').default,
         title: "Lesson 3",
         label: "Daily conversation"
       },
       {
-        img: require('../../../assets/profile/timeline/lesson4.svg').default,
+        img: require('../../assets/profile/timeline/lesson4.svg').default,
         title: "Lesson 4",
         label: "Listening"
       },
       {
-        img: require('../../../assets/profile/timeline/lesson5.svg').default,
+        img: require('../../assets/profile/timeline/lesson5.svg').default,
         title: "Quiz",
         label: "First week quiz"
       },
       {
-        img: require('../../../assets/profile/timeline/lesson6.svg').default,
+        img: require('../../assets/profile/timeline/lesson6.svg').default,
         title: "Assignment",
         label: "First week assignment"
       },
@@ -68,25 +68,25 @@ export default {
     {
       title:"BBC News",
       time:"15 min ago",
-      img: require('../../../assets/profile/news/bbcnewsLogo.svg').default,
+      img: require('../../assets/profile/news/bbcnewsLogo.svg').default,
       text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys typesetting industry.',
     },
     {
       title:"Euronews",
       time:"1 h ago",
-      img: require('../../../assets/profile/news/cnnLogo.svg').default,
+      img: require('../../assets/profile/news/cnnLogo.svg').default,
       text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys typesetting industry.',
     },
     {
       title:"CNN",
       time:"3 h ago",
-      img: require('../../../assets/profile/news/euronewsLogo.svg').default,
+      img: require('../../assets/profile/news/euronewsLogo.svg').default,
       text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys typesetting industry.',
     },
     {
       title:"NBC",
       time:"6 h ago",
-      img: require('../../../assets/profile/news/nbcLogo.svg').default,
+      img: require('../../assets/profile/news/nbcLogo.svg').default,
       text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys typesetting industry.',
     },
   ],
@@ -94,35 +94,35 @@ export default {
   avatarGroupData: [
     {
       title: 'Alisha Swan',
-      img: require('../../../assets/profile/AlishaSwan.png').default,
+      img: require('../../assets/profile/AlishaSwan.png').default,
     },
     {
       title: 'James Wood',
-      img: require('../../../assets/profile/JamesWood.png').default,
+      img: require('../../assets/profile/JamesWood.png').default,
     },
     {
       title: 'Luis Suares',
-      img: require('../../../assets/profile/LuisSuares.png').default,
+      img: require('../../assets/profile/LuisSuares.png').default,
     },
     {
       title: 'Samantha Bird',
-      img: require('../../../assets/profile/SamanthaBird.png').default,
+      img: require('../../assets/profile/SamanthaBird.png').default,
     },
     {
       title: 'Tara Smith',
-      img: require('../../../assets/profile/TaraSmith.png').default,
+      img: require('../../assets/profile/TaraSmith.png').default,
     },
     {
       title: 'Brandy Martins',
-      img: require('../../../assets/profile/BrandyMartins.png').default,
+      img: require('../../assets/profile/BrandyMartins.png').default,
     },
     {
       title: 'Enzo Macaroni',
-      img: require('../../../assets/profile/EnzoMacaroni.png').default,
+      img: require('../../assets/profile/EnzoMacaroni.png').default,
     },
     {
       title: 'Jenny Lim',
-      img: require('../../../assets/profile/JennyLim.png').default,
+      img: require('../../assets/profile/JennyLim.png').default,
     },
   ],
   apexLineChart: {

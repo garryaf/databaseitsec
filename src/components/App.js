@@ -2,6 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { Switch, Route, Redirect } from "react-router";
 import { HashRouter } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import { ConnectedRouter } from "connected-react-router";
+
+
 import LayoutComponent from "../components/Layout/Layout.js";
 import ErrorPage from "../pages/error/ErrorPage.js";
 import Login from "../pages/login/Login.js";
@@ -9,7 +13,6 @@ import Register from "../pages/register/Register.js";
 import { logoutUser } from "../actions/auth.js";
 
 import "../styles/app.scss";
-import {ToastContainer} from "react-toastify";
 
 const PrivateRoute = ({ dispatch, component, ...rest }) => {
   if (!Login.isAuthenticated(JSON.parse(localStorage.getItem("authenticated")))) {
