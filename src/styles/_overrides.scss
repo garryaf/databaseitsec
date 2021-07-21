@@ -184,6 +184,13 @@ grid-col-padding {
   font-size: .875rem;
 }
 
+.btn-xs {
+  padding: 2px 4px;
+  font-size: .75rem;
+  line-height: 1.5;
+  border-radius: 5px;
+}
+
 .btn, {
   &:not(.active) {
     box-shadow: none !important;
@@ -1717,4 +1724,62 @@ li.react-datepicker__time-list-item--selected {
     background: none;
   }
 }
+
+///// User Management Page
+.page-title {
+  margin: 0 0 calc(1rem + 6px);
+}
+
+.page-top-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  & .close {
+    margin-left: 25px;
+  }
+}
+
+/* ----------- React Bootstrap Table ----------- */
+.react-bs-table table {
+  table-layout: fixed;
+}
+@include media-breakpoint-down(sm) {
+  .react-bs-table table {
+    table-layout: inherit;
+  }
+}
+
+.react-bs-table table td,
+.react-bs-table table th {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.react-bootstrap-table-page-btns-ul {
+  float: right;
+  margin-top: 0;
+  margin-left: 16px;
+  margin-right: 16px;
+
+}
+
+.pagination-borderless .page-item .page-link {
+  margin: 0;
+  border: none;
+  font-size: 16px;
+}
+
+.react-bs-table .react-bs-container-footer > table > thead > tr > th, .react-bs-table .react-bs-container-header > table > thead > tr > th {
+  border: none;
+  background: $default;
+  color: $white;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
 

@@ -113,7 +113,7 @@ class Layout extends React.Component {
               <Route path="/template/extra/charts" exact component={Charts} />
               <Route path="/template/extra/login" exact component={Login} />
               <Route path="/template/extra/register" exact component={Register} />
-              {/*<Route path="/register" exact component={Register} />*/}
+              <Route path="/register" exact component={Register} />
               <Route path='*' exact render={() => <Redirect to="/error" />} />
             </Switch>
           </main>
