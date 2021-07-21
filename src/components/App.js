@@ -4,52 +4,70 @@ import { Switch, Route, Redirect } from "react-router";
 import { HashRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { ConnectedRouter } from "connected-react-router";
+import { getHistory } from "../index";
+import { AdminRoute, UserRoute, AuthRoute } from "../RouteComponents";
 
+import ErrorPage from "../pages/error/ErrorPage.js";
 
 import LayoutComponent from "../components/Layout/Layout.js";
-import ErrorPage from "../pages/error/ErrorPage.js";
 import Login from "../pages/login/Login.js";
 import Register from "../pages/register/Register.js";
 import { logoutUser } from "../actions/auth.js";
 
 import "../styles/app.scss";
 
-const PrivateRoute = ({ dispatch, component, ...rest }) => {
-  if (!Login.isAuthenticated(JSON.parse(localStorage.getItem("authenticated")))) {
-    dispatch(logoutUser());
-    return (<Redirect to="/login" />)
-  } else {
-    return (
-      <Route { ...rest } render={props => (React.createElement(component, props))} />
-    );
-  }
-};
+// const PrivateRoute = ({ dispatch, component, ...rest }) => {
+//   if (!Login.isAuthenticated(JSON.parse(localStorage.getItem("authenticated")))) {
+//     dispatch(logoutUser());
+//     return (<Redirect to="/login" />)
+//   } else {
+//     return (
+//       <Route { ...rest } render={props => (React.createElement(component, props))} />
+//     );
+//   }
+// };
 
 class App extends React.PureComponent {
   render() {
+    if (this.props.loadingInit) {
+      return <div/>;
+    }
+
     return (
       <div>
         <ToastContainer/>
-        <HashRouter>
-          <Switch>
-            <Route path="/" exact render={() => <Redirect to="/template/dashboard" />} />
-            <Route path="/template" exact render={() => <Redirect to="/template/dashboard"/>}/>
-            <PrivateRoute path="/template" dispatch={this.props.dispatch} component={LayoutComponent} />
-            <Route path="/login" exact component={Login} />
-            <Route path="/error" exact component={ErrorPage} />
-            <Route path="/register" exact component={Register} />
-            <Route component={ErrorPage}/>
-            <Route path='*' exact={true} render={() => <Redirect to="/error" />} />
-
-          </Switch>
-        </HashRouter>
+        <ConnectedRouter history={getHistory()}>
+          <HashRouter>
+            <Switch>
+              <Route path="/" exact render={() => <Redirect to="/template/dashboard" />} />
+              <Route path="/template" exact render={() => <Redirect to="/template/dashboard"/>} />
+              <UserRoute
+                path="/template"
+                dispatch={this.props.dispatch}
+                component={LayoutComponent}
+              />
+              <AdminRoute
+                path="/admin"
+                currentUser={this.props.currentUser}
+                dispatch={this.props.dispatch}
+                component={LayoutComponent}
+              />
+              <AuthRoute path="/login" exact component={Login} />
+              <AuthRoute path="/register" exact component={Register} />
+              <Route path="/error" exact component={ErrorPage} />
+              <Route component={ErrorPage}/>
+              <Route path='*' exact={true} render={() => <Redirect to="/error" />} />
+            </Switch>
+          </HashRouter>
+        </ConnectedRouter>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated,
+  currentUser: state.auth.currentUser,
+  loadingInit: state.auth.loadingInit
 });
 
 export default connect(mapStateToProps)(App);

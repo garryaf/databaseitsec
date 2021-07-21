@@ -71,6 +71,11 @@ class Layout extends React.Component {
               <Route path="/template/user/profile" exact component={Profile} />
               <Route path="/admin" exact render={() => <Redirect to="/admin/users" />} />
               <Route path="/admin/users" exact component={UserListPage} />
+
+              {/*<Route path="/admin/users/new" exact component={UserFormPage} />*/}
+              {/*<Route path="/admin/users/:id/edit" exact component={UserFormPage} />*/}
+              <Route path="/admin/users/:id" exact component={UserViewPage} />
+
               <Route path="/template/core" exact render={() => <Redirect to={"/template/core/typography"} />} />
               <Route path="/template/core/typography" exact component={Typography} />
               <Route path="/template/core/colors" exact component={Colors} />
@@ -122,6 +127,7 @@ class Layout extends React.Component {
 function mapStateToProps(store) {
   return {
     sidebarOpened: store.navigation.sidebarOpened,
+    currentUser: store.auth.currentUser,
   };
 }
 

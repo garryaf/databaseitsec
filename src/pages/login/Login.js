@@ -1,7 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withRouter, Redirect, Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
+import config from "../../config";
 import { connect } from "react-redux";
+import { push } from "connected-react-router";
+import jwt from "jsonwebtoken";
+import { loginUser, receiveToken, doInit } from "../../actions/auth";
 import {
   Container,
   Row,
@@ -13,7 +17,6 @@ import {
 } from "reactstrap";
 import Widget from "../../components/Widget/Widget.js";
 import Footer from "../../components/Footer/Footer.js";
-import { loginUser } from "../../actions/auth.js";
 
 import loginImage from "../../assets/loginImage.svg";
 import SofiaLogo from "../../components/Icons/SidebarIcons/SofiaLogo.js";
@@ -28,8 +31,14 @@ class Login extends React.Component {
     dispatch: PropTypes.func.isRequired,
   };
 
-  static isAuthenticated(token) {
-    if (token) return true;
+  static isAuthenticated() {
+    const token = localStorage.getItem('token');
+    if (!config.isBackend && token) return true;
+    if (!token) return;
+    const date = new Date().getTime() / 1000;
+    const data = jwt.decode(token);
+    if (!data) return;
+    return date < data.exp;
   };
 
   constructor(props) {
@@ -43,6 +52,7 @@ class Login extends React.Component {
     this.doLogin = this.doLogin.bind(this);
     this.changeEmail = this.changeEmail.bind(this);
     this.changePassword = this.changePassword.bind(this);
+    this.signUp = this.signUp.bind(this);
   }
 
   doLogin(e) {
@@ -58,14 +68,27 @@ class Login extends React.Component {
     this.setState({ password: event.target.value });
   }
 
-  render() {
-    const { from } = this.props.location.state || { from: { pathname: '/template' } };
-
-    if (Login.isAuthenticated(JSON.parse(localStorage.getItem('authenticated')))) {
-      return (
-        <Redirect to={from} />
-      );
+  componentDidMount() {
+    const params = new URLSearchParams(this.props.location.search);
+    const token = params.get('token');
+    if (token) {
+      this.props.dispatch(receiveToken(token));
+      this.props.dispatch(doInit());
     }
+  }
+
+  signUp() {
+    this.props.dispatch(push('/register'));
+  }
+
+  render() {
+    // const { from } = this.props.location.state || { from: { pathname: '/template' } };
+    //
+    // if (Login.isAuthenticated(JSON.parse(localStorage.getItem('authenticated')))) {
+    //   return (
+    //     <Redirect to={from} />
+    //   );
+    // }
 
     return (
       <div className="auth-page">
