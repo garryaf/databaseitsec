@@ -15,7 +15,7 @@ import { doInit } from "./actions/auth";
 import { createHashHistory } from "history";
 
 // ** Fake Database
-import './@fake-db';
+import './fakeDB';
 
 const history = createHashHistory();
 export function getHistory() {
