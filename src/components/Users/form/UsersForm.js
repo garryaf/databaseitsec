@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Formik } from "formik";
 import CustomInput from "../../CustomInput/CustomInput";
 import { Button, Label } from "reactstrap";
+import { Link } from "react-router-dom";
 
 export default function UsersForm() {
 
@@ -51,10 +52,12 @@ export default function UsersForm() {
           <div className="">
             <Button outline className="" color="secondary">Upload an image</Button>
           </div>
-          <div className="d-flex mt-4">
-            <Button color="primary" type="submit">Save</Button>
-            <Button className="ml-3" color="secondary" type="reset">Reset</Button>
-            <Button className="ml-3" color="secondary" type="reset">Cancel</Button>
+          <div className="d-flex flex-wrap mt-3">
+            <Link to="/template/user/profile">
+              <Button color="primary" type="submit" className="mt-3">Save</Button>
+            </Link>
+            <Button className="ml-3" color="secondary" type="reset" className="mx-3 mt-3">Reset</Button>
+            <Button className="ml-3" color="secondary" type="reset" className="mt-3">Cancel</Button>
           </div>
         </Form>
       </Formik>

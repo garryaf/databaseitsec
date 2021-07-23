@@ -48,8 +48,7 @@ class UsersForm extends Component {
                   schema={this.passwordSchema}
                   password
                 />
-
-                <div className="form-buttons">
+                <div>
                   <button
                     className="btn btn-primary mr-3"
                     disabled={saveLoading}

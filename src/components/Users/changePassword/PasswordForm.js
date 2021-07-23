@@ -41,9 +41,9 @@ export default function PasswordForm() {
             type="password"
             placeholder=""
           />
-          <div className="d-flex justify-content-between mt-4">
-            <Button color="primary" type="submit">Change Password</Button>
-            <Button color="secondary" type="reset">Cancel</Button>
+          <div className="mt-3 d-flex justify-content-start flex-wrap">
+            <Button color="primary" type="submit" className="mr-3 mt-3">Change Password</Button>
+            <Button color="secondary" type="reset"  className="mt-3">Cancel</Button>
           </div>
         </Form>
       </Formik>
