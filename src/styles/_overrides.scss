@@ -278,6 +278,9 @@ grid-col-padding {
   &:hover {
     background-color: $base-light-gray;
   }
+  &:active {
+    color: $base-dark-gray;
+  }
 }
 
 

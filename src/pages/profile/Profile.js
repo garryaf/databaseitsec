@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   Col,
   Row,
-  Progress,
   Button,
   Badge,
   ButtonDropdown,
@@ -22,7 +21,6 @@ import heartRed from "../../assets/dashboard/heartRed.svg";
 import heartTeal from "../../assets/dashboard/heartTeal.svg";
 
 import mock from "./mock";
-import classnames from "classnames";
 import Avatar from "../../components/Avatar/Avatar";
 const { timelineWidget, newsGroupData, avatarGroupData, apexLineChart } = mock;
 
@@ -65,10 +63,18 @@ export default function Profile() {
                 <p className="body-1 mt-1 mb-3">UI/UX Designer</p>
                 <hr />
                 <div className="d-flex flex-row justify-content-between">
-                  <a href="/"><i className="eva eva-facebook"/></a>
-                  <a href="/"><i className="eva eva-google"/></a>
-                  <a href="/"><i className="eva eva-github"/></a>
-                  <a href="/"><i className="eva eva-linkedin"/></a>
+                  <a href="https://www.facebook.com/flatlogic" target = "_blank" rel = "noopener noreferrer">
+                    <i className="eva eva-facebook"/>
+                  </a>
+                  <a href="https://twitter.com/flatlogic/" target = "_blank" rel = "noopener noreferrer">
+                    <i className="eva eva-twitter"/>
+                  </a>
+                  <a href="https://github.com/flatlogic/" target = "_blank" rel = "noopener noreferrer">
+                    <i className="eva eva-github"/>
+                  </a>
+                  <a href="https://www.linkedin.com/company/flatlogic/" target = "_blank" rel = "noopener noreferrer">
+                    <i className="eva eva-linkedin"/>
+                  </a>
                 </div>
               </div>
             </div>
@@ -168,9 +174,9 @@ export default function Profile() {
               </Widget>
             </Col>
             <Col lg={4} sm={12} className="mb-4 mb-lg-0">
-              <Row className={s.widgetRow}>
+              <Row className={s.cardsWidgetRow}>
                 <Col sm={4} lg={12} className="mb-4 mb-sm-0 mb-lg-4">
-                  <Widget className="widget-p-md">
+                  <Widget className="widget-p-sm">
                     <div className="d-flex flex-column align-items-center">
                       <img className="img-fluid mb-1" src={heartRed} alt="..." />
                       <div className="my-2 headline-3">Paypal</div>
@@ -179,7 +185,7 @@ export default function Profile() {
                   </Widget>
                 </Col>
                 <Col sm={4} lg={12} className="mb-4 mb-sm-0 mb-lg-4">
-                  <Widget className="widget-p-md">
+                  <Widget className="widget-p-sm">
                     <div className="d-flex flex-column align-items-center">
                       <img className="img-fluid mb-1" src={heartTeal} alt="..." />
                       <div className="my-2 headline-3">Paypal</div>

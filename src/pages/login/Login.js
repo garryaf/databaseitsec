@@ -125,11 +125,21 @@ class Login extends React.Component {
                   <div className="d-flex align-items-center my-3">
                     <p className="social-label mb-0">Login with</p>
                     <div className="socials">
-                      <a href="https://flatlogic.com/"><GoogleIcon /></a>
-                      <a href="https://flatlogic.com/"><TwitterIcon /></a>
-                      <a href="https://flatlogic.com/"><FacebookIcon /></a>
-                      <a href="https://flatlogic.com/"><GithubIcon /></a>
-                      <a href="https://flatlogic.com/"><LinkedinIcon /></a>
+                      <a href="https://flatlogic.com/" target = "_blank" rel = "noopener noreferrer">
+                        <GoogleIcon />
+                      </a>
+                      <a href="https://twitter.com/flatlogic/" target = "_blank" rel = "noopener noreferrer">
+                        <TwitterIcon />
+                      </a>
+                      <a href="https://www.facebook.com/flatlogic" target = "_blank" rel = "noopener noreferrer">
+                        <FacebookIcon />
+                      </a>
+                      <a href="https://github.com/flatlogic/" target = "_blank" rel = "noopener noreferrer">
+                        <GithubIcon />
+                      </a>
+                      <a href="https://www.linkedin.com/company/flatlogic/" target = "_blank" rel = "noopener noreferrer">
+                        <LinkedinIcon />
+                      </a>
                     </div>
                   </div>
                   <Link to="/register">Don’t have an account? Sign Up here</Link>

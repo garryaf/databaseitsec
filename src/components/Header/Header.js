@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {withRouter} from "react-router";
+import { Link } from "react-router-dom";
 import {connect} from "react-redux";
 import {
   Navbar,
@@ -103,7 +104,7 @@ class Header extends React.Component {
             <InputGroup>
               <Input id="search-input" placeholder="Search Dashboard" className='focus no-border'/>
               <InputGroupAddon addonType="prepend">
-                <span className="d-flex align-self-center pr-3">
+                <span className="d-flex align-self-center px-3">
                   <SearchBarIcon/>
                 </span>
               </InputGroupAddon>
@@ -153,7 +154,11 @@ class Header extends React.Component {
               <span className="small d-none d-sm-block ml-1 mr-2 body-1">Christina Carey</span>
             </DropdownToggle>
             <DropdownMenu className="navbar-dropdown profile-dropdown" style={{ width: "194px" }}>
-              <DropdownItem className={s.dropdownProfileItem}><ProfileIcon/><span>Profile</span></DropdownItem>
+              <DropdownItem className={s.dropdownProfileItem}>
+                <Link to="/template/user/profile">
+                  <ProfileIcon/><span>Profile</span>
+                </Link>
+              </DropdownItem>
               <DropdownItem className={s.dropdownProfileItem}><TasksIcon/><span>Tasks</span></DropdownItem>
               <DropdownItem className={s.dropdownProfileItem}><MessagesIcon/><span>Messages</span></DropdownItem>
               <NavItem>
