@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
-import classnames from 'classnames';
+import React  from 'react';
 import {
   Row,
   Col,
-  Alert,
 } from 'reactstrap';
 import Widget from '../../../components/Widget/Widget.js';
 import CustomAlert from "../../../components/CustomAlert/CustomAlert.js";

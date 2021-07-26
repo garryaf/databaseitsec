@@ -3,13 +3,8 @@ import {
   Row,
   Col,
   Button,
-  Badge,
   FormGroup,
   Label,
-  Nav,
-  NavLink,
-  NavItem,
-  Progress,
   Jumbotron,
 } from 'reactstrap';
 import Formsy from "formsy-react";

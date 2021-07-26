@@ -3,7 +3,6 @@ import {
   Row,
   Col,
   Button,
-  Form,
   FormGroup,
   Label,
 } from 'reactstrap';

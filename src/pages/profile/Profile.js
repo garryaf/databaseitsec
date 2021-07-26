@@ -162,7 +162,7 @@ export default function Profile() {
                   >
                   {timelineWidget.timelineData.map((item, index) => (
                     <div key={index} className="d-flex flex-row align-self-baseline ml-3">
-                      <img src={item.img}/>
+                      <img src={item.img} alt="item pic"/>
                       <div className="d-flex flex-column ml-3">
                         <p className="body-2">{item.title}</p>
                         <p className="body-3 muted">{item.label}</p>

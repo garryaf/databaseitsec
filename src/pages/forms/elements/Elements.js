@@ -71,13 +71,7 @@ export default function Elements() {
   const [markdownValue, setMarkdownValue] = React.useState("**Hello world!!!**");
   const [selectedMarkdownTab, setSelectedMarkdownTab] = React.useState("write");
 
-  // refactor it
-  const [dropdownOpen, setDropdownOpen] = useState(false)
-  // const toggle = () => setDropdownOpen(!dropdownOpen)
   const [dropdownValue, setDropdownValue] = useState('Another Value')
-  const changeValueDropdown = (e) => {
-    setDropdownValue(e.currentTarget.textContent)
-  }
 
   const [checkboxes, setCheckboxes] = useState([true, true, true, true, true, true, true, true])
   const [simpleDropdownValue, setSimpleDropdownValue] = useState('Option One')
@@ -87,7 +81,7 @@ export default function Elements() {
   const [startDate, setStartDate] = useState(new Date());
   const [color, setColor] = useState("#FF5668");
   const [inputColor, setInputColor] = useState("#FF5668");
-  const {acceptedFiles, getRootProps, getInputProps, isDragActive} = useDropzone();
+  const { getRootProps, getInputProps, isDragActive } = useDropzone();
 
   const changeSelectDropdownSimple = (e) => {
     setSimpleDropdownValue(e.currentTarget.textContent)

@@ -10,10 +10,6 @@ import {
   DropdownToggle,
   DropdownItem,
   Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
 } from 'reactstrap';
 
 import {

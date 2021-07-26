@@ -36,7 +36,7 @@ export default function Lists() {
                   With <code>&lt;button&gt;</code>, you can also make use of the disabled attribute instead of the <code>.disabled</code> class.
                 </div>
                 <ul className="list-group">
-                  <li className="list-group-item disabled" aria-disabled="true">A disabled item</li>
+                  <li className="list-group-item disabled">A disabled item</li>
                   <li className="list-group-item">A second item</li>
                   <li className="list-group-item">A third item</li>
                 </ul>
@@ -103,9 +103,9 @@ export default function Lists() {
                 <div className="headline-2">Links List</div>
                 <div className="mt-2 mb-3">Use <code>&lt;a&gt;</code> to create actionable list group items with hover, disabled, and active states by adding <code>.list-group-item-action</code>.</div>
                 <div className="list-group">
-                  <a href="#" className="list-group-item list-group-item-action active" aria-current="true">The current link item</a>
-                  <a href="#" className="list-group-item list-group-item-action">A second link item</a>
-                  <a href="#" className="list-group-item list-group-item-action disabled" tabIndex="-1">A disabled link item</a>
+                  <a href="/" className="list-group-item list-group-item-action active" aria-current="true">The current link item</a>
+                  <a href="/" className="list-group-item list-group-item-action">A second link item</a>
+                  <a href="/" className="list-group-item list-group-item-action disabled" tabIndex="-1">A disabled link item</a>
                 </div>
               </Widget>
             </Col>

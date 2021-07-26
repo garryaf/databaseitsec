@@ -1,14 +1,9 @@
-// ** React Imports
 import React, { Fragment } from 'react'
 
-// ** Custom Components
-import classnames from 'classnames'
-import { CardBody, Button, CustomInput } from 'reactstrap'
+import { CardBody, Button } from 'reactstrap'
 
-// ** Illustration Import
 import sidebarIllustration from '../../../../assets/calendarImg.svg'
 
-// ** Filters Checkbox Array
 const filters = [
   { label: 'Personal', color: 'danger', className: 'styled mb-1' },
   { label: 'Business', color: 'primary', className: 'styled mb-1' },

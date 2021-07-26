@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import { Form, Formik } from "formik";
 import CustomInput from "../../CustomInput/CustomInput";
 import { Button, Label } from "reactstrap";

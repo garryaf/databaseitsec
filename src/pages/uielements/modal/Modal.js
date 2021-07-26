@@ -8,10 +8,6 @@ import {
   Input,
   FormGroup,
   Button,
-  FormText,
-  ModalHeader,
-  ModalBody,
-  ModalFooter
 } from 'reactstrap';
 import CustomModal from "../../../components/CustomModal/CustomModal";
 import Widget from "../../../components/Widget/Widget";

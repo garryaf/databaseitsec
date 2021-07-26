@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { push } from 'connected-react-router';
 import UsersForm from "./UsersForm";
 import { connect } from 'react-redux';
 import actions from "../../../actions/usersFormActions";

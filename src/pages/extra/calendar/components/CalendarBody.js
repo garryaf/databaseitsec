@@ -1,15 +1,10 @@
-// ** React Import
-import { useEffect, useRef, memo, Fragment } from "react";
-// ** Full Calendar & It's Plugins
+import { useEffect, useRef, memo } from "react";
 import FullCalendar from "@fullcalendar/react"
-import listPlugin from "@fullcalendar/list"
 import dayGridPlugin from "@fullcalendar/daygrid"
 import timeGridPlugin from "@fullcalendar/timegrid"
 import interactinPlugin from "@fullcalendar/interaction"
 
-// ** Third Party Components
-import { toast } from "react-toastify"
-import { Card, CardBody, Button } from "reactstrap";
+import { Card, CardBody } from "reactstrap";
 
 const CalendarBody = props => {
   // ** Refs
@@ -21,7 +16,6 @@ const CalendarBody = props => {
     calendarApi,
     setCalendarApi,
     calendarsColor,
-    toggleSidebar,
     blankEvent,
     selectEvent,
     updateEvent,

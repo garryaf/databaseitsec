@@ -1,13 +1,10 @@
-import React, { useEffect } from "react";
-import { Formik, Form, useField } from "formik";
+import React  from "react";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import FormikInput from "./components/FormikInput";
 import FormikCheckbox from "./components/FormikCheckbox";
 import FormikSelect from "./components/FormikSelect";
-import s from "./FormikForm.module.scss";
 import {
-  FormGroup,
-  Col,
   Button,
 } from "reactstrap";
 

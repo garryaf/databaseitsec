@@ -6,7 +6,6 @@ import {
   ModalBody,
   ModalFooter
 } from 'reactstrap';
-import Widget from "../Widget/Widget";
 
 export default function CustomModal(props) {
 

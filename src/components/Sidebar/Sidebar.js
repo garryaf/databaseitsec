@@ -7,14 +7,8 @@ import s from "./Sidebar.module.scss";
 import LinksGroup from "./LinksGroup/LinksGroup.js";
 import { changeActiveSidebarItem } from "../../actions/navigation.js";
 import { logoutUser } from "../../actions/auth.js";
-import HomeIcon from "../Icons/SidebarIcons/HomeIcon.js";
-import NotificationsIcon from "../Icons/SidebarIcons/NotificationsIcon.js";
-import TypographyIcon from "../Icons/SidebarIcons/TypographyIcon.js";
-import TablesIcon from "../Icons/SidebarIcons/TablesIcon.js";
-import UIElementsIcon from "../Icons/SidebarIcons/UIElementsIcon.js";
 import SofiaLogo from "../Icons/SidebarIcons/SofiaLogo.js";
 import "eva-icons/style/eva-icons.css";
-import * as eva from 'eva-icons';
 
 class Sidebar extends React.Component {
   static propTypes = {

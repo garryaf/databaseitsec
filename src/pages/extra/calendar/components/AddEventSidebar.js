@@ -1,12 +1,9 @@
-// ** React Imports
 import React, { Fragment, useState } from "react";
 
-// ** Third Party Components
 import classnames from "classnames";
-import { toast } from "react-toastify";
 import Flatpickr from "react-flatpickr";
 import Select, { components } from "react-select";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import {
   Button,
   Modal,
@@ -19,18 +16,12 @@ import {
   Form,
 } from "reactstrap";
 
-// ** Eva Icons
 import "eva-icons/style/eva-icons.css";
 
-// ** Profile Images
 import img1 from "../../../../assets/tables/ellieSmithImg.png"
 import img2 from "../../../../assets/tables/floydMilesImg.png"
 import img3 from "../../../../assets/tables/rosaFloresImg.png"
 import img4 from "../../../../assets/tables/janeCooper.png"
-
-
-// ** Styles Imports
-// import '@styles/react/libs/react-select/_react-select.scss'
 
 const AddEventSidebar = props => {
   // ** Props

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PasswordForm from "./PasswordForm";
-import { push } from 'connected-react-router';
 import actions from "../../../actions/usersFormActions";
 import { connect } from "react-redux";
 import { Alert } from 'reactstrap';

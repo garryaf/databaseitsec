@@ -12,20 +12,8 @@ import ErrorPage from "../pages/error/ErrorPage.js";
 import LayoutComponent from "../components/Layout/Layout.js";
 import Login from "../pages/login/Login.js";
 import Register from "../pages/register/Register.js";
-import { logoutUser } from "../actions/auth.js";
 
 import "../styles/app.scss";
-
-// const PrivateRoute = ({ dispatch, component, ...rest }) => {
-//   if (!Login.isAuthenticated(JSON.parse(localStorage.getItem("authenticated")))) {
-//     dispatch(logoutUser());
-//     return (<Redirect to="/login" />)
-//   } else {
-//     return (
-//       <Route { ...rest } render={props => (React.createElement(component, props))} />
-//     );
-//   }
-// };
 
 class App extends React.PureComponent {
   render() {

@@ -3,10 +3,8 @@ import {
   Col,
   Row,
   Table,
-  Button
 } from 'reactstrap';
 import Widget from '../../../components/Widget/Widget.js';
-import s from './Grid.module.scss';
 
 export default function Grid() {
   return (

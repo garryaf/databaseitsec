@@ -13,7 +13,6 @@ import ApexCharts from "react-apexcharts";
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,

@@ -1,16 +1,12 @@
-// ** React Imports
 import { Fragment, useState, useEffect } from 'react'
 
-// ** Third Party Components
 import classnames from 'classnames'
 import { Row, Col } from 'reactstrap'
 
-// ** Calendar App Component Imports
 import CalendarBody from "./components/CalendarBody"
 import SidebarRight from "./components/SidebarRight";
 import AddEventSidebar from "./components/AddEventSidebar";
 
-// ** Store & Actions
 import { useSelector, useDispatch } from "react-redux"
 import {
   fetchEvents,
@@ -28,7 +24,6 @@ const calendarsColor = {
   Flatlogic: 'warning',
   Holiday: 'success',
 }
-
 
 const Calendar = () => {
   // ** Variables

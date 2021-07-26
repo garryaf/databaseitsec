@@ -15,8 +15,6 @@ import {
   Legend,
   PieChart,
   Pie,
-  Sector,
-  Cell,
   Tooltip,
   ResponsiveContainer
 } from 'recharts';
@@ -25,8 +23,6 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import HighchartMore from "highcharts/highcharts-more";
 import VariablePie from "highcharts/modules/variable-pie";
-import HighchartSankey from "highcharts/modules/sankey";
-import HighchartsWheel from "highcharts/modules/dependency-wheel";
 import Widget from "../../../components/Widget/Widget";
 import chartsData from "./mock";
 import s from "./PieCharts.module.scss";
