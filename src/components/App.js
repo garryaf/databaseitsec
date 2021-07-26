@@ -12,6 +12,7 @@ import ErrorPage from "../pages/error/ErrorPage.js";
 import LayoutComponent from "../components/Layout/Layout.js";
 import Login from "../pages/login/Login.js";
 import Register from "../pages/register/Register.js";
+import DocumentationLayout from "../documentation/DocumentaionLayout";
 
 import "../styles/app.scss";
 
@@ -40,6 +41,9 @@ class App extends React.PureComponent {
                 dispatch={this.props.dispatch}
                 component={LayoutComponent}
               />
+              <Route path="/documentation" exact
+                     render={() => <Redirect to="/documentation/getting-started/overview"/>}/>
+              <Route path="/documentation" component={DocumentationLayout}/>
               <AuthRoute path="/login" exact component={Login} />
               <AuthRoute path="/register" exact component={Register} />
               <Route path="/error" exact component={ErrorPage} />
