@@ -1,6 +1,6 @@
 {
   "name": "sofia-react-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "./",
   "private": true,
   "dependencies": {
@@ -56,7 +56,7 @@
     "react-hook-form": "^6.15.1",
     "react-maskedinput": "^4.0.1",
     "react-mde": "^11.5.0",
-    "react-redux": "^7.2.4",
+    "react-redux": "^7.2.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
