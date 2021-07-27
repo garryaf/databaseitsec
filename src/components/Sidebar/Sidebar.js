@@ -275,6 +275,18 @@ class Sidebar extends React.Component {
               },
             ]}
           />
+            <LinksGroup
+                onActiveSidebarItemChange={activeItem => this.props.dispatch(changeActiveSidebarItem(activeItem))}
+                activeItem={this.props.activeItem}
+                header="Documentation"
+                link="/documentation"
+                isHeader
+                iconName={<i className="eva eva-book-open-outline"/>}
+                index="documentation"
+                label="new"
+                target="_blank"
+                labelColor="success"
+            />
         </ul>
         <div className="bg-widget d-flex mt-auto ml-1">
           <Button className="rounded-pill my-3 body-2 d-none d-md-block" type="submit" color="secondary-red">Unlock Full Version</Button>
