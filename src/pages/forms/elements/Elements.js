@@ -710,7 +710,7 @@ export default function Elements() {
                 <div className="headline-2">Form Options</div>
                 <Form>
                   <legend className="mt-2">Control sizing</legend>
-                  <div className="mb-3">
+                  <div className="mb-3 body-3 muted">
                     Set input heights using parameters like <code>size=&apos;lg&apos;</code> and
                     <code>size=&apos;sm&apos;</code>.
                     Also works with <code>type=&apos;search&apos;</code> inputs, input groups and
@@ -733,7 +733,7 @@ export default function Elements() {
                 <div className="headline-2">Form Options</div>
                 <Form>
                   <legend className="mt-2">Input Groups</legend>
-                  <div className="mb-3">
+                  <div className="mb-3 body-3 muted">
                     Different colors & sizes for any elements including input groups. Elements may be
                     easily styled with classes like <code>.bg-middle-gray</code> or
                     <code>.bg-transparent</code>
@@ -770,7 +770,7 @@ export default function Elements() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2 mb-3">Checkbox Controls</div>
-                <div className="mb-3">
+                <div className="mb-3 body-3 muted">
                   We customized checkboxes with our theme colors. Let your checkboxes shine!
                 </div>
                 <FormGroup className="pl-0" check>
@@ -869,7 +869,7 @@ export default function Elements() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2 mb-3">Radio Controls</div>
-                <div className="mb-3">
+                <div className="mb-3 body-3 muted">
                   Supports bootstrap brand colors: <code>.abc-radio-primary</code>, <code>.abc-radio-danger</code>
                   etc.
                   Pure css solution with no javascript. Let your radios shine! Disabled state also supported.
@@ -963,7 +963,7 @@ export default function Elements() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2 mb-3">Drop Zone</div>
-                <div className="mb-3">
+                <div className="mb-3 body-3 muted">
                   <code>react-dropzone</code> is a simple React hook to create a HTML5-compliant drag'n'drop zone for files.
                 </div>
                 <div {...getRootProps()} className={s.dropzone}>

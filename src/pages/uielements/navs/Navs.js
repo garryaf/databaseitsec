@@ -38,7 +38,7 @@ export default function Navs() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Basic Nav</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Navigation available in Bootstrap share general markup and styles, from the base .nav class to the active and disabled states.
                   Swap modifier classes to switch between each style.
                 </div>
@@ -63,7 +63,7 @@ export default function Navs() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Nav With Dropdown</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   The base <code>.nav</code> component is built with flexbox and provide a strong foundation for building all types of navigation components.
                   It includes some style overrides (for working with lists), some link padding for larger hit areas, and basic disabled styling.
                 </div>
@@ -99,7 +99,7 @@ export default function Navs() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Nav Pills</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Takes the basic nav and adds the <code>pills</code> property to generate a pills nav interface.
                 </div>
                 <div className={s.navBlock}>
@@ -141,7 +141,7 @@ export default function Navs() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Nav Tabs</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Takes the basic nav and adds the <code>tabs</code> property to generate a tabbed interface.
                 </div>
                 <div className={s.navBlock}>
@@ -185,7 +185,7 @@ export default function Navs() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Vertical Nav Pills</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Stack your navigation by adding <code>vertical</code> property.
                 </div>
                 <div className={s.navBlock}>
@@ -209,7 +209,7 @@ export default function Navs() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Vertical Nav Tabs</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Stack your navigation by adding <code>vertical</code> property.
                 </div>
                 <div className={s.navBlock}>

@@ -41,10 +41,9 @@ export default function Cards() {
             <Col>
               <Card className="background-cover border-0" style={{backgroundImage: `url(${lifestyleImg})`}}>
                 <CardBody className={s.titleCardBody} >
-                  <div className="headline-1 text-default">Lifestyle Brand</div>
-                  <div className="body-3 text-dark-gray">
+                  <div className="headline-1 text-default mb-3">Lifestyle Brand</div>
+                  <div className={`body-3 text-dark-gray ${s.titleCardDescription}`}>
                     A lifestyle brand is a company that markets its products or services to embody the interests, attitudes, and opinions of a group or a culture.
-                    Lifestyle brands seek to inspire, guide, and motivate people, with the goal of their products contributing to the definition of the consumer's way of life.
                   </div>
                   <Button className="mt-3 btn-rounded" color="primary">Learn More</Button>
                 </CardBody>

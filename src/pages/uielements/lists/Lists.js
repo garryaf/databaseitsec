@@ -17,7 +17,7 @@ export default function Lists() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Simple List Group</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   The most basic list group is an unordered list with list items and the proper classes.
                   Build upon it with the options that follow, or with your own CSS as needed.
                 </div>
@@ -31,7 +31,7 @@ export default function Lists() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Disabled List Items</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Add <code>.disabled</code> to a <code>.list-group-item</code> to make it appear disabled.
                   With <code>&lt;button&gt;</code>, you can also make use of the disabled attribute instead of the <code>.disabled</code> class.
                 </div>
@@ -47,7 +47,7 @@ export default function Lists() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">List Items With Icons</div>
-                <div className="mt-2 mb-3">You can place Font Awesome icons just about anywhere with the <code>&lt;a&gt;</code> tag!
+                <div className="mt-2 mb-3 body-3 muted">You can place Font Awesome icons just about anywhere with the <code>&lt;a&gt;</code> tag!
                 </div>
                 <ul className="list-group">
                   <li className="list-group-item disabled">
@@ -71,7 +71,7 @@ export default function Lists() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">List Items With Badges</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Add badges to any list group item to show unread counts, activity, and more.
                 </div>
                 <ul className="list-group">
@@ -101,7 +101,7 @@ export default function Lists() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Links List</div>
-                <div className="mt-2 mb-3">Use <code>&lt;a&gt;</code> to create actionable list group items with hover, disabled, and active states by adding <code>.list-group-item-action</code>.</div>
+                <div className="mt-2 mb-3 body-3 muted">Use <code>&lt;a&gt;</code> to create actionable list group items with hover, disabled, and active states by adding <code>.list-group-item-action</code>.</div>
                 <div className="list-group">
                   <a href="/" className="list-group-item list-group-item-action active" aria-current="true">The current link item</a>
                   <a href="/" className="list-group-item list-group-item-action">A second link item</a>
@@ -112,7 +112,7 @@ export default function Lists() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Buttons List</div>
-                <div className="mt-2 mb-3">Use <code>&lt;button&gt;</code> to create actionable list group items with hover, disabled, and active states by adding <code>.list-group-item-action</code>.</div>
+                <div className="mt-2 mb-3 body-3 muted">Use <code>&lt;button&gt;</code> to create actionable list group items with hover, disabled, and active states by adding <code>.list-group-item-action</code>.</div>
                 <div className="list-group">
                   <button type="button" className="list-group-item list-group-item-action active" aria-current="true">The current button</button>
                   <button type="button" className="list-group-item list-group-item-action" disabled>A disabled button item</button>

@@ -23,7 +23,7 @@ export default function Modal() {
             <Col className="grid-col-padding">
               <Widget className="widget-p-md">
                 <div className="headline-2">Simple Modals</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   <p>
                     Toggle a working modal demo by clicking the button below.
                     It will slide down and fade in from the top of the page.
@@ -50,7 +50,7 @@ export default function Modal() {
             <Col className="grid-col-padding">
               <Widget className="widget-p-md">
                 <div className="headline-2">Live Demo Modals</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Below is a live demo followed by example HTML and JavaScript.
                   For example, a modal with form elements and a modal with a  Bootstrap's grid inside.
                 </div>
@@ -109,7 +109,7 @@ export default function Modal() {
             <Col className="grid-col-padding">
               <Widget className="widget-p-md">
                 <div className="headline-2">Simple List Group</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Modals have three optional sizes, available via modifier classes to be placed on a <code>.modal-dialog</code>.
                   These sizes kick in at certain breakpoints to avoid horizontal scrollbars on narrower viewports.
                   Our default modal without modifier class constitutes the “medium” size modal.
@@ -144,7 +144,7 @@ export default function Modal() {
             <Col className="grid-col-padding">
               <Widget className="widget-p-md">
                 <div className="headline-2">Modal Components</div>
-                <div className="mt-2 mb-4">
+                <div className="mt-2 mb-4 body-3 muted">
                   Below is a static modal example. Included are the modal header, modal body (required for padding), and modal footer (optional).
                 </div>
                 <Widget className="widget-p-md">

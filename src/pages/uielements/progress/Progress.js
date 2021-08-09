@@ -16,7 +16,7 @@ export default function ProgressPage() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Progress Example</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Badges scale to match the size of the immediate parent element by
                   using relative font sizing and em units.
                 </div>
@@ -29,7 +29,7 @@ export default function ProgressPage() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Colorful Progress Bars</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Use background utility classes to change the appearance of
                   individual progress bars.
                   Make your progress bars informative and adapted to your tasks.
@@ -45,7 +45,7 @@ export default function ProgressPage() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Labeled Progress Bars</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Add labels to your progress bars by placing text within the <code>&lt;Progress&gt;</code>.
                   Make your progress bars informative and adapted to your tasks.
                 </div>
@@ -58,7 +58,7 @@ export default function ProgressPage() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Progress Bars of Different Heights</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   We set a height value by <code>.progress-*</code> classes, so you can change between
                   <code>xs</code>, <code>lg</code>, <code>xl</code> sizes.
                   <code>.progress-md</code> is used by default.
@@ -74,7 +74,7 @@ export default function ProgressPage() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Striped Progress Bars</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Add <code>striped</code> property to any <code>&lt;Progress&gt;</code> to
                   apply a stripe via CSS gradient over the progress bar’s background color.
                 </div>
@@ -87,7 +87,7 @@ export default function ProgressPage() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Animated Striped Progress Bars</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   The striped gradient can also be animated. Add <code>animated</code> property
                   to <code>&lt;Progress&gt;</code> to animate the stripes right to left via CSS3 animations.
                 </div>

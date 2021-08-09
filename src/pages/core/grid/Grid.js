@@ -15,7 +15,7 @@ export default function Grid() {
             <Col xs={12} lg={6} className="mb-4 mb-lg-0">
               <Widget className="widget-p-md">
                 <div className="headline-2 mb-2">How It Works</div>
-                <p className="mb-3">
+                <p className="mb-3 body-3 muted">
                   Bootstrap’s grid system uses a series of containers, rows, and columns to layout
                   and align content. It’s built with flexbox and is fully responsive. Below is an
                   example and an in-depth look at how the grid comes together.
@@ -67,7 +67,7 @@ export default function Grid() {
             <Col xs={12} lg={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2 mb-2">Equal Width</div>
-                <p className="mb-3">
+                <p className="mb-3 body-3 muted">
                   For example, here are two grid layouts that apply to every device and viewport,
                   from xs to xl. Add any number of unit-less classes for each breakpoint you
                   need and every column will be the same width.
@@ -137,7 +137,7 @@ export default function Grid() {
             <Col>
               <Widget className="widget-p-md">
                 <div className="headline-2 mb-2">Grid Options</div>
-                <p className="mb-3">
+                <p className="mb-3 body-3 muted">
                   While Bootstrap uses <code>em</code> or <code>rem</code> for defining
                   most sizes, <code>px</code> are used for
                   grid breakpoints and container widths. This is because the viewport width is in

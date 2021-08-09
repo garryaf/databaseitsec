@@ -257,6 +257,9 @@ grid-col-padding {
 ///////// Progress Bar //////////
 .progress-xs {
   height: 8px;
+  div {
+    border-radius: 8px;
+  }
 }
 
 .progress-md {
@@ -272,6 +275,10 @@ grid-col-padding {
 }
 
 ///////// Dropdowns //////////
+.dropdown-toggle {
+  padding: 8px 12px;
+  font-weight: $font-weight-normal;
+}
 .dropdown-toggle.btn.btn-secondary {
   background-color: white;
   color: $base-dark-gray;
@@ -395,6 +402,10 @@ h6,
 }
 
 .muted {
+  color: $base-dark-gray;
+}
+
+.description {
   color: $base-dark-gray;
 }
 
@@ -877,8 +888,9 @@ height: auto;
 vertical-align: baseline;
 font-size: 85%;
 font-weight: 600;
+margin-left: 32px;
 
-@media (max-width: breakpoint-max(xs)) {
+  @media (max-width: breakpoint-max(xs)) {
     display: none;
   }
 }
@@ -1555,7 +1567,7 @@ li.react-datepicker__time-list-item--selected {
   }
 }
 
-// ? Added bg color for flatpickr input only as it has default readonly attribute
+// Added bg color for flatpickr input only as it has default readonly attribute
 .flatpickr-input[readonly],
 .flatpickr-input ~ .form-control[readonly],
 .flatpickr-human-friendly[readonly] {

@@ -34,7 +34,7 @@ export default function Navbars() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Simple Navbar Example</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   <p>Navbar is Bootstrap’s powerful, responsive navigation header.
                     Includes support for branding, navigation, and more, including support for collapse plugin.</p>
                   <ul>
@@ -71,7 +71,7 @@ export default function Navbars() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Navbar With Brand Logo</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   The <code>.navbar-brand</code> can be applied to most elements, but an anchor works best,
                   as some elements might require utility classes or custom styles.
                   <br/>
@@ -112,7 +112,7 @@ export default function Navbars() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Colorful Navbar Examples</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Theming the navbar has never been easier thanks to the combination of theming classes and background-color utilities.
                   Choose from <code>.navbar-light</code> for use with light background colors, or <code>.navbar-dark</code> for dark background colors.
                   Then, customize with <code>.bg-*</code> utilities.
@@ -194,11 +194,11 @@ export default function Navbars() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Navbar With Different Components</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Place the <code>&#60;NavbarToggler&#62;</code> after <code>&#60;NavbarBrand&#62;</code> to have it appear on the right (typical setup).
                   Reverse the order to have it appear on the left.
                 </div>
-                <div className="mb-3">Place various form controls and components within a navbar.</div>
+                <div className="mb-3 body-3 muted">Place various form controls and components within a navbar.</div>
                 <div className="mb-3">
                   <Navbar className="p-3 overflow-auto" color="light" light>
                     <NavbarBrand className="d-flex align-items-center" href="/">

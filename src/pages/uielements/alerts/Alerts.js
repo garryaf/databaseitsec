@@ -21,7 +21,7 @@ export default function Alerts() {
                 <div className="headline-2 mb-2">
                   Alert Messages
                 </div>
-                <p className="mb-3">
+                <p className="mb-3 body-3 muted">
                   Alerts are available for any length of text, as well as an optional dismiss button.
                 </p>
                 {alertTypes.map((notification, index) => (
@@ -39,7 +39,7 @@ export default function Alerts() {
                 <div className="headline-2 mb-2">
                   Transparent Alerts
                 </div>
-                <p className="mb-3">
+                <p className="mb-3 body-3 muted">
                   Transparent alerts are available by adding <code>transparent</code> property.
                 </p>
                 {alertTypes.map((notification, index) => (
@@ -59,7 +59,7 @@ export default function Alerts() {
                 <div className="headline-2 mb-2">
                   Additional Content
                 </div>
-                <p className="mb-3">
+                <p className="mb-3 body-3 muted">
                   Alerts can also contain additional HTML elements like headings, paragraphs and dividers.
                 </p>
                 <CustomAlert type="info">
@@ -89,7 +89,7 @@ export default function Alerts() {
                 <div className="headline-2 mb-2">
                   Rounded Alerts
                 </div>
-                <p className="mb-3">
+                <p className="mb-3 body-3 muted">
                   Rounded alerts are available by adding <code>rounded</code> property. You also can add informative icon to alert by adding <code>withIcon</code> property.
                 </p>
                 {alertTypes.map((notification, index) => (

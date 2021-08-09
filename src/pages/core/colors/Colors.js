@@ -57,7 +57,7 @@ export default function Colors() {
                   <div className="headline-2">Typography Colors</div>
                 </div>
                 <Row className="widget-p-md pt-2">
-                  <p className="px-3 mb-4">Convey meaning through color with a handful of color utility classes.
+                  <p className="px-3 mb-4 body-3 muted">Convey meaning through color with a handful of color utility classes.
                     Includes support for styling links with hover states, too. Use <code>text-*</code> class to fill text.</p>
                   <Col xs={12} sm={6} className="mb-3 mb-sm-0">
                     <div className="mb-3">
@@ -93,7 +93,7 @@ export default function Colors() {
                   <div className="headline-2">Buttons Example</div>
                 </div>
                 <Row className="widget-p-md pt-2">
-                  <p className="px-3 mb-4">Use any of the available button classes to quickly create a styled button. Semantically distinguishable beauty.</p>
+                  <p className="px-3 mb-4 body-3 muted">Use any of the available button classes to quickly create a styled button. Semantically distinguishable beauty.</p>
                   <Col>
                     <div>
                       <Button className="mr-3 mb-4" color="secondary">Default</Button>

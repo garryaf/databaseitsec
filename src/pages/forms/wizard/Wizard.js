@@ -204,7 +204,7 @@ export default function Wizard() {
             <Col lg={8}>
               <Widget className="widget-p-md">
                 <div className="headline-1">Form Wizard</div>
-                <p className="mb-4">An example of complete wizard form in widget.</p>
+                <p className="mb-4 body-3 muted">An example of complete wizard form in widget.</p>
                 <ul className={s.progressbar}>
                   <li className={`${s.account} ${isActive(1) && s.active}`}><strong>Account</strong></li>
                   <li className={`${s.personal} ${isActive(2) && s.active}`}><strong>Shipping</strong></li>

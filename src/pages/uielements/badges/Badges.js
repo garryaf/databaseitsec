@@ -17,7 +17,7 @@ export default function Badges() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Contextual Badges</div>
-                <div className="mt-2 mb-3">Add modifier <code>color="*"</code> property to change the appearance of a badge. If no color is specified <code>default</code> will be used.</div>
+                <div className="mt-2 mb-3 body-3 muted">Add modifier <code>color="*"</code> property to change the appearance of a badge. If no color is specified <code>default</code> will be used.</div>
                 <div className={s.badgesBlock}>
                   <Badge color="primary">Primary</Badge>
                   <Badge>Default</Badge>
@@ -34,7 +34,7 @@ export default function Badges() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Contextual Badges with icons</div>
-                <div className="mt-2 mb-3">Add any icon to make the badge more enjoyable and informative. If no color is specified <code>default</code> will be used.</div>
+                <div className="mt-2 mb-3 body-3 muted">Add any icon to make the badge more enjoyable and informative. If no color is specified <code>default</code> will be used.</div>
                 <div className={s.badgesBlock}>
                   <Badge color="primary"><StarIcon/>Primary</Badge>
                   <Badge><StarIcon/>Default</Badge>
@@ -53,7 +53,7 @@ export default function Badges() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Inverted Badges</div>
-                <div className="mt-2 mb-3">Add <code>badge-inverse-"*"</code> class to change the style of a badge. If no color is specified <code>default</code> will be used.</div>
+                <div className="mt-2 mb-3 body-3 muted">Add <code>badge-inverse-"*"</code> class to change the style of a badge. If no color is specified <code>default</code> will be used.</div>
                 <div className={s.badgesBlock}>
                   <Badge className="badge-inverse-primary">Primary</Badge>
                   <Badge className="badge-inverse-default">Default</Badge>
@@ -70,7 +70,7 @@ export default function Badges() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Inverted Badges with icons</div>
-                <div className="mt-2 mb-3">Add <code>badge-inverse-"*"</code> class to change the style of a badge. Add <code>pill</code> property to make badges rounded. Add icon to make it more informative and enjoyable.</div>
+                <div className="mt-2 mb-3 body-3 muted">Add <code>badge-inverse-"*"</code> class to change the style of a badge. Add <code>pill</code> property to make badges rounded. Add icon to make it more informative and enjoyable.</div>
                 <div className={s.badgesBlock}>
                   <Badge className="badge-inverse-primary" pill color="primary"><StarIcon/>Primary</Badge>
                   <Badge className="badge-inverse-default" pill><StarIcon/>Default</Badge>
@@ -88,7 +88,7 @@ export default function Badges() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Rounded Contextual Badges</div>
-                <div className="mt-2 mb-3">Add modifier <code>color="*"</code> property to change the appearance of a badge. Add <code>pill</code> property to make badges rounded. Add icon to make it more informative and enjoyable. If no color is specified <code>default</code> will be used.</div>
+                <div className="mt-2 mb-3 body-3 muted">Add modifier <code>color="*"</code> property to change the appearance of a badge. Add <code>pill</code> property to make badges rounded. Add icon to make it more informative and enjoyable. If no color is specified <code>default</code> will be used.</div>
                 <div className={s.badgesBlock}>
                   <Badge href="#" pill color="primary">Primary</Badge>
                   <Badge href="#" pill>Default</Badge>
@@ -105,7 +105,7 @@ export default function Badges() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Rounded Contextual Badges with icons</div>
-                <div className="mt-2 mb-3">Add any icon to make the badge more enjoyable and informative. Add <code>pill</code> property to make badges rounded. Add icon to make it more informative and enjoyable.</div>
+                <div className="mt-2 mb-3 body-3 muted">Add any icon to make the badge more enjoyable and informative. Add <code>pill</code> property to make badges rounded. Add icon to make it more informative and enjoyable.</div>
                 <div className={s.badgesBlock}>
                   <Badge href="#" pill color="primary"><StarIcon/>Primary</Badge>
                   <Badge href="#" pill><StarIcon/>Default</Badge>

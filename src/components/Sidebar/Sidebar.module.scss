@@ -1,8 +1,8 @@
 @import "../../styles/helpers";
 
 .root {
-  display: flex;
-  flex-direction: column;
+  //display: flex;
+  //flex-direction: column;
   width: $sidebar-width-open;
   position: absolute;
   left: 0;
@@ -41,7 +41,9 @@
 }
 
 .sidebarOpen {
-  height: auto !important;
+  @media (min-width: breakpoint-min(md)) {
+    height: auto !important;
+  }
 }
 
 .logo {

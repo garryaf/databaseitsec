@@ -19,7 +19,7 @@ export default function Buttons() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Rounded Buttons</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Bootstrap includes predefined button styles, each serving its own semantic purpose.
                   Use <code>btn-rounded</code> class to make button rounded.
                 </div>
@@ -39,7 +39,7 @@ export default function Buttons() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Outlined Rounded Buttons</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   In need of a button, but not the hefty background colors they bring?
                   Use <code>outline</code> property to remove all
                   background colors on any button.
@@ -62,7 +62,7 @@ export default function Buttons() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Default Buttons</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Use any of the available button classes to quickly create a styled button. Semantically distinguishable beauty.
                 </div>
                 <div className={s.buttonsBlock}>
@@ -81,7 +81,7 @@ export default function Buttons() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Outlined Default Buttons</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   This is the default button style, but you can make them more rounded.
                   Use whichever button shape you like best.
                 </div>
@@ -103,7 +103,7 @@ export default function Buttons() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Buttons With Icons</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Do more with icons! Icons or Icon components may be used in buttons.
                   Let your buttons be more informative and enjoyable!
                 </div>
@@ -123,7 +123,7 @@ export default function Buttons() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Outlined Buttons With Icons</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   In need of a button, but not the hefty background colors they bring?
                   Use <code>outline</code> property, add icon. Style the buttons however you like!
                 </div>

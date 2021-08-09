@@ -40,7 +40,7 @@ export default function Popovers() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Popover Example</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Popovers rely on the 3rd party library <a color="primary" href="https://popper.js.org/">Popper.js</a> for positioning.
                   Popovers are opt-in for performance reasons, so you must initialize them yourself.
                 </div>
@@ -64,7 +64,7 @@ export default function Popovers() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Tooltip Example</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Tooltips rely on the 3rd party library <a color="primary" href="https://popper.js.org/">Popper.js</a> for positioning.
                   Tooltips are opt-in for performance reasons, so you must initialize them yourself.
                 </div>
@@ -93,7 +93,7 @@ export default function Popovers() {
             <Col xs={12} md={6}>
               <Widget className="widget-p-md">
                 <div className="headline-2">Popover Directions</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Four options are available: top, right, bottom, and left aligned.
                   Trigger each popover to see where it positioning
                 </div>
@@ -114,7 +114,7 @@ export default function Popovers() {
             <Col xs={12} md={6} className="mt-4 mt-md-0">
               <Widget className="widget-p-md">
                 <div className="headline-2">Tooltip Directions</div>
-                <div className="mt-2 mb-3">
+                <div className="mt-2 mb-3 body-3 muted">
                   Four options are available: top, right, bottom, and left aligned.
                   Trigger each popover to see where it positioning
                 </div>

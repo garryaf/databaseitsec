@@ -78,7 +78,7 @@ export default function Profile() {
                 </div>
               </div>
             </div>
-            <div className="body-1 mb-4">
+            <div className="body-1 mb-4 base-light-gray">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry.
               Lorem Ipsum has been the industry's typesetting industry.
               Lorem Ipsum has been the industry's
@@ -118,7 +118,7 @@ export default function Profile() {
                       <p className="headline-3 mr-3">{item.title}</p>
                       <p className="body-4 muted">{item.time}</p>
                     </div>
-                    <div className="body-3">
+                    <div className="body-3 base-dark-gray">
                       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's typesetting industry. Lorem Ipsum has...
                       <span className="fake-link"> view all</span>
                     </div>
@@ -196,7 +196,7 @@ export default function Profile() {
                 <Col sm={4} lg={12} className={s.widgetOverflow}>
                   <Widget className="widget-p-sm">
                     <div className="d-flex flex-column align-items-center">
-                      <div className="headline-1">+$467,80</div>
+                      <div className={`headline-1 ${s.earning}`}>+$467,80</div>
                       <div className="body-4 muted">Your total earning</div>
                       <Button color="primary" className="btn-rounded mt-3">Get Money</Button>
                     </div>
