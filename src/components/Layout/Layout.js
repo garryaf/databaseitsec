@@ -13,7 +13,7 @@ import Profile from "../../pages/profile/Profile";
 import UserListPage from "../Users/list/UsersListPage.js";
 import UserViewPage from "../Users/view/UsersViewPage.js";
 import ChangePasswordFormPage from "../Users/changePassword/ChangePasswordFormPage";
-import UsersFormPage from "../Users/form/UsersFormPage";
+import UserFormPage from "../Users/form/UserFormPage";
 import Typography from "../../pages/core/typography/Typography.js";
 import Colors from "../../pages/core/colors/Colors.js";
 import Grid from "../../pages/core/grid/Grid.js";
@@ -73,11 +73,11 @@ class Layout extends React.Component {
               <Route path="/template/user/profile" exact component={Profile} />
               <Route path="/admin" exact render={() => <Redirect to="/admin/users" />} />
               <Route path="/admin/users" exact component={UserListPage} />
-              {/*<Route path="/admin/users/new" exact component={UserFormPage} />*/}
-              {/*<Route path="/admin/users/:id/edit" exact component={UserFormPage} />*/}
+              <Route path="/admin/users/new" exact component={UserFormPage} />
+              <Route path="/admin/users/:id/edit" exact component={UserFormPage} />
               <Route path="/admin/users/:id" exact component={UserViewPage} />
               <Route path="/template/password" exact component={ChangePasswordFormPage} />
-              <Route path="/template/edit" exact component={UsersFormPage} />
+              <Route path="/template/edit_profile" exact component={UserFormPage} />
               <Route path="/template/core" exact render={() => <Redirect to={"/template/core/typography"} />} />
               <Route path="/template/core/typography" exact component={Typography} />
               <Route path="/template/core/colors" exact component={Colors} />

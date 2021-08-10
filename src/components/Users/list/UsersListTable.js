@@ -10,6 +10,10 @@ import {
   DropdownToggle,
   DropdownItem,
   Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
 } from 'reactstrap';
 
 import {
@@ -57,7 +61,7 @@ class UsersListTable extends Component {
           className={s.controlBtn}
           color="success"
           size="xs"
-          onClick={() => this.props.dispatch(push(`/template/edit`))}
+          onClick={() => this.props.dispatch(push(`/admin/users/${cell}/edit`))}
         >
           Edit
         </Button>
@@ -116,44 +120,58 @@ class UsersListTable extends Component {
     };
 
     return (
-      <Widget className="widget-p-md">
-        <p className="headline-2">Users</p>
-        <div>
-          <BootstrapTable bordered={false} data={rows} version="4" pagination options={options} search className="table-responsive pagination-borderless" tableContainerClass={`table-responsive table-striped ${s.usersListTableMobile}`}>
-            <TableHeaderColumn dataField="avatars" dataSort dataFormat={dataFormat.imageFormatter}>
-              <span className="fs-sm">Avatar</span>
-            </TableHeaderColumn>
+      <div>
+        <Widget className="widget-p-md">
+          <p className="headline-2">Users</p>
+          <div>
+            <BootstrapTable bordered={false} data={rows} version="4" pagination options={options} search className="table-responsive pagination-borderless" tableContainerClass={`table-responsive table-striped ${s.usersListTableMobile}`}>
+              <TableHeaderColumn dataField="avatars" dataSort dataFormat={dataFormat.imageFormatter}>
+                <span className="fs-sm">Avatar</span>
+              </TableHeaderColumn>
 
-            <TableHeaderColumn dataField="firstName" dataSort>
-              <span className="fs-sm">First Name</span>
-            </TableHeaderColumn>
+              <TableHeaderColumn dataField="firstName" dataSort>
+                <span className="fs-sm">First Name</span>
+              </TableHeaderColumn>
 
-            <TableHeaderColumn dataField="lastName" dataSort>
-              <span className="fs-sm">Last Name</span>
-            </TableHeaderColumn>
+              <TableHeaderColumn dataField="lastName" dataSort>
+                <span className="fs-sm">Last Name</span>
+              </TableHeaderColumn>
 
-            <TableHeaderColumn dataField="phoneNumber" dataSort>
-              <span className="fs-sm">Phone Number</span>
-            </TableHeaderColumn>
+              <TableHeaderColumn dataField="phoneNumber" dataSort>
+                <span className="fs-sm">Phone Number</span>
+              </TableHeaderColumn>
 
-            <TableHeaderColumn dataField="email" dataSort>
-              <span className="fs-sm">E-mail</span>
-            </TableHeaderColumn>
+              <TableHeaderColumn dataField="email" dataSort>
+                <span className="fs-sm">E-mail</span>
+              </TableHeaderColumn>
 
-            <TableHeaderColumn dataField="role" dataSort>
-              <span className="fs-sm">Role</span>
-            </TableHeaderColumn>
+              <TableHeaderColumn dataField="role" dataSort>
+                <span className="fs-sm">Role</span>
+              </TableHeaderColumn>
 
-            <TableHeaderColumn dataField="disabled" dataSort dataFormat={dataFormat.booleanFormatter}>
-              <span className="fs-sm">Disabled</span>
-            </TableHeaderColumn>
+              <TableHeaderColumn dataField="disabled" dataSort dataFormat={dataFormat.booleanFormatter}>
+                <span className="fs-sm">Disabled</span>
+              </TableHeaderColumn>
 
-            <TableHeaderColumn isKey dataField="id" dataFormat={this.actionFormatter.bind(this)}>
-              <span className="fs-sm">Actions</span>
-            </TableHeaderColumn>
-          </BootstrapTable>
-        </div>
-      </Widget>
+              <TableHeaderColumn isKey dataField="id" dataFormat={this.actionFormatter.bind(this)}>
+                <span className="fs-sm">Actions</span>
+              </TableHeaderColumn>
+            </BootstrapTable>
+          </div>
+        </Widget>
+
+        <Modal size="sm" isOpen={this.props.modalOpen} toggle={() => this.closeModal()}>
+          <ModalHeader toggle={() => this.closeModal()}>Confirm delete</ModalHeader>
+          <ModalBody>
+            Are you sure you want to delete this item?
+          </ModalBody>
+          <ModalFooter>
+            <Button color="secondary" onClick={() => this.closeModal()}>Cancel</Button>
+            <Button color="primary" onClick={() => this.handleDelete()}>Delete</Button>
+          </ModalFooter>
+        </Modal>
+      </div>
+
     )
   }
 }

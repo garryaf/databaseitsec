@@ -4,7 +4,7 @@ import CustomInput from "../../CustomInput/CustomInput";
 import { Button, Label } from "reactstrap";
 import { Link } from "react-router-dom";
 
-export default function UsersForm() {
+export default function UserForm() {
 
   return (
     <>

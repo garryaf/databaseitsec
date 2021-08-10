@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UsersForm from "./UsersForm";
+import UserForm from "./UserForm";
 import { connect } from 'react-redux';
 import actions from "../../../actions/usersFormActions";
 import { Alert } from 'reactstrap';
@@ -8,7 +8,7 @@ import Widget from "../../Widget/Widget";
 
 import s from "../Users.module.scss";
 
-class UsersFormPage extends  Component {
+class UserFormPage extends  Component {
   state = {
     dispatched: false,
     promoAlert: false,
@@ -75,7 +75,7 @@ class UsersFormPage extends  Component {
           </Alert>
         </div>
         <Widget className="widget-p-md">
-          <UsersForm/>
+          <UserForm/>
         </Widget>
       </React.Fragment>
     );
@@ -91,6 +91,6 @@ function mapStateToProps(store) {
   };
 }
 
-export default connect(mapStateToProps)(UsersFormPage);
+export default connect(mapStateToProps)(UserFormPage);
 
 

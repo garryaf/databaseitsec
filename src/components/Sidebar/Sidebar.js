@@ -95,7 +95,7 @@ class Sidebar extends React.Component {
                 header: 'User Management', link: '/admin/users',
               },
               {
-                header: 'Edit Profile', link: '/template/edit',
+                header: 'Edit Profile', link: '/template/edit_profile',
               },
               {
                 header: 'Change Password', link: '/template/password'
