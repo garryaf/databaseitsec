@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import PasswordForm from "./PasswordForm";
+import ChangePasswordForm from "./ChangePasswordForm";
+import { push } from "connected-react-router";
 import actions from "../../../actions/usersFormActions";
 import { connect } from "react-redux";
 import { Alert } from 'reactstrap';
 import cx from 'classnames';
-import Widget from "../../Widget/Widget";
 
 import s from "../Users.module.scss";
 
@@ -41,9 +41,12 @@ class ChangePasswordFormPage extends Component {
             This page is only available in <a className="text-white font-weight-bold" rel="noreferrer noopener" href="https://flatlogic.com" target="_blank">Sofia React App with Node.js</a> integration!
           </Alert>
         </div>
-        <Widget className="widget-p-md">
-          <PasswordForm/>
-        </Widget>
+        <ChangePasswordForm
+          saveLoading={this.props.saveLoading}
+          findLoading={this.props.findLoading}
+          onSubmit={this.doSubmit}
+          onCancel={() => this.props.dispatch(push('/admin/users'))}
+        />
       </React.Fragment>
     );
   }

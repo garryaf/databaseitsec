@@ -16,7 +16,7 @@ class TextViewItem extends Component {
     }${this.props.value}`;
 
     return (
-      <div className="form-group">
+      <div className="form-group mb-4">
         <label className="col-form-label">
           {this.props.label}
         </label>

@@ -111,7 +111,7 @@ const actions = {
       });
 
       toast.success('Password has been updated');
-      dispatch(push('/template'));
+      dispatch(push('/admin/users'));
 
     } catch (error) {
       Errors.handle(error);

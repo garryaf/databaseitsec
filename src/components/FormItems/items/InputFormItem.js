@@ -18,7 +18,7 @@ export class InputFormItemNotFast extends Component {
       errorMessage,
       required,
     } = this.props;
-    const { label } = this.props.schema[name] || {};
+    const { label } = this.props.schema[name];
 
     const sizeLabelClassName =
       {
@@ -51,8 +51,7 @@ export class InputFormItemNotFast extends Component {
             form.setFieldValue(name, event.target.value);
             form.setFieldTouched(name);
           }}
-          // value={form.values[name] || ''}
-          value={''}
+          value={form.values[name] || ''}
           placeholder={placeholder || undefined}
           autoFocus={autoFocus || undefined}
           autoComplete={autoComplete || undefined}

@@ -1,6 +1,6 @@
 import * as uuid from "uuid/v4";
 import Axios from "axios";
-import config from "config";
+import config from "../../../config";
 
 function extractExtensionFrom(filename) {
   if (!filename) {

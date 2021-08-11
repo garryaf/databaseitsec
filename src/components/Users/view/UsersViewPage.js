@@ -1,19 +1,31 @@
 import React, { Component } from "react";
+import UsersView from "./UsersView";
+import actions from "../../../actions/usersFormActions";
+import { connect } from "react-redux";
 
 class UsersPage extends Component {
   componentDidMount() {
-
+    const { dispatch, match } = this.props;
+    dispatch(actions.doFind(match.params.id));
   }
 
   render() {
     return (
       <React.Fragment>
-        <div>
-          Users View Page
-        </div>
+        <UsersView
+          loading={this.props.loading}
+          record={this.props.record}
+        />
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default UsersPage;
+function mapStateToProps(store) {
+  return {
+    loading: store.users.form.loading,
+    record: store.users.form.record,
+  };
+}
+
+export default connect(mapStateToProps)(UsersPage)

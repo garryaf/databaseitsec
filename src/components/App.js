@@ -47,7 +47,7 @@ class App extends React.PureComponent {
               <AuthRoute path="/login" exact component={Login} />
               <AuthRoute path="/register" exact component={Register} />
               <Route path="/error" exact component={ErrorPage} />
-              <Route component={ErrorPage}/>
+              <Redirect from="*" to="/template/dashboard" />
               <Route path='*' exact={true} render={() => <Redirect to="/error" />} />
             </Switch>
           </HashRouter>

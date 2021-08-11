@@ -1,8 +1,8 @@
-import { toast } from "react-toastify";
-import { push } from "connected-react-router";
-import { store } from "../../../index";
+import { toast } from 'react-toastify';
+import { push } from 'connected-react-router';
+import { store } from '../../../index';
 
-const DEFAULT_ERROR_MESSAGE = "Error";
+const DEFAULT_ERROR_MESSAGE = 'Error';
 
 function selectErrorMessage(error) {
   if (error && error.response && error.response.data) {
@@ -15,7 +15,7 @@ function selectErrorMessage(error) {
     return String(data);
   }
 
-  return  error.message || DEFAULT_ERROR_MESSAGE;
+  return error.message || DEFAULT_ERROR_MESSAGE;
 }
 
 function selectErrorCode(error) {
@@ -28,8 +28,8 @@ function selectErrorCode(error) {
 
 export default class Errors {
   static handle(error) {
-    if (process.env.NODE_ENV !== "test") {
-      console.error(selectErrorCode(error));
+    if (process.env.NODE_ENV !== 'test') {
+      console.error(selectErrorMessage(error));
       console.error(error);
     }
 
@@ -40,7 +40,7 @@ export default class Errors {
 
     if (selectErrorCode(error) === 400) {
       toast.error(selectErrorMessage(error));
-      return;;
+      return;
     }
 
     store.dispatch(push('/500'));

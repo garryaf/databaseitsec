@@ -39,7 +39,7 @@ class UsersListTable extends Component {
 
   openModal(cell) {
     const userId = cell;
-    this.props.dispatch(actions.doOpenConfirm(userId))
+    this.props.dispatch(actions.doOpenConfirm(userId));
   }
 
   closeModal() {
