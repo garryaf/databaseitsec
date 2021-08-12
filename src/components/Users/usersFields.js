@@ -11,6 +11,10 @@ const usersFields = {
     type: 'string',
     label: 'First Name'
   },
+  lastName: {
+    type: 'string',
+    label: 'Last Name'
+  },
   phoneNumber: {
     type: 'string',
     label: 'Phone Number'

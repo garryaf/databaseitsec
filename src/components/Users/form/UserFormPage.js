@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import UserForm from "./UserForm";
+import UsersForm from "./UsersForm";
+import { push } from "connected-react-router";
 import { connect } from 'react-redux';
 import actions from "../../../actions/usersFormActions";
 import { Alert } from 'reactstrap';
 import cx from 'classnames';
-import Widget from "../../Widget/Widget";
 
 import s from "../Users.module.scss";
 
@@ -59,7 +59,7 @@ class UserFormPage extends  Component {
     if (match.params.id === currentUserId) {
       return true
     }
-    return match.url === '/template/edit';
+    return match.url === '/template/edit_profile';
   };
 
   render() {
@@ -74,9 +74,20 @@ class UserFormPage extends  Component {
             This page is only available in <a className="text-white font-weight-bold" rel="noreferrer noopener" href="https://flatlogic.com" target="_blank">Sofia React App with Node.js</a> integration!
           </Alert>
         </div>
-        <Widget className="widget-p-md">
-          <UserForm/>
-        </Widget>
+        {this.state.dispatched && (
+          <UsersForm
+            saveLoading={this.props.saveLoading}
+            findLoading={this.props.findLoading}
+            currentUser={this.props.currentUser}
+            record={
+              (this.isEditing() || this.isProfile()) ? this.props.record : {}
+            }
+            isEditing={this.isEditing()}
+            isProfile={this.isProfile()}
+            onSubmit={this.doSubmit}
+            onCancel={() => this.props.dispatch(push('/admin/users'))}
+          />
+        )}
       </React.Fragment>
     );
   }
