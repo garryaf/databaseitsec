@@ -8,7 +8,7 @@ import cx from 'classnames';
 
 import s from "../Users.module.scss";
 
-class UserFormPage extends  Component {
+class UserFormPage extends Component {
   state = {
     dispatched: false,
     promoAlert: false,

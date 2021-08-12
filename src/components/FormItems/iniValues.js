@@ -2,7 +2,7 @@ import moment from "moment";
 import { isString } from "lodash"
 
 const IniValues = (fields, record = {}) => {
-  const iniArray = [];
+  const iniArray = {};
   Object.keys(fields).forEach(field => {
     const type = fields[field].type;
     const value = record[field];

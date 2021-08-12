@@ -110,8 +110,9 @@ const formValidations = (fields, record = {}) => {
     }
     yupArray[field] = yupConds;
   });
-
   return yup.object().shape(yupArray);
 }
 
 export default formValidations;
+
+
