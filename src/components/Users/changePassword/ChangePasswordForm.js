@@ -28,9 +28,6 @@ class UsersForm extends Component {
         <Formik
           onSubmit={this.handleSubmit}
           render={(form) => {
-            // console.log("----")
-            // console.log(form)
-            // console.log("----")
             return (
               <form onSubmit={form.handleSubmit}>
 

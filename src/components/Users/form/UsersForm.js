@@ -110,7 +110,7 @@ class UsersForm extends Component {
                   </button>{' '}{' '}
 
                   <button
-                    className="mr-3 btn btn-light"
+                    className="mr-3 btn btn-secondary"
                     type="button"
                     disabled={saveLoading}
                     onClick={form.handleReset}
@@ -119,7 +119,7 @@ class UsersForm extends Component {
                   </button>{' '}{' '}
 
                   <button
-                    className="mr-3 btn btn-light"
+                    className="mr-3 btn btn-secondary"
                     type="button"
                     disabled={saveLoading}
                     onClick={() => this.props.onCancel()}

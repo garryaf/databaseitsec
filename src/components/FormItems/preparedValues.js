@@ -30,7 +30,7 @@ const PreparedValues = (fields, record = {}) => {
       default:
         preparedValue = value;
     }
-    preparedValue[field] = preparedValue;
+    preparedArray[field] = preparedValue;
   });
   return preparedArray;
 }

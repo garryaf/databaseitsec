@@ -116,7 +116,7 @@ class Login extends React.Component {
                   </div>
                   <p className="dividing-line my-3">&#8195;Or&#8195;</p>
                   <div className="d-flex align-items-center my-3">
-                    <p className="social-label mb-0">Login with</p>
+                    <p className="social-label mb-0">Login with:</p>
                     <div className="socials">
                       <a href="https://flatlogic.com/" target = "_blank" rel = "noopener noreferrer">
                         <GoogleIcon />
