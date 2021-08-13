@@ -18,6 +18,7 @@ import { createHashHistory } from "history";
 import './fakeDB';
 
 const history = createHashHistory();
+
 export function getHistory() {
   return history;
 }

@@ -3,6 +3,12 @@
   "version": "1.0.1",
   "homepage": "./",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "@amcharts/amcharts4": "^4.10.18",
     "@amcharts/amcharts4-geodata": "^4.1.20",
@@ -78,12 +84,6 @@
     "uuid": "^3.4.0",
     "web-vitals": "^1.0.1",
     "yup": "^0.32.9"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

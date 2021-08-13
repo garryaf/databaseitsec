@@ -10,8 +10,8 @@ import { AdminRoute, UserRoute, AuthRoute } from "../RouteComponents";
 import ErrorPage from "../pages/error/ErrorPage.js";
 
 import LayoutComponent from "../components/Layout/Layout.js";
-import Login from "../pages/login/Login.js";
-import Register from "../pages/register/Register.js";
+import Login from "../pages/auth/login/Login";
+import Register from "../pages/auth/register/Register.js";
 import DocumentationLayout from "../documentation/DocumentaionLayout";
 
 import "../styles/app.scss";
