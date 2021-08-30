@@ -1,20 +1,11 @@
 import React  from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-// import FormikInput from "./components/FormikInput";
-// import FormikCheckbox from "./components/FormikCheckbox";
-// import FormikSelect from "./components/FormikSelect";
 
 import {
   Button,
-  FormGroup,
-  Input
 } from "reactstrap";
 
-/*
-TODO: - Refactor this page using default components
-      - Delete custom components folder
- */
 const initialValues = {
   firstName: "",
   lastName: "",
@@ -24,8 +15,6 @@ const initialValues = {
   acceptedTerms: false,
   jobType: "",
 };
-
-const jobTypes = ["designer", "development", "product", "other"];
 
 class FormikForm extends React.Component {
   render() {
@@ -123,59 +112,5 @@ class FormikForm extends React.Component {
 
 export default FormikForm;
 
-
-
-// class FormikForm extends React.Component {
-//   render() {
-//     return (
-//       <>
-//         <h2 className="mt-4">Subscribe!</h2>
-//         <Formik
-//           initialValues={initialValues}
-//           onSubmit={async (values, { setSubmitting }) => {
-//             await new Promise(r => setTimeout(r, 500));
-//             setSubmitting(false);
-//           }}
-//           render={(form) => {
-//             return (
-//               <form>
-
-//               </form>
-//             )
-//           }}
-//         />
-//       </>
-//     )
-//   }
-// }
-// export default function FormikForm() {
-//
-//   return (
-//     <>
-//       <h2 className="mt-4">Subscribe!</h2>
-//       <Formik
-
-
-//         onSubmit={async (values, { setSubmitting }) => {
-//           await new Promise(r => setTimeout(r, 500));
-//           setSubmitting(false);
-//         }}
-//       >
-//         <Form>
-//
-//           <FormikSelect label="Job Type" name="jobType">
-//             <option value="">Select a job type</option>
-//             <option value="designer">Designer</option>
-//             <option value="development">Developer</option>
-//             <option value="product">Product Manager</option>
-//             <option value="other">Other</option>
-//           </FormikSelect>
-//         </Form>
-//       </Formik>
-//     </>
-//   )
-// }
-
-// export default FormikForm;
 
 
