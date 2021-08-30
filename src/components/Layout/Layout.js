@@ -43,8 +43,8 @@ import OtherCharts from "../../pages/charts/other/OtherCharts";
 import Maps from "../../pages/maps/google/GoogleMapPage.js";
 import VectorMap from "../../pages/maps/vector/Vector.js";
 import Calendar from "../../pages/extra/calendar/Calendar";
-import Login from "../../pages/login/Login";
-import Register from "../../pages/register/Register";
+import Login from "../../pages/auth/login/Login";
+import Register from "../../pages/auth/register/Register";
 
 import s from "./Layout.module.scss";
 
