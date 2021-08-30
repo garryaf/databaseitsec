@@ -4,9 +4,10 @@
   "homepage": "./",
   "private": true,
   "scripts": {
+    "build": "cross-env REACT_APP_BACKEND=true cross-env PUBLIC_URL='./' react-scripts build",
     "start": "react-scripts start",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start:backend": "cross-env REACT_APP_BACKEND=true react-scripts start"
   },
   "dependencies": {
     "@amcharts/amcharts4": "^4.10.18",

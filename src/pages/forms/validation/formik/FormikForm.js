@@ -1,5 +1,5 @@
 import React  from "react";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 // import FormikInput from "./components/FormikInput";
 // import FormikCheckbox from "./components/FormikCheckbox";
@@ -24,6 +24,8 @@ const initialValues = {
   acceptedTerms: false,
   jobType: "",
 };
+
+const jobTypes = ["designer", "development", "product", "other"];
 
 class FormikForm extends React.Component {
   render() {
@@ -57,130 +59,103 @@ class FormikForm extends React.Component {
               )
               .required("Required")
           })}
-          onSubmit={async (values, { setSubmitting }) => {
-            await new Promise(r => setTimeout(r, 500));
-            setSubmitting(false);
+          onSubmit={fields => {
+            alert('SUCCESS!!!')
           }}
-          render={(form) => {
-            return (
-              <form>
-                <Field
-                  name="firstName"
-                  type="text"
-                  placeholder="Jane"
-                  render={() => (
-                    <div className="form-group">
-                      <label xs={12} htmlFor="firstName" className="col-form-label">First Name</label>
-                      <input
-                        xs={12}
-                        id="firstName"
-                        type="text"
-                        value=""
-                        className="form-control"
-                        onChange={(event) => {
-                          form.setFieldValue(initialValues.firstName, event.target.value);
-                          form.setFieldTouched(initialValues.firstName);
-                        }}
-                      />
-                    </div>
+          render={({ errors, status, touched}) => (
+            <Form>
+              <div className="form-group">
+                <label htmlFor="firstName">First Name</label>
+                <Field name="firstName" type="text" className={'form-control' + (errors.firstName && touched.firstName ? ' is-invalid' : '')} />
+                <ErrorMessage name="firstName" component="div" className="invalid-feedback" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="lastName">Last Name</label>
+                <Field name="lastName" type="text" className={'form-control' + (errors.lastName && touched.lastName ? ' is-invalid' : '')} />
+                <ErrorMessage name="lastName" component="div" className="invalid-feedback" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <Field name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')} />
+                <ErrorMessage name="email" component="div" className="invalid-feedback" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="password">Password</label>
+                <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
+                <ErrorMessage name="password" component="div" className="invalid-feedback" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="passwordConfirmation">Confirm Password</label>
+                <Field name="passwordConfirmation" type="password" className={'form-control' + (errors.passwordConfirmation && touched.passwordConfirmation ? ' is-invalid' : '')} />
+                <ErrorMessage name="passwordConfirmation" component="div" className="invalid-feedback" />
+              </div>
+              <div className="form-check checkbox checkbox-primary ml-3 mt-4">
+                <Field type="checkbox" name="acceptedTerms" className={'form-check-input styled' + (errors.acceptedTerms && touched.acceptedTerms ? ' is-invalid' : '')} />
+                <label htmlFor="acceptedTerms" className="form-check-label">Accept Terms & Conditions</label>
+                <ErrorMessage name="acceptedTerms" component="div" className="invalid-feedback" />
+              </div>
+              <div className="form-group mt-4">
+                <label>Job Type</label>
+                <Field name="jobType">
+                  {({ field }) => (
+                    <select {...field} className={'form-control' + (errors.jobType && touched.jobType ? ' is-invalid' : '')}>
+                      <option key={0} value="">Select a job type</option>
+                      <option key={1} value="designer">Designer</option>
+                      <option key={2} value="development">Developer</option>
+                      <option key={3} value="product">Product Manager</option>
+                      <option key={4} value="other">Other</option>
+                    </select>
                   )}
-                />
-                <Field
-                  name="lastName"
-                  type="text"
-                  placeholder="Doe"
-                  render={() => (
-                    <div className="form-group">
-                      <label xs={12} htmlFor="lastName" className="col-form-label">Last Name</label>
-                      <input xs={12} id="lastName" type="text" value="" className="form-control"/>
-                    </div>
-                  )}
-                />
-                <Field
-                  name="email"
-                  type="email"
-                  placeholder="jane@formik.com"
-                  render={() => (
-                    <div className="form-group">
-                      <label xs={12} htmlFor="email" className="col-form-label">Email Address</label>
-                      <input xs={12} id="email" type="text" value="" className="form-control"/>
-                    </div>
-                  )}
-                />
-                <Field
-                  name="password"
-                  type="password"
-                  placeholder=""
-                  render={() => (
-                    <div className="form-group">
-                      <label xs={12} htmlFor="password" className="col-form-label">Password</label>
-                      <input xs={12} id="password" type="text" value="" className="form-control"/>
-                    </div>
-                  )}
-                />
-                <Field
-                  name="passwordConfirmation"
-                  type="password"
-                  placeholder=""
-                  render={() => (
-                    <div className="form-group">
-                      <label xs={12} htmlFor="passwordConfirmation" className="col-form-label">Confirm Password</label>
-                      <input xs={12} id="password" type="text" value="" className="form-control"/>
-                    </div>
-                  )}
-                />
-                <div className="d-flex justify-content-between mt-4">
-                  <Button color="primary" type="submit">Submit</Button>
-                  <Button color="secondary" type="reset">Cancel</Button>
-                </div>
-              </form>
-            )
-          }}
+                </Field>
+                <ErrorMessage name="jobType" component="div" className="invalid-feedback" />
+              </div>
+              <div className="d-flex justify-content-between mt-5">
+                <Button color="primary" type="submit">Submit</Button>
+                <Button color="secondary" type="reset">Cancel</Button>
+              </div>
+            </Form>
+          )}
         />
       </>
     )
   }
 }
+
+export default FormikForm;
+
+
+
+// class FormikForm extends React.Component {
+//   render() {
+//     return (
+//       <>
+//         <h2 className="mt-4">Subscribe!</h2>
+//         <Formik
+//           initialValues={initialValues}
+//           onSubmit={async (values, { setSubmitting }) => {
+//             await new Promise(r => setTimeout(r, 500));
+//             setSubmitting(false);
+//           }}
+//           render={(form) => {
+//             return (
+//               <form>
+
+//               </form>
+//             )
+//           }}
+//         />
+//       </>
+//     )
+//   }
+// }
 // export default function FormikForm() {
 //
 //   return (
 //     <>
 //       <h2 className="mt-4">Subscribe!</h2>
 //       <Formik
-//         initialValues={{
-//           firstName: "",
-//           lastName: "",
-//           email: "",
-//           password: "",
-//           passwordConfirmation: "",
-//           acceptedTerms: false,
-//           jobType: "",
-//         }}
-//         validationSchema={Yup.object({
-//           firstName: Yup.string()
-//             .max(15, "Must be 15 characters or less")
-//             .required("Required"),
-//           lastName: Yup.string()
-//             .max(20, "Must be 20 characters or less")
-//             .required("Required"),
-//           email: Yup.string()
-//             .email("Invalid email addresss`")
-//             .required("Required"),
-//           password: Yup.string()
-//             .min(8, 'Password is too short - should be 8 chars minimum.')
-//             .required("Required"),
-//           passwordConfirmation: Yup.string()
-//             .oneOf([Yup.ref('password'), null], 'Passwords must match'),
-//           acceptedTerms: Yup.boolean()
-//             .required("Required")
-//             .oneOf([true], "You must accept the terms and conditions."),
-//           jobType: Yup.string()
-//             .oneOf(
-//               ["designer", "development", "product", "other"],
-//               "Invalid Job Type"
-//             )
-//             .required("Required")
-//         })}
+
+
 //         onSubmit={async (values, { setSubmitting }) => {
 //           await new Promise(r => setTimeout(r, 500));
 //           setSubmitting(false);
@@ -195,19 +170,12 @@ class FormikForm extends React.Component {
 //             <option value="product">Product Manager</option>
 //             <option value="other">Other</option>
 //           </FormikSelect>
-//           <FormikCheckbox name="acceptedTerms">
-//             I accept the terms and conditions
-//           </FormikCheckbox>
-//           <div className="d-flex justify-content-between mt-4">
-//             <Button color="primary" type="submit">Submit</Button>
-//             <Button color="secondary" type="reset">Cancel</Button>
-//           </div>
 //         </Form>
 //       </Formik>
 //     </>
 //   )
 // }
 
-export default FormikForm;
+// export default FormikForm;
 
 
