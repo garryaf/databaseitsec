@@ -9,33 +9,61 @@ import {
 
 export default function CustomModal(props) {
 
-  const { className, buttonColor, buttonLabel, scrollable, size, children, backdrop, opened } = props;
+  const {
+    className,
+    buttonColor,
+    buttonLabel,
+    scrollable,
+    size,
+    children,
+    backdrop,
+    opened,
+    outline,
+    subscribing,
+    modalTitle
+  } = props;
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal)
 
+  const CloseBtn = <i className="eva eva-close cursor-pointer" onClick={toggle}/>
+
   return (
     <>
-      <Button className="mr-4 mb-3" color={buttonColor} onClick={toggle}>{buttonLabel}</Button>
+      <Button className="btn-rounded mr-4 mb-3" outline={outline} color={buttonColor} onClick={toggle}>{buttonLabel}</Button>
       <Modal isOpen={modal || opened} backdrop={backdrop} toggle={toggle} size={size} className={className} scrollable={scrollable}>
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+        <ModalHeader toggle={toggle} close={CloseBtn} className="headline-1">{modalTitle || "Use Google's location service?"}</ModalHeader>
         {scrollable
           ? <ModalBody>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </ModalBody>
+            Cras mattis consectetur purus sit amet fermentum.
+            Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+            Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+            Cras mattis consectetur purus sit amet fermentum.
+            Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+            Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+            Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          </ModalBody>
           : <ModalBody>
-              {children}
-            </ModalBody>
+            {children}
+          </ModalBody>
         }
         <ModalFooter>
-          <Button color="primary" onClick={toggle}>Do Something</Button>
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
+          {
+            subscribing
+              ? <div className="mx-auto">
+                <Button className="btn-rounded btn-outline-secondary mr-3" outline onClick={toggle}>Cancel</Button>
+                <Button className="btn-rounded" color="primary" onClick={toggle}>Subscribe</Button>
+              </div>
+              : <div  className="mx-auto">
+                <Button className="btn-rounded btn-outline-secondary mr-3" outline onClick={toggle}>Agree</Button>
+                <Button className="btn-rounded" color="primary" onClick={toggle}>Disagree</Button>
+              </div>
+          }
         </ModalFooter>
       </Modal>
     </>
