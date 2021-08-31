@@ -9,8 +9,8 @@ import {
   DropdownMenu,
   DropdownItem, Dropdown,
 } from "reactstrap";
-import { Chrono } from "react-chrono";
 import Widget from "../../components/Widget/Widget";
+import TasksStepper from "./stepper/TasksStepper";
 import AvatarGroup from "../../components/AvatarGroup/AvatarGroup";
 import ApexCharts from "react-apexcharts";
 import s from "./Profile.module.scss";
@@ -129,11 +129,6 @@ export default function Profile() {
           </Widget>
         </Col>
       </Row>
-
-
-
-
-
       <Row>
         <Col lg={6} sm={12}>
           <Row className={s.widgetRow}>
@@ -155,21 +150,7 @@ export default function Profile() {
                   </ButtonDropdown>
                 </div>
                 <div className={s.chronoWidget}>
-                  <Chrono
-                    items={timelineWidget.timelineSteps}
-                    mode="VERTICAL"
-                    hideControls
-                  >
-                  {timelineWidget.timelineData.map((item, index) => (
-                    <div key={index} className="d-flex flex-row align-self-baseline ml-3">
-                      <img src={item.img} alt="item pic"/>
-                      <div className="d-flex flex-column ml-3">
-                        <p className="body-2">{item.title}</p>
-                        <p className="body-3 muted">{item.label}</p>
-                      </div>
-                    </div>
-                  ))}
-                </Chrono>
+                  <TasksStepper/>
                 </div>
               </Widget>
             </Col>

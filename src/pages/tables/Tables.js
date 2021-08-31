@@ -228,26 +228,26 @@ const Tables = function () {
                         (secondTableCurrentPage + 1) * pageSize
                       )
                       .map(item => (
-                      <tr key={uuidv4()}>
-                        <td>
-                          <div className="checkbox checkbox-primary">
-                            <input
-                              id={item.id}
-                              className="styled"
-                              type="checkbox"
-                            />
-                            <label for={item.id} />
-                          </div>
-                        </td>
-                        <td>{item.name}</td>
-                        <td>{item.email}</td>
-                        <td>{item.product}</td>
-                        <td>{item.price}</td>
-                        <td>{item.date}</td>
-                        <td>{item.city}</td>
-                        <td><Badge color={item.color}>{item.status}</Badge></td>
-                      </tr>
-                    ))}
+                        <tr key={uuidv4()}>
+                          <td>
+                            <div className="checkbox checkbox-primary">
+                              <input
+                                id={item.id}
+                                className="styled"
+                                type="checkbox"
+                              />
+                              <label for={item.id} />
+                            </div>
+                          </td>
+                          <td>{item.name}</td>
+                          <td>{item.email}</td>
+                          <td>{item.product}</td>
+                          <td>{item.price}</td>
+                          <td>{item.date}</td>
+                          <td>{item.city}</td>
+                          <td><Badge color={item.color}>{item.status}</Badge></td>
+                        </tr>
+                      ))}
                     </tbody>
                   </Table>
                   <Pagination className="pagination-with-border">
@@ -297,7 +297,6 @@ const Tables = function () {
                         <DropdownItem>Monthly</DropdownItem>
                       </DropdownMenu>
                     </ButtonDropdown>
-                    {/*<img src="" alt="Filter option"/>*/}
                   </div>
                 </div>
                 <div className={s.widgetContentBlock}>

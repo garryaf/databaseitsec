@@ -13,7 +13,7 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter,
+  ModalFooter, ButtonDropdown,
 } from 'reactstrap';
 
 import {
@@ -89,14 +89,14 @@ class UsersListTable extends Component {
     });
 
     return (
-      <Dropdown isOpen={props.open} toggle={props.toggleDropDown}>
-        <DropdownToggle color="default" caret>
+      <ButtonDropdown isOpen={props.open} toggle={props.toggleDropDown}>
+        <DropdownToggle caret>
           { props.currSizePerPage }
         </DropdownToggle>
         <DropdownMenu>
           { limits }
         </DropdownMenu>
-      </Dropdown>
+      </ButtonDropdown>
     );
   };
 

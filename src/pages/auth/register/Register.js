@@ -62,13 +62,15 @@ class Register extends React.Component {
   }
 
   render() {
-    // const { from } = this.props.location.state || { from: { pathname: '/template' } };
-    //
-    // if (Login.isAuthenticated(JSON.parse(localStorage.getItem('authenticated')))) {
-    //   return (
-    //     <Redirect to={from} />
-    //   );
-    // }
+    const { from } = this.props.location.state || { from: { pathname: '/template' } };
+    if (!window.location.href.includes('extra')) {
+      if (Login.isAuthenticated()) {
+        return (
+          <Redirect to={from} />
+        );
+      }
+    }
+
 
     return (
       <div className="auth-page">
