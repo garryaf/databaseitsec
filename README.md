@@ -2,49 +2,53 @@
 
 Free and open-source admin dashboard template built with React v17.0.1 and Bootstrap v4.6. Developed with ❤️ by [Flatlogic](https://flatlogic.com/). If you love our project please star ⭐️ our repo!
 
-[View Demo](https://flatlogic.github.io/sofia-react-template/) | [Download](https://github.com/flatlogic/sofia-react-template.git) | [More templates](https://flatlogic.com/templates)
+[View Demo](https://demo.flatlogic.com/sofia-react/#/template/dashboard) | [Download Free Template](https://github.com/flatlogic/sofia-react-template.git) | [More templates](https://flatlogic.com/templates)
 
 [![image](https://user-images.githubusercontent.com/63450826/116520255-2a8b2b80-a8db-11eb-84b1-6e94b13ad6c9.png)](https://flatlogic.github.io/sofia-react-template/)
 
-This dashboard is an initial version (containing only few components) of our future release of Sofia React Admin. It is built on the top of React 17, so it well supported along the web. You can easy customize template by changing SCSS variables. All paddings and colors are in _variables.scss file.
+This dashboard is a full version of Sofia React Admin. It is built on the top of React 17, so it well supported along the web. You can easy customize template by changing SCSS variables. All paddings and colors are in _variables.scss file.
 
 ## Features
 
-Sofia React Template is a great template to quick-start development of SAAS, CMS, IoT Dashboard, E-Commerce apps, etc.
-Lite version of a Sofia React includes following features and pages:
+Sofia React is a great template to quick-start development of SAAS, CMS, IoT Dashboard, E-Commerce apps, etc.
+This admin dashboard includes following features and pages:
 
 * React v17
+* Redux v4
 * Bootstrap v4.6 & SCSS
 * React Router v5
 * React Hooks
 * Mobile friendly responsive layout
-* Recharts and Apexcharts chart libraries
-* Simple login / logout
+* Modular architecture
+* Authentication
+* Recharts, Apexcharts, Highcharts chart libraries
 * Error page
 * Styled Bootstrap components like buttons, badges, labels, etc
 * Create-react-app under the hood
 
 ## Pages
 
-We have implemented some basic pages, so you can see our template in action.
+We've made all these beautiful pages, so you can see our template in action.
 
-* Dashboard sample
-* Typography page
+* Dashboard page
+* User pages including Profile page, User Management page and more
+* Core pages including Typography page, Colors page, Grid page
+* UI Elements pages including pages for all template components
+* Forms pages including Elements page, Validation page and Wizard page
+* Charts pages including pages for many kinds of customized charts from the most famous charts libraries
+* Calendar page
 * Tables page
-* Notifications page
-* Charts page
-* Icons page
-* Map page
 * Login page
 * Register page
 * Error page
+* Documentation page
 
 ## Quick Start
 
 ### 1. Get the latest version
-You can start by cloning the latest version of Sofia React Template on your local machine by running:
+You can start by cloning the latest version of Sofia React on your local machine by running:
 ```shell
-$ git clone https://github.com/flatlogic/sofia-react-template.git
+$ git clone path/to/repo
 $ cd path/to/app
 ```
 
@@ -89,4 +93,4 @@ For any additional information please go to our [**support forum**](https://flat
 Looking for premium themes and templates? Check out more [admin dashboard templates at flatlogic.com](https://flatlogic.com/admin-dashboards).
 
 ## License
-[MIT License](https://github.com/flatlogic/sofia-react-template/blob/master/LICENSE)
+[MIT License](https://github.com/flatlogic/sofia-react/blob/master/LICENSE)

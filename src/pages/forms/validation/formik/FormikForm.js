@@ -78,12 +78,7 @@ class FormikForm extends React.Component {
                 <Field name="passwordConfirmation" type="password" className={'form-control' + (errors.passwordConfirmation && touched.passwordConfirmation ? ' is-invalid' : '')} />
                 <ErrorMessage name="passwordConfirmation" component="div" className="invalid-feedback" />
               </div>
-              <div className="form-check checkbox checkbox-primary ml-3 mt-4">
-                <Field type="checkbox" name="acceptedTerms" className={'form-check-input styled' + (errors.acceptedTerms && touched.acceptedTerms ? ' is-invalid' : '')} />
-                <label htmlFor="acceptedTerms" className="form-check-label">Accept Terms & Conditions</label>
-                <ErrorMessage name="acceptedTerms" component="div" className="invalid-feedback" />
-              </div>
-              <div className="form-group mt-4">
+              <div className="form-group">
                 <label>Job Type</label>
                 <Field name="jobType">
                   {({ field }) => (
@@ -97,6 +92,11 @@ class FormikForm extends React.Component {
                   )}
                 </Field>
                 <ErrorMessage name="jobType" component="div" className="invalid-feedback" />
+              </div>
+              <div className="form-check checkbox checkbox-primary ml-3 mt-4">
+                <Field type="checkbox" name="acceptedTerms" className={'form-check-input styled' + (errors.acceptedTerms && touched.acceptedTerms ? ' is-invalid' : '')} />
+                <label htmlFor="acceptedTerms" className="form-check-label">Accept Terms & Conditions</label>
+                <ErrorMessage name="acceptedTerms" component="div" className="invalid-feedback" />
               </div>
               <div className="d-flex justify-content-between mt-5">
                 <Button color="primary" type="submit">Submit</Button>

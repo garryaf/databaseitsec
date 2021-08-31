@@ -1,6 +1,6 @@
 {
-  "name": "sofia-react-template",
-  "version": "1.0.1",
+  "name": "sofia-react",
+  "version": "1.0.0",
   "homepage": "./",
   "private": true,
   "scripts": {
