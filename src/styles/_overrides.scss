@@ -368,37 +368,44 @@ h6,
 .headline-1 {
   font-size: $headline-large;
   font-weight: $font-weight-semi-bold;
+  line-height: 42px;
 }
 
 .headline-2 {
   font-size: $headline-medium;
   font-weight: $font-weight-semi-bold;
+  line-height: 30px;
 }
 
 .headline-3 {
   font-size: $headline-small;
   font-weight: $font-weight-semi-bold;
+  line-height: 24px;
 }
 
 ///////// Body fonts //////////
 .body-1 {
   font-size: $font-size-base;
   font-weight: $font-weight-normal;
+  line-height: 24px;
 }
 
 .body-2 {
   font-size: $font-size-sm;
   font-weight: $font-weight-semi-bold;
+  line-height: 21px;
 }
 
 .body-3 {
   font-size: $font-size-sm;
   font-weight: $font-weight-normal;
+  line-height: 21px;
 }
 
 .label {
   font-size: $font-size-mini;
   font-weight: $font-weight-normal;
+  line-height: 18px;
 }
 
 .muted {
