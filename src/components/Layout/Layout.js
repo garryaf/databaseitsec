@@ -28,7 +28,8 @@ import Charts from "../../pages/uielements/charts/Charts.js";
 import Jumbotron from "../../pages/uielements/jumbotron/Jumbotron.js";
 import Icons from "../../pages/uielements/icons/IconsPage.js";
 import Lists from "../../pages/uielements/lists/Lists.js";
-import Navbars from "../../pages/uielements/navbar/Navbars.js";
+// import Navbars from "../../pages/uielements/navbar/NavbarsDemo.js";
+import Navbars from "../../pages/uielements/navbar/Navbars"
 import Navs from "../../pages/uielements/navs/Navs.js";
 import Modal from "../../pages/uielements/modal/Modal.js";
 import Progress from "../../pages/uielements/progress/Progress";
