@@ -148,9 +148,9 @@ class Header extends React.Component {
           </Dropdown>
           <Dropdown isOpen={this.state.notificationsOpen} toggle={this.toggleNotifications} nav id="basic-nav-dropdown" className="ml-3">
             <DropdownToggle nav caret className="navbar-dropdown-toggle">
-              <span className={`${s.avatar} rounded-circle float-left mr-2`}>
+              <div className={`${s.avatar} rounded-circle float-left mr-2`}>
                 <img src={userImg} alt="User"/>
-              </span>
+              </div>
               <span className="small d-none d-sm-block ml-1 mr-2 body-1">Christina Carey</span>
             </DropdownToggle>
             <DropdownMenu className="navbar-dropdown profile-dropdown" style={{ width: "194px" }}>
