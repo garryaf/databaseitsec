@@ -144,7 +144,7 @@ class Dashboard extends React.Component {
               <Col xs={12}>
                 <Widget className="widget-p-none">
                   <div className="d-flex flex-wrap align-items-center justify-content-center">
-                    <div className="d-flex flex-column align-items-center col-12 col-xl-6 p-sm-4">
+                    <div className="d-flex flex-column align-items-center col-12 col-xl-6 pt-4 p-sm-4">
                       <p className="headline-1">Upgrade your plan</p>
                       <p className="body-3">So how did the classical Latin become so </p>
                       <div className="d-flex justify-content-between my-4">
