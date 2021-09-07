@@ -58,7 +58,7 @@ class UsersListTable extends Component {
           View
         </Button>
         <Button
-          className={s.controlBtn}
+          className={`${s.controlBtn} mx-2`}
           color="success"
           size="xs"
           onClick={() => this.props.dispatch(push(`/admin/users/${cell}/edit`))}
