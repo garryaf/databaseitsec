@@ -16,7 +16,7 @@ import {
   updateAllFilters,
   addEvent,
   removeEvent
-} from "../../../actions/calendar";
+} from "../../actions/calendar";
 
 const calendarsColor = {
   Business: 'primary',
@@ -26,21 +26,16 @@ const calendarsColor = {
 }
 
 const Calendar = () => {
-  // ** Variables
   const dispatch = useDispatch()
   const store = useSelector(state => state.calendar)
 
-  // ** States
   const [addSidebarOpen, setAddSidebarOpen] = useState(false)
   const [rightSidebarOpen, setRightSidebarOpen] = useState(false)
   const [calendarApi, setCalendarApi] = useState(null)
 
-  // ** AddEventSidebar Toggle Function
   const handleAddEventSidebar = () => setAddSidebarOpen(!addSidebarOpen)
-  // ** Right Sidebar Toggle Function
   const toggleSidebar = val => setRightSidebarOpen(val)
 
-  // ** Blank Event Object
   const blankEvent = {
     title: '',
     start: '',
@@ -55,14 +50,12 @@ const Calendar = () => {
     }
   }
 
-  // ** RefetchEvents
   const refetchEvents = () => {
     if (calendarApi !== null) {
       calendarApi.refetchEvents()
     }
   }
 
-  // ** Fetch Events On Mount
   useEffect(() => {
     dispatch(fetchEvents(store.selectedCalendars))
   }, [])

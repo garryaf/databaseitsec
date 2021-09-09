@@ -18,13 +18,12 @@ import {
 
 import "eva-icons/style/eva-icons.css";
 
-import img1 from "../../../../assets/tables/ellieSmithImg.png"
-import img2 from "../../../../assets/tables/floydMilesImg.png"
-import img3 from "../../../../assets/tables/rosaFloresImg.png"
-import img4 from "../../../../assets/tables/janeCooper.png"
+import img1 from "../../../assets/tables/ellieSmithImg.png"
+import img2 from "../../../assets/tables/floydMilesImg.png"
+import img3 from "../../../assets/tables/rosaFloresImg.png"
+import img4 from "../../../assets/tables/janeCooper.png"
 
 const AddEventSidebar = props => {
-  // ** Props
   const {
     store,
     dispatch,
@@ -39,11 +38,9 @@ const AddEventSidebar = props => {
     removeEvent,
   } = props
 
-  // ** Variables
   const selectedEvent = store.selectedEvent
   const { register, errors, handleSubmit } = useForm()
 
-  // ** States
   const [url, setUrl] = useState('')
   const [desc, setDesc] = useState('')
   const [title, setTitle] = useState('')
@@ -54,7 +51,6 @@ const AddEventSidebar = props => {
   const [startPicker, setStartPicker] = useState(new Date())
   const [value, setValue] = useState([{ value: 'Business', label: 'Business', color: 'primary' }])
 
-  // ** Select Options
   const options = [
     { value: 'Business', label: 'Business', color: 'primary' },
     { value: 'Personal', label: 'Personal', color: 'danger' },
@@ -69,7 +65,6 @@ const AddEventSidebar = props => {
     { value: 'Jane Cooper', label: 'Jane Cooper', avatar: img4 },
   ]
 
-  // ** Custom select components
   const OptionComponent = ({ data, ...props}) => {
     return (
       <components.Option {...props}>
@@ -90,11 +85,8 @@ const AddEventSidebar = props => {
     )
   }
 
-  // ** Utils
-  // Checks if an object is empty (returns boolean)
   const isObjEmpty = obj => Object.keys(obj).length === 0
 
-  // ** Adds New Event
   const handleAddEvent = () => {
     const obj = {
       title,
@@ -115,7 +107,6 @@ const AddEventSidebar = props => {
     handleAddEventSidebar()
   }
 
-  // ** Set Sidebar Fields
   const handleSelectedEvent = () => {
     if (!isObjEmpty(selectedEvent)) {
       const calendar = selectedEvent.extendedProps.calendar
@@ -139,7 +130,6 @@ const AddEventSidebar = props => {
     }
   }
 
-  // ** Reset Input Values On Close
   const handleResetInputValues = () => {
     dispatch(selectEvent({}))
     setTitle('')
@@ -153,28 +143,22 @@ const AddEventSidebar = props => {
     setEndPicker(new Date())
   }
 
-  // ** Update Event In Calendar
   const updateEventInCalendar = (updatedEventData, propsToUpdate, extendedPropsToUpdate) => {
     const existingEvent = calendarApi.getEventById(updatedEventData.id)
-    // ** Set event properties except date related
-    // Docs: https://fullcalendar.io/docs/Event-setProp
+
     for (let index = 0; index < propsToUpdate.length; index ++) {
       const propName = propsToUpdate[index]
       existingEvent.setProp(propName, updatedEventData[propName])
     }
-    // ** Set date related props
-    // Docs: https://fullcalendar.io/docs/Event-setDates
+
     existingEvent.setDates(updatedEventData.star, updatedEventData.end, { allDay: updatedEventData.allDay })
 
-    // ** Set event's extendedProps
-    // Docs: https://fullcalendar.io/docs/Event-setExtendedProp
     for (let index = 0; index < extendedPropsToUpdate.length; index ++) {
       const propName = extendedPropsToUpdate[index]
       existingEvent.setExtendedProp(propName, updatedEventData.extendedProps[propName])
     }
   }
 
-  // ** Update Event In Store
   const handleUpdateEvent = () => {
     const eventToUpdate = {
       id: selectedEvent.id,
@@ -199,7 +183,6 @@ const AddEventSidebar = props => {
     handleAddEventSidebar()
   }
 
-  // ** Remove Event In Calendar
   const removeEventInCalendar = eventId => {
     calendarApi.getEventById(eventId).remove()
   }
@@ -394,10 +377,5 @@ const AddEventSidebar = props => {
     </Modal>
   )
 }
-
-
-
-
-
 
 export default AddEventSidebar;

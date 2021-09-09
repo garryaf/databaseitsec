@@ -160,7 +160,6 @@ class Dashboard extends React.Component {
               </Col>
             </Row>
             <Row className="gutter">
-              {/*ОТРЕФАКТОРИТЬ И СОКРАТИТЬ КОД !!!!!!!!!!!*/}
               <Col className="mb-4 mb-xl-0" xs={6} sm={6} xl={3}>
                 <Widget className="widget-p-sm">
                   <div className={s.smallWidget}>

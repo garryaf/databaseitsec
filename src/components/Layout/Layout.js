@@ -24,11 +24,10 @@ import Badges from "../../pages/uielements/badges/Badges.js";
 import Buttons from "../../pages/uielements/buttons/Buttons.js";
 import Cards from "../../pages/uielements/cards/Cards.js";
 import Carousel from "../../pages/uielements/carousel/Carousel.js";
-import Charts from "../../pages/uielements/charts/Charts.js";
+import Charts from "../../pages/extra/charts/Charts.js";
 import Jumbotron from "../../pages/uielements/jumbotron/Jumbotron.js";
 import Icons from "../../pages/uielements/icons/IconsPage.js";
 import Lists from "../../pages/uielements/lists/Lists.js";
-// import Navbars from "../../pages/uielements/navbar/NavbarsDemo.js";
 import Navbars from "../../pages/uielements/navbar/Navbars"
 import Navs from "../../pages/uielements/navs/Navs.js";
 import Modal from "../../pages/uielements/modal/Modal.js";
@@ -43,7 +42,7 @@ import PieCharts from "../../pages/charts/pie/PieCharts";
 import OtherCharts from "../../pages/charts/other/OtherCharts";
 import Maps from "../../pages/maps/google/GoogleMapPage.js";
 import VectorMap from "../../pages/maps/vector/Vector.js";
-import Calendar from "../../pages/extra/calendar/Calendar";
+import Calendar from "../../pages/calendar/Calendar";
 import Login from "../../pages/auth/login/Login";
 import Register from "../../pages/auth/register/Register";
 
@@ -112,7 +111,7 @@ class Layout extends React.Component {
               <Route path="/template/maps" exact render={() => <Redirect to={"/template/maps/google"}/>} />
               <Route path="/template/maps/google" exact component={Maps} />
               <Route path="/template/maps/vector" exact component={VectorMap} />
-              <Route path="/template/extra" exact render={() => <Redirect to={"/template/extra/calendar"}/>} />
+              <Route path="/template/extra" exact render={() => <Redirect to={"/template/extra/charts"}/>} />
               <Route path="/template/extra/charts" exact component={Charts} />
               <Route path="/template/extra/login" exact component={Login} />
               <Route path="/template/extra/register" exact component={Register} />

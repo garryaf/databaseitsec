@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 
 import { CardBody, Button } from 'reactstrap'
 
-import sidebarIllustration from '../../../../assets/calendarImg.svg'
+import sidebarIllustration from '../../../assets/calendarImg.svg'
 
 const filters = [
   { label: 'Personal', color: 'danger', className: 'styled mb-1' },
@@ -12,7 +12,6 @@ const filters = [
 ]
 
 const SidebarRight = props => {
-  // ** Props
   const {
     handleAddEventSidebar,
     toggleSidebar,
@@ -22,7 +21,6 @@ const SidebarRight = props => {
     dispatch,
   } = props
 
-  // ** Function to handle Add Event Click
   const handleAddEventClick = () => {
     toggleSidebar(false)
     handleAddEventSidebar()
@@ -50,17 +48,6 @@ const SidebarRight = props => {
             {filters.length &&
             filters.map(filter => {
               return (
-                // <CustomInput
-                //   id={filter.label}
-                //   type="checkbox"
-                //   key={filter.label}
-                //   label={filter.label}
-                //   checked={store.selectedCalendars.includes(filter.label)}
-                //   className={classnames({
-                //     [filter.className]: filter.className
-                //   })}
-                //   onChange={e => dispatch(updateFilter(filter.label))}
-                // />
                 <div className={`form-check checkbox checkbox-${filter.color}`}>
                   <input
                     id={filter.label}
