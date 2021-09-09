@@ -7,7 +7,8 @@ import Scrollspy from "./ScrollSpyComponent";
 
 import calendar from "../../assets/documentation/Calendar.png";
 import createEvent from "../../assets/documentation/create event.png";
-import loginPage from "../../assets/documentation/loginPage1.png";
+import loginPage from "../../assets/documentation/Login.png";
+import logOutPage from "../../assets/documentation/Sing Up.png";
 import userManagement1 from "../../assets/documentation/UserManagment_1.png";
 import charts from "../../assets/documentation/charts1.png";
 import charts2 from "../../assets/documentation/charts2.png";
@@ -62,6 +63,13 @@ export default class Pages extends Component {
                             <Link className="btn btn-primary mr-sm" to="/template/extra/login">Login Page</Link>
                         </p>
                     </Container>
+                    <Container id="Sing Up Page" className="my-4">
+                        <h3>Sing Up Page</h3>
+                        <p className="my-2">
+                            <img className="img-responsive w-100 border my-2" src={logOutPage} alt="screenshot" />
+                            <Link className="btn btn-primary mr-sm" to="/template/extra/register">Sing Up Page</Link>
+                        </p>
+                    </Container>
                     <Container id="Calendar" className="my-4">
                         <h3>Calendar</h3>
                         <p>Calendar or Datepicker is a GUI widget that allows the end user to see and select days, months, years, etc. from the calendar. It also includes the possibility of choosing both date and time, or only date.</p>
@@ -110,6 +118,7 @@ export default class Pages extends Component {
                             'Auth',
                             'Dashboard',
                             'Login Page',
+                            'Sing Up Page',
                             'Calendar',
                             'User Management',
                             'Charts',
