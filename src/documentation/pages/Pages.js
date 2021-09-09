@@ -5,6 +5,15 @@ import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Link } from 'react-router-dom';
 import Scrollspy from "./ScrollSpyComponent";
 
+import calendar from "../../assets/documentation/Calendar.png";
+import createEvent from "../../assets/documentation/create event.png";
+import loginPage from "../../assets/documentation/loginPage1.png";
+import userManagement1 from "../../assets/documentation/UserManagment_1.png";
+import charts from "../../assets/documentation/charts1.png";
+import charts2 from "../../assets/documentation/charts2.png";
+import tables from '../../assets/documentation/tables.png';
+import dashboard from "../../assets/documentation/Dashboard.png";
+
 export default class Pages extends Component {
     render() {
         return (
@@ -36,10 +45,60 @@ export default class Pages extends Component {
                     </Container>
                     <Container id="Dashboard" className="my-4">
                         <h3>Dashboard</h3>
-                        <p>The main screen of any application built on the top of the admin dashboard template. That is more informative pages of all application. There are 2 types of dashboards: analytics and visits.</p>
+                        <p>The main screen of any application built on the top of the admin dashboard template. That is more informative pages of all application.</p>
                         <p>All of this component can be used on any page of the application.</p>
                         <p className="my-2">
+                            <img className="img-responsive w-100 border my-2" src={dashboard} alt="screenshot" />
                             <Link className="btn btn-primary mr-sm" to="/template/dashboard">Dashboard</Link>
+                        </p>
+                    </Container>
+                    <Container id="Login Page" className="my-4">
+                        <h3>Login Page</h3>
+                        <p>Authorization is the process of confirming the rights to perform certain operations - managing an account, changing data.</p>
+                        <p>It is necessary to ensure security when performing actions, to differentiate user rights, to protect against intruders.</p>
+                        <p>This beautiful widget will help you streamline the process of authorization.</p>
+                        <p className="my-2">
+                            <img className="img-responsive w-100 border my-2" src={loginPage} alt="screenshot" />
+                            <Link className="btn btn-primary mr-sm" to="/template/extra/login">Login Page</Link>
+                        </p>
+                    </Container>
+                    <Container id="Calendar" className="my-4">
+                        <h3>Calendar</h3>
+                        <p>Calendar or Datepicker is a GUI widget that allows the end user to see and select days, months, years, etc. from the calendar. It also includes the possibility of choosing both date and time, or only date.</p>
+                        <p>It also includes the possibility of creating, updating, deleting events in calendar.</p>
+                        <p>React Datepicker is a Datepicker that is built on the React basis.</p>
+                        <p className="my-2">
+                            <img className="img-responsive w-100 border my-2" src={calendar} alt="screenshot" />
+                            <img className="img-responsive w-100 border my-2" src={createEvent} alt="screenshot" />
+                            <Link className="btn btn-primary mr-sm" to="/template/calendar">Calendar</Link>
+                        </p>
+                    </Container>
+                    <Container id="User Management" className="my-4">
+                        <h3>User Management</h3>
+                        <p>This template is a ready-made role-based solution for managing users in your application made with React, Node.js and PostgreSQL.</p>
+                        <p>You can perform all major operations with users: create, delete and view roles.</p>
+                        <p>This page is only available in Sofia React App with Node.js integration!</p>
+                        <p className="my-2">
+                            <img className="img-responsive w-100 border my-2" src={userManagement1} alt="screenshot" />
+                            <Link className="btn btn-primary mr-sm" to="/admin/users">User Management</Link>
+                        </p>
+                    </Container>
+                    <Container id="Charts" className="my-4">
+                        <h3>Charts</h3>
+                        <p>Charts are the most common data visualization components of mobile and web applications. One of the advantages of JavaScript frameworks like React is that it offers scalable and versatile components.</p>
+                        <p>React is a great framework that lets developers build rich and high-quality user interfaces easily, so your users will love to use the app. </p>
+                        <p className="my-2">
+                            <img className="img-responsive w-100 border my-2" src={charts2} alt="screenshot" />
+                            <img className="img-responsive w-100 border my-2" src={charts} alt="screenshot" />
+                            <Link className="btn btn-primary mr-sm" to="/template/charts/bar">Charts</Link>
+                        </p>
+                    </Container>
+                    <Container id="Tables" className="my-4">
+                        <h3>Tables</h3>
+                        <p>Good react table must simultaneously correspond to several requirements – responsiveness, speed, readability, etc.</p>
+                        <p className="my-2">
+                            <img className="img-responsive w-100 border my-2" src={tables} alt="screenshot" />
+                            <Link className="btn btn-primary mr-sm" to="/template/tables">Tables</Link>
                         </p>
                     </Container>
                 </Col>
@@ -49,7 +108,12 @@ export default class Pages extends Component {
                         prefix="pages"
                         ids={[
                             'Auth',
-                            'Dashboard'
+                            'Dashboard',
+                            'Login Page',
+                            'Calendar',
+                            'User Management',
+                            'Charts',
+                            'Tables'
                         ]} />
                 </Col>
             </Row>
