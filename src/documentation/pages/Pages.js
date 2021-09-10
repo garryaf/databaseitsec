@@ -7,8 +7,8 @@ import Scrollspy from "./ScrollSpyComponent";
 
 import calendar from "../../assets/documentation/Calendar.png";
 import createEvent from "../../assets/documentation/create event.png";
-import loginPage from "../../assets/documentation/Login.png";
-import logOutPage from "../../assets/documentation/Sing Up.png";
+import loginPage from "../../assets/documentation/login.png";
+import logOutPage from "../../assets/documentation/singUp.png";
 import userManagement1 from "../../assets/documentation/UserManagment_1.png";
 import charts from "../../assets/documentation/charts1.png";
 import charts2 from "../../assets/documentation/charts2.png";
@@ -65,6 +65,8 @@ export default class Pages extends Component {
                     </Container>
                     <Container id="Sing Up Page" className="my-4">
                         <h3>Sing Up Page</h3>
+                        <p>In many cases, the signup page is the last step in a business’s conversion funnel. It’s where prospects navigate after they’ve evaluated a brand and decided its service offers what they need.</p>
+                        <p>We hope this beautiful widget will help you in your product development.</p>
                         <p className="my-2">
                             <img className="img-responsive w-100 border my-2" src={logOutPage} alt="screenshot" />
                             <Link className="btn btn-primary mr-sm" to="/template/extra/register">Sing Up Page</Link>
