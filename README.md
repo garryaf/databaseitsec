@@ -1,4 +1,4 @@
-# 👇 Sofia React 1.0.0
+# 👇 Sofia React 1.0.1
 
 Our React version follows latest industry best practices and uses Redux as a state manager. This version is a great choice when you want to be in control of your own codebase and decide on development approaches that are the best for your project. Sofia React template built with React v17.0.1 and Bootstrap v4.6. Developed with ❤️ by [Flatlogic](https://flatlogic.com/). If you love our project please star ⭐️ our repo!
 
