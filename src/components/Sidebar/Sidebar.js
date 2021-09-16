@@ -289,13 +289,6 @@ class Sidebar extends React.Component {
             labelColor="success"
           />
         </ul>
-        <div className="bg-widget d-flex mt-auto ml-1">
-          <Button className={`rounded-pill my-3 body-2 d-none d-md-block ${s.unlockBtn}`} type="submit" color="secondary-red">
-            <a href="https://flatlogic.github.io/sofia-react-template/#/template/dashboard" target={"_black"}>
-              Try Free Version
-            </a>
-          </Button>
-        </div>
       </nav>
     );
   }
