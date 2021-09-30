@@ -2,7 +2,6 @@ import React from "react";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
 import { v4 as uuidv4 } from "uuid";
 import { Link } from "react-router-dom";
-import s from "./Breadcrumbs.module.scss";
 
 const Breadcrumbs = (props) => {
   const renderBreadcrumbs = () => {
@@ -39,7 +38,7 @@ const Breadcrumbs = (props) => {
   }
 
   return (
-    <div className={s.breadcrumbs}>
+    <div className="mb-4">
       <div className="headline-2">{getBreadcrumbsTitle()}
         {getBreadcrumbsTitle() !== "Dashboard" &&
           <Breadcrumb tag="nav" listTag="div">
