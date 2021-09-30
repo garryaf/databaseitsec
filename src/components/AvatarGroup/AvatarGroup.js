@@ -41,8 +41,9 @@ const AvatarGroup = props => {
   )
 }
 
-export default AvatarGroup
-
 AvatarGroup.propTypes = {
   data: Proptypes.array.isRequired,
 }
+
+export default AvatarGroup
+
