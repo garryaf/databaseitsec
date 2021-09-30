@@ -4,17 +4,17 @@ import { Switch, Route, Redirect } from "react-router";
 import { HashRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { ConnectedRouter } from "connected-react-router";
-import { getHistory } from "../index";
-import { AdminRoute, UserRoute, AuthRoute } from "../RouteComponents";
+import { getHistory } from "./index";
+import { AdminRoute, UserRoute, AuthRoute } from "./RouteComponents";
 
-import ErrorPage from "../pages/error/ErrorPage.js";
+import ErrorPage from "./pages/error/ErrorPage.js";
 
-import LayoutComponent from "../components/Layout/Layout.js";
-import Login from "../pages/auth/login/Login";
-import Register from "../pages/auth/register/Register.js";
-import DocumentationLayout from "../documentation/DocumentaionLayout";
+import LayoutComponent from "./components/Layout/Layout.js";
+import Login from "./pages/auth/login/Login";
+import Register from "./pages/auth/register/Register.js";
+import DocumentationLayout from "./documentation/DocumentaionLayout";
 
-import "../styles/app.scss";
+import "./styles/app.scss";
 
 class App extends React.PureComponent {
   render() {
