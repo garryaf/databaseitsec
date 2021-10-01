@@ -34,7 +34,7 @@ const notifications = {
   },
 }
 
-export default function Notification({ ...props }) {
+export default function Notification(props) {
 
   const [notificationOpen, setNotificationClose] = useState(true)
 

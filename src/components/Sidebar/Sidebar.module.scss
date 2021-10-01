@@ -41,7 +41,7 @@
 }
 
 .sidebarOpen {
-  @media (min-width: breakpoint-min(md)) {
+  @media (max-width: breakpoint-max(sm)) {
     height: auto !important;
   }
 }

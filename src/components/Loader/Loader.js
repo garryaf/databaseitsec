@@ -1,24 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
-import cx from "classnames";
-import s from "./Loader.module.scss";
+import { Spinner } from "reactstrap";
 
-class Loader extends React.Component {
-  static propTypes = {
-    size: PropTypes.number.isRequired
-  };
-
-  static defaultProps = {
-    size: 21
-  };
-
-  render() {
-    return (
-      <div className={cx(s.root, this.props.className)}>
-        <i className="la la-spinner la-spin" style={{fontSize: this.props.size}} />
-      </div>
-    );
-  }
+const Loader = () => {
+  return (
+    <div className="d-flex align-items-center justify-content-center">
+      <Spinner type="grow" color="primary" />
+    </div>
+  )
 }
 
 export default Loader;
