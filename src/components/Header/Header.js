@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import {withRouter} from "react-router";
+import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import {
   Navbar,
   Nav,
@@ -40,144 +40,123 @@ import userImg from "../../assets/user.svg";
 import s from "./Header.module.scss";
 import "animate.css";
 
-class Header extends React.Component {
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-  };
+const Header = (props) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [notificationsOpen, setNotificationsOpen] = useState(false);
 
-  constructor(props) {
-    super(props);
-
-    this.toggleMenu = this.toggleMenu.bind(this);
-    this.doLogout = this.doLogout.bind(this);
-    this.toggleSidebar = this.toggleSidebar.bind(this);
-    this.toggleNotifications = this.toggleNotifications.bind(this);
-
-    this.state = {
-      menuOpen: false,
-      notificationsOpen: false,
-      searchFocused: false,
-    };
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
   }
 
-  doLogout() {
-    this.props.dispatch(logoutUser());
+  const toggleNotifications = () => {
+    setNotificationsOpen(!notificationsOpen)
   }
 
-  toggleSidebar() {
-    if (this.props.sidebarOpened) {
-      this.props.dispatch(closeSidebar());
+  const doLogout = () => {
+    props.dispatch(logoutUser());
+  }
+
+  const toggleSidebar = () => {
+    if (props.sidebarOpened) {
+      props.dispatch(closeSidebar())
     } else {
-      const paths = this.props.location.pathname.split('/');
-      paths.pop();
-      this.props.dispatch(openSidebar());
+      props.dispatch(openSidebar());
     }
   }
 
-  toggleMenu() {
-    this.setState({
-      menuOpen: !this.state.menuOpen,
-    });
-  }
-
-  toggleNotifications() {
-    this.setState({
-      notificationsOpen: !this.state.notificationsOpen,
-    });
-  }
-
-  render() {
-
-    return (
-      <Navbar className={`${s.root} header-navbar d-print-none`}>
-        <div>
+  return (
+    <Navbar className={`${s.root} header-navbar d-print-none`}>
+      <div>
+        <NavLink
+          onClick={() => toggleSidebar()}
+          className={`d-md-none mr-3`}
+          href="#"
+        >
+          <MenuIcon className={s.menuIcon} />
+        </NavLink>
+      </div>
+      <Form className="d-none d-sm-block" inline>
+        <FormGroup>
+          <InputGroup>
+            <Input id="search-input" placeholder="Search Dashboard" className='focus no-border'/>
+            <InputGroupAddon addonType="prepend">
+              <span className="d-flex align-self-center px-3">
+                <SearchBarIcon/>
+              </span>
+            </InputGroupAddon>
+          </InputGroup>
+        </FormGroup>
+      </Form>
+      <Nav className="ml-auto">
+        <NavItem className="d-sm-none mr-4">
           <NavLink
-            onClick={this.toggleSidebar}
-            className={`d-md-none mr-3 ${s.navItem}`}
+            className=""
             href="#"
           >
-            <MenuIcon className={s.menuIcon} />
+            <SearchIcon />
           </NavLink>
-        </div>
-        <Form className="d-none d-sm-block" inline>
-          <FormGroup>
-            <InputGroup>
-              <Input id="search-input" placeholder="Search Dashboard" className='focus no-border'/>
-              <InputGroupAddon addonType="prepend">
-                <span className="d-flex align-self-center px-3">
-                  <SearchBarIcon/>
-                </span>
-              </InputGroupAddon>
-            </InputGroup>
-          </FormGroup>
-        </Form>
-        <Nav className="ml-auto">
-          <NavItem className="d-sm-none mr-4">
-            <NavLink
-              className=""
-              href="#"
-            >
-              <SearchIcon />
-            </NavLink>
-          </NavItem>
-          <Dropdown nav isOpen={this.state.menuOpen} toggle={this.toggleMenu} className="tutorial-dropdown mr-2 mr-sm-3">
-            <DropdownToggle nav>
-              <div className={s.navbarBlock}>
-                <BellIcon maskId={114}></BellIcon>
-                <div className={s.count}></div>
-              </div>
-            </DropdownToggle>
-            <DropdownMenu right className="navbar-dropdown notifications-dropdown" style={{ width: "340px" }}>
-              <DropdownItem><img src={basketIcon} alt="Basket Icon"/><span>12 new orders have arrived today</span></DropdownItem>
-              <DropdownItem>
-                <div>
-                  <div className="d-flex flex-row mb-1">
-                    <img src={mariaImage} alt="Maria" className={s.mariaImage} />
-                    <div className="d-flex flex-column">
-                      <p className="body-3">Maria</p>
-                      <p className="label muted">15 min ago</p>
-                    </div>
+        </NavItem>
+        <Dropdown nav isOpen={menuOpen} toggle={() => toggleMenu()} className="tutorial-dropdown mr-2 mr-sm-3">
+          <DropdownToggle nav>
+            <div className={s.navbarBlock}>
+              <BellIcon maskId={114}></BellIcon>
+              <div className={s.count}></div>
+            </div>
+          </DropdownToggle>
+          <DropdownMenu right className="navbar-dropdown notifications-dropdown" style={{ width: "340px" }}>
+            <DropdownItem><img src={basketIcon} alt="Basket Icon"/><span>12 new orders have arrived today</span></DropdownItem>
+            <DropdownItem>
+              <div>
+                <div className="d-flex flex-row mb-1">
+                  <img src={mariaImage} alt="Maria" className={s.mariaImage} />
+                  <div className="d-flex flex-column">
+                    <p className="body-3">Maria</p>
+                    <p className="label muted">15 min ago</p>
                   </div>
-                  <img src={notificationImage} alt="Notification Icon" className={s.notificationImage}/>
-                  <p className="body-2 muted">It is just a simple image that can define th..</p>
                 </div>
-              </DropdownItem>
-              <DropdownItem><img src={calendarIcon} alt="Calendar Icon"/><span>1 event has been canceled and ..</span></DropdownItem>
-              <DropdownItem><img src={envelopeIcon} alt="Envelope Icon"/><span>you have 2 new messages</span></DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-          <Dropdown isOpen={this.state.notificationsOpen} toggle={this.toggleNotifications} nav id="basic-nav-dropdown" className="ml-3">
-            <DropdownToggle nav caret className="navbar-dropdown-toggle">
-              <div className={`${s.avatar} rounded-circle float-left mr-2`}>
-                <img src={userImg} alt="User"/>
+                <img src={notificationImage} alt="Notification Icon" className={s.notificationImage}/>
+                <p className="body-2 muted">It is just a simple image that can define th..</p>
               </div>
-              <span className="small d-none d-sm-block ml-1 mr-2 body-1">Christina Carey</span>
-            </DropdownToggle>
-            <DropdownMenu className="navbar-dropdown profile-dropdown" style={{ width: "194px" }}>
-              <DropdownItem className={s.dropdownProfileItem}>
-                <Link to="/template/user/profile">
-                  <ProfileIcon/><span>Profile</span>
-                </Link>
-              </DropdownItem>
-              <DropdownItem className={s.dropdownProfileItem}><TasksIcon/><span>Tasks</span></DropdownItem>
-              <DropdownItem className={s.dropdownProfileItem}><MessagesIcon/><span>Messages</span></DropdownItem>
-              <NavItem>
-                <NavLink onClick={this.doLogout} href="#">
-                  <button className="btn btn-primary rounded-pill mx-auto logout-btn" type="submit"><img src={logoutIcon} alt="Logout"/><span className="ml-1">Logout</span></button>
-                </NavLink>
-              </NavItem>
-            </DropdownMenu>
-          </Dropdown>
-        </Nav>
-      </Navbar>
-    )
-  }
+            </DropdownItem>
+            <DropdownItem><img src={calendarIcon} alt="Calendar Icon"/><span>1 event has been canceled and ...</span></DropdownItem>
+            <DropdownItem><img src={envelopeIcon} alt="Envelope Icon"/><span>you have 2 new messages</span></DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+        <Dropdown isOpen={notificationsOpen} toggle={() => toggleNotifications()} nav id="basic-nav-dropdown" className="ml-3">
+          <DropdownToggle nav caret className="navbar-dropdown-toggle">
+            <div className={`${s.avatar} rounded-circle float-left mr-2`}>
+              <img src={userImg} alt="User"/>
+            </div>
+            <span className="small d-none d-sm-block ml-1 mr-2 body-1">Christina Carey</span>
+          </DropdownToggle>
+          <DropdownMenu className="navbar-dropdown profile-dropdown" style={{ width: "194px" }}>
+            <DropdownItem className={s.dropdownProfileItem}>
+              <Link to="/template/user/profile">
+                <ProfileIcon/><span>Profile</span>
+              </Link>
+            </DropdownItem>
+            <DropdownItem className={s.dropdownProfileItem}><TasksIcon/><span>Tasks</span></DropdownItem>
+            <DropdownItem className={s.dropdownProfileItem}><MessagesIcon/><span>Messages</span></DropdownItem>
+            <NavItem>
+              <NavLink onClick={() => doLogout()} href="#">
+                <button className="btn btn-primary rounded-pill mx-auto logout-btn" type="submit"><img src={logoutIcon} alt="Logout"/><span className="ml-1">Logout</span></button>
+              </NavLink>
+            </NavItem>
+          </DropdownMenu>
+        </Dropdown>
+      </Nav>
+    </Navbar>
+  )
+}
+
+Header.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  sidebarOpened: PropTypes.bool,
 }
 
 function mapStateToProps(store) {
   return {
     sidebarOpened: store.navigation.sidebarOpened,
-    sidebarStatic: store.navigation.sidebarStatic,
   };
 }
 
