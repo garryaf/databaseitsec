@@ -41,7 +41,8 @@ export default function Validation() {
                       <Label md={3} xs={12} for="basic-change" className="headline-3">Min-length field</Label>
                       <Col md={9} xs={12}>
                         <InputValidation
-                          type="text" id="basic-change"
+                          type="text"
+                          id="basic-change"
                           name="basic-change"
                           trigger="change"
                           validations={{ minLength: 10 }}

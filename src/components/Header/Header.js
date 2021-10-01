@@ -65,7 +65,7 @@ const Header = (props) => {
   }
 
   return (
-    <Navbar className={`${s.root} header-navbar d-print-none`}>
+    <Navbar className={`header-navbar d-print-none`}>
       <div>
         <NavLink
           onClick={() => toggleSidebar()}

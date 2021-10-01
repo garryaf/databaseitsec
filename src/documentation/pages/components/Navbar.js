@@ -17,7 +17,7 @@ import {
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism';
 import classnames from 'classnames';
 import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import SofiaLogo from "../../../components/Icons/SidebarIcons/SofiaLogo";
+import SofiaLogo from "../../../components/Icons/SofiaLogo";
 
 class NavbarPage extends Component {
     state = {

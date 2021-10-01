@@ -1,57 +1,53 @@
 import React from 'react';
 import { withFormsy } from 'formsy-react';
 
-class InputValidation extends React.Component {
+const InputValidation = (props) => {
 
-  static defaultProps = {
-    trigger: null,
-    type: 'text',
-    className: '',
-    name: '',
-    id: '',
-    placeholder: '',
-  };
+  const {
+    trigger = null,
+    type = 'text',
+    className = '',
+    name = '',
+    id = '',
+    placeholder = '',
+    ...restProps
+  } = props;
 
-  constructor() {
-    super();
-    this.changeValue = this.changeValue.bind(this);
+  const changeValue = (event) => {
+    props.setValue(event.currentTarget.value)
   }
 
-  changeValue(event) {
-    this.props.setValue(event.currentTarget.value);
+  const errorMessageObject = props.isFormSubmitted
+    ? props.errorMessage
+    : null;
+  const required = (props.isFormSubmitted && props.showRequired)
+    ? <div className={'help-block text-danger label'}>This value is required</div>
+    : null;
+  const errorMessage = [];
+  if (errorMessageObject) {
+    Object.keys(errorMessageObject).forEach((type) => {
+      errorMessage.push(errorMessageObject[type]);
+    })
   }
+  const errorList = errorMessage.map((message, index) =>
+    <div key={`message-err${index.toString()}`} className={'help-block text-danger label'}>{message}</div>
+  )
 
-  render() {
-    const errorMessageObject = (this.props.isFormSubmitted)
-      ? this.props.errorMessage
-      : null;
-    const required = (this.props.isFormSubmitted && this.props.showRequired)
-      ? <div className={'help-block text-danger label'}>This value is required. </div>
-      : null;
-    const errorMessage = [];
-    if (errorMessageObject) {
-      Object.keys(errorMessageObject).forEach((type) => {
-        errorMessage.push(errorMessageObject[type]);
-      });
-    }
-    const errorList = errorMessage.map((msg, index) =>
-      <div key={`msg-err-${index.toString()}`} className={'help-block text-danger label'}>{msg}</div>,
-    );
-    return (
-      <div className={this.props.className}>
-        <input
-          type={this.props.type}
-          name={this.props.name}
-          id={this.props.id}
-          className={'form-control'}
-          onChange={this.changeValue}
-          value={this.props.value || ''}
-          placeholder={this.props.placeholder}
-        />
-        {required ? required : errorList}
-      </div>
-    )
-  }
+  return (
+    <div className={props.className}>
+      <input
+        type={props.type}
+        name={props.name}
+        id={props.id}
+        className={'form-control'}
+        onChange={(event) => changeValue(event)}
+        value={props.value || ''}
+        placeholder={props.placeholder}
+      />
+      {required ? required : errorList}
+    </div>
+  )
+
 }
 
 export default withFormsy(InputValidation);
