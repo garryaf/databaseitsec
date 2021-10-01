@@ -47,7 +47,6 @@ const InputValidation = (props) => {
       {required ? required : errorList}
     </div>
   )
-
 }
 
 export default withFormsy(InputValidation);
