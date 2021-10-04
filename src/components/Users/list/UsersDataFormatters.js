@@ -16,7 +16,7 @@ function imageFormatter(cell, rows, _, index) {
     ? cell[0].publicUrl
     : undefined;
   return (
-    <span className={`${s.tableAvatar} rounded-circle`}>
+    <span className={`${s.avatar} rounded-circle`}>
       {imageUrl || rows.role === "admin"
         ? <img src={imageUrl || adminImg} onError={e => e.target.src = avatars[index + 1]} alt="avatar" />
         : <span className={`${s.avatar} rounded-circle thumb-sm float-left`}>{rows.email.charAt(0).toUpperCase()}</span>

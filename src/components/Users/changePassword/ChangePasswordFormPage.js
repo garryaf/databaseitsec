@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {useState, Component, useEffect} from 'react';
 import ChangePasswordForm from "./ChangePasswordForm";
 import { push } from "connected-react-router";
 import actions from "../../../actions/usersFormActions";
@@ -8,48 +8,89 @@ import cx from 'classnames';
 
 import s from "../Users.module.scss";
 
-class ChangePasswordFormPage extends Component {
-  state = {
-    dispatched: false,
-    promoAlert: false,
-  };
+// class ChangePasswordFormPage extends Component {
+//   state = {
+//     dispatched: false,
+//     promoAlert: false,
+//   };
+//
+//   doSubmit = (data) => {
+//     const { dispatch } = this.props;
+//     dispatch(actions.doChangePassword(data));
+//   };
+//
+//   componentDidMount() {
+//     setTimeout(() => {
+//       this.showPromoAlert();
+//     }, 100);
+//   }
+//
+//   showPromoAlert() {
+//     this.setState({ promoAlert: true });
+//   }
+//
+//   render() {
+//     return (
+//       <React.Fragment>
+//         <div className="page-top-line">
+//           <h2 className="page-title">User <span className="fw-semi-bold">Password</span></h2>
+//           <Alert
+//             color="primary"
+//             className={cx(s.promoAlert, {[s.showAlert]: this.state.promoAlert})}
+//           >
+//             This page is only available in <a className="text-white font-weight-bold" rel="noreferrer noopener" href="https://flatlogic.com" target="_blank">Sofia React App with Node.js</a> integration!
+//           </Alert>
+//         </div>
+//         <ChangePasswordForm
+//           saveLoading={this.props.saveLoading}
+//           findLoading={this.props.findLoading}
+//           onSubmit={this.doSubmit}
+//           onCancel={() => this.props.dispatch(push('/admin/users'))}
+//         />
+//       </React.Fragment>
+//     );
+//   }
+// }
 
-  doSubmit = (data) => {
-    const { dispatch } = this.props;
-    dispatch(actions.doChangePassword(data));
-  };
+const ChangePasswordFormPage = (props) => {
+  const [promoAlert, setPromoAlert] = useState(false);
 
-  componentDidMount() {
+  const showPromoAlert = () => {
+    setPromoAlert(true)
+  }
+
+  const doSubmit = (data) => {
+    console.log("---------")
+    console.log(data)
+    props.dispatch(actions.doChangePassword(data))
+  }
+
+  useEffect(() => {
+
     setTimeout(() => {
-      this.showPromoAlert();
-    }, 100);
-  }
+      showPromoAlert()
+    }, 1000)
+  })
 
-  showPromoAlert() {
-    this.setState({ promoAlert: true });
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        <div className="page-top-line">
-          <h2 className="page-title">User <span className="fw-semi-bold">Password</span></h2>
-          <Alert
-            color="primary"
-            className={cx(s.promoAlert, {[s.showAlert]: this.state.promoAlert})}
-          >
-            This page is only available in <a className="text-white font-weight-bold" rel="noreferrer noopener" href="https://flatlogic.com" target="_blank">Sofia React App with Node.js</a> integration!
-          </Alert>
-        </div>
-        <ChangePasswordForm
-          saveLoading={this.props.saveLoading}
-          findLoading={this.props.findLoading}
-          onSubmit={this.doSubmit}
-          onCancel={() => this.props.dispatch(push('/admin/users'))}
-        />
-      </React.Fragment>
-    );
-  }
+  return (
+    <React.Fragment>
+      <div className="page-top-line">
+        <h2 className="page-title">User <span className="fw-semi-bold">Password</span></h2>
+        <Alert
+          color="primary"
+          className={cx(s.promoAlert, {[s.showAlert]: promoAlert})}
+        >
+          This page is only available in <a className="text-white font-weight-bold" rel="noreferrer noopener" href="https://flatlogic.com" target="_blank">Sofia React App with Node.js</a> integration!
+        </Alert>
+      </div>
+      <ChangePasswordForm
+        saveLoading={props.saveLoading}
+        findLoading={props.findLoading}
+        onSubmit={doSubmit}
+        onCancel={() => props.dispatch(push('/admin/users'))}
+      />
+    </React.Fragment>
+  );
 }
 
 function mapStateToProps(store) {
