@@ -1,10 +1,10 @@
 import React from "react";
 import { logoutUser } from "./actions/auth";
 import { Redirect, Route } from "react-router";
-import isAuthenticated from "./services/authService";
+import hasToken from "./services/authService";
 
 export const AdminRoute = ({ currentUser, dispatch, component, ...rest }) => {
-  if (!currentUser || currentUser.role !== 'admin' || !isAuthenticated()) {
+  if (!currentUser || currentUser.role !== 'admin' || !hasToken()) {
     return (<Redirect to="/template"/>)
   } else if (currentUser && currentUser.role === 'admin') {
     return (
@@ -14,7 +14,7 @@ export const AdminRoute = ({ currentUser, dispatch, component, ...rest }) => {
 };
 
 export const UserRoute = ({ dispatch, component, ...rest }) => {
-  if (!isAuthenticated()) {
+  if (!hasToken()) {
     dispatch(logoutUser());
     return (<Redirect to="/login"/>)
   } else {
@@ -27,7 +27,7 @@ export const UserRoute = ({ dispatch, component, ...rest }) => {
 export const AuthRoute = ({ dispatch, component, ...rest }) => {
   const { from } = rest.location.state || { from: { pathname: '/template'} };
 
-  if (isAuthenticated()) {
+  if (hasToken()) {
     return (
       <Redirect to={from} />
     );

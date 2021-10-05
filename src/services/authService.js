@@ -1,7 +1,7 @@
 import config from "../config";
 import jwt from "jsonwebtoken";
 
-const isAuthenticated = () => {
+const hasToken = () => {
   const token = localStorage.getItem('token');
   if (!config.isBackend && token) return true;
   if (!token) return;
@@ -11,4 +11,4 @@ const isAuthenticated = () => {
   return date < data.exp;
 }
 
-export default isAuthenticated;
+export default hasToken;
