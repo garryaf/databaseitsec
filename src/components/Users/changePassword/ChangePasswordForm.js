@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Formik, Form, useField } from "formik";
+import React from "react";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import Loader from "../../Loader/Loader";
 import InputFormItem from "../../FormItems/items/InputFormItem";
@@ -7,8 +7,6 @@ import Widget from "../../Widget/Widget";
 
 const UsersForm = (props) => {
   const handleSubmit = (values) => {
-    console.log("DATA VALUES")
-    console.log(values)
     const { ...data } = values || {};
     props.onSubmit(data);
   }

@@ -80,10 +80,12 @@ class ImagesUploader extends Component {
   render() {
     const { max, readonly } = this.props;
     const { loading } = this.state;
+    console.log("IMAGE")
+    console.log(this.props)
 
     const uploadButton = (
       <label
-        className="btn btn-outline-secondary px-4 mb-2"
+        className="btn btn-outline-secondary btn-outline px-4 mb-2"
         style={{ cursor: 'pointer' }}
       >
         {'Upload an image'}

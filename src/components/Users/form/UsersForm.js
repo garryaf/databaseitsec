@@ -4,7 +4,7 @@ import Loader from "../../Loader/Loader";
 import InputFormItem from "../../FormItems/items/InputFormItem";
 import SwitchFormItem from "../../FormItems/items/SwitchFormItem";
 import RadioFormItem from "../../FormItems/items/RadioFormItem";
-import ImagesFormItem from "../../FormItems/items/ImagesViewItem";
+import ImagesFormItem from "../../FormItems/items/ImagesFormItem";
 import usersFields from "../usersFields";
 import IniValues from "../../FormItems/iniValues";
 import PreparedValues from "../../FormItems/preparedValues";
