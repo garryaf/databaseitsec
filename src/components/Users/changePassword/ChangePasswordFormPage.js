@@ -60,8 +60,6 @@ const ChangePasswordFormPage = (props) => {
   }
 
   const doSubmit = (data) => {
-    console.log("---------")
-    console.log(data)
     props.dispatch(actions.doChangePassword(data))
   }
 
