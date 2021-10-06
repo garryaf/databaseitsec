@@ -37,8 +37,7 @@ const chartSettings = {
   colors: ["#4D53E0"],
 };
 
-const ApexRadarChart = () => {
-
+export default function ApexRadarChart() {
   return (
     <div style={{ height: "316px" }}>
       <div className="my-3 body-3 muted">Different types of notifications for lots of use cases. Custom classes</div>
@@ -51,5 +50,3 @@ const ApexRadarChart = () => {
     </div>
   );
 };
-
-export default ApexRadarChart;
