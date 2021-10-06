@@ -10,7 +10,6 @@ import s from "./Alerts.module.scss";
 const alertTypes = ["info", "success", "warning", "error"];
 
 export default function Alerts() {
-
   return (
     <div>
       <Row>

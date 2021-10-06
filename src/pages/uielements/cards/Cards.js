@@ -31,8 +31,6 @@ export default function Cards() {
     setActiveTab(tabId);
   }
 
-
-
   return (
     <div>
       <Row>

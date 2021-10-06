@@ -7,7 +7,6 @@ import {
   Label,
   Input,
   FormGroup,
-  Button,
 } from 'reactstrap';
 import CustomModal from "../../../components/CustomModal/CustomModal";
 import Widget from "../../../components/Widget/Widget";

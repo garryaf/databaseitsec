@@ -8,7 +8,6 @@ import {
 } from "reactstrap";
 
 export default function UIJumbotron() {
-
   return (
     <div>
       <Jumbotron fluid>

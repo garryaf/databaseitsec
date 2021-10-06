@@ -9,7 +9,6 @@ import OutlineStar from "../../../assets/buttons/OutlineStarIcon.js";
 
 import s from "./Buttons.module.scss";
 
-
 export default function Buttons() {
   return (
     <div>

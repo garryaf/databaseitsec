@@ -8,7 +8,6 @@ import Widget from "../../../components/Widget/Widget.js";
 import s from "./Lists.module.scss";
 
 export default function Lists() {
-
   return (
     <div>
       <Row>
