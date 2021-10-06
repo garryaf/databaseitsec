@@ -7,20 +7,16 @@ import {
   Pagination,
   PaginationItem,
   PaginationLink,
-  ButtonDropdown,
   Dropdown,
   DropdownMenu,
   DropdownToggle,
   DropdownItem,
+  UncontrolledDropdown,
   Label,
   Badge,
 } from "reactstrap";
 import Widget from "../../components/Widget/Widget.js";
 import TaskContainer from "./components/TaskContainer/TaskContainer.js";
-
-// import BootstrapTable from "react-bootstrap-table-next";
-// import paginationFactory from 'react-bootstrap-table2-paginator';
-// import MUIDataTable from "mui-datatables";
 
 import cloudIcon from "../../assets/tables/cloudIcon.svg";
 import funnelIcon from "../../assets/tables/funnelIcon.svg";
@@ -34,7 +30,6 @@ import mock from "./mock.js";
 
 const Tables = function () {
 
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [firstTable] = useState(mock.firstTable);
   const [secondTable] = useState(mock.secondTable);
   const [transactions, setTransactions] = useState(mock.transactionsWidget);
@@ -55,21 +50,6 @@ const Tables = function () {
   const setSecondTablePage = (e, index) => {
     e.preventDefault();
     setSecondTableCurrentPage(index);
-  }
-
-  const toggle = () => {
-    setDropdownOpen(!dropdownOpen);
-  }
-
-  const transactionMenuOpen = (id) => {
-    setTransactions(
-      transactions.map( transaction => {
-        if (transaction.id === id) {
-          transaction.dropdownOpen = !transaction.dropdownOpen;
-        }
-        return transaction;
-      })
-    )
   }
 
   const tableMenuOpen = () => {
@@ -283,11 +263,7 @@ const Tables = function () {
                 <div className={s.tableTitle}>
                   <div className="headline-2">Recent transaction</div>
                   <div>
-                    <ButtonDropdown
-                      isOpen={dropdownOpen}
-                      toggle={toggle}
-                      className=""
-                    >
+                    <UncontrolledDropdown>
                       <DropdownToggle caret>
                         &nbsp; Weekly &nbsp;
                       </DropdownToggle>
@@ -296,7 +272,7 @@ const Tables = function () {
                         <DropdownItem>Weekly</DropdownItem>
                         <DropdownItem>Monthly</DropdownItem>
                       </DropdownMenu>
-                    </ButtonDropdown>
+                    </UncontrolledDropdown>
                   </div>
                 </div>
                 <div className={s.widgetContentBlock}>
@@ -306,13 +282,7 @@ const Tables = function () {
                       <div className="body-3 muted d-none d-md-block">{item.date}</div>
                       <div className="body-2">{item.price}</div>
                       <div className="body-3 muted d-none d-lg-block">{item.description}</div>
-
-                      <Dropdown
-                        className="d-none d-sm-block"
-                        nav
-                        isOpen={item.dropdownOpen}
-                        toggle={() => transactionMenuOpen(item.id)}
-                      >
+                      <UncontrolledDropdown>
                         <DropdownToggle nav>
                           <img className="d-none d-sm-block" src={moreIcon} alt="More ..."/>
                         </DropdownToggle>
@@ -327,7 +297,7 @@ const Tables = function () {
                             <div>Delete</div>
                           </DropdownItem>
                         </DropdownMenu>
-                      </Dropdown>
+                      </UncontrolledDropdown>
                     </div>
                   ))}
                 </div>

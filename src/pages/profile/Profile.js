@@ -22,7 +22,7 @@ import heartTeal from "../../assets/dashboard/heartTeal.svg";
 
 import mock from "./mock";
 import Avatar from "../../components/Avatar/Avatar";
-const { timelineWidget, newsGroupData, avatarGroupData, apexLineChart } = mock;
+const { newsGroupData, avatarGroupData, apexLineChart } = mock;
 
 export default function Profile() {
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);

@@ -4,7 +4,6 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import StepConnector from '@material-ui/core/StepConnector';
-import clsx from 'clsx';
 import mock from "../mock";
 
 const useStyles = makeStyles((theme) => ({
@@ -64,15 +63,15 @@ export default function TasksStepper() {
         {stepsData.map((item, index) => (
 
           <Step key={index} onClick={() => handleClick(index)}>
-              <StepLabel className={classes.iconContainer}>
-                <div key={index} className="d-flex flex-row align-self-baseline ml-3">
-                  <img src={item.img} alt="item pic"/>
-                  <div className="d-flex flex-column ml-3">
-                    <p className="body-2">{item.title}</p>
-                    <p className="body-3 muted">{item.label}</p>
-                  </div>
+            <StepLabel className={classes.iconContainer}>
+              <div key={index} className="d-flex flex-row align-self-baseline ml-3">
+                <img src={item.img} alt="item pic"/>
+                <div className="d-flex flex-column ml-3">
+                  <p className="body-2">{item.title}</p>
+                  <p className="body-3 muted">{item.label}</p>
                 </div>
-              </StepLabel>
+              </div>
+            </StepLabel>
           </Step>
 
         ))}
@@ -81,13 +80,4 @@ export default function TasksStepper() {
     </div>
   )
 }
-
-
-// <Stepper alternativeLabel activeStep={activeStep} connector={<ColorlibConnector />}>
-//   {steps.map((label) => (
-//     <Step key={label}>
-//       <StepLabel StepIconComponent={ColorlibStepIcon}>{label}</StepLabel>
-//     </Step>
-//   ))}
-// </Stepper>
 
