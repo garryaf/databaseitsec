@@ -27,7 +27,6 @@ import GithubIcon from "../../../components/Icons/AuthIcons/GithubIcon.js";
 import LinkedinIcon from "../../../components/Icons/AuthIcons/LinkedinIcon.js";
 
 const Login = (props) => {
-
   const [state, setState] = useState({
     email: 'admin@flatlogic.com',
     password: 'password',
