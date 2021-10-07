@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import UsersForm from "./UsersForm";
 import { push } from "connected-react-router";
 import { connect } from 'react-redux';
@@ -8,89 +8,83 @@ import cx from 'classnames';
 
 import s from "../Users.module.scss";
 
-class UserFormPage extends Component {
-  state = {
-    dispatched: false,
-    promoAlert: false,
-  };
+const UserFormPage = (props) => {
+  const [dispatched, setDispatched] = useState(false)
+  const [promoAlert, setPromoAlert] = useState(false)
 
-  showPromoAlert() {
-    this.setState({promoAlert: true});
-  }
-  componentDidMount() {
-    const { dispatch, match } = this.props;
-    if (this.isEditing()) {
-      dispatch(actions.doFind(match.params.id));
-    }
-    else {
-      if (this.isProfile()) {
-        const currentUser = JSON.parse(localStorage.getItem('user'));
-        const currentUserId = currentUser.user.id;
-        dispatch(actions.doFind(currentUserId));
-      }
-      else {
-        dispatch(actions.doNew());
-      }
-    }
-    this.setState({ dispatched: true });
-    setTimeout(() => {
-      this.showPromoAlert();
-    }, 100);
+  const { dispatch, match } = props;
+
+  const showPromoAlert = () => {
+    setPromoAlert(true)
   }
 
-  doSubmit = (id, data) => {
-    const { dispatch } = this.props;
-    if (this.isEditing() || this.isProfile()) {
-      dispatch(actions.doUpdate(id, data, this.isProfile()));
-    } else {
-      dispatch(actions.doCreate(data));
-    }
-  };
-
-  isEditing = () => {
-    const { match } = this.props;
+  const isEditing = () => {
     return !!match.params.id;
-  };
+  }
 
-  isProfile = () => {
-    const { match } = this.props;
+  const isProfile = () => {
     const currentUser = JSON.parse(localStorage.getItem('user'));
     const currentUserId = currentUser.user.id;
     if (match.params.id === currentUserId) {
-      return true
+      return true;
     }
     return match.url === '/template/edit_profile';
-  };
-
-  render() {
-    return (
-      <React.Fragment>
-        <div className="page-top-line">
-          <h2 className="page-title">Edit Profile</h2>
-          <Alert
-            color="primary"
-            className={cx(s.promoAlert, {[s.showAlert]: this.state.promoAlert})}
-          >
-            This page is only available in <a className="text-white font-weight-bold" rel="noreferrer noopener" href="https://flatlogic.com" target="_blank">Sofia React App with Node.js</a> integration!
-          </Alert>
-        </div>
-        {this.state.dispatched && (
-          <UsersForm
-            saveLoading={this.props.saveLoading}
-            findLoading={this.props.findLoading}
-            currentUser={this.props.currentUser}
-            record={
-              (this.isEditing() || this.isProfile()) ? this.props.record : {}
-            }
-            isEditing={this.isEditing()}
-            isProfile={this.isProfile()}
-            onSubmit={this.doSubmit}
-            onCancel={() => this.props.dispatch(push('/admin/users'))}
-          />
-        )}
-      </React.Fragment>
-    );
   }
+
+  const doSubmit = (id, data) => {
+    if (isEditing() || isProfile()) {
+      dispatch(actions.doUpdate(id, data, isProfile()));
+    } else {
+      dispatch(actions.doCreate(data))
+    }
+  }
+
+  useEffect(() => {
+    console.log("useEffect worked")
+    if (isEditing()) {
+      dispatch(actions.doFind(match.params.id));
+    } else {
+      if (isProfile()) {
+        const currentUser = JSON.parse(localStorage.getItem('user'));
+        const currentUserId = currentUser.user.id;
+        dispatch(actions.doFind(currentUserId))
+      } else {
+        dispatch(actions.doNew());
+      }
+    }
+    setDispatched(true)
+    setTimeout(() => {
+      showPromoAlert();
+    }, 100)
+  }, [match])
+
+  return (
+    <React.Fragment>
+      <div className="page-top-line">
+        <h2 className="page-title">Edit Profile</h2>
+        <Alert
+          color="primary"
+          className={cx(s.promoAlert, {[s.showAlert]: promoAlert})}
+        >
+          This page is only available in <a className="text-white font-weight-bold" rel="noreferrer noopener" href="https://flatlogic.com" target="_blank">Sofia React App with Node.js</a> integration!
+        </Alert>
+      </div>
+      {dispatched && (
+        <UsersForm
+          saveLoading={props.saveLoading}
+          findLoading={props.findLoading}
+          currentUser={props.currentUser}
+          record={
+            (isEditing() || isProfile()) ? props.record : {}
+          }
+          isEditing={isEditing()}
+          isProfile={isProfile()}
+          onSubmit={doSubmit}
+          onCancel={() => props.dispatch(push('/admin/users'))}
+        />
+      )}
+    </React.Fragment>
+  );
 }
 
 function mapStateToProps(store) {

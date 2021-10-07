@@ -19,8 +19,6 @@ const InputFormItemNotFast = (props) => {
   } = props;
 
   const { label } = props.schema[name];
-  console.log("FORM PROP")
-  console.log(form)
 
   const sizeLabelClassName = {
     small: 'col-form-label-sm',
