@@ -5,8 +5,6 @@ import { connect } from "react-redux";
 
 const UsersPage = (props) => {
   useEffect(() => {
-    console.log("PROPS")
-    console.log(window.location)
     const { dispatch, match } = props;
     dispatch(actions.doFind(match.params.id));
   })

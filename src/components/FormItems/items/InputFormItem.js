@@ -1,32 +1,45 @@
 import React, { Component} from "react";
 import PropTypes from "prop-types";
-import { useField } from "formik";
+import FormErrors from "../formErrors";
+import { FastField } from "formik";
 
-const InputFormItem = (props) => {
-
-  const [field, meta] = useField(props)
-
+const InputFormItemNotFast = (props) => {
   const {
-    required = false,
     name,
+    form,
     hint,
     size,
-    schema,
     password,
+    placeholder,
     autoFocus,
     autoComplete,
-    placeholder,
     inputProps,
     errorMessage,
+    required = false,
   } = props;
 
-  const { label } = schema[name]
+  const { label } = props.schema[name];
+  console.log("FORM PROP")
+  console.log(form)
+
+  const sizeLabelClassName = {
+    small: 'col-form-label-sm',
+    large: 'col-form-label-lg',
+  }[size] || '';
+
+  const sizeInputClassName = {
+    small: 'form-control-sm',
+    large: 'form-control-lg',
+  }[size] || '';
+
   return (
-    <>
+    <div className="form-group">
       {!!label && (
         <label
+          className={`col-form-label ${
+            required ? 'required' : null
+          } ${sizeLabelClassName}`}
           htmlFor={name}
-          className={`col-form-label ${required ? 'required' : null}`}
         >
           {label}
         </label>
@@ -34,32 +47,64 @@ const InputFormItem = (props) => {
       <input
         id={name}
         type={password ? 'password' : 'text'}
+        onChange={(event) => {
+          form.setFieldValue(name, event.target.value);
+          form.setFieldTouched(name);
+        }}
+        value={form.values[name] || ''}
         placeholder={placeholder || undefined}
         autoFocus={autoFocus || undefined}
         autoComplete={autoComplete || undefined}
-        className={`form-control`}
-        {...field}
+        className={`form-control ${sizeInputClassName} ${FormErrors.validateStatus(
+          form,
+          name,
+          errorMessage,
+        )}`}
+        {...inputProps}
       />
-      {meta.touched && meta.error ? (
-        <div className="error">
-          {meta.error}
-        </div>
-      ) : null}
-    </>
-  )
+      <div className="invalid-feedback">
+        {FormErrors.displayableError(
+          form,
+          name,
+          errorMessage,
+        )}
+      </div>
+      {!!hint && (
+        <small className="form-text text-muted">
+          {hint}
+        </small>
+      )}
+    </div>
+  );
 }
 
-InputFormItem.propTypes = {
-  required: PropTypes.bool,
+InputFormItemNotFast.propTypes = {
+  form: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
-  hint: PropTypes.string,
-  size: PropTypes.string,
+  required: PropTypes.bool,
   type: PropTypes.string,
+  hint: PropTypes.string,
   autoFocus: PropTypes.bool,
+  size: PropTypes.string,
   prefix: PropTypes.string,
   placeholder: PropTypes.string,
   errorMessage: PropTypes.string,
   inputProps: PropTypes.object,
+};
+
+const InputFormItem = (props) => {
+  return (
+    <FastField
+      name={props.name}
+    >
+      {({ form }) => (
+        <InputFormItemNotFast
+          {...props}
+          form={form}
+        />
+      )}
+    </FastField>
+  )
 }
 
 export default InputFormItem;
