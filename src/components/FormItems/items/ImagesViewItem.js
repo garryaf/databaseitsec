@@ -2,39 +2,35 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ImagesUploader from "../uploaders/ImagesUploader";
 
-class ImagesViewItem extends Component {
-  valueAsArray = () => {
-    const { value } = this.props;
+const ImagesViewItem = (props) => {
+  const { value, label } = props;
 
+  const valueAsArray = () => {
     if (!value) {
       return [];
     }
-
     if (Array.isArray(value)) {
       return value;
     }
-
     return [value];
-  };
-
-  render() {
-    if (!this.valueAsArray().length) {
-      return null;
-    }
-
-    return (
-      <div className="form-group mb-4">
-        <label className="col-form-label">
-          {this.props.label}
-        </label>
-        <br/>
-        <ImagesUploader
-          readonly
-          value={this.valueAsArray()}
-        />
-      </div>
-    );
   }
+
+  if (!!valueAsArray().length) {
+    return null;
+  }
+
+  return (
+    <div className="form-group mb-4">
+      <label className="col-form-label">
+        {label}
+      </label>
+      <br/>
+      <ImagesUploader
+        readonly
+        value={valueAsArray()}
+      />
+    </div>
+  );
 }
 
 ImagesViewItem.propTypes = {
