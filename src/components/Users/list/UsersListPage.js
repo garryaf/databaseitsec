@@ -1,42 +1,69 @@
-import React, { Component } from "react";
+import React, {Component, useEffect, useState} from "react";
 import { Alert } from "reactstrap";
 import cx from "classnames";
 import UsersListTable from "./UsersListTable";
 
 import s from "../Users.module.scss";
 
-class UsersListPage extends Component {
+// class UsersListPage extends Component {
+//
+//   state = {
+//     promoAlert: false,
+//   };
+//
+//   componentDidMount() {
+//     setTimeout(() => {
+//       this.showPromoAlert();
+//     }, 100);
+//   }
+//
+//   showPromoAlert() {
+//     this.setState({ promoAlert: true });
+//   }
+//
+//   render() {
+//     return (
+//       <div>
+//         <div className="page-top-line">
+//           <h2 className="page-title">User <span className="fw-semi-bold">Management</span></h2>
+//           <Alert
+//             color="primary"
+//             className={cx(s.promoAlert, {[s.showAlert]: this.state.promoAlert})}
+//           >
+//             This page is only available in <a className="text-white font-weight-bold" rel="noreferrer noopener" href="https://flatlogic.com" target="_blank">Sofia React App with Node.js</a> integration!
+//           </Alert>
+//         </div>
+//         <UsersListTable />
+//       </div>
+//     );
+//   }
+// }
 
-  state = {
-    promoAlert: false,
-  };
+const UsersListPage = () => {
+  const [promoAlert, setPromoAlert] = useState(false)
 
-  componentDidMount() {
+  const showPromoAlert = () => setPromoAlert(true)
+
+  useEffect(() => {
     setTimeout(() => {
-      this.showPromoAlert();
-    }, 100);
-  }
+      showPromoAlert()
+    }, 100)
+  })
 
-  showPromoAlert() {
-    this.setState({ promoAlert: true });
-  }
-
-  render() {
-    return (
-      <div>
-        <div className="page-top-line">
-          <h2 className="page-title">User <span className="fw-semi-bold">Management</span></h2>
-          <Alert
-            color="primary"
-            className={cx(s.promoAlert, {[s.showAlert]: this.state.promoAlert})}
-          >
-            This page is only available in <a className="text-white font-weight-bold" rel="noreferrer noopener" href="https://flatlogic.com" target="_blank">Sofia React App with Node.js</a> integration!
-          </Alert>
-        </div>
-        <UsersListTable />
+  return (
+    <div>
+      <div className="page-top-line">
+        <h2 className="page-title">User <span className="fw-semi-bold">Management</span></h2>
+        <Alert
+          color="primary"
+          className={cx(s.promoAlert, {[s.showAlert]: promoAlert})}
+        >
+          This page is only available in <a className="text-white font-weight-bold" rel="noreferrer noopener" href="https://flatlogic.com" target="_blank">Sofia React App with Node.js</a> integration!
+        </Alert>
       </div>
-    );
-  }
+      <UsersListTable />
+    </div>
+  );
 }
 
 export default UsersListPage;

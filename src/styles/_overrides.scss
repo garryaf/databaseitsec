@@ -503,16 +503,20 @@ table > thead > tr > th {
 .pagination {
   justify-content: center;
   align-items: center;
+
+  .page-item.active .page-link {
+    color: $violet;
+    background-color: white;
+  }
 }
 
-.pagination-with-border {
-
+.react-bootstrap-table-pagination {
+  margin-top: 1rem;
 }
 
 .page-link {
   padding: 4px 12px;
-  border: $pagination-border-width solid $pagination-border-color;
-
+  border: none;
   &:hover {
     background-color: transparent;
     border-color: $pagination-hover-border-color;
@@ -531,8 +535,6 @@ table > thead > tr > th {
   &:first-child {
     .page-link {
       border: none;
-      margin-right: 80px;
-      font-size: 36px;
       line-height: 1;
 
       @media (max-width: breakpoint-max(md)) {
@@ -542,9 +544,7 @@ table > thead > tr > th {
   }
   &:last-child {
     .page-link {
-      margin-left: 80px;
       border: none;
-      font-size: 36px;
       line-height: 1;
 
       @media (max-width: breakpoint-max(md)) {

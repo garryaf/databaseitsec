@@ -168,8 +168,6 @@ const { SearchBar } = Search;
 // }
 
 const UsersListTable = (props) => {
-  // const [modalOpen, setModalOpen] = useState(false)
-  // const [idToDelete, setIdToDelete] = useState(null)
 
   const handleDelete = () => {
     const id = props.idToDelete
@@ -275,10 +273,10 @@ const UsersListTable = (props) => {
         >
           { props => (
             <React.Fragment>
-              <SearchBar className="react-bootstrap-table-search-input" { ...props.searchProps } />
+              <SearchBar className="react-bootstrap-table-search-input my-3" { ...props.searchProps } />
               <BootstrapTable
                 bordered={false}
-                classes={`table-responsive table-striped ${s.usersListTableMobile}`}
+                classes={`table-striped table-hover mt-4 table-responsive`}
                 pagination={paginationFactory()}
                 { ...props.baseProps }
               />
