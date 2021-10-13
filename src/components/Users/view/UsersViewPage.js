@@ -4,16 +4,17 @@ import actions from "../../../actions/usersFormActions";
 import { connect } from "react-redux";
 
 const UsersPage = (props) => {
+
+  const { dispatch, match, loading, record } = props;
   useEffect(() => {
-    const { dispatch, match } = props;
-    dispatch(actions.doFind(match.params.id));
-  })
+    dispatch(actions.doFind(match.params.id))
+  }, [match]);
 
   return (
     <>
       <UsersView
-        loading={props.loading}
-        record={props.record}
+        loading={loading}
+        record={record}
       />
     </>
   )
