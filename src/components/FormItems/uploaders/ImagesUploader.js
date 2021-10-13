@@ -5,19 +5,31 @@ import Errors from "../error/errors";
 import ImagesUploaderWrapper from "../style/ImagesUploaderWrapper";
 
 const ImagesUploader = (props) => {
-  const { max, readonly, value } = props;
-  const [loading, setLoading] = useState(false)
-  const input = useRef();
+  const {
+    value,
+    onChange,
+    schema,
+    path,
+    max,
+    readonly,
+  } = props;
 
-  const imgValues = () => {
+  const [loading, setLoading] = useState(false);
+  const [, setImageMeta] = useState({
+    imageSrc: null,
+    imageAlt: null,
+  })
+  const inputElement = useRef(null);
+
+  const valuesArr = () => {
     if (!value) {
-      return [];
+      return []
     }
     return Array.isArray(value) ? value : [value];
-  };
+  }
 
   const fileList = () => {
-    return imgValues().map((item) => ({
+    return valuesArr().map((item) => ({
       uid: item.id || undefined,
       name: item.name,
       status: 'done',
@@ -26,10 +38,8 @@ const ImagesUploader = (props) => {
   };
 
   const handleRemove = (id) => {
-    props.onChange(
-      imgValues().filter((item) => item.id !== id),
-    );
-  };
+    onChange(valuesArr().filter((item) => item.id !== id))
+  }
 
   const handleChange = async (event) => {
     try {
@@ -41,41 +51,54 @@ const ImagesUploader = (props) => {
 
       let file = files[0];
 
-      FileUploader.validate(file, props.schema);
+      FileUploader.validate(file, schema);
 
       setLoading(true)
 
       file = await FileUploader.upload(
-        props.path,
+        path,
         file,
-        props.schema,
+        schema,
       );
 
-      input.current.value = '';
-
-      setLoading(false)
-      props.onChange([...this.value(), file]);
+      inputElement.current.value = '';
+      setLoading(false);
+      onChange([...valuesArr(), file]);
     } catch (error) {
-      input.current.value = '';
+      inputElement.current.value = '';
       console.log('error', error);
-      setLoading(false)
+      setLoading(false);
       Errors.showMessage(error);
     }
   };
 
+  const doPreviewImage = (image) => {
+    setImageMeta({
+      imageSrc: image.publicUrl,
+      imageAlt: image.name
+    });
+  };
+
+  const doCloseImageModal = () => {
+    setImageMeta({
+      imageSrc: null,
+      imageAlt: null,
+    });
+  };
+
   const uploadButton = (
     <label
-      className="btn btn-outline-secondary btn-outline px-4 mb-2"
+      className="btn btn-outline-secondary px-4 mb-2"
       style={{ cursor: 'pointer' }}
     >
       {'Upload an image'}
       <input
-        type="file"
         style={{ display: 'none' }}
         disabled={loading || readonly}
         accept="image/*"
+        type="file"
         onChange={handleChange}
-        ref={input}
+        ref={inputElement}
       />
     </label>
   )
@@ -84,11 +107,11 @@ const ImagesUploader = (props) => {
     <ImagesUploaderWrapper>
       {readonly || (max && fileList().length >= max)
         ? null
-        : uploadButton
-      }
-      {imgValues() && imgValues().length
-        ? (<div className="d-flex flex-row flex-wrap">
-          {imgValues().map((item) => {
+        : uploadButton}
+
+      {valuesArr() && valuesArr().length ? (
+        <div className="d-flex flex-row flex-wrap">
+          {valuesArr().map((item) => {
             return (
               <div
                 className="mr-2 mb-2 img-card"
@@ -105,12 +128,14 @@ const ImagesUploader = (props) => {
                     objectFit: 'cover',
                   }}
                 />
+
                 <div className="img-buttons rounded-bottom">
                   <button
                     type="button"
                     className="btn btn-link"
+                    onClick={() => doPreviewImage(item)}
                   >
-                    <i className="la la-search"/>
+                    <i className="la la-search"></i>
                   </button>
                   {!readonly && (
                     <button
@@ -118,18 +143,18 @@ const ImagesUploader = (props) => {
                       className="btn btn-link ml-2"
                       onClick={() => handleRemove(item.id)}
                     >
-                      <i className="la la-times"/>
+                      <i className="la la-times"></i>
                     </button>
                   )}
                 </div>
               </div>
             );
           })}
-        </div>)
-        : null
-      }
+        </div>
+      ) : null }
     </ImagesUploaderWrapper>
   );
+
 }
 
 ImagesUploader.propTypes = {
