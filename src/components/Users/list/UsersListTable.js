@@ -169,17 +169,19 @@ const { SearchBar } = Search;
 
 const UsersListTable = (props) => {
 
+  const { rows, dispatch, loading, idToDelete, modalOpen } = props;
+  const [tableWidth, setTableWidth] = useState(window.innerWidth);
+
   const handleDelete = () => {
-    const id = props.idToDelete
-    props.dispatch(actions.doDelete(id))
+    dispatch(actions.doDelete(idToDelete))
   }
   const openModal = (event, cell) => {
     const id = cell
     event.stopPropagation()
-    props.dispatch(actions.doOpenConfirm(id))
+    dispatch(actions.doOpenConfirm(id))
   }
   const closeModal = () => {
-    props.dispatch(actions.doCloseConfirm())
+    dispatch(actions.doCloseConfirm())
   }
   const actionFormatter = (cell) => {
     return (
@@ -211,12 +213,20 @@ const UsersListTable = (props) => {
       </div>
     )
   }
+
+  const updateWindowDimensions = () => {
+    setTableWidth(window.innerWidth);
+  }
+
   useEffect(() => {
-    console.log("COUNTER")
-    props.dispatch(actions.doFetch({}))
+    dispatch(actions.doFetch({}))
+    window.addEventListener('resize', updateWindowDimensions);
+    return () => {
+      window.removeEventListener('resize', updateWindowDimensions)
+    }
   }, [])
 
-  const { rows } = props;
+
   const columns = [
     {
       dataField: "avatar",
@@ -276,7 +286,7 @@ const UsersListTable = (props) => {
               <SearchBar className="react-bootstrap-table-search-input my-3" { ...props.searchProps } />
               <BootstrapTable
                 bordered={false}
-                classes={`table-striped table-hover mt-4 table-responsive`}
+                classes={`table-striped table-hover mt-4 ${tableWidth < 1150 ? 'table-responsive' : ''}`}
                 pagination={paginationFactory()}
                 { ...props.baseProps }
               />

@@ -433,6 +433,9 @@ h6,
 }
 
 ///////// Tables //////////
+.search-label {
+  float: right;
+}
 .react-bootstrap-table {
   table {
     overflow-x: auto;
@@ -485,6 +488,7 @@ table > thead > tr > th {
     }
     td {
       border: none;
+      overflow: auto;
     }
   }
 }
