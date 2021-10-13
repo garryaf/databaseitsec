@@ -40,7 +40,6 @@ const UserFormPage = (props) => {
   }
 
   useEffect(() => {
-    console.log("useEffect worked")
     if (isEditing()) {
       dispatch(actions.doFind(match.params.id));
     } else {
