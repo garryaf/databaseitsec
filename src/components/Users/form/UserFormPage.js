@@ -12,7 +12,14 @@ const UserFormPage = (props) => {
   const [dispatched, setDispatched] = useState(false)
   const [promoAlert, setPromoAlert] = useState(false)
 
-  const { dispatch, match } = props;
+  const {
+    dispatch,
+    match,
+    saveLoading,
+    findLoading,
+    record,
+    currentUser
+  } = props;
 
   const showPromoAlert = () => {
     setPromoAlert(true)
@@ -55,7 +62,7 @@ const UserFormPage = (props) => {
     setTimeout(() => {
       showPromoAlert();
     }, 100)
-  }, [match])
+  }, [match, dispatch])
 
   return (
     <React.Fragment>
@@ -70,16 +77,16 @@ const UserFormPage = (props) => {
       </div>
       {dispatched && (
         <UsersForm
-          saveLoading={props.saveLoading}
-          findLoading={props.findLoading}
-          currentUser={props.currentUser}
+          saveLoading={saveLoading}
+          findLoading={findLoading}
+          currentUser={currentUser}
           record={
-            (isEditing() || isProfile()) ? props.record : {}
+            (isEditing() || isProfile()) ? record : {}
           }
           isEditing={isEditing()}
           isProfile={isProfile()}
           onSubmit={doSubmit}
-          onCancel={() => props.dispatch(push('/admin/users'))}
+          onCancel={() => dispatch(push('/admin/users'))}
         />
       )}
     </React.Fragment>
