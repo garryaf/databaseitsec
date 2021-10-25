@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import UsersForm from "./UsersForm";
 import { push } from "connected-react-router";
 import { connect } from 'react-redux';
@@ -31,7 +31,7 @@ const UserFormPage = (props) => {
 
   const isProfile = () => {
     const currentUser = JSON.parse(localStorage.getItem('user'));
-    const currentUserId = currentUser.user.id;
+    const currentUserId = currentUser.id;
     if (match.params.id === currentUserId) {
       return true;
     }

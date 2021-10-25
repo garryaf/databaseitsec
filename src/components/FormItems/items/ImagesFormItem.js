@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import React from "react";
 import ImagesUploader from "../uploaders/ImagesUploader";
 import FormErrors from "../formErrors";
 import { FastField } from "formik";
@@ -61,30 +60,5 @@ const ImagesFormItem = (props) => {
     </FastField>
   );
 }
-
-// ImagesFormItem.propTypes = {
-//   path: PropTypes.string.isRequired,
-//   required: PropTypes.bool,
-//   form: PropTypes.object.isRequired,
-//   name: PropTypes.string.isRequired,
-//   hint: PropTypes.string,
-//   formItemProps: PropTypes.object,
-//   inputProps: PropTypes.object,
-// };
-
-// const ImagesFormItem = (props) => {
-//   return (
-//     <FastField
-//       name={props.name}
-//     >
-//       {({ form }) => (
-//         <ImagesFormItemNotFast
-//           {...props}
-//           form={form}
-//         />
-//       )}
-//     </FastField>
-//   );
-// }
 
 export default ImagesFormItem;

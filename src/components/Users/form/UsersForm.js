@@ -1,4 +1,4 @@
-import React, { Component }  from 'react';
+import React from 'react';
 import { Formik } from "formik";
 import Loader from "../../Loader/Loader";
 import InputFormItem from "../../FormItems/items/InputFormItem";
@@ -12,30 +12,41 @@ import FormValidations from "../../FormItems/formValidations";
 import Widget from "../../Widget/Widget";
 
 const UsersForm = (props) => {
+
+  const {
+    isEditing,
+    isProfile,
+    findLoading,
+    saveLoading,
+    record,
+    onSubmit,
+    onCancel,
+    modal,
+    currentUser
+  } = props;
+
   const iniValues = () => {
-    return IniValues(usersFields, props.record || {});
+    return IniValues(usersFields, record || {});
   }
 
   const formValidations = () => {
-    return FormValidations(usersFields, props.record || {});
+    return FormValidations(usersFields, record || {});
   }
 
   const handleSubmit = (values) => {
     const { id, ...data } = PreparedValues(usersFields, values || {});
-    props.onSubmit(id, data);
+    onSubmit(id, data);
   };
 
   const title = () => {
-    if(props.isProfile) {
+    if(isProfile) {
       return 'Edit My Profile';
     }
 
-    return props.isEditing
+    return isEditing
       ? 'Edit User'
       : 'Add User';
   };
-
-  const { saveLoading, isEditing, findLoading, record } = props;
 
   const renderForm = () => (
     <Widget className="widget-p-md">
@@ -65,9 +76,9 @@ const UsersForm = (props) => {
               name={'email'}
               schema={usersFields}
             />
-            { props.currentUser && props.currentUser.role === 'admin' && !props.isProfile &&
+            { currentUser && currentUser.role === 'admin' && !isProfile &&
             <>
-              {props.isProfile ? null : (
+              {isProfile ? null : (
                 <>
                   <SwitchFormItem
                     name={'disabled'}
@@ -113,7 +124,7 @@ const UsersForm = (props) => {
                 className="mr-3 btn btn-secondary"
                 type="button"
                 disabled={saveLoading}
-                onClick={() => props.onCancel()}
+                onClick={() => onCancel()}
               >
                 Cancel
               </button>
