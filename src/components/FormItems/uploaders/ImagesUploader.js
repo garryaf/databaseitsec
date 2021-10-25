@@ -135,7 +135,7 @@ const ImagesUploader = (props) => {
                     className="btn btn-link"
                     onClick={() => doPreviewImage(item)}
                   >
-                    <i className="la la-search"></i>
+                    <i className="la la-search"/>
                   </button>
                   {!readonly && (
                     <button
@@ -143,7 +143,7 @@ const ImagesUploader = (props) => {
                       className="btn btn-link ml-2"
                       onClick={() => handleRemove(item.id)}
                     >
-                      <i className="la la-times"></i>
+                      <i className="la la-times"/>
                     </button>
                   )}
                 </div>

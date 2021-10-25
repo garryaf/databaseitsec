@@ -28,6 +28,8 @@ const UsersListTable = (props) => {
   const { rows, dispatch, loading, idToDelete, modalOpen } = props;
   const [tableWidth, setTableWidth] = useState(window.innerWidth);
 
+  console.log("ROWS", rows)
+
   const handleDelete = () => {
     dispatch(actions.doDelete(idToDelete))
   }
@@ -85,7 +87,7 @@ const UsersListTable = (props) => {
 
   const columns = [
     {
-      dataField: "avatar",
+      dataField: "avatars",
       sort: true,
       formatter: dataFormat.imageFormatter,
       text: "Avatar",

@@ -1,9 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import ImagesUploader from "../uploaders/ImagesUploader";
 
 const ImagesViewItem = (props) => {
   const { value, label } = props;
+  console.log("VALUE", value)
+  console.log("LABEL", label)
 
   const valueAsArray = () => {
     if (!value) {
@@ -15,7 +17,7 @@ const ImagesViewItem = (props) => {
     return [value];
   }
 
-  if (!!valueAsArray().length) {
+  if (!valueAsArray().length) {
     return null;
   }
 
