@@ -1,18 +1,18 @@
 # 👇 Sofia React 2.0.0
 
-Our React version follows latest industry best practices and uses Redux as a state manager. This version is a great choice when you want to be in control of your own codebase and decide on development approaches that are the best for your project. Sofia React template built with React v17.0.1 and Bootstrap v4.6. Developed with ❤️ by [Flatlogic](https://flatlogic.com/). If you love our project please star ⭐️ our repo!
+Our React version follows latest industry best practices and uses Redux as a state manager. This version is a great choice when you want to be in control of your own codebase and decide on development approaches that are the best for your project. Sofia React template built with React v18.0.0 and Bootstrap v4.6. Developed with ❤️ by [Flatlogic](https://flatlogic.com/). If you love our project please star ⭐️ our repo!
 
 [View Demo](https://demo.flatlogic.com/sofia-react/#/template/dashboard) | [Download Free Template](https://github.com/flatlogic/sofia-react-template.git) | [More templates](https://flatlogic.com/templates)
 [![image](https://user-images.githubusercontent.com/63450826/133580196-fe2ec804-ae11-49cc-9616-3690785463a0.png)](https://flatlogic.github.io/sofia-react-template/)
 
-This dashboard is a full version of Sofia React Admin. It is built on the top of React 17, so it well supported along the web. You can easy customize template by changing SCSS variables. All paddings and colors are in _variables.scss file.
+This dashboard is a full version of Sofia React Admin. It is built on the top of React 18, so it well supported along the web. You can easy customize template by changing SCSS variables. All paddings and colors are in _variables.scss file.
 
 ## Features
 
 Sofia React is a great template to quick-start development of SAAS, CMS, IoT Dashboard, E-Commerce apps, etc.
 This admin dashboard includes following features and pages:
 
-* React v17
+* React v18
 * Redux v4
 * Bootstrap v4.6 & SCSS
 * React Router v5
