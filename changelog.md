@@ -5,7 +5,7 @@
 - Update dependencies
 - Update react version
 
-# [2.0.0] - 05/06/2023
+# [2.0.0] 
 
 - Update react class components to functional components
 - Update all app pages
