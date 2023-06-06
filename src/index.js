@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {createRoot} from "react-dom/client";
 import { routerMiddleware } from "connected-react-router";
 import { createStore, applyMiddleware, compose } from "redux";
 import ReduxThunk from "redux-thunk";
@@ -41,11 +41,12 @@ export const store = createStore(
 
 store.dispatch(doInit());
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App/>
-  </Provider>,
-  document.getElementById('root')
+const container = document.getElementById("root");
+const root = createRoot(container);
+root.render(
+    <Provider store={store}>
+        <App/>
+    </Provider>
 );
 
 // If you want your app to work offline and load faster, you can change

@@ -52,7 +52,7 @@ const UserFormPage = (props) => {
     } else {
       if (isProfile()) {
         const currentUser = JSON.parse(localStorage.getItem('user'));
-        const currentUserId = currentUser.user.id;
+        const currentUserId = currentUser?.user?.id;
         dispatch(actions.doFind(currentUserId))
       } else {
         dispatch(actions.doNew());
