@@ -1,5 +1,9 @@
 # Changelog
 
+# [2.0.2] - 20/12/2023
+
+- Update dependencies
+
 # [2.0.1] - 05/06/2023
 
 - Update dependencies
