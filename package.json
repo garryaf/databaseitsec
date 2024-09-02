@@ -4,10 +4,10 @@
   "homepage": "./",
   "private": true,
   "scripts": {
-    "build": "cross-env REACT_APP_BACKEND=true cross-env PUBLIC_URL='./' react-scripts build",
-    "start": "react-scripts start",
-    "test": "react-scripts test",
-    "start:backend": "cross-env REACT_APP_BACKEND=true react-scripts start"
+    "build": "cross-env REACT_APP_BACKEND=true cross-env PUBLIC_URL='./' react-scripts --openssl-legacy-provider build",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "test": "react-scripts --openssl-legacy-provider test",
+    "start:backend": "cross-env REACT_APP_BACKEND=true react-scripts --openssl-legacy-provider start"
   },
   "dependencies": {
     "@amcharts/amcharts4": "^4.10.38",
@@ -106,6 +106,6 @@
     ]
   },
   "engines": {
-    "node": ">=16.0.0 <=16.20.0"
+    "node": "^20.15"
   }
 }
