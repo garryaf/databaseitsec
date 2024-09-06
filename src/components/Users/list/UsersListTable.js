@@ -14,7 +14,7 @@ import {
 
 import BootstrapTable from "react-bootstrap-table-next";
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
+import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 
 import Widget from "../../Widget/Widget";
@@ -24,7 +24,7 @@ import s from "../Users.module.scss";
 const { SearchBar } = Search;
 
 const UsersListTable = (props) => {
-
+  
   const { rows, dispatch, loading, idToDelete, modalOpen } = props;
   const [tableWidth, setTableWidth] = useState(window.innerWidth);
 
