@@ -1,6 +1,6 @@
-# 👇 Sofia React 2.0.1
+# 👇 Sofia React 2.1.0
 
-Our React version follows latest industry best practices and uses Redux as a state manager. This version is a great choice when you want to be in control of your own codebase and decide on development approaches that are the best for your project. Sofia React template built with React v18.0.0 and Bootstrap v4.6. Developed with ❤️ by [Flatlogic](https://flatlogic.com/). If you love our project please star ⭐️ our repo!
+Sofia React version follows latest industry best practices and uses Redux as a state manager. This version is a great choice when you want to be in control of your own codebase and decide on development approaches that are the best for your project. Sofia React template built with React v18.0.0 and Bootstrap v4.6. Developed with ❤️ by [Flatlogic](https://flatlogic.com/). If you love our project please star ⭐️ our repo!
 
 [View Demo](https://demo.flatlogic.com/sofia-react/#/template/dashboard) | [Download Free Template](https://github.com/flatlogic/sofia-react-template.git) | [More templates](https://flatlogic.com/templates)
 [![image](https://user-images.githubusercontent.com/63450826/133580196-fe2ec804-ae11-49cc-9616-3690785463a0.png)](https://flatlogic.github.io/sofia-react-template/)
@@ -46,7 +46,7 @@ We've made all these beautiful pages, so you can see our template in action.
 
 #### 1. Get the latest version
 
-You can start by cloning the latest version of One React on your
+You can start by cloning the latest version of Sofia React on your
 local machine by running:
 
 ```shell
