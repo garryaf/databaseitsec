@@ -44,11 +44,13 @@ We've made all these beautiful pages, so you can see our template in action.
 
 ## Quick Start
 
-### 1. Get the latest version
-You can start by cloning the latest version of Sofia React on your local machine by running:
+#### 1. Get the latest version
+
+You can start by cloning the latest version of One React on your
+local machine by running:
+
 ```shell
-$ git clone path/to/repo
-$ cd path/to/app
+$ git clone https://github.com/flatlogic/sofia-react.git
 ```
 
 ### 2. Run `yarn install`
@@ -61,6 +63,9 @@ Runs the app in the development mode.
 Open http://localhost:3000 to view it in the browser. Whenever you modify any of the source files inside the `/src` folder,
 the module bundler ([Webpack](http://webpack.github.io/)) will recompile the
 app on the fly and refresh all the connected browsers.
+
+#### 3.1 Run `yarn start:backend`
+Runs the app in the development mode with node-backend
 
 ### 4. Run `yarn build`
 Builds the app for production to the build folder.
