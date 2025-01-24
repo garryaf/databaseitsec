@@ -1,6 +1,6 @@
 # 🚀 Sofia React - A Free React Admin Dashboard Template!
 
-[View Demo](https://flatlogic.com/templates/sofia-react/demo) | [Download](https://github.com/flatlogic/sofia-react/archive/refs/heads/master.zip) | [More Templates](https://flatlogic.com/templates) | [Discord Community](https://discord.gg/flatlogic-community) | [Support Forum](https://flatlogic.com/forum)
+[View Demo](https://flatlogic.com/templates/sofia-react-full/demo) | [Download](https://github.com/flatlogic/sofia-react/archive/refs/heads/master.zip) | [More Templates](https://flatlogic.com/templates) | [Discord Community](https://discord.gg/flatlogic-community) | [Support Forum](https://flatlogic.com/forum)
 
 **Originally a premium product priced at $69+, made available for free in January 2025!** 🎉
 
