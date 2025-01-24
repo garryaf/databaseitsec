@@ -4,7 +4,7 @@
 
 **Originally a premium product priced at $69+, made available for free in January 2025!** 🎉
 
-[![image](https://user-images.githubusercontent.com/63450826/133580196-fe2ec804-ae11-49cc-9616-3690785463a0.png)](https://flatlogic.github.io/sofia-react-template/)
+[![image](https://user-images.githubusercontent.com/63450826/133580196-fe2ec804-ae11-49cc-9616-3690785463a0.png)](https://flatlogic.com/templates/sofia-react-full/demo)
 
 Looking for a perfect codebase generator for your Startup? Try [Flatlogic AI Web App Generator](https://flatlogic.com/generator) - our new tool, sort of a template++.
 
