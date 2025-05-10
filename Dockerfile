@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:18
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -7,13 +7,26 @@ WORKDIR /usr/src/app
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json ./
+COPY frontend/package*.json ./frontend/
 
+# Install dependencies
 RUN yarn install
-# If you are building your code for production
-# RUN npm ci --only=production
+RUN cd frontend && yarn install
 
 # Bundle app source
 COPY . .
 
+# Build frontend
+RUN cd frontend && yarn build
+
+# Set environment variables
+ENV NODE_ENV=production
+ENV PORT=3000
+
+# Copy frontend build to backend public directory
+RUN mkdir -p backend/public && cp -r frontend/build/* backend/public/
+
 EXPOSE 3000
-CMD [ "yarn", "start:backend" ]
+
+# Start the application
+CMD ["node", "backend/server.js"]
