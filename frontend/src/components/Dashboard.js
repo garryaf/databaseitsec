@@ -3,6 +3,7 @@ import axios from "axios";
 import { FaCog } from "react-icons/fa";
 import UserManagement from "./UserManagement";
 import MasterData from "./MasterData";
+import logoMitra from "../assets/Mitra_Keluarga_2014.svg";
 
 function exportToCSV(data, filename = "vpn_users.csv") {
   const header = [
@@ -81,9 +82,38 @@ export default function Dashboard({ user }) {
     return matchesSearch && matchesMika && matchesLevel && matchesUnit;
   });
 
+  // Setelah fetchUsers dan setUsers
+  const mikaStats = {};
+  users.forEach((u) => {
+    if (u.mika) {
+      mikaStats[u.mika] = (mikaStats[u.mika] || 0) + 1;
+    }
+  });
+  const sortedMika = Object.entries(mikaStats).sort((a, b) => b[1] - a[1]);
+
   return (
     <div className="p-8">
-      <h2 className="text-2xl font-bold mb-6 text-blue-700">Good evening, {user}</h2>
+      <h2 className="text-2xl font-bold mb-6 text-blue-700">Selamat Datang, {user}</h2>
+      <div className="bg-white rounded-xl shadow p-4 mb-8">
+        <div className="font-bold text-lg mb-4">Grafik Jumlah User per Mika</div>
+        <div className="flex items-end gap-6 h-40">
+          {sortedMika.length === 0 ? (
+            <div className="text-gray-400">Belum ada data</div>
+          ) : (
+            sortedMika.map(([mika, count]) => (
+              <div key={mika} className="flex flex-col items-center">
+                <div
+                  className="bg-blue-500 w-10 rounded-t"
+                  style={{ height: `${count * 30}px` }}
+                  title={mika}
+                ></div>
+                <div className="text-xs mt-1 font-semibold">{mika}</div>
+                <div className="text-xs text-gray-500">{count}</div>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
       <div className="bg-white rounded-xl shadow p-4">
         <div className="font-bold text-lg mb-4">Data User VPN</div>
         {/* Search & Filter */}
@@ -166,51 +196,6 @@ export default function Dashboard({ user }) {
               </tr>
             ) : (
               filteredUsers.map((u) => (
-                <tr key={u._id} className="border-b hover:bg-gray-50">
-                  <td className="py-2 px-2">{u.username}</td>
-                  <td className="py-2 px-2">{u.nama}</td>
-                  <td className="py-2 px-2">{u.email}</td>
-                  <td className="py-2 px-2">{u.mika}</td>
-                  <td className="py-2 px-2">{u.level}</td>
-                  <td className="py-2 px-2">{u.unitKerja}</td>
-                  <td className="py-2 px-2">{u.itopRequest}</td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
-      </div>
-
-      {/* Tabel Data User */}
-      <div className="bg-white rounded-xl shadow p-4 mt-8">
-        <div className="font-bold text-lg mb-4">Data User VPN</div>
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="border-b">
-              <th className="py-2 px-2 text-left">Username</th>
-              <th className="py-2 px-2 text-left">Name</th>
-              <th className="py-2 px-2 text-left">Email</th>
-              <th className="py-2 px-2 text-left">Mika</th>
-              <th className="py-2 px-2 text-left">Level</th>
-              <th className="py-2 px-2 text-left">Work Unit</th>
-              <th className="py-2 px-2 text-left">ItopRequest</th>
-            </tr>
-          </thead>
-          <tbody>
-            {loading ? (
-              <tr>
-                <td colSpan={7} className="text-center py-4">
-                  Loading...
-                </td>
-              </tr>
-            ) : users.length === 0 ? (
-              <tr>
-                <td colSpan={7} className="text-center py-4">
-                  No data.
-                </td>
-              </tr>
-            ) : (
-              users.map((u) => (
                 <tr key={u._id} className="border-b hover:bg-gray-50">
                   <td className="py-2 px-2">{u.username}</td>
                   <td className="py-2 px-2">{u.nama}</td>

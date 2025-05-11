@@ -4,6 +4,7 @@ import VpnUserManager from "./components/VpnUserManager";
 import Dashboard from "./components/Dashboard";
 import MainLayout from "./components/MainLayout";
 import Setting from "./components/Setting";
+import { FaCog } from "react-icons/fa";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);

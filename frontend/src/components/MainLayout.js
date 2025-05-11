@@ -1,12 +1,16 @@
 import React from "react";
-import { FaHome, FaUserFriends, FaCalendarAlt, FaUserShield, FaPlusCircle, FaCommentDots } from "react-icons/fa";
+import { FaHome, FaUserShield, FaPlusCircle, FaCog } from "react-icons/fa";
+import logoMitra from "../assets/Mitra_Keluarga_2014.svg";
 
-export default function MainLayout({ menu, setMenu, children, onNewRequest }) {
+export default function MainLayout({ menu, setMenu, children }) {
   return (
     <div className="min-h-screen flex bg-gray-100">
       {/* Sidebar */}
-      <aside className="w-60 bg-white shadow-lg flex flex-col py-8 px-4">
-        <div className="text-2xl font-bold text-blue-600 mb-10">Data Management</div>
+      <aside className="w-64 bg-white min-h-screen shadow flex flex-col">
+        <div className="flex items-center px-4 py-6">
+          <img src={logoMitra} alt="Logo Mitra Keluarga" className="h-10 w-auto" />
+        </div>
+        <div className="font-bold text-xl text-blue-700 px-4 mb-8">Data Management</div>
         <nav className="flex flex-col gap-2">
           <button
             className={`flex items-center gap-2 px-3 py-2 rounded font-semibold ${
@@ -28,11 +32,15 @@ export default function MainLayout({ menu, setMenu, children, onNewRequest }) {
           >
             <FaUserShield /> Request VPN
           </button>
-          <button className="flex items-center gap-2 px-3 py-2 rounded font-semibold hover:bg-blue-50">
-            <FaCalendarAlt /> Events
-          </button>
-          <button className="flex items-center gap-2 px-3 py-2 rounded font-semibold hover:bg-blue-50">
-            <FaUserFriends /> People
+          <button
+            className={`flex items-center gap-2 px-3 py-2 rounded font-semibold ${
+              menu === "setting"
+                ? "bg-blue-100 text-blue-700"
+                : "hover:bg-blue-50"
+            }`}
+            onClick={() => setMenu("setting")}
+          >
+            <FaCog /> Setting
           </button>
         </nav>
         <button
@@ -42,7 +50,7 @@ export default function MainLayout({ menu, setMenu, children, onNewRequest }) {
           <FaPlusCircle /> New Request
         </button>
         <button className="mt-auto flex items-center gap-2 px-3 py-2 rounded font-semibold hover:bg-blue-50">
-          <FaCommentDots /> Feedback
+          <span role="img" aria-label="feedback">💬</span> Feedback
         </button>
       </aside>
       {/* Main Content */}
