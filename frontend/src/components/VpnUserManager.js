@@ -17,9 +17,15 @@ const VpnUserManager = () => {
     const [formData, setFormData] = useState(initialForm);
     const [loading, setLoading] = useState(false);
     const [alert, setAlert] = useState({ show: false, type: '', message: '' });
+    const [mikas, setMikas] = useState([]);
+    const [levels, setLevels] = useState([]);
+    const [unitKerjas, setUnitKerjas] = useState([]);
 
     useEffect(() => {
         fetchUsers();
+        fetchMikas();
+        fetchLevels();
+        fetchUnitKerjas();
     }, []);
 
     const fetchUsers = async () => {
@@ -31,6 +37,25 @@ const VpnUserManager = () => {
             setAlert({ show: true, type: 'error', message: 'Gagal mengambil data user.' });
         }
         setLoading(false);
+    };
+
+    const fetchMikas = async () => {
+        try {
+            const res = await axios.get('/api/mika');
+            setMikas(res.data);
+        } catch {}
+    };
+    const fetchLevels = async () => {
+        try {
+            const res = await axios.get('/api/level');
+            setLevels(res.data);
+        } catch {}
+    };
+    const fetchUnitKerjas = async () => {
+        try {
+            const res = await axios.get('/api/unit-kerja');
+            setUnitKerjas(res.data);
+        } catch {}
     };
 
     const handleInputChange = (e) => {
@@ -124,39 +149,48 @@ const VpnUserManager = () => {
                         </div>
                         <div>
                             <label className="block mb-1 font-semibold">Mika</label>
-                            <input
-                                type="text"
+                            <select
                                 name="mika"
                                 value={formData.mika}
                                 onChange={handleInputChange}
                                 className="w-full px-3 py-2 border rounded focus:ring-2 focus:ring-blue-400"
-                                placeholder="Enter mika"
                                 required
-                            />
+                            >
+                                <option value="">Pilih Mika</option>
+                                {mikas.map(mika => (
+                                    <option key={mika._id} value={mika.name}>{mika.name}</option>
+                                ))}
+                            </select>
                         </div>
                         <div>
                             <label className="block mb-1 font-semibold">Level</label>
-                            <input
-                                type="text"
+                            <select
                                 name="level"
                                 value={formData.level}
                                 onChange={handleInputChange}
                                 className="w-full px-3 py-2 border rounded focus:ring-2 focus:ring-blue-400"
-                                placeholder="Enter level"
                                 required
-                            />
+                            >
+                                <option value="">Pilih Level</option>
+                                {levels.map(level => (
+                                    <option key={level._id} value={level.name}>{level.name}</option>
+                                ))}
+                            </select>
                         </div>
                         <div>
                             <label className="block mb-1 font-semibold">Unit Kerja</label>
-                            <input
-                                type="text"
+                            <select
                                 name="unitKerja"
                                 value={formData.unitKerja}
                                 onChange={handleInputChange}
                                 className="w-full px-3 py-2 border rounded focus:ring-2 focus:ring-blue-400"
-                                placeholder="Enter unit of work"
                                 required
-                            />
+                            >
+                                <option value="">Pilih Unit Kerja</option>
+                                {unitKerjas.map(unitKerja => (
+                                    <option key={unitKerja._id} value={unitKerja.name}>{unitKerja.name}</option>
+                                ))}
+                            </select>
                         </div>
                         <div>
                             <label className="block mb-1 font-semibold">ITOP Request</label>

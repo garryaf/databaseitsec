@@ -82,3 +82,19 @@ router.delete('/:id', async (req, res) => {
 });
 
 module.exports = router; 
+
+// Reset Password
+router.patch('/reset-password/:id', async (req, res) => {
+    try {
+        const user = await VpnUser.findById(req.params.id);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        user.password = 'default123'; // Sebaiknya di-hash pakai bcrypt (opsional)
+        const updatedUser = await user.save();
+        res.json({ message: 'Password reset to default123', updatedUser });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});

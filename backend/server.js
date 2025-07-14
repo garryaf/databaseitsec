@@ -3,7 +3,11 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 const vpnUserRoutes = require('./routes/vpnUsers');
+const userLoginRoutes = require('./routes/UserLogins');
 const nodemailer = require("nodemailer");
+const mikaRoutes = require('./routes/mika');
+const unitKerjaRoutes = require('./routes/unitKerja');
+const levelRoutes = require('./routes/level');
 
 const app = express();
 
@@ -33,6 +37,10 @@ connectWithRetry();
 
 // API Routes
 app.use('/api/vpn-users', vpnUserRoutes);
+app.use('/api/users', userLoginRoutes);
+app.use('/api/mika', mikaRoutes);
+app.use('/api/unit-kerja', unitKerjaRoutes);
+app.use('/api/level', levelRoutes);
 
 // Endpoint untuk forgot password
 app.post("/api/forgot-password", async (req, res) => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { FaHome, FaUserShield, FaPlusCircle, FaCog } from "react-icons/fa";
-import logoMitra from "../assets/Mitra_Keluarga_2014.svg";
+import logoMitra from "../assets/Mitra_Keluarga_2014.svg.png";
 
 export default function MainLayout({ menu, setMenu, children }) {
   return (
